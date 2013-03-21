@@ -39,12 +39,16 @@ Install form Pypi
 Install form Source
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. todo:: source installation
-
-::
+We recommend that you use virtual env for installing this package, but
+you can naturally also install it in other ways. To use virtual env
+you may consult with its manaula. We assume we create a virtual env
+called CMD3::
 
    virtualenv ~/CMD3
    ~/CMD3/bin/activate
+
+Next you need to get the source code from git as follows and conduct
+the instalation
 
 ::
 
@@ -52,7 +56,53 @@ Install form Source
    cd cmd3
    python setup.py install
 
-This will install you code in to the site-packages directory
+
+Running the installed version
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Now you are ready to run the shell with the command::
+
+  cm
+
+Which will give you something like this::
+
+  > activate activate
+  > activate bar
+  > activate clear
+  > activate edit
+  > activate foo
+  > activate metric
+  > activate opt_example
+  > activate pause
+  > activate rst
+  > activate template
+
+		FutureGrid - Cloud Mesh Shell
+  ------------------------------------------------------
+     ____ _                 _   __  __           _     
+    / ___| | ___  _   _  __| | |  \/  | ___  ___| |__  
+   | |   | |/ _ \| | | |/ _` | | |\/| |/ _ \/ __| '_ \ 
+   | |___| | (_) | |_| | (_| | | |  | |  __/\__ \ | | |
+    \____|_|\___/ \__,_|\__,_| |_|  |_|\___||___/_| |_|
+  ======================================================
+
+  cm> 
+
+It first prints the plugin that it found and loads the, and than gets
+into the shell. As we use the shell to develop a much larger shell for
+clouds, we called it cloud mesh. However cloudmesh is not yet
+available for distribution.
+
+Running from the Source Directory
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+This will install you code in to the site-packages directory. If you
+do not want to install the package, you can also go into src/cmd3
+where you can find the shell.py program. Now you can alternatively
+start it with::
+
+  python shell.py
+
 
 
 Using the Shell
@@ -138,6 +188,9 @@ addition we have on purpose not used an __init__ method in the class
 but instead used an activate method to indicate that we like in future
 to activate and deactivate certain plugins.  
 
+A Basic Plugin
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 Here is the sample classes form the file plugins/foo.py::
 
    class foo:
@@ -205,6 +258,9 @@ that is created by docopt. And allows for some very convenient
 introduction of handeling the parameters, arguments, and options.
 If you like to find more out about docopts please visit the web site
 at ???, which also includes some nice examples ???
+
+Help
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 One other good feature the above declaration has is that it
 automatically registers a help string so you can say::
