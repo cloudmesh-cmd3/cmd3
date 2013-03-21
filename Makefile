@@ -94,7 +94,7 @@ clean:
 	rm -rf build dist 
 	rm -f *~ 
 	rm -rf *.egg-info
-	#cd doc; make clean
+	cd doc; make clean
 
 #############################################################################
 # SPHINX DOC
