@@ -26,6 +26,9 @@ Cmd3
      :maxdepth: -1
 
      contact
+     manual
+     todo
+     modules/modules.rst
 
 Python has provided for a long time a very useful framework for
 creating simple commandline shells via Cmd. Other projects have made

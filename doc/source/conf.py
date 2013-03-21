@@ -53,7 +53,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'CMD3'
-copyright = u'2013, Gregor von Laszewski'
+copyright = u'2013, Developed for FutureGrid by Gregor von Laszewski, based on his earlier code from cyberaide and cogkit.'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
@@ -187,7 +187,7 @@ html_last_updated_fmt = '%b %d, %Y'
 #html_split_index = False
 
 # If true, links to the reST sources are added to the pages.
-#html_show_sourcelink = True
+html_show_sourcelink = False
 
 # If true, "Created using Sphinx" is shown in the HTML footer. Default is True.
 html_show_sphinx = False
