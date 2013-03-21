@@ -1,0 +1,15 @@
+Metadata-Version: 1.0
+Name: cmd3
+Version: 0.0.4-dev
+Summary: FutureGrid: CMD3
+Home-page: https://github.com/futuregrid/cmd3
+Author: Gregor von Laszewski
+Author-email: laszewski@gmail.com
+License: Apache 2.0
+Description: This project is based on material developed by Gregor von Laszewski
+        Significant potions of it are developed as pat of the CoG Shell and
+        Cyberaide projects.
+        
+        
+Keywords: FutureGrid Eucalyptys Log File Analysis
+Platform: UNKNOWN
