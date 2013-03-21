@@ -241,13 +241,18 @@ So let us create a new plugin called bar::
        @command
        def do_bar(self, arg, arguments):
            """Usage:
-                 bar -f FILE
-                 bar FILE
-                 bar list
+                   bar -f FILE
+                   bar FILE
+                   bar list
+
+            This command does some useful things.
+
             Arguments:
                   FILE   a file name
+
             Options:
                   -f      specify the file
+
             """
             print arguments
 

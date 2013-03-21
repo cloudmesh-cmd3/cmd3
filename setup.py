@@ -15,10 +15,11 @@ doclines = __doc__.split("\n")
 # VERSION
 ######################################################################
 
-try:
-    version = open("VERSION.txt").read()
-except:
-    version = open("../VERSION.txt").read()
+version="0.0.4"
+#try:
+#    version = open("VERSION.txt").read()
+#except:
+#    version = open("../VERSION.txt").read()
 
 
 ######################################################################
