@@ -91,10 +91,10 @@ qc:
 clean:
 	find . -name "*~" -exec rm {} \;  
 	find . -name "*.pyc" -exec rm {} \;  
-	rm -rf build dist *.egg-info *~ #*
-	cd doc; make clean
+	rm -rf build dist 
+	rm -f *~ 
 	rm -rf *.egg-info
-
+	cd doc; make clean
 
 #############################################################################
 # SPHINX DOC

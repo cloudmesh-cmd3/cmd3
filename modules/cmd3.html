@@ -1,0 +1,313 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cmd3 Package &mdash; CMD3  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-2.3.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-2.3.0/css/bootstrap-responsive.min.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-2.3.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/fg-favicon.ico"/>
+    <link rel="top" title="CMD3  documentation" href="../index.html" />
+    <link rel="up" title="Modules and Classes" href="modules.html" />
+    <link rel="next" title="cyberaide Package" href="cmd3.cyberaide.html" />
+    <link rel="prev" title="Modules and Classes" href="modules.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+<div class="container">
+  
+  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <a class="brand" href="../index.html">CMD3</a>
+      <span class="navbar-text pull-left"><b>0.0.4
+</b></span>
+
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li class="divider-vertical"></li>
+          
+            <li class="dropdown globaltoc-container">
+  <a href="../index.html"
+     class="dropdown-toggle"
+     data-toggle="dropdown">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+    ><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../contact.html">Contact</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contact.html#authors">Authors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contact.html#repository">Repository</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../manual.html">Manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../manual.html#instalation">Instalation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#install-form-pypi">Install form Pypi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#install-form-source">Install form Source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#running-the-installed-version">Running the installed version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#running-from-the-source-directory">Running from the Source Directory</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../manual.html#using-the-shell">Using the Shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manual.html#extending-the-shell">Extending the Shell</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#reading-plugins-from-your-local-instalation">Reading plugins from your local instalation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#reading-plugins-from-the-deploy-directory">Reading plugins from the deploy directory</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../manual.html#writing-plugins">Writing Plugins</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#a-basic-plugin">A Basic Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#argument-parsing">Argument parsing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#help">Help</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">TODO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../todo.html#list">List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../todo.html#github">Github</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Modules and Classes</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="">cmd3 Package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1"><tt class="docutils literal"><span class="pre">cmd3</span></tt> Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#module-cmd3.shell"><tt class="docutils literal"><span class="pre">shell</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cmd3.cyberaide.html">cyberaide Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.cyberaide.html#id1"><tt class="docutils literal"><span class="pre">cyberaide</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.cyberaide.html#module-cmd3.cyberaide.decorators"><tt class="docutils literal"><span class="pre">decorators</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.cyberaide.html#module-cmd3.cyberaide.dynamic_cmd"><tt class="docutils literal"><span class="pre">dynamic_cmd</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="cmd3.plugins.html">plugins Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.activate"><tt class="docutils literal"><span class="pre">activate</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.bar"><tt class="docutils literal"><span class="pre">bar</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.clear"><tt class="docutils literal"><span class="pre">clear</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.edit"><tt class="docutils literal"><span class="pre">edit</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.foo"><tt class="docutils literal"><span class="pre">foo</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.graphviz"><tt class="docutils literal"><span class="pre">graphviz</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.info"><tt class="docutils literal"><span class="pre">info</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.metric"><tt class="docutils literal"><span class="pre">metric</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.opt_example"><tt class="docutils literal"><span class="pre">opt_example</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.pause"><tt class="docutils literal"><span class="pre">pause</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.rst"><tt class="docutils literal"><span class="pre">rst</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.shell_core"><tt class="docutils literal"><span class="pre">shell_core</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.template"><tt class="docutils literal"><span class="pre">template</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.timer"><tt class="docutils literal"><span class="pre">timer</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+            <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"><ul>
+<li><a class="reference internal" href="#">cmd3 Package</a><ul>
+<li><a class="reference internal" href="#id1"><tt class="docutils literal"><span class="pre">cmd3</span></tt> Package</a></li>
+<li><a class="reference internal" href="#module-cmd3.shell"><tt class="docutils literal"><span class="pre">shell</span></tt> Module</a></li>
+<li><a class="reference internal" href="#subpackages">Subpackages</a><ul>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+          
+          
+            
+  <li><a href="modules.html"
+         title="previous chapter">&laquo; Modules and Classes</a></li>
+  <li><a href="cmd3.cyberaide.html"
+         title="next chapter">cyberaide Package &raquo;</a></li>
+          
+          
+            <li></li>
+          
+        </ul>
+
+        
+          
+<form class="navbar-search pull-right" style="margin-bottom:-3px;" action="../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="section" id="cmd3-package">
+<h1>cmd3 Package<a class="headerlink" href="#cmd3-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2><tt class="xref py py-mod docutils literal"><span class="pre">cmd3</span></tt> Package<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<span class="target" id="module-cmd3.__init__"></span></div>
+<div class="section" id="module-cmd3.shell">
+<span id="shell-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">shell</span></tt> Module<a class="headerlink" href="#module-cmd3.shell" title="Permalink to this headline">¶</a></h2>
+<p>This project is about developing a dynamic CMD class based on cmd.CMD. 
+We assume the following directory structure:</p>
+<div class="highlight-python"><pre>./shell.py
+./cyberaide/dynamic_cmd.py
+./plugins/foo.py 
+./plugins/bar.py 
+./plugins/activate.py </pre>
+</div>
+<p>We have provides examples of the classes in this document</p>
+<p>foo and bar contain some classes that include he usual <a href="#id2"><span class="problematic" id="id3">do_</span></a> methods. It
+also includes an activate method that is called wih the acivation
+module, so you can control its behavior upon startup.</p>
+<p>To specify the plugins please use:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plugins</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;foo&quot;</span><span class="p">,</span> <span class="s">&quot;bar&quot;</span><span class="p">,</span><span class="s">&quot;activate&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Now you can set a name for your class:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;CmCLI&quot;</span>
+</pre></div>
+</div>
+<p>The rest is pretty simple:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">plugin_objects</span><span class="p">)</span> <span class="o">=</span> <span class="n">DynamicCmd</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">plugins</span><span class="p">)</span>
+<span class="n">cmd</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span class="n">plugin_objects</span><span class="p">)</span>
+<span class="n">cmd</span><span class="o">.</span><span class="n">cmdloop</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>The activate method is not called automatically as to give more
+flexibility during startup.</p>
+<p>Here are the sample classes:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">bar</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">activate_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;... activate bar&quot;</span>
+
+    <span class="k">def</span> <span class="nf">do_that</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;THAT&quot;</span><span class="p">,</span> <span class="n">arg</span>
+
+
+<span class="k">class</span> <span class="nc">foo</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">do_this</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;THIS&quot;</span><span class="p">,</span> <span class="n">arg</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">activate_status</span><span class="p">()</span>  
+
+    <span class="k">def</span> <span class="nf">activate_foo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;... activate foo&quot;</span>
+
+<span class="k">class</span> <span class="nc">activate</span><span class="p">:</span>
+
+    <span class="n">active</span> <span class="o">=</span> <span class="bp">False</span>
+
+    <span class="k">def</span> <span class="nf">do_on</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="bp">True</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">activate_status</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">do_off</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="bp">False</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">activate_status</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">activate_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;Active:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">active</span>
+
+    <span class="k">def</span> <span class="nf">activate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plugins</span><span class="p">):</span>
+        <span class="n">d</span> <span class="o">=</span> <span class="nb">dir</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&quot;activate_&quot;</span><span class="p">):</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
+        <span class="k">print</span> <span class="n">result</span>
+        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
+            <span class="k">print</span> <span class="s">&quot;&gt; </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;_&quot;</span><span class="p">,</span><span class="s">&quot; &quot;</span><span class="p">)</span>
+            <span class="k">exec</span><span class="p">(</span><span class="s">&quot;self.</span><span class="si">%s</span><span class="s">()&quot;</span> <span class="o">%</span> <span class="n">key</span><span class="p">)</span>
+</pre></div>
+</div>
+<dl class="function">
+<dt id="cmd3.shell.main">
+<tt class="descclassname">cmd3.shell.</tt><tt class="descname">main</tt><big>(</big><big>)</big><a class="headerlink" href="#cmd3.shell.main" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</div>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cmd3.cyberaide.html">cyberaide Package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cmd3.cyberaide.html#id1"><tt class="docutils literal"><span class="pre">cyberaide</span></tt> Package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd3.cyberaide.html#module-cmd3.cyberaide.decorators"><tt class="docutils literal"><span class="pre">decorators</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd3.cyberaide.html#module-cmd3.cyberaide.dynamic_cmd"><tt class="docutils literal"><span class="pre">dynamic_cmd</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="cmd3.plugins.html">plugins Package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.activate"><tt class="docutils literal"><span class="pre">activate</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.bar"><tt class="docutils literal"><span class="pre">bar</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.clear"><tt class="docutils literal"><span class="pre">clear</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.edit"><tt class="docutils literal"><span class="pre">edit</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.foo"><tt class="docutils literal"><span class="pre">foo</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.graphviz"><tt class="docutils literal"><span class="pre">graphviz</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.info"><tt class="docutils literal"><span class="pre">info</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.metric"><tt class="docutils literal"><span class="pre">metric</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.opt_example"><tt class="docutils literal"><span class="pre">opt_example</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.pause"><tt class="docutils literal"><span class="pre">pause</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.rst"><tt class="docutils literal"><span class="pre">rst</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.shell_core"><tt class="docutils literal"><span class="pre">shell_core</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.template"><tt class="docutils literal"><span class="pre">template</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.timer"><tt class="docutils literal"><span class="pre">timer</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2013, Developed for FutureGrid by Gregor von Laszewski, based on his earlier code from cyberaide and cogkit..<br/>
+      Last updated on Mar 21, 2013.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

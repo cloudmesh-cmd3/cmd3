@@ -1,0 +1,456 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Manual &mdash; CMD3  documentation</title>
+    
+    <link rel="stylesheet" href="_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-2.3.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-2.3.0/css/bootstrap-responsive.min.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-2.3.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="_static/fg-favicon.ico"/>
+    <link rel="top" title="CMD3  documentation" href="index.html" />
+    <link rel="next" title="TODO" href="todo.html" />
+    <link rel="prev" title="Contact" href="contact.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+<div class="container">
+  
+  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <a class="brand" href="index.html">CMD3</a>
+      <span class="navbar-text pull-left"><b>0.0.4
+</b></span>
+
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li class="divider-vertical"></li>
+          
+            <li class="dropdown globaltoc-container">
+  <a href="index.html"
+     class="dropdown-toggle"
+     data-toggle="dropdown">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+    ><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="contact.html#authors">Authors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contact.html#repository">Repository</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="current reference internal" href="">Manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#instalation">Instalation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#install-form-pypi">Install form Pypi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-form-source">Install form Source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-the-installed-version">Running the installed version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-from-the-source-directory">Running from the Source Directory</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#using-the-shell">Using the Shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#extending-the-shell">Extending the Shell</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#reading-plugins-from-your-local-instalation">Reading plugins from your local instalation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#reading-plugins-from-the-deploy-directory">Reading plugins from the deploy directory</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#writing-plugins">Writing Plugins</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#a-basic-plugin">A Basic Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#argument-parsing">Argument parsing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#help">Help</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="todo.html">TODO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="todo.html#list">List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="todo.html#github">Github</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="modules/modules.html">Modules and Classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="modules/cmd3.html">cmd3 Package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#id1"><tt class="docutils literal"><span class="pre">cmd3</span></tt> Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#module-cmd3.shell"><tt class="docutils literal"><span class="pre">shell</span></tt> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="modules/cmd3.cyberaide.html">cyberaide Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.cyberaide.html#id1"><tt class="docutils literal"><span class="pre">cyberaide</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.cyberaide.html#module-cmd3.cyberaide.decorators"><tt class="docutils literal"><span class="pre">decorators</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.cyberaide.html#module-cmd3.cyberaide.dynamic_cmd"><tt class="docutils literal"><span class="pre">dynamic_cmd</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="modules/cmd3.plugins.html">plugins Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.activate"><tt class="docutils literal"><span class="pre">activate</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.bar"><tt class="docutils literal"><span class="pre">bar</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.clear"><tt class="docutils literal"><span class="pre">clear</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.edit"><tt class="docutils literal"><span class="pre">edit</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.foo"><tt class="docutils literal"><span class="pre">foo</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.graphviz"><tt class="docutils literal"><span class="pre">graphviz</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.info"><tt class="docutils literal"><span class="pre">info</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.metric"><tt class="docutils literal"><span class="pre">metric</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.opt_example"><tt class="docutils literal"><span class="pre">opt_example</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.pause"><tt class="docutils literal"><span class="pre">pause</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.rst"><tt class="docutils literal"><span class="pre">rst</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.shell_core"><tt class="docutils literal"><span class="pre">shell_core</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.template"><tt class="docutils literal"><span class="pre">template</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.timer"><tt class="docutils literal"><span class="pre">timer</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+            <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"><ul>
+<li><a class="reference internal" href="#">Manual</a><ul>
+<li><a class="reference internal" href="#instalation">Instalation</a><ul>
+<li><a class="reference internal" href="#install-form-pypi">Install form Pypi</a></li>
+<li><a class="reference internal" href="#install-form-source">Install form Source</a></li>
+<li><a class="reference internal" href="#running-the-installed-version">Running the installed version</a></li>
+<li><a class="reference internal" href="#running-from-the-source-directory">Running from the Source Directory</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-the-shell">Using the Shell</a></li>
+<li><a class="reference internal" href="#extending-the-shell">Extending the Shell</a><ul>
+<li><a class="reference internal" href="#reading-plugins-from-your-local-instalation">Reading plugins from your local instalation</a></li>
+<li><a class="reference internal" href="#reading-plugins-from-the-deploy-directory">Reading plugins from the deploy directory</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#writing-plugins">Writing Plugins</a><ul>
+<li><a class="reference internal" href="#a-basic-plugin">A Basic Plugin</a></li>
+<li><a class="reference internal" href="#argument-parsing">Argument parsing</a></li>
+<li><a class="reference internal" href="#help">Help</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+          
+          
+            
+  <li><a href="contact.html"
+         title="previous chapter">&laquo; Contact</a></li>
+  <li><a href="todo.html"
+         title="next chapter">TODO &raquo;</a></li>
+          
+          
+            <li></li>
+          
+        </ul>
+
+        
+          
+<form class="navbar-search pull-right" style="margin-bottom:-3px;" action="search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        
+      </div>
+    </div>
+  </div>
+
+  
+  <a href="https://github.com/futuregrid/flask_cm"
+    class="visible-desktop"><img
+   style="position: absolute; top: 40px; right: 0; border: 0;"
+   src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"
+   alt="Fork me on GitHub"></a><div class="section" id="manual">
+<h1><a class="toc-backref" href="#id1">Manual</a><a class="headerlink" href="#manual" title="Permalink to this headline">¶</a></h1>
+<p>Gregor von Laszewski, <a class="reference external" href="mailto:laszewski&#37;&#52;&#48;gmail&#46;com">laszewski<span>&#64;</span>gmail<span>&#46;</span>com</a></p>
+<div class="sidebar">
+<p class="first sidebar-title">.</p>
+<div class="contents last topic" id="table-of-contents">
+<p class="topic-title first">Table of Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#manual" id="id1">Manual</a><ul>
+<li><a class="reference internal" href="#instalation" id="id2">Instalation</a><ul>
+<li><a class="reference internal" href="#install-form-pypi" id="id3">Install form Pypi</a></li>
+<li><a class="reference internal" href="#install-form-source" id="id4">Install form Source</a></li>
+<li><a class="reference internal" href="#running-the-installed-version" id="id5">Running the installed version</a></li>
+<li><a class="reference internal" href="#running-from-the-source-directory" id="id6">Running from the Source Directory</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-the-shell" id="id7">Using the Shell</a></li>
+<li><a class="reference internal" href="#extending-the-shell" id="id8">Extending the Shell</a><ul>
+<li><a class="reference internal" href="#reading-plugins-from-your-local-instalation" id="id9">Reading plugins from your local instalation</a></li>
+<li><a class="reference internal" href="#reading-plugins-from-the-deploy-directory" id="id10">Reading plugins from the deploy directory</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#writing-plugins" id="id11">Writing Plugins</a><ul>
+<li><a class="reference internal" href="#a-basic-plugin" id="id12">A Basic Plugin</a></li>
+<li><a class="reference internal" href="#argument-parsing" id="id13">Argument parsing</a></li>
+<li><a class="reference internal" href="#help" id="id14">Help</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="instalation">
+<h2><a class="toc-backref" href="#id2">Instalation</a><a class="headerlink" href="#instalation" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="install-form-pypi">
+<h3><a class="toc-backref" href="#id3">Install form Pypi</a><a class="headerlink" href="#install-form-pypi" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-python"><pre>pip install cmd3</pre>
+</div>
+</div>
+<div class="section" id="install-form-source">
+<h3><a class="toc-backref" href="#id4">Install form Source</a><a class="headerlink" href="#install-form-source" title="Permalink to this headline">¶</a></h3>
+<p>We recommend that you use virtual env for installing this package, but
+you can naturally also install it in other ways. To use virtual env
+you may consult with its manaula. We assume we create a virtual env
+called CMD3:</p>
+<div class="highlight-python"><pre>virtualenv ~/CMD3
+~/CMD3/bin/activate</pre>
+</div>
+<p>Next you need to get the source code from git as follows and conduct
+the instalation</p>
+<div class="highlight-python"><pre>git clone git@github.com:futuregrid/cmd3.git
+cd cmd3
+python setup.py install</pre>
+</div>
+</div>
+<div class="section" id="running-the-installed-version">
+<h3><a class="toc-backref" href="#id5">Running the installed version</a><a class="headerlink" href="#running-the-installed-version" title="Permalink to this headline">¶</a></h3>
+<p>Now you are ready to run the shell with the command:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">cm</span>
+</pre></div>
+</div>
+<p>Which will give you something like this:</p>
+<div class="highlight-python"><pre>&gt; activate activate
+&gt; activate bar
+&gt; activate clear
+&gt; activate edit
+&gt; activate foo
+&gt; activate metric
+&gt; activate opt_example
+&gt; activate pause
+&gt; activate rst
+&gt; activate template
+
+              FutureGrid - Cloud Mesh Shell
+------------------------------------------------------
+   ____ _                 _   __  __           _
+  / ___| | ___  _   _  __| | |  \/  | ___  ___| |__
+ | |   | |/ _ \| | | |/ _` | | |\/| |/ _ \/ __| '_ \
+ | |___| | (_) | |_| | (_| | | |  | |  __/\__ \ | | |
+  \____|_|\___/ \__,_|\__,_| |_|  |_|\___||___/_| |_|
+======================================================
+
+cm&gt;</pre>
+</div>
+<p>It first prints the plugin that it found and loads the, and than gets
+into the shell. As we use the shell to develop a much larger shell for
+clouds, we called it cloud mesh. However cloudmesh is not yet
+available for distribution.</p>
+</div>
+<div class="section" id="running-from-the-source-directory">
+<h3><a class="toc-backref" href="#id6">Running from the Source Directory</a><a class="headerlink" href="#running-from-the-source-directory" title="Permalink to this headline">¶</a></h3>
+<p>This will install you code in to the site-packages directory. If you
+do not want to install the package, you can also go into src/cmd3
+where you can find the shell.py program. Now you can alternatively
+start it with:</p>
+<div class="highlight-python"><pre>python shell.py</pre>
+</div>
+</div>
+</div>
+<div class="section" id="using-the-shell">
+<h2><a class="toc-backref" href="#id7">Using the Shell</a><a class="headerlink" href="#using-the-shell" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="extending-the-shell">
+<h2><a class="toc-backref" href="#id8">Extending the Shell</a><a class="headerlink" href="#extending-the-shell" title="Permalink to this headline">¶</a></h2>
+<p>This project is about developing a dynamic CMD class based on cmd.CMD.
+We assume the following directory structure:</p>
+<div class="highlight-python"><pre>./shell.py
+./plugins/foo.py
+./plugins/bar.py
+./plugins/activate.py
+
+ ... other dirs and file ...</pre>
+</div>
+<p>We have provides examples of the classes in this document</p>
+<p>foo and bar contain some classes that include he usual <a href="#id15"><span class="problematic" id="id16">do_</span></a> methods. It
+also includes an activate method that is called with the activation
+module, so you can control its behavior upon startup.</p>
+<p>To specify the plugins please use:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plugins</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;foo&quot;</span><span class="p">,</span> <span class="s">&quot;bar&quot;</span><span class="p">,</span><span class="s">&quot;activate&quot;</span><span class="p">]</span>
+</pre></div>
+</div>
+<p>Now you can set a name for your class:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;CmCLI&quot;</span>
+</pre></div>
+</div>
+<p>The rest is pretty simple:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">plugin_objects</span><span class="p">)</span> <span class="o">=</span> <span class="n">DynamicCmd</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">plugins</span><span class="p">)</span>
+<span class="n">cmd</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span class="n">plugin_objects</span><span class="p">)</span>
+<span class="n">cmd</span><span class="o">.</span><span class="n">cmdloop</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>Many times you may want to provide some better location for your
+plugins such as system wide installed blugins, or plugins maintained
+in your user environment rather than the current path. For this reason we provide the following examples.</p>
+<div class="section" id="reading-plugins-from-your-local-instalation">
+<h3><a class="toc-backref" href="#id9">Reading plugins from your local instalation</a><a class="headerlink" href="#reading-plugins-from-your-local-instalation" title="Permalink to this headline">¶</a></h3>
+<p>We assume you have placed a plugin directory at
+&#8220;~/.futuregrid/cmd3/&#8221;. Than you simply can read the plugins by</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plugin_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s">&quot;~/.futuregrid/cmd3/&quot;</span><span class="p">)</span>
+
+<span class="n">plugins</span> <span class="o">=</span> <span class="n">get_plugins</span><span class="p">(</span><span class="n">plugin_path</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Naturally you can have other plugin directories. In fact we will be
+expanding our plugin module called plugin so users could add their own
+plugin directories on demand.</p>
+</div>
+<div class="section" id="reading-plugins-from-the-deploy-directory">
+<h3><a class="toc-backref" href="#id10">Reading plugins from the deploy directory</a><a class="headerlink" href="#reading-plugins-from-the-deploy-directory" title="Permalink to this headline">¶</a></h3>
+<p>Assume you like to load the plugins from the deployed cmd3, this can
+be done easily while looking at the code for shell.py:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">plugin_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span><span class="s">&#39;plugins&#39;</span><span class="p">)</span>
+
+<span class="n">plugins</span> <span class="o">=</span> <span class="n">get_plugins</span><span class="p">(</span><span class="n">plugin_path</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="writing-plugins">
+<h2><a class="toc-backref" href="#id11">Writing Plugins</a><a class="headerlink" href="#writing-plugins" title="Permalink to this headline">¶</a></h2>
+<p>Plugins are very simple to design and write. However we have to be
+aware of several facts. First, if you design a method within two
+different plugins, the last loaded plugin will overwrite the previous
+method. This is the intended behavior as to allow for easy extensions
+to be put in place. However, you need to be careful as not to confuse
+yourself by minding the order in which the plugins are loaded.  In
+addition we have on purpose not used an __init__ method in the class
+but instead used an activate method to indicate that we like in future
+to activate and deactivate certain plugins.</p>
+<div class="section" id="a-basic-plugin">
+<h3><a class="toc-backref" href="#id12">A Basic Plugin</a><a class="headerlink" href="#a-basic-plugin" title="Permalink to this headline">¶</a></h3>
+<p>Here is the sample classes form the file plugins/foo.py:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">foo</span><span class="p">:</span>
+
+    <span class="k">def</span> <span class="nf">activate_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;... activate foo&quot;</span>
+
+    <span class="k">def</span> <span class="nf">do_foo</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
+        <span class="k">print</span> <span class="s">&quot;I am Foo&quot;</span><span class="p">,</span> <span class="n">arg</span>
+</pre></div>
+</div>
+<p>Now place this module in your plugins directory and you are all
+set. when you start the shell and say:</p>
+<div class="highlight-python"><pre>foo bar</pre>
+</div>
+<p>It will print:</p>
+<div class="highlight-python"><pre>I am Foo bar</pre>
+</div>
+<p>THis does not seem much different from the original cmd, an in fact it
+is not. The only difference so far is the introduction of the plugins
+directory. Thus instead of changing my shell.py program, adding
+inheritance or other mechanisms and making sure I invoke the right
+__init__ methods, all this is not needed here.</p>
+<p>This has advantages and disadvantages and you may judge for yourself,
+if you like to use a plugin or an inheritance mode.</p>
+</div>
+<div class="section" id="argument-parsing">
+<h3><a class="toc-backref" href="#id13">Argument parsing</a><a class="headerlink" href="#argument-parsing" title="Permalink to this headline">¶</a></h3>
+<p>One of the important differentiation to the original cmd is how we are
+handeling documentation. Although it is possible to use just the same
+mechanism as in cmd, Cmd3 also allows the use of docopts. This has the
+advantage that we can very quickly design prototypes of commands with
+nice option parsing based on the documentation that is provided with
+the method.</p>
+<p>So let us create a new plugin called bar:</p>
+<div class="highlight-python"><pre>from cmd3.cyberaide.decorators import command
+
+class bar:
+
+    def activate_bar(self):
+        print "... activate bar"
+
+    @command
+    def do_bar(self, arg, arguments):
+        """Usage:
+              bar -f FILE
+              bar FILE
+              bar list
+         Arguments:
+               FILE   a file name
+         Options:
+               -f      specify the file
+         """
+         print arguments</pre>
+</div>
+<p>Please not the differences to our previous class. We have introduced a
+decorator that transforms the do_bar method into a method that returns
+an additional parameter called arguments. This is the arguments dict
+that is created by docopt. And allows for some very convenient
+introduction of handeling the parameters, arguments, and options.
+If you like to find more out about docopts please visit the web site
+at ???, which also includes some nice examples ???</p>
+</div>
+<div class="section" id="help">
+<h3><a class="toc-backref" href="#id14">Help</a><a class="headerlink" href="#help" title="Permalink to this headline">¶</a></h3>
+<p>One other good feature the above declaration has is that it
+automatically registers a help string so you can say:</p>
+<div class="highlight-python"><pre>help bar</pre>
+</div>
+<p>and you will get presented with the manual page</p>
+</div>
+</div>
+</div>
+
+
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2013, Developed for FutureGrid by Gregor von Laszewski, based on his earlier code from cyberaide and cogkit..<br/>
+      Last updated on Mar 21, 2013.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

@@ -1,0 +1,782 @@
+
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>plugins Package &mdash; CMD3  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-2.3.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-2.3.0/css/bootstrap-responsive.min.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-2.3.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="shortcut icon" href="../_static/fg-favicon.ico"/>
+    <link rel="top" title="CMD3  documentation" href="../index.html" />
+    <link rel="up" title="cmd3 Package" href="cmd3.html" />
+    <link rel="prev" title="cyberaide Package" href="cmd3.cyberaide.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body>
+<div class="container">
+  
+  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar-inner">
+      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+      <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <a class="brand" href="../index.html">CMD3</a>
+      <span class="navbar-text pull-left"><b>0.0.4
+</b></span>
+
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li class="divider-vertical"></li>
+          
+            <li class="dropdown globaltoc-container">
+  <a href="../index.html"
+     class="dropdown-toggle"
+     data-toggle="dropdown">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+    ><ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../contact.html">Contact</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contact.html#authors">Authors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contact.html#repository">Repository</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../manual.html">Manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../manual.html#instalation">Instalation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#install-form-pypi">Install form Pypi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#install-form-source">Install form Source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#running-the-installed-version">Running the installed version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#running-from-the-source-directory">Running from the Source Directory</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../manual.html#using-the-shell">Using the Shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manual.html#extending-the-shell">Extending the Shell</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#reading-plugins-from-your-local-instalation">Reading plugins from your local instalation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#reading-plugins-from-the-deploy-directory">Reading plugins from the deploy directory</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../manual.html#writing-plugins">Writing Plugins</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#a-basic-plugin">A Basic Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#argument-parsing">Argument parsing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#help">Help</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">TODO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../todo.html#list">List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../todo.html#github">Github</a></li>
+</ul>
+</li>
+<li class="toctree-l1 current"><a class="reference internal" href="modules.html">Modules and Classes</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="cmd3.html">cmd3 Package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="cmd3.html#id1"><tt class="docutils literal"><span class="pre">cmd3</span></tt> Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmd3.html#module-cmd3.shell"><tt class="docutils literal"><span class="pre">shell</span></tt> Module</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="cmd3.html#subpackages">Subpackages</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="cmd3.cyberaide.html">cyberaide Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.cyberaide.html#id1"><tt class="docutils literal"><span class="pre">cyberaide</span></tt> Package</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.cyberaide.html#module-cmd3.cyberaide.decorators"><tt class="docutils literal"><span class="pre">decorators</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.cyberaide.html#module-cmd3.cyberaide.dynamic_cmd"><tt class="docutils literal"><span class="pre">dynamic_cmd</span></tt> Module</a></li>
+</ul>
+</li>
+<li class="toctree-l4 current"><a class="current reference internal" href="">plugins Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.activate"><tt class="docutils literal"><span class="pre">activate</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.bar"><tt class="docutils literal"><span class="pre">bar</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.clear"><tt class="docutils literal"><span class="pre">clear</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.edit"><tt class="docutils literal"><span class="pre">edit</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.foo"><tt class="docutils literal"><span class="pre">foo</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.graphviz"><tt class="docutils literal"><span class="pre">graphviz</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.info"><tt class="docutils literal"><span class="pre">info</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.metric"><tt class="docutils literal"><span class="pre">metric</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.opt_example"><tt class="docutils literal"><span class="pre">opt_example</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.pause"><tt class="docutils literal"><span class="pre">pause</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.rst"><tt class="docutils literal"><span class="pre">rst</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.shell_core"><tt class="docutils literal"><span class="pre">shell_core</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.template"><tt class="docutils literal"><span class="pre">template</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.timer"><tt class="docutils literal"><span class="pre">timer</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+            <li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"><ul>
+<li><a class="reference internal" href="#">plugins Package</a><ul>
+<li><a class="reference internal" href="#module-cmd3.plugins.activate"><tt class="docutils literal"><span class="pre">activate</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-cmd3.plugins.bar"><tt class="docutils literal"><span class="pre">bar</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-cmd3.plugins.clear"><tt class="docutils literal"><span class="pre">clear</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-cmd3.plugins.edit"><tt class="docutils literal"><span class="pre">edit</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-cmd3.plugins.foo"><tt class="docutils literal"><span class="pre">foo</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-cmd3.plugins.graphviz"><tt class="docutils literal"><span class="pre">graphviz</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-cmd3.plugins.info"><tt class="docutils literal"><span class="pre">info</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-cmd3.plugins.metric"><tt class="docutils literal"><span class="pre">metric</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-cmd3.plugins.opt_example"><tt class="docutils literal"><span class="pre">opt_example</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-cmd3.plugins.pause"><tt class="docutils literal"><span class="pre">pause</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-cmd3.plugins.rst"><tt class="docutils literal"><span class="pre">rst</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-cmd3.plugins.shell_core"><tt class="docutils literal"><span class="pre">shell_core</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-cmd3.plugins.template"><tt class="docutils literal"><span class="pre">template</span></tt> Module</a></li>
+<li><a class="reference internal" href="#module-cmd3.plugins.timer"><tt class="docutils literal"><span class="pre">timer</span></tt> Module</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+          
+          
+            
+  <li><a href="cmd3.cyberaide.html"
+         title="previous chapter">&laquo; cyberaide Package</a></li>
+          
+          
+            <li></li>
+          
+        </ul>
+
+        
+          
+<form class="navbar-search pull-right" style="margin-bottom:-3px;" action="../search.html" method="get">
+  <input type="text" name="q" placeholder="Search" />
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+        
+      </div>
+    </div>
+  </div>
+
+  
+  <div class="section" id="plugins-package">
+<h1>plugins Package<a class="headerlink" href="#plugins-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-cmd3.plugins.activate">
+<span id="activate-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">activate</span></tt> Module<a class="headerlink" href="#module-cmd3.plugins.activate" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cmd3.plugins.activate.activate">
+<em class="property">class </em><tt class="descclassname">cmd3.plugins.activate.</tt><tt class="descname">activate</tt><a class="headerlink" href="#cmd3.plugins.activate.activate" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="cmd3.plugins.activate.activate.activate">
+<tt class="descname">activate</tt><big>(</big><big>)</big><a class="headerlink" href="#cmd3.plugins.activate.activate.activate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.activate.activate.activate_activate">
+<tt class="descname">activate_activate</tt><big>(</big><big>)</big><a class="headerlink" href="#cmd3.plugins.activate.activate.activate_activate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.activate.activate.do_plugins">
+<tt class="descname">do_plugins</tt><big>(</big><em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.activate.activate.do_plugins" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Ussage:</dt>
+<dd>plugins</dd>
+</dl>
+<p>activates the plugins.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cmd3.plugins.activate.activate.plugins">
+<tt class="descname">plugins</tt><em class="property"> = []</em><a class="headerlink" href="#cmd3.plugins.activate.activate.plugins" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cmd3.plugins.activate.activate.verbose">
+<tt class="descname">verbose</tt><em class="property"> = True</em><a class="headerlink" href="#cmd3.plugins.activate.activate.verbose" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cmd3.plugins.bar">
+<span id="bar-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">bar</span></tt> Module<a class="headerlink" href="#module-cmd3.plugins.bar" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cmd3.plugins.bar.bar">
+<em class="property">class </em><tt class="descclassname">cmd3.plugins.bar.</tt><tt class="descname">bar</tt><a class="headerlink" href="#cmd3.plugins.bar.bar" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="cmd3.plugins.bar.bar.activate_bar">
+<tt class="descname">activate_bar</tt><big>(</big><big>)</big><a class="headerlink" href="#cmd3.plugins.bar.bar.activate_bar" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.bar.bar.do_that">
+<tt class="descname">do_that</tt><big>(</big><em>arg</em><big>)</big><a class="headerlink" href="#cmd3.plugins.bar.bar.do_that" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cmd3.plugins.clear">
+<span id="clear-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">clear</span></tt> Module<a class="headerlink" href="#module-cmd3.plugins.clear" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cmd3.plugins.clear.clear">
+<em class="property">class </em><tt class="descclassname">cmd3.plugins.clear.</tt><tt class="descname">clear</tt><a class="headerlink" href="#cmd3.plugins.clear.clear" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="cmd3.plugins.clear.clear.activate_clear">
+<tt class="descname">activate_clear</tt><big>(</big><big>)</big><a class="headerlink" href="#cmd3.plugins.clear.clear.activate_clear" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.clear.clear.do_clear">
+<tt class="descname">do_clear</tt><big>(</big><em>instance</em>, <em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.clear.clear.do_clear" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Ussage:</dt>
+<dd>clear</dd>
+</dl>
+<p>Clears the screen.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cmd3.plugins.edit">
+<span id="edit-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">edit</span></tt> Module<a class="headerlink" href="#module-cmd3.plugins.edit" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cmd3.plugins.edit.edit">
+<em class="property">class </em><tt class="descclassname">cmd3.plugins.edit.</tt><tt class="descname">edit</tt><a class="headerlink" href="#cmd3.plugins.edit.edit" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="cmd3.plugins.edit.edit.activate_edit">
+<tt class="descname">activate_edit</tt><big>(</big><big>)</big><a class="headerlink" href="#cmd3.plugins.edit.edit.activate_edit" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.edit.edit.do_edit">
+<tt class="descname">do_edit</tt><big>(</big><em>instance</em>, <em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.edit.edit.do_edit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Ussage:
+edir FILENAME
+Arguments:</p>
+<blockquote>
+<div>FILENAME  the file to edit</div></blockquote>
+<p>Edits a file.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cmd3.plugins.foo">
+<span id="foo-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">foo</span></tt> Module<a class="headerlink" href="#module-cmd3.plugins.foo" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cmd3.plugins.foo.foo">
+<em class="property">class </em><tt class="descclassname">cmd3.plugins.foo.</tt><tt class="descname">foo</tt><a class="headerlink" href="#cmd3.plugins.foo.foo" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="cmd3.plugins.foo.foo.activate_foo">
+<tt class="descname">activate_foo</tt><big>(</big><big>)</big><a class="headerlink" href="#cmd3.plugins.foo.foo.activate_foo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.foo.foo.do_this">
+<tt class="descname">do_this</tt><big>(</big><em>arg</em><big>)</big><a class="headerlink" href="#cmd3.plugins.foo.foo.do_this" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cmd3.plugins.graphviz">
+<span id="graphviz-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">graphviz</span></tt> Module<a class="headerlink" href="#module-cmd3.plugins.graphviz" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cmd3.plugins.graphviz.graphviz">
+<em class="property">class </em><tt class="descclassname">cmd3.plugins.graphviz.</tt><tt class="descname">graphviz</tt><a class="headerlink" href="#cmd3.plugins.graphviz.graphviz" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="cmd3.plugins.graphviz.graphviz.do_dot2">
+<tt class="descname">do_dot2</tt><big>(</big><em>args</em>, <em>arguments</em><big>)</big><a class="headerlink" href="#cmd3.plugins.graphviz.graphviz.do_dot2" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd>dot2 FILENAME FORMAT</dd>
+</dl>
+<p>Export the data in cvs format to a file. Former cvs command</p>
+<dl class="docutils">
+<dt>Arguments:</dt>
+<dd>FILENAME   The filename
+FORMAT     the export format, pdf, png, ...</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.graphviz.graphviz.do_graphviz">
+<tt class="descname">do_graphviz</tt><big>(</big><em>args</em>, <em>arguments</em><big>)</big><a class="headerlink" href="#cmd3.plugins.graphviz.graphviz.do_graphviz" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd>graphviz FILENAME</dd>
+</dl>
+<p>Export the data in cvs format to a file. Former cvs command</p>
+<dl class="docutils">
+<dt>Arguments:</dt>
+<dd>FILENAME   The filename</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cmd3.plugins.info">
+<span id="info-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">info</span></tt> Module<a class="headerlink" href="#module-cmd3.plugins.info" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cmd3.plugins.info.info">
+<em class="property">class </em><tt class="descclassname">cmd3.plugins.info.</tt><tt class="descname">info</tt><a class="headerlink" href="#cmd3.plugins.info.info" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="cmd3.plugins.info.info.do_info">
+<tt class="descname">do_info</tt><big>(</big><em>instance</em>, <em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.info.info.do_info" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd>info</dd>
+</dl>
+<p>Prints some internal information about the shell</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cmd3.plugins.metric">
+<span id="metric-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">metric</span></tt> Module<a class="headerlink" href="#module-cmd3.plugins.metric" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cmd3.plugins.metric.metric">
+<em class="property">class </em><tt class="descclassname">cmd3.plugins.metric.</tt><tt class="descname">metric</tt><a class="headerlink" href="#cmd3.plugins.metric.metric" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="cmd3.plugins.metric.metric.activate_metric">
+<tt class="descname">activate_metric</tt><big>(</big><big>)</big><a class="headerlink" href="#cmd3.plugins.metric.metric.activate_metric" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.metric.metric.do_analyze">
+<tt class="descname">do_analyze</tt><big>(</big><em>instance</em>, <em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.metric.metric.do_analyze" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd>analyze METRIC &#8211;start START &#8211;end END 
+analyze METRIC &#8211;period [monthly|quaterly|daily]
+analyze METRIC &#8211;month MONTH</dd>
+</dl>
+<p>Analyze the metric data</p>
+<dl class="docutils">
+<dt>Arguments:</dt>
+<dd>METRIC     The metric to be analyzed ... what values does it have?? ...
+START      The start time n the format YYYY-MM-DDThh:mm:ss
+ENDT       The end time n the format YYYY-MM-DDThh:mm:ss
+MONTH      The month in 01,02, ..., 12</dd>
+<dt>Options:</dt>
+<dd><table class="first last docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">--start</span></kbd></td>
+<td>specifies the time when to start the analysis</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--end</span></kbd></td>
+<td>specified the time when to end the analysis</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--month</span></kbd></td>
+<td>the month</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--period</span></kbd></td>
+<td>the period</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.metric.metric.do_chart">
+<tt class="descname">do_chart</tt><big>(</big><em>instance</em>, <em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.metric.metric.do_chart" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd><dl class="first last docutils">
+<dt>chart [&#8211;dir DIR] &#8211;type (bar|line|column|pie|motion)</dt>
+<dd>[&#8211;api (highchart|google|jquery|sparkline)] [FILENAME]</dd>
+</dl>
+</dd>
+</dl>
+<p>Creates a chart of a given type</p>
+<dl class="docutils">
+<dt>Arguments:</dt>
+<dd>DIR       The directory into which the chart is written
+FILENAME  The filename in which the chart is written.</dd>
+<dt>Options:</dt>
+<dd><table class="first last docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">--dir</span></kbd></td>
+<td>The directory</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--type</span></kbd></td>
+<td>The type of the chart</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--api</span></kbd></td>
+<td>The chart api library</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.metric.metric.do_count_images">
+<tt class="descname">do_count_images</tt><big>(</big><em>instance</em>, <em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.metric.metric.do_count_images" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd>count_images [&#8211;detail | &#8211;summary] &#8211;user USER</dd>
+</dl>
+<p>Count bucket images per user (development level). It is
+virtual machine image counts grouped by users or accounts
+based on euca2ools.  It shows that which user or account
+currently owns how many virtual machine images on the system.
+This metric is based on the euca2ool command.
+euca-describe-images. that a eucalyptus user can see a list
+of machine images.</p>
+<dl class="docutils">
+<dt>Arguments:</dt>
+<dd>USER       The user</dd>
+<dt>Options:</dt>
+<dd><table class="first last docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">--user</span></kbd></td>
+<td>Show only images from the specified userid.</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--detail</span></kbd></td>
+<td>Show details of the image (What would that be?)</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">--summary</span></kbd></td>
+<td>show summary about the image (default)</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.metric.metric.do_table">
+<tt class="descname">do_table</tt><big>(</big><em>instance</em>, <em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.metric.metric.do_table" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd>table FILENAME
+table &#8211;file FILENAME</dd>
+</dl>
+<p>Export the data in cvs format to a file. Former cvs command</p>
+<dl class="docutils">
+<dt>Arguments:</dt>
+<dd>FILENAME   The filename</dd>
+<dt>Options:</dt>
+<dd><table class="first last docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">--filet</span></kbd></td>
+<td>specifies the filename</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cmd3.plugins.opt_example">
+<span id="opt-example-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">opt_example</span></tt> Module<a class="headerlink" href="#module-cmd3.plugins.opt_example" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cmd3.plugins.opt_example.opt_example">
+<em class="property">class </em><tt class="descclassname">cmd3.plugins.opt_example.</tt><tt class="descname">opt_example</tt><a class="headerlink" href="#cmd3.plugins.opt_example.opt_example" title="Permalink to this definition">¶</a></dt>
+<dd><p>opt_example class</p>
+<dl class="method">
+<dt id="cmd3.plugins.opt_example.opt_example.activate_opt_example">
+<tt class="descname">activate_opt_example</tt><big>(</big><big>)</big><a class="headerlink" href="#cmd3.plugins.opt_example.opt_example.activate_opt_example" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.opt_example.opt_example.do_neu">
+<tt class="descname">do_neu</tt><big>(</big><em>instance</em>, <em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.opt_example.opt_example.do_neu" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd>opt_example [-vr] [FILE] ...</dd>
+</dl>
+<p>Process FILE and optionally apply some options</p>
+<dl class="docutils">
+<dt>Arguments:</dt>
+<dd>FILE        optional input file</dd>
+<dt>Options:</dt>
+<dd><table class="first last docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-v</span></kbd></td>
+<td>verbose mode</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r</span></kbd></td>
+<td>make report</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.opt_example.opt_example.do_old">
+<tt class="descname">do_old</tt><big>(</big><em>instance</em>, <em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.opt_example.opt_example.do_old" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd>old [-ab] [FILE] ...</dd>
+</dl>
+<p>Process FILE and optionally apply some options</p>
+<dl class="docutils">
+<dt>Arguments:</dt>
+<dd>FILE        optional input file</dd>
+<dt>Options:</dt>
+<dd><table class="first last docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-a</span></kbd></td>
+<td>verbose mode</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-b</span></kbd></td>
+<td>make report</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.opt_example.opt_example.do_opt_example">
+<tt class="descname">do_opt_example</tt><big>(</big><em>instance</em>, <em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.opt_example.opt_example.do_opt_example" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd>opt_example [-vr] [FILE] ...</dd>
+</dl>
+<p>Process FILE and optionally apply some options</p>
+<dl class="docutils">
+<dt>Arguments:</dt>
+<dd>FILE        optional input file</dd>
+<dt>Options:</dt>
+<dd><table class="first last docutils option-list" frame="void" rules="none">
+<col class="option" />
+<col class="description" />
+<tbody valign="top">
+<tr><td class="option-group">
+<kbd><span class="option">-v</span></kbd></td>
+<td>verbose mode</td></tr>
+<tr><td class="option-group">
+<kbd><span class="option">-r</span></kbd></td>
+<td>make report</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cmd3.plugins.pause">
+<span id="pause-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">pause</span></tt> Module<a class="headerlink" href="#module-cmd3.plugins.pause" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cmd3.plugins.pause.pause">
+<em class="property">class </em><tt class="descclassname">cmd3.plugins.pause.</tt><tt class="descname">pause</tt><a class="headerlink" href="#cmd3.plugins.pause.pause" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="cmd3.plugins.pause.pause.activate_pause">
+<tt class="descname">activate_pause</tt><big>(</big><big>)</big><a class="headerlink" href="#cmd3.plugins.pause.pause.activate_pause" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.pause.pause.do_pause">
+<tt class="descname">do_pause</tt><big>(</big><em>instance</em>, <em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.pause.pause.do_pause" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Ussage:</dt>
+<dd>pause</dd>
+</dl>
+<p>Displays the specified text then waits for the user to press RETURN.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cmd3.plugins.rst">
+<span id="rst-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">rst</span></tt> Module<a class="headerlink" href="#module-cmd3.plugins.rst" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cmd3.plugins.rst.rst">
+<em class="property">class </em><tt class="descclassname">cmd3.plugins.rst.</tt><tt class="descname">rst</tt><a class="headerlink" href="#cmd3.plugins.rst.rst" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="cmd3.plugins.rst.rst.activate_rst">
+<tt class="descname">activate_rst</tt><big>(</big><big>)</big><a class="headerlink" href="#cmd3.plugins.rst.rst.activate_rst" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.rst.rst.do_man">
+<tt class="descname">do_man</tt><big>(</big><em>instance</em>, <em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.rst.rst.do_man" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd>man</dd>
+</dl>
+<p>Prints out the help pages</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.rst.rst.do_rst">
+<tt class="descname">do_rst</tt><big>(</big><em>instance</em>, <em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.rst.rst.do_rst" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd>rst COMMAND</dd>
+</dl>
+<p>Prints out the comand for inclusion into rst</p>
+<dl class="docutils">
+<dt>Arguments:</dt>
+<dd>COMMAND    The name of the command</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cmd3.plugins.shell_core">
+<span id="shell-core-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">shell_core</span></tt> Module<a class="headerlink" href="#module-cmd3.plugins.shell_core" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cmd3.plugins.shell_core.shell_core">
+<em class="property">class </em><tt class="descclassname">cmd3.plugins.shell_core.</tt><tt class="descname">shell_core</tt><a class="headerlink" href="#cmd3.plugins.shell_core.shell_core" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="cmd3.plugins.shell_core.shell_core.cmdloop">
+<tt class="descname">cmdloop</tt><big>(</big><em>intro=None</em><big>)</big><a class="headerlink" href="#cmd3.plugins.shell_core.shell_core.cmdloop" title="Permalink to this definition">¶</a></dt>
+<dd><p>Repeatedly issue a prompt, accept input, parse an initial prefix
+off the received input, and dispatch to action methods, passing them
+the remainder of the line as argument.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.shell_core.shell_core.do_EOF">
+<tt class="descname">do_EOF</tt><big>(</big><em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.shell_core.shell_core.do_EOF" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd>EOF</dd>
+</dl>
+<p>Action to be performed at the` end of a file. If true it terminates reating the file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.shell_core.shell_core.do_q">
+<tt class="descname">do_q</tt><big>(</big><em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.shell_core.shell_core.do_q" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd>quit</dd>
+</dl>
+<p>Action to be performed whne quit is typed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.shell_core.shell_core.do_quit">
+<tt class="descname">do_quit</tt><big>(</big><em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.shell_core.shell_core.do_quit" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd>quit</dd>
+</dl>
+<p>Action to be performed whne quit is typed</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.shell_core.shell_core.emptyline">
+<tt class="descname">emptyline</tt><big>(</big><big>)</big><a class="headerlink" href="#cmd3.plugins.shell_core.shell_core.emptyline" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cmd3.plugins.template">
+<span id="template-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">template</span></tt> Module<a class="headerlink" href="#module-cmd3.plugins.template" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cmd3.plugins.template.template">
+<em class="property">class </em><tt class="descclassname">cmd3.plugins.template.</tt><tt class="descname">template</tt><a class="headerlink" href="#cmd3.plugins.template.template" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="cmd3.plugins.template.template.activate_template">
+<tt class="descname">activate_template</tt><big>(</big><big>)</big><a class="headerlink" href="#cmd3.plugins.template.template.activate_template" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.template.template.preloop">
+<tt class="descname">preloop</tt><big>(</big><big>)</big><a class="headerlink" href="#cmd3.plugins.template.template.preloop" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cmd3.plugins.timer">
+<span id="timer-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">timer</span></tt> Module<a class="headerlink" href="#module-cmd3.plugins.timer" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cmd3.plugins.timer.timer">
+<em class="property">class </em><tt class="descclassname">cmd3.plugins.timer.</tt><tt class="descname">timer</tt><a class="headerlink" href="#cmd3.plugins.timer.timer" title="Permalink to this definition">¶</a></dt>
+<dd><p>needs to be integrated in pre post command</p>
+<dl class="method">
+<dt id="cmd3.plugins.timer.timer.do_timer">
+<tt class="descname">do_timer</tt><big>(</big><em>instance</em>, <em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.timer.timer.do_timer" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Ussage:</dt>
+<dd>timer (on|off)</dd>
+</dl>
+<p>switches timers on and off not yet implemented</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.timer.timer.list_tmers">
+<tt class="descname">list_tmers</tt><big>(</big><big>)</big><a class="headerlink" href="#cmd3.plugins.timer.timer.list_tmers" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2013, Developed for FutureGrid by Gregor von Laszewski, based on his earlier code from cyberaide and cogkit..<br/>
+      Last updated on Mar 21, 2013.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
