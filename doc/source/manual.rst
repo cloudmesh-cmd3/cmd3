@@ -260,9 +260,13 @@ Please not the differences to our previous class. We have introduced a
 decorator that transforms the do_bar method into a method that returns
 an additional parameter called arguments. This is the arguments dict
 that is created by docopt. And allows for some very convenient
-introduction of handeling the parameters, arguments, and options.
-If you like to find more out about docopts please visit the web site
-at ???, which also includes some nice examples ???
+introduction of handeling the parameters, arguments, and options.  If
+you like to find more out about docopts please visit the `website`_ ,
+which also includes some nice `examples`_ to show the use of docopt in
+python.
+
+.. _website: https://github.com/docopt
+.. _examples: https://github.com/docopt/docopt/tree/master/examples
 
 Help
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
