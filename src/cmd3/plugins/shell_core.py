@@ -4,7 +4,10 @@ from cmd3.cyberaide.decorators import command
 import sys
 
 class shell_core:
-    
+
+    def activate_shell_core(self):
+        self._hist = []
+        
     def do_EOF(self, args):
         """
         Usage:

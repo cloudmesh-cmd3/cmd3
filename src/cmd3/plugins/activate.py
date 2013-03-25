@@ -21,6 +21,9 @@ class activate:
         d = dir(self)
         self.plugins = []
         for key in d:
+            if key.startswith("shell_activate_"):
+                self.plugins.append(key)
+        for key in d:
             if key.startswith("activate_"):
                 self.plugins.append(key)
         

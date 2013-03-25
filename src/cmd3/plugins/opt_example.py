@@ -7,9 +7,6 @@ import importlib
 from cmd3.cyberaide.decorators import command
 
 
-
-
-
 class opt_example:
     """opt_example class"""
     

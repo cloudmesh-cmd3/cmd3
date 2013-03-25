@@ -1,4 +1,5 @@
 #from method_decorator import method_decorator
+
 import textwrap
 from docopt import docopt
 import inspect
@@ -12,7 +13,7 @@ def command(func):
     def new(instance, args):
         #instance.new.__doc__ = doc
         try:
-            arguments = docopt(doc, help=False, argv=args)
+            arguments = docopt(doc, help=True, argv=args)
             func(instance, args, arguments)
         except SystemExit:
             if not args in ('-h','--help'):
@@ -21,12 +22,5 @@ def command(func):
     new.__doc__ = doc
     return new
 
-"""
-class help_method(method_decorator):
-    def __call__(self, *args, **kwargs):
-        print 70 * "-"
-        print textwrap.dedent(self.__doc__)
-        print 70 * "-"
-"""
         
 
