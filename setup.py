@@ -1,8 +1,9 @@
-"""FutureGrid: CMD3
+"""cmd extension with plugins from a directory, scripts, and variable substitutions.
 
 This project is based on material developed by Gregor von Laszewski
 Significant potions of it are developed as pat of the CoG Shell and
-Cyberaide projects.
+Cyberaide projects. However it was made more portable with better
+install.
 
 """
 

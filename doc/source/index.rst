@@ -53,15 +53,12 @@ follow the syntax $variable.
 
 Here is a list of features that we found important:
 
-* [done] dynamic class creation 
-* [done] plugins loadable via a plugin directory 
-* [done] easy instalation with setup.py
-* [pending] deployment via pip and py pi
-* [pending] variable substitution
-* [pending] scripts loadable from a script directory
-
-[pending] = development has been already done, but is not yet integrated
-
+*  dynamic class creation 
+*  plugins loadable via a plugin directory 
+*  easy instalation with setup.py
+*  deployment via pip and py pi
+*  variable substitution
+*  scripts loadable from a script directory
 
 
    
