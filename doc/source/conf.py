@@ -15,10 +15,10 @@ import sys, os
 import sphinx_bootstrap_theme
 from sh import fgrep
 
-line = fgrep("__version__=")
-exec(line)
+#line = fgrep("__version__=")
+#exec(line)
 
-version = __version__
+version = 0.0.5
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
