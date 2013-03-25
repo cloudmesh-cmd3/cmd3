@@ -5,5 +5,10 @@ class bar:
     def activate_bar(self):
         pass
 
-    def do_that(self, arg):
-        print "THAT", arg
+    def do_bar(self, arg):
+        """
+        Usage:
+            bar line
+        
+        """
+        print "BAR", arg

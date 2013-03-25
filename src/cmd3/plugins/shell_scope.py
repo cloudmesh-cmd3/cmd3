@@ -15,7 +15,6 @@ class shell_scope:
     #scopeless = ['info', 'var', 'use', 'quit', 'q', 'EOF', 'eof', 'help']
     scopeless = ['info', 'var', 'use', 'quit', 'q', 'help']
     prompt = 'cm> '
-    scripts = {}
     variables = {}
 
     ######################################################################
@@ -32,7 +31,6 @@ class shell_scope:
         print "%20s =" % "variables", self.variables
     
     def activate_shell_scope (self):
-        self.scripts = {}
         self.variables = {}
         self.prompt = 'cm> '
         self.echo = True
@@ -144,16 +142,6 @@ class shell_scope:
         self.variables['time'] = time
         self.variables['date'] = date
         
-    def replace_vars(self,line):
-
-        self.update_time()
-
-        newline = line
-        for v in self.variables:
-            newline = newline.replace("$"+v,self.variables[v])
-        for v in os.environ:
-            newline = newline.replace("$"+v,os.environ[v])
-        return newline
 
     ######################################################################
     # line handler
@@ -252,26 +240,35 @@ class shell_scope:
     # Echo
     ######################################################################
 
+    @command
     def do_verbose(self, boolean):
+        """
+        Usage:
+            verbose (True | False)
+
+        If set to True prints the command befor execution.
+        In interactive mode you may want to set it to False.
+        When using scripts we recommend to set it to True.
+
+        The default is set to True
+        """
         self.echo = boolean == 'True'
 
-    def help_verbose(self):
-        msg = """
-        DESCRIPTION
-
-           If set to True prints the command befor execution.
-           In interactive mode you may want to set it to False.
-           When using scripts we recommend to set it to True.
-
-           The default is set to True
-            
-        """
-        print textwrap.dedent(msg)
 
     ######################################################################
     # VAR
     ######################################################################
 
+    def replace_vars(self,line):
+
+        self.update_time()
+
+        newline = line
+        for v in self.variables:
+            newline = newline.replace("$"+v,self.variables[v])
+        for v in os.environ:
+            newline = newline.replace("$"+v,os.environ[v])
+        return newline
         
     def _add_variable(self, name, value):
         self.variables[name] = value
@@ -293,18 +290,17 @@ class shell_scope:
     def do_var(self, arg, arguments):
         """
         Usage:
-            var              list the variables
+            var list | var
+            var delete NAME
+            var NAME=VALUE 
 
-
-        OTHER
-            var list         list the variables
-            var NAME VALUE   assigns a name value pait
-            var delete ANME  deletes the variable
+        Arguments:
+            NAME    Name of the variable
+            VALUE   VALUE to be assigned
 
         special vars date and time are defined
         """
-        print ">>>", arg
-        if arg == 'list' or arg == '':
+        if arg == 'list' or arg == '' or arg == None:
             self._list_variables()
             return
         elif '=' in arg:

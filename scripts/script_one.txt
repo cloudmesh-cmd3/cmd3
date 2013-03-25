@@ -1,0 +1,10 @@
+bar $abc
+
+bar $time
+
+bar $date
+
+var one_y=time
+var one_x=date
+
+bar $one_x $one_y
