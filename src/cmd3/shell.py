@@ -92,6 +92,8 @@ from cmd3.cyberaide.dynamic_cmd import get_plugins
 
 def main():
 
+
+
   plugin_path = os.path.join(os.path.dirname(__file__),'plugins')
 
   plugins = get_plugins(plugin_path)
@@ -99,6 +101,7 @@ def main():
   name    = "CmCli"
   
   (cmd, plugin_objects) = DynamicCmd(name, plugins)
+  cmd.version()
   cmd.activate()
   cmd.cmdloop()
   

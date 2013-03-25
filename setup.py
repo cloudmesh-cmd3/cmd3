@@ -15,11 +15,7 @@ doclines = __doc__.split("\n")
 # VERSION
 ######################################################################
 
-version="0.0.4"
-#try:
-#    version = open("VERSION.txt").read()
-#except:
-#    version = open("../VERSION.txt").read()
+__version__="0.0.5"
 
 
 ######################################################################
@@ -84,7 +80,7 @@ setup(
     install_requires = needed_packages,
     
     name='cmd3',
-    version=version,
+    version=__version__,
     description=doclines[0],
     long_description = "\n".join(doclines[2:]),
     classifiers=[], # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers

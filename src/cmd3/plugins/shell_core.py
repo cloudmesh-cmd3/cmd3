@@ -5,6 +5,11 @@ import sys
 
 class shell_core:
 
+    def version(self):
+        import pkg_resources  # part of setuptools
+        self.__version__ = pkg_resources.require("cmd3")[0].version
+        print self.__version__
+
     def activate_shell_core(self):
         self._hist = []
         
