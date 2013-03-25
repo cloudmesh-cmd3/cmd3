@@ -40,8 +40,11 @@ class rst:
     def do_man(self, args,arguments):
         """
         Usage:
-               man
+               man [--noheader]
 
+        Options:
+               --norule   no rst header
+               
         Prints out the help pages
         """
 
@@ -55,8 +58,9 @@ class rst:
         for command in commands:
             what = command.replace("do_","")
             try:
-                print what
-                print 70 * "-"
+                if not arguments["--noheader"]:
+                    print what
+                    print 70 * "-"
                 self.do_rst(what)
             except:
                 print "\n    Command documentation %s missing, help_%s" % (what, what)
