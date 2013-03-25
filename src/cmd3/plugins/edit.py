@@ -2,7 +2,7 @@ from cmd3. cyberaide.decorators import command
 
 import os
 import sys
-from sh import open
+from sh import open as open_editor
 import platform
 
 class edit:
@@ -16,15 +16,17 @@ class edit:
 
     @command
     def do_edit(self, arg, arguments):
-        """Ussage:
-             edir FILENAME
+        """Usage:
+             edit FILENAME
+             
         Arguments:
             FILENAME  the file to edit
 
         Edits a file."""
 
         filename = arg
-
+        print filename
+        
         if platform.system() == 'Darwin':
 
             # touch filename
@@ -35,7 +37,7 @@ class edit:
 
             for editor in editors:
                 if os.path.exists(editor):
-                    open("-a", editor, filename)
+                    open_editor("-a", editor, filename)
                     return
 
             print "ERROR: Could not find working editor in", editors
