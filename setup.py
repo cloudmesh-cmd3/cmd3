@@ -16,7 +16,7 @@ doclines = __doc__.split("\n")
 # VERSION
 ######################################################################
 
-__version__="0.0.5"
+__version__="0.0.6"
 
 
 ######################################################################
@@ -58,7 +58,7 @@ if sys.version_info < (2, 7):
 # REQUIREMENTS
 ######################################################################
 
-required_packages = ['setuptools','pip','docopt']
+required_packages = ['setuptools','pip','docopt','sh']
 
 needed_packages = []
 
