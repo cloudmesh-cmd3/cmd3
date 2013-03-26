@@ -1,6 +1,7 @@
 from cmd3.cyberaide.decorators import command
 from code import InteractiveConsole, InteractiveInterpreter
 import sys
+""" This code has been copied and modified from cmd2 to work with cmd3"""
 
 class EmbeddedConsoleExit(SystemExit):
     pass
@@ -26,7 +27,7 @@ class py:
 
 
     def activate_py(self):
-        locals_in_py = True
+        self.locals_in_py = True
         self.pystate['self'] = self
         pass
 
