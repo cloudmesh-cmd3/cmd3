@@ -15,7 +15,10 @@ import sys, os
 import sphinx_bootstrap_theme
 import cmd3
 
-version = "0.0.5"
+import pkg_resources  # part of setuptools
+version = pkg_resources.require("cmd3")[0].version
+
+#version = "0.0.5"
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
