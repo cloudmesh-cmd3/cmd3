@@ -9,6 +9,10 @@ class shell_core:
         self.get_version()
         print "%20s = " % "VERSION", self.__version__
 
+    def version(self):
+        self.get_version()
+        return self.__version__
+    
     def get_version(self):
         import pkg_resources  # part of setuptools
         self.__version__ = pkg_resources.require("cmd3")[0].version

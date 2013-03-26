@@ -13,10 +13,7 @@
 
 import sys, os
 import sphinx_bootstrap_theme
-from sh import fgrep
-
-#line = fgrep("__version__=")
-#exec(line)
+import cmd3
 
 version = "0.0.5"
 
