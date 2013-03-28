@@ -100,7 +100,6 @@ def main():
     opts, args = getopt.getopt(sys.argv[1:],
                                 "hif:",
                                 ["help", "interactive", "file="])
-
   except getopt.GetoptError:
     usage()
     sys.exit(2)
@@ -125,9 +124,25 @@ def main():
   cmd.version()
   cmd.activate()
   cmd.do_exec(script_file)
-  if not script_file or interactive:
+
+  if is_subcmd(opts, args):
+    try:
+      user_cmd = " ".join(args)
+      print ">", user_cmd
+      cmd.onecmd(user_cmd)
+    except:
+      print "'%s' is not recognized" % user_cmd
+  elif not script_file or interactive:
     cmd.cmdloop()
- 
+
+def is_subcmd(opts, args):
+    """if sys.argv[1:] does not match any getopt options, 
+    we simply assume it is a sub command to execute onecmd()"""
+
+    if not opts and args:
+      return True
+    return False
+
 def usage():
     """Usage of cmd3"""
     
