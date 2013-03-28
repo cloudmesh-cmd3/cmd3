@@ -91,7 +91,9 @@ from cmd3.cyberaide.dynamic_cmd import DynamicCmd
 from cmd3.cyberaide.dynamic_cmd import get_plugins
 
 def main():
-
+  """
+  
+  """
 
 
   plugin_path = os.path.join(os.path.dirname(__file__),'plugins')
@@ -107,3 +109,52 @@ def main():
   
 if __name__ == "__main__":
   main()
+
+
+"""
+bash$ echo "help" | shell.py > output.txt
+
+stupid example: shell.py metric analyze -y 2013
+
+/trunk/cog-shell/src/cogkit/Shell/CoGCli.py?revision=3648&view=markup
+
+
+386def runCLI(filename=None, silent=False, interactive=False):
+387    if filename == None:
+388        cli = CogShell(silent)
+389        cli.cmdloop()
+390    else:
+391        cli = CogShell(silent=True)
+392        cli.do_exec(filename)
+393        if interactive:
+394            cli.cmdloop()
+395
+
+
+example form cogkit, but use docopts for the new version 
+def main():
+46    try:
+47        opts, args = getopt.getopt(sys.argv[1:],   #IGNORE:W0612
+48                                   "hqif:",
+49                                   ["help", "quiet", "interactive", "file="])
+50    except getopt.GetoptError:
+51        # print help information and exit:
+52        usage()
+53        sys.exit(2)
+54
+55    script_file = None
+56    quiet = None
+57    interactive = None
+58    for option, argument in opts:
+59        if option in ("-h", "--help"):
+60            usage()
+61            sys.exit()
+62        if option in ("-f", "--file"):
+63            script_file = argument
+64        if option in ("-q", "--quiet"):
+65            quiet = True
+66        if option in ("-i", "--interactive"):
+67            interactive = True
+68
+69    cogkit.Shell.CoGCli.runCLI(script_file, quiet, interactive)
+"""
