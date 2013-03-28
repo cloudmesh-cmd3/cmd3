@@ -1,6 +1,7 @@
 import traceback
 from cmd3.cyberaide.decorators import command
 
+import os
 import sys
 
 class shell_core:
@@ -95,3 +96,17 @@ class shell_core:
                     readline.set_completer(self.old_completer)
                 except ImportError:
                     pass
+
+    def do_exec(self, filename):
+        """Execute script file"""
+        if not filename:
+            return
+                                                                                
+        if os.path.exists(filename):
+            with open(filename, "r") as f:
+                for line in f:
+                    print ">", line
+                    self.onecmd(line)
+        else:
+            print '"%s" file does not exist.' % filename
+            sys.exit()

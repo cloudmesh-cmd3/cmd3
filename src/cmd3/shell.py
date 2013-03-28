@@ -84,6 +84,7 @@ import cmd
 import readline
 import glob
 import os
+import getopt
 
 from cmd3.cyberaide.dynamic_cmd import load_plugins
 from cmd3.cyberaide.dynamic_cmd import make_cmd_class
@@ -95,6 +96,24 @@ def main():
   
   """
 
+  try:
+    opts, args = getopt.getopt(sys.argv[1:],
+                                "hif:",
+                                ["help", "interactive", "file="])
+
+  except getopt.GetoptError:
+    usage()
+    sys.exit(2)
+  script_file = None
+  interactive = False
+  for option, argument in opts:
+    if option in ("-h", "--help"):
+      usage()
+      sys.exit()
+    if option in ("-f", "--file"):
+      script_file = argument
+    if option in ("-i", "--interactive"):
+      interactive = True
 
   plugin_path = os.path.join(os.path.dirname(__file__),'plugins')
 
@@ -105,8 +124,22 @@ def main():
   (cmd, plugin_objects) = DynamicCmd(name, plugins)
   cmd.version()
   cmd.activate()
-  cmd.cmdloop()
-  
+  cmd.do_exec(script_file)
+  if not script_file or interactive:
+    cmd.cmdloop()
+ 
+def usage():
+    """Usage of cmd3"""
+    
+    print "Usage: $ cm"
+    print
+    print " $ echo \"help\" | cm"
+    print
+    print " $ cm -f file"
+    print
+    print " $ cm -f file -i"
+    print
+
 if __name__ == "__main__":
   main()
 
