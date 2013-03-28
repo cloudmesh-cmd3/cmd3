@@ -25,7 +25,6 @@ class py:
     pystate = {} 
     locals_in_py = True
 
-
     def activate_py(self):
         self.locals_in_py = True
         self.pystate['self'] = self
