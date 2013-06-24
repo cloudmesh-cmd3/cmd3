@@ -4,12 +4,12 @@ This project is about developing a dynamic CMD class based on cmd.CMD.
 We assume the following directory structure::
 
   ./shell.py
-  ./cyberaide/dynamic_cmd.py
+  ./dynamic_cmd.py
   ./plugins/foo.py 
   ./plugins/bar.py 
   ./plugins/activate.py 
 
-We have provides examples of the classes in this document
+We have provided examples of the classes in this document
 
 foo and bar contain some classes that include he usual do_ methods. It
 also includes an activate method that is called wih the acivation
@@ -86,10 +86,10 @@ import glob
 import os
 import getopt
 
-from cmd3.cyberaide.dynamic_cmd import load_plugins
-from cmd3.cyberaide.dynamic_cmd import make_cmd_class
-from cmd3.cyberaide.dynamic_cmd import DynamicCmd
-from cmd3.cyberaide.dynamic_cmd import get_plugins
+from cmd3.dynamic_cmd import load_plugins
+from cmd3.dynamic_cmd import make_cmd_class
+from cmd3.dynamic_cmd import DynamicCmd
+from cmd3.dynamic_cmd import get_plugins
 
 def main():
   """
