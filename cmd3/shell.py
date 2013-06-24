@@ -89,6 +89,19 @@ from docopt import docopt
 import inspect
 
 ######################################################################
+# SETTING UP A LOGGER
+######################################################################
+
+import logging
+log = logging.getLogger('cmd3')
+log.setLevel(logging.DEBUG)
+formatter = logging.Formatter('CMD3: [%(levelname)s] %(message)s')
+handler = logging.StreamHandler()
+handler.setFormatter(formatter)
+log.addHandler(handler)
+
+
+######################################################################
 # DYNAMIC COMMAND MANAGEMENT
 ######################################################################
 #
@@ -98,9 +111,12 @@ import inspect
 # dynamic CMD that loads from plugin directory
 # 
 
-def DynamicCmd(name,plugins):
+def DynamicCmd(name,classprefixes,plugins):
     exec('class %s(cmd.Cmd):\n    prompt="cm> "' % name)
-    plugin_objects = load_plugins(plugins)    
+
+    plugin_objects = load_plugins(classprefixes[0],plugins)
+    for classprefix in classprefixes[1:]:
+      plugin_objects = plugin_objects + load_plugins(classprefix,plugins)
     cmd = make_cmd_class(name, *plugin_objects)()
     return (cmd, plugin_objects)
 
@@ -115,16 +131,21 @@ def get_plugins(dir):
         p = p.replace(dir + "/", "").replace(".py", "")
         if not p.startswith('_'):
             plugins.append(p)
+    log.info ("Loading Plugins from {0}".format(dir))
+    log.info ("   {0}".format(str(plugins)))
     return plugins
 
-def load_plugins(list):
-
+def load_plugins(classprefix,list):
+  # classprefix "cmd3.plugins."
     plugins = []
     object = {}
     for plugin in list:
-        object[plugin] = __import__("cmd3.plugins." + plugin, globals(), locals(), [plugin], -1)
+      try:
+        object[plugin] = __import__(classprefix + "." + plugin, globals(), locals(), [plugin], -1)
         exec("cls = object['%s'].%s" % (plugin, plugin))
         plugins.append(cls)
+      except:
+        print "Non module found", plugin, classprefix
     return plugins
 
 
@@ -177,13 +198,33 @@ def main():
     if option in ("-i", "--interactive"):
       interactive = True
 
+  
   plugin_path = os.path.join(os.path.dirname(__file__),'plugins')
+  plugins_a = get_plugins(plugin_path)
 
-  plugins = get_plugins(plugin_path)
+
+  dir_path = "~/.futuregrid"
+  dir_path = os.path.expanduser(os.path.expandvars(dir_path))
+  user_path = "{0}/cmd3local/plugins".format(dir_path)
+
+  
+  if not os.path.exists(user_path):
+    os.makedirs(user_path)
+  if not os.path.exists("{0}/cmd3local/__init__.py".format(dir_path)):
+    open("{0}/cmd3local/__init__.py".format(dir_path),"a").close()
+  if not os.path.exists("{0}/cmd3local/plugins/__init__.py".format(dir_path)):
+    open("{0}/cmd3local/plugins/__init__.py".format(dir_path),"a").close()
+
+  sys.path.append(os.path.expanduser("~/.futuregrid"))
+  
+  plugins_b = get_plugins(user_path)
+
+  plugins = plugins_a + plugins_b
 
   name    = "CmCli"
+
+  (cmd, plugin_objects) = DynamicCmd(name, ["cmd3.plugins", "cmd3local.plugins"], plugins)
   
-  (cmd, plugin_objects) = DynamicCmd(name, plugins)
   cmd.version()
   cmd.activate()
   cmd.do_exec(script_file)
