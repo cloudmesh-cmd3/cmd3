@@ -1,112 +1,26 @@
-"""cmd extension with plugins from a directory, scripts, and variable substitutions.
+#!/usr/bin/env python
+# -------------------------------------------------------------------------- #
+# Copyright 2008-2010, Gregor von Laszewski                                  #
+# Copyright 2010-2011, Indiana University                                    #
+#                                                                            #
+# Licensed under the Apache License, Version 2.0 (the "License"); you may    #
+# not use this file except in compliance with the License. You may obtain    #
+# a copy of the License at                                                   #
+#                                                                            #
+# http://www.apache.org/licenses/LICENSE-2.0                                 #
+#                                                                            #
+# Unless required by applicable law or agreed to in writing, software        #
+# distributed under the License is distributed on an "AS IS" BASIS,          #
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.   #
+# See the License for the specific language governing permissions and        #
+# limitations under the License.                                             #
+# -------------------------------------------------------------------------- #
+import setuptools
 
-This project is based on material developed by Gregor von Laszewski
-Significant potions of it are developed as pat of the CoG Shell and
-Cyberaide projects. However it was made more portable with better
-install.
+setuptools.setup(
+    setup_requires=[
+        'd2to1',
+        'pbr>=0.5,<0.6'],
+        d2to1=True)
 
-"""
-
-from setuptools import setup, find_packages
-import sys, os
-
-doclines = __doc__.split("\n")
-
-######################################################################
-# VERSION
-######################################################################
-
-__version__="0.0.6"
-
-
-######################################################################
-# CLASSIFIER
-######################################################################
-
-classifiers = """\
-Intended Audience :: Developers
-Intended Audience :: Education
-Intended Audience :: Science/Research
-Development Status :: 3 - Alpha
-Intended Audience :: Developers
-License :: OSI Approved :: Apache Software License
-Programming Language :: Python
-Topic :: Database
-Topic :: Software Development :: Libraries :: Python Modules
-Operating System :: POSIX :: Linux
-Programming Language :: Python :: 2.7
-Operating System :: MacOS :: MacOS X
-Topic :: Scientific/Engineering
-Topic :: System :: Clustering
-Topic :: System :: Distributed Computing
-"""
-
-######################################################################
-# VERSION CHECK
-######################################################################
-
-if sys.version_info < (2, 7):
-    _setup = setup
-    def setup(**kwargs):
-        if kwargs.has_key("classifiers"):
-            del kwargs["classifiers"]
-        _setup(**kwargs)
-
-#DISTUTILS_DEBUG=1
-
-######################################################################
-# REQUIREMENTS
-######################################################################
-
-required_packages = ['setuptools','pip','docopt','sh']
-
-needed_packages = []
-
-for package in required_packages:
-    try:
-        print "... trying import", package
-        __import__(package)
-        print "... package found"
-    except ImportError:
-        print "... needing import", package
-        needed_packages.append(package)
-
-print needed_packages
-
-######################################################################
-# SETUP
-######################################################################
-
-setup(
-    install_requires = needed_packages,
-    
-    name='cmd3',
-    version=__version__,
-    description=doclines[0],
-    long_description = "\n".join(doclines[2:]),
-    classifiers=[], # Get strings from http://pypi.python.org/pypi?%3Aaction=list_classifiers
-    keywords='FutureGrid Eucalyptys Log File Analysis',
-    author='Gregor von Laszewski',
-    maintainer='Gregor von Laszewski',
-    maintainer_email="laszewski@gmail.com",
-    author_email='laszewski@gmail.com',
-    url='https://github.com/futuregrid/cmd3',
-    license='Apache 2.0',
-    package_dir={'': 'src'},
-    packages = find_packages('src'),
-
-    include_package_data=True,
-    zip_safe=False,
-
-    package_data = {'cmd3': ['cmd3/plugins']},
-
-
-    
-    entry_points={
-        'console_scripts':
-            [
-             'cm = cmd3.shell:main',
-             ]},
-
-
-    )
+    #    version='#:')
