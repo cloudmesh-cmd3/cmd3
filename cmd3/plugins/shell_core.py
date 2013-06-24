@@ -18,12 +18,19 @@ class shell_core:
         import pkg_resources  # part of setuptools
         self.__version__ = pkg_resources.require("cmd3")[0].version
 
-    def version(self):
+    def do_version(self,args):
+        """
+        Usage:
+           version
+
+        Prints out the version number
+        """
         self.get_version()
-        print 'Cmd3 Version',  self.__version__
+        print self.__version__
 
     def activate_shell_core(self):
         self._hist = []
+
         
     def do_EOF(self, args):
         """

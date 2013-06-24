@@ -3,3 +3,5 @@ pbr>=0.5,<0.6
 pip
 docopt
 sh
+pep8
+autopep8

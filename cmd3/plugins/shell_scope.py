@@ -240,8 +240,11 @@ class shell_scope:
     # Echo
     ######################################################################
 
+    def set_verbose(self, on):
+        self.verbose = on
+
     @command
-    def do_verbose(self, boolean):
+    def do_verbose(self, on):
         """
         Usage:
             verbose (True | False)
@@ -252,7 +255,7 @@ class shell_scope:
 
         The default is set to True
         """
-        self.echo = boolean == 'True'
+        self.echo = on == 'True'
 
 
     ######################################################################

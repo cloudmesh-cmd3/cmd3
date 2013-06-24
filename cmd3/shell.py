@@ -1,12 +1,12 @@
 #! /usr/bin/env python
 """
-This project is about developing a dynamic CMD class based on cmd.CMD. 
+This project is about developing a dynamic CMD class based on cmd.CMD.
 We assume the following directory structure::
 
   ./shell.py
-  ./plugins/foo.py 
-  ./plugins/bar.py 
-  ./plugins/activate.py 
+  ./plugins/foo.py
+  ./plugins/bar.py
+  ./plugins/activate.py
 
 We have provided examples of the classes in this document
 
@@ -46,7 +46,7 @@ Here are the sample classes::
 
        def do_this(self, arg):
            print "THIS", arg
-           self.activate_status()  
+           self.activate_status()
 
        def activate_foo(self):
            print "... activate foo"
@@ -77,7 +77,7 @@ Here are the sample classes::
                print "> %s" % key.replace("_"," ")
                exec("self.%s()" % key)
 """
-
+import pkg_resources  # part of setuptools
 import sys
 import cmd
 import readline
@@ -88,9 +88,9 @@ import textwrap
 from docopt import docopt
 import inspect
 
-######################################################################
+#
 # SETTING UP A LOGGER
-######################################################################
+#
 
 import logging
 log = logging.getLogger('cmd3')
@@ -101,163 +101,175 @@ handler.setFormatter(formatter)
 log.addHandler(handler)
 
 
-######################################################################
+#
 # DYNAMIC COMMAND MANAGEMENT
-######################################################################
+#
 #
 # Gregor von Laszewski
 #
 # code insired from cyberaide and cogkit, while trying to develop a
 # dynamic CMD that loads from plugin directory
-# 
+#
 
-def DynamicCmd(name,classprefixes,plugins):
+def DynamicCmd(name, classprefixes, plugins, quiet=False):
     exec('class %s(cmd.Cmd):\n    prompt="cm> "' % name)
 
-    plugin_objects = load_plugins(classprefixes[0],plugins)
+    plugin_objects = load_plugins(classprefixes[0], plugins)
     for classprefix in classprefixes[1:]:
-      plugin_objects = plugin_objects + load_plugins(classprefix,plugins)
+        plugin_objects = plugin_objects + load_plugins(classprefix, plugins, quiet)
     cmd = make_cmd_class(name, *plugin_objects)()
     return (cmd, plugin_objects)
+
 
 def make_cmd_class(name, *bases):
     return type(cmd.Cmd)(name, bases + (cmd.Cmd,), {})
 
+
 def get_plugins(dir):
     # not just plugin_*.py
     plugins = []
-    list=glob.glob(dir + "/*.py")
+    list = glob.glob(dir + "/*.py")
     for p in list:
         p = p.replace(dir + "/", "").replace(".py", "")
         if not p.startswith('_'):
             plugins.append(p)
-    log.info ("Loading Plugins from {0}".format(dir))
-    log.info ("   {0}".format(str(plugins)))
+    log.info("Loading Plugins from {0}".format(dir))
+    log.info("   {0}".format(str(plugins)))
     return plugins
 
-def load_plugins(classprefix,list):
+
+def load_plugins(classprefix, list, quiet=False):
   # classprefix "cmd3.plugins."
     plugins = []
     object = {}
     for plugin in list:
-      try:
-        object[plugin] = __import__(classprefix + "." + plugin, globals(), locals(), [plugin], -1)
-        exec("cls = object['%s'].%s" % (plugin, plugin))
-        plugins.append(cls)
-      except:
-        print "Non module found", plugin, classprefix
+        try:
+            object[plugin] = __import__(
+                classprefix + "." + plugin, globals(), locals(), [plugin], -1)
+            exec("cls = object['%s'].%s" % (plugin, plugin))
+            plugins.append(cls)
+        except:
+          if not quiet:
+            print "No module found", plugin, classprefix
     return plugins
 
 
-######################################################################
+#
 # DECORATOR: COMMAND
-######################################################################
+#
 
 def command(func):
     classname = inspect.getouterframes(inspect.currentframe())[1][3]
     name = func.__name__
-    help_name = name.replace("do_","help_")
+    help_name = name.replace("do_", "help_")
     doc = textwrap.dedent(func.__doc__)
-    
+
     def new(instance, args):
-        #instance.new.__doc__ = doc
+            # instance.new.__doc__ = doc
         try:
             arguments = docopt(doc, help=True, argv=args)
             func(instance, args, arguments)
         except SystemExit:
-            if not args in ('-h','--help'):
+            if not args in ('-h', '--help'):
                 print "Error: Wrong Format"
             print doc
     new.__doc__ = doc
     return new
 
-######################################################################
+#
 # MAIN
-######################################################################
+#
+
+def create_file(filename):
+  expanded_filename = os.path.expanduser(os.path.expandvars(filename))
+  if not os.path.exists(expanded_filename):
+    open(expanded_filename, "a").close()
+
+def create_dir(dir_path):
+  if not os.path.exists(dir_path):
+    os.makedirs(dir_path)
+
 
 def main():
-  """
-  
-  """
+    """cm. 
 
-  try:
-    opts, args = getopt.getopt(sys.argv[1:],
-                                "hif:",
-                                ["help", "interactive", "file="])
-  except getopt.GetoptError:
-    usage()
-    sys.exit(2)
-  script_file = None
-  interactive = False
-  for option, argument in opts:
-    if option in ("-h", "--help"):
-      usage()
-      sys.exit()
-    if option in ("-f", "--file"):
-      script_file = argument
-    if option in ("-i", "--interactive"):
-      interactive = True
+    Usage:
+      cm [--file=SCRIPT] [--interactive] [--quiet] [COMMAND ...]
+      cm [-f SCRIPT] [-i] [-q] [COMMAND ...]
 
-  
-  plugin_path = os.path.join(os.path.dirname(__file__),'plugins')
-  plugins_a = get_plugins(plugin_path)
+    Arguments:
+      COMMAND                  A command to be executed
+
+    Options:
+      --file=SCRIPT -f SCRIPT  Executes the scipt 
+      --interactive -i         After start keep the shell interactive, otherwise quit
+      --quiet       -q         Surpress some of the informational messages.
+    """
+
+    #    __version__ = pkg_resources.require("cmd3")[0].version
+    #arguments = docopt(main.__doc__, help=True, version=__version__)
+
+    arguments = docopt(main.__doc__, help=True)
+
+    print arguments
+
+    script_file = arguments['--file']
+    interactive = arguments['--interactive']
+    quiet = arguments['--quiet']
 
 
-  dir_path = "~/.futuregrid"
-  dir_path = os.path.expanduser(os.path.expandvars(dir_path))
-  user_path = "{0}/cmd3local/plugins".format(dir_path)
+    plugin_path = os.path.join(os.path.dirname(__file__), 'plugins')
+    plugins_a = get_plugins(plugin_path)
 
-  
-  if not os.path.exists(user_path):
-    os.makedirs(user_path)
-  if not os.path.exists("{0}/cmd3local/__init__.py".format(dir_path)):
-    open("{0}/cmd3local/__init__.py".format(dir_path),"a").close()
-  if not os.path.exists("{0}/cmd3local/plugins/__init__.py".format(dir_path)):
-    open("{0}/cmd3local/plugins/__init__.py".format(dir_path),"a").close()
+    dir_path = "~/.futuregrid"
+    dir_path = os.path.expanduser(os.path.expandvars(dir_path))
+    user_path = "{0}/cmd3local/plugins".format(dir_path)
 
-  sys.path.append(os.path.expanduser("~/.futuregrid"))
-  
-  plugins_b = get_plugins(user_path)
+    create_dir(user_path)
+    create_file("{0}/cmd3local/__init__.py".format(dir_path))
+    create_file("{0}/cmd3local/plugins/__init__.py".format(dir_path))
 
-  plugins = plugins_a + plugins_b
 
-  name    = "CmCli"
+    sys.path.append(os.path.expanduser("~/.futuregrid"))
 
-  (cmd, plugin_objects) = DynamicCmd(name, ["cmd3.plugins", "cmd3local.plugins"], plugins)
-  
-  cmd.version()
-  cmd.activate()
-  cmd.do_exec(script_file)
+    plugins_b = get_plugins(user_path)
 
-  if is_subcmd(opts, args):
-    try:
-      user_cmd = " ".join(args)
-      print ">", user_cmd
-      cmd.onecmd(user_cmd)
-    except:
-      print "'%s' is not recognized" % user_cmd
-  elif not script_file or interactive:
-    cmd.cmdloop()
+    plugins = plugins_a + plugins_b
+
+    name = "CmCli"
+
+    (cmd, plugin_objects) = DynamicCmd(
+      name,
+      ["cmd3.plugins", "cmd3local.plugins"],
+      plugins,
+      quiet)
+
+    print arguments
+    print quiet
+    cmd.version()
+    #cmd.set_verbose(quiet)
+    cmd.activate()
+    cmd.do_exec(script_file)
+
+    if len(arguments['COMMAND']) > 0:
+        try:
+            user_cmd = " ".join(arguments['COMMAND'])
+            print ">", user_cmd
+            cmd.onecmd(user_cmd)
+        except:
+            print "'%s' is not recognized" % user_cmd
+    elif not script_file or interactive:
+        cmd.cmdloop()
+
 
 def is_subcmd(opts, args):
-    """if sys.argv[1:] does not match any getopt options, 
+    """if sys.argv[1:] does not match any getopt options,
     we simply assume it is a sub command to execute onecmd()"""
 
     if not opts and args:
-      return True
+        return True
     return False
 
-def usage():
-    """Usage of cmd3"""
-    
-    print "Usage: $ cm"
-    print
-    print " $ echo \"help\" | cm"
-    print
-    print " $ cm -f file"
-    print
-    print " $ cm -f file -i"
-    print
 
 if __name__ == "__main__":
   main()
@@ -282,31 +294,5 @@ stupid example: shell.py metric analyze -y 2013
 394            cli.cmdloop()
 395
 
-
-example form cogkit, but use docopts for the new version 
-def main():
-46    try:
-47        opts, args = getopt.getopt(sys.argv[1:],   #IGNORE:W0612
-48                                   "hqif:",
-49                                   ["help", "quiet", "interactive", "file="])
-50    except getopt.GetoptError:
-51        # print help information and exit:
-52        usage()
-53        sys.exit(2)
-54
-55    script_file = None
-56    quiet = None
-57    interactive = None
-58    for option, argument in opts:
-59        if option in ("-h", "--help"):
-60            usage()
-61            sys.exit()
-62        if option in ("-f", "--file"):
-63            script_file = argument
-64        if option in ("-q", "--quiet"):
-65            quiet = True
-66        if option in ("-i", "--interactive"):
-67            interactive = True
-68
 69    cogkit.Shell.CoGCli.runCLI(script_file, quiet, interactive)
 """
