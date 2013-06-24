@@ -4,7 +4,6 @@ This project is about developing a dynamic CMD class based on cmd.CMD.
 We assume the following directory structure::
 
   ./shell.py
-  ./dynamic_cmd.py
   ./plugins/foo.py 
   ./plugins/bar.py 
   ./plugins/activate.py 
@@ -85,11 +84,75 @@ import readline
 import glob
 import os
 import getopt
+import textwrap
+from docopt import docopt
+import inspect
 
-from cmd3.dynamic_cmd import load_plugins
-from cmd3.dynamic_cmd import make_cmd_class
-from cmd3.dynamic_cmd import DynamicCmd
-from cmd3.dynamic_cmd import get_plugins
+######################################################################
+# DYNAMIC COMMAND MANAGEMENT
+######################################################################
+#
+# Gregor von Laszewski
+#
+# code insired from cyberaide and cogkit, while trying to develop a
+# dynamic CMD that loads from plugin directory
+# 
+
+def DynamicCmd(name,plugins):
+    exec('class %s(cmd.Cmd):\n    prompt="cm> "' % name)
+    plugin_objects = load_plugins(plugins)    
+    cmd = make_cmd_class(name, *plugin_objects)()
+    return (cmd, plugin_objects)
+
+def make_cmd_class(name, *bases):
+    return type(cmd.Cmd)(name, bases + (cmd.Cmd,), {})
+
+def get_plugins(dir):
+    # not just plugin_*.py
+    plugins = []
+    list=glob.glob(dir + "/*.py")
+    for p in list:
+        p = p.replace(dir + "/", "").replace(".py", "")
+        if not p.startswith('_'):
+            plugins.append(p)
+    return plugins
+
+def load_plugins(list):
+
+    plugins = []
+    object = {}
+    for plugin in list:
+        object[plugin] = __import__("cmd3.plugins." + plugin, globals(), locals(), [plugin], -1)
+        exec("cls = object['%s'].%s" % (plugin, plugin))
+        plugins.append(cls)
+    return plugins
+
+
+######################################################################
+# DECORATOR: COMMAND
+######################################################################
+
+def command(func):
+    classname = inspect.getouterframes(inspect.currentframe())[1][3]
+    name = func.__name__
+    help_name = name.replace("do_","help_")
+    doc = textwrap.dedent(func.__doc__)
+    
+    def new(instance, args):
+        #instance.new.__doc__ = doc
+        try:
+            arguments = docopt(doc, help=True, argv=args)
+            func(instance, args, arguments)
+        except SystemExit:
+            if not args in ('-h','--help'):
+                print "Error: Wrong Format"
+            print doc
+    new.__doc__ = doc
+    return new
+
+######################################################################
+# MAIN
+######################################################################
 
 def main():
   """

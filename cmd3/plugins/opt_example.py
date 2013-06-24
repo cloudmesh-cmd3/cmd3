@@ -4,7 +4,7 @@ from docopt import docopt
 import inspect
 import sys
 import importlib
-from cmd3.cyberaide.decorators import command
+from cmd3.shell import command
 
 
 class opt_example:

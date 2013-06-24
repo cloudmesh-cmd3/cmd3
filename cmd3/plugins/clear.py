@@ -1,4 +1,4 @@
-from cmd3.cyberaide.decorators import command
+from cmd3.shell import command
 
 import os
 import sys
@@ -16,7 +16,7 @@ class clear:
     @command
     def do_clear(self, arg, arguments):
         """
-        Ussage:
+        Usage:
             clear
 
         Clears the screen."""

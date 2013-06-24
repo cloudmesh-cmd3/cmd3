@@ -1,5 +1,5 @@
 import traceback
-from cmd3.cyberaide.decorators import command
+from cmd3.shell import command
 
 import os
 import sys

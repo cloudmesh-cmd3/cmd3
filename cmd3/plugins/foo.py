@@ -1,10 +1,15 @@
-from cmd3. cyberaide.decorators import command
+from cmd3.shell import command
 
 class foo:
-    
-    def do_this(self, arg):
-        print "THIS", arg
-        self.activate_status()  
 
     def activate_foo(self):
         pass
+
+    def do_foo(self, arg):
+        """
+        Usage:
+            foo line
+        
+        """
+        print "FOO", arg
+

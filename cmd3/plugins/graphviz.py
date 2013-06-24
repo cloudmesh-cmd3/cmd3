@@ -1,7 +1,7 @@
 import os
 import os.path
 import tempfile
-from cmd3.cyberaide.decorators import command
+from cmd3.shell import command
 
 
 class graphviz:

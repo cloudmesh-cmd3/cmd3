@@ -1,4 +1,4 @@
-from cmd3.cyberaide.decorators import command
+from cmd3.shell import command
 
 class pause:
     
@@ -8,9 +8,12 @@ class pause:
     @command
     def do_pause(self, arg, arguments):
         """
-        Ussage:
-            pause
+        Usage:
+            pause [MESSAGE]
 
         Displays the specified text then waits for the user to press RETURN.
+
+        Arguments:
+           MESSAGE  message to be displayed
         """
         raw_input(arg + '\n')

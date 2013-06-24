@@ -1,4 +1,4 @@
-from cmd3.cyberaide.decorators import command
+from cmd3.shell import command
 from code import InteractiveConsole, InteractiveInterpreter
 import sys
 """ This code has been copied and modified from cmd2 to work with cmd3"""
