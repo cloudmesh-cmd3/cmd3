@@ -88,6 +88,8 @@ import textwrap
 from docopt import docopt
 import inspect
 
+quiet = True
+
 #
 # SETTING UP A LOGGER
 #
@@ -111,12 +113,15 @@ log.addHandler(handler)
 # dynamic CMD that loads from plugin directory
 #
 
-def DynamicCmd(name, classprefixes, plugins, quiet=False):
+def DynamicCmd(name, classprefixes, plugins):
+    log.info("{0}".format(name))
+    log.info("{0}".format(str(classprefixes)))
+    log.info("{0}".format(str(plugins)))
     exec('class %s(cmd.Cmd):\n    prompt="cm> "' % name)
 
     plugin_objects = load_plugins(classprefixes[0], plugins)
     for classprefix in classprefixes[1:]:
-        plugin_objects = plugin_objects + load_plugins(classprefix, plugins, quiet)
+        plugin_objects = plugin_objects + load_plugins(classprefix, plugins)
     cmd = make_cmd_class(name, *plugin_objects)()
     return (cmd, plugin_objects)
 
@@ -138,7 +143,7 @@ def get_plugins(dir):
     return plugins
 
 
-def load_plugins(classprefix, list, quiet=False):
+def load_plugins(classprefix, list):
   # classprefix "cmd3.plugins."
     plugins = []
     object = {}
@@ -211,8 +216,6 @@ def main():
 
     arguments = docopt(main.__doc__, help=True)
 
-    print arguments
-
     script_file = arguments['--file']
     interactive = arguments['--interactive']
     quiet = arguments['--quiet']
@@ -241,11 +244,8 @@ def main():
     (cmd, plugin_objects) = DynamicCmd(
       name,
       ["cmd3.plugins", "cmd3local.plugins"],
-      plugins,
-      quiet)
+      plugins)
 
-    print arguments
-    print quiet
     cmd.version()
     #cmd.set_verbose(quiet)
     cmd.activate()
