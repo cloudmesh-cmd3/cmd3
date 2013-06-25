@@ -93,6 +93,8 @@ from compiler.ast import flatten
 
 quiet = False
 
+quiet = True
+
 #
 # SETTING UP A LOGGER
 #
@@ -116,12 +118,25 @@ log.addHandler(handler)
 # dynamic CMD that loads from plugin directory
 #
 
-def DynamicCmd(name, classprefixes, plugins):
+def DynamicCmd(name, plugins):
+
+    all_classes = flatten([plugin['class'] for plugin in plugins])
+    all_plugins = flatten([plugin['plugins'] for plugin in plugins])
+    print all_classes
+    print all_plugins
+
+    classprefixes = all_classes
+          #["cmd3.plugins", "cmd3local.plugins"],
+    
+    log.info("{0}".format(name))
+    log.info("{0}".format(str(classprefixes)))
+    log.info("{0}".format(str(all_plugins)))
+
     exec('class %s(cmd.Cmd):\n    prompt="cm> "' % name)
 
-    plugin_objects = load_plugins(classprefixes[0], plugins)
+    plugin_objects = load_plugins(classprefixes[0], all_plugins)
     for classprefix in classprefixes[1:]:
-        plugin_objects = plugin_objects + load_plugins(classprefix, plugins)
+        plugin_objects = plugin_objects + load_plugins(classprefix, all_plugins)
     cmd = make_cmd_class(name, *plugin_objects)()
     return (cmd, plugin_objects)
 
@@ -217,8 +232,6 @@ def main():
 
     arguments = docopt(main.__doc__, help=True)
 
-    print arguments
-
     script_file = arguments['--file']
     interactive = arguments['--interactive']
     quiet = arguments['--quiet']
@@ -275,18 +288,11 @@ def main():
     #
     # not yet quite what i want, but falling back to a flatt array
     #
-    all_classes = [plugin['class'] for plugin in plugins]
-    all_plugins = [plugin['plugins'] for plugin in plugins]
-    print all_classes
-    all_plugins = flatten(all_plugins)
-    print all_plugins
-    
-    (cmd, plugin_objects) = DynamicCmd(name,["cmd3.plugins", "cmd3local.plugins"],all_plugins)
 
-    #(cmd, plugin_objects) = DynamicCmd(name,["cmd3.plugins", "cmd3local.plugins"],plugins)
 
-    print arguments
-    print quiet
+    (cmd, plugin_objects) = DynamicCmd(name, plugins)
+
+
     cmd.version()
     #cmd.set_verbose(quiet)
     cmd.activate()
