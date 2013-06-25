@@ -119,28 +119,7 @@ log.addHandler(handler)
 #
 
 def DynamicCmd(name, plugins):
-  #
-  # this is an inneffient way to load this code will be deleted
-  #
-  #
-  #all_classes = flatten([plugin['class'] for plugin in plugins])
-  #all_plugins = flatten([plugin['plugins'] for plugin in plugins])
-    
-  #classprefixes = all_classes
-  ####["cmd3.plugins", "cmd3local.plugins"],
-    
-  #exec('class %s(cmd.Cmd):\n    prompt="cm> "' % name)
 
-  #plugin_objects = load_plugins(classprefixes[0], all_plugins)
-  #for classprefix in classprefixes[1:]:
-  #  plugin_objects = plugin_objects + load_plugins(classprefix, all_plugins)
-  #cmd = make_cmd_class(name, *plugin_objects)()
-  #return (cmd, plugin_objects)
-
-
-  # here the loading is organized by directory while loading the
-  # methods in each class
-  #
   exec('class %s(cmd.Cmd):\n    prompt="cm> "' % name)
   plugin_objects = []
   for plugin in plugins:
