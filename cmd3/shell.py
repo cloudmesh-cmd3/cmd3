@@ -1,4 +1,5 @@
 #! /usr/bin/env python
+
 """
 This project is about developing a dynamic CMD class based on cmd.CMD.
 We assume the following directory structure::
@@ -87,6 +88,10 @@ import getopt
 import textwrap
 from docopt import docopt
 import inspect
+from pprint import pprint
+from compiler.ast import flatten
+
+quiet = False
 
 #
 # SETTING UP A LOGGER
@@ -111,12 +116,12 @@ log.addHandler(handler)
 # dynamic CMD that loads from plugin directory
 #
 
-def DynamicCmd(name, classprefixes, plugins, quiet=False):
+def DynamicCmd(name, classprefixes, plugins):
     exec('class %s(cmd.Cmd):\n    prompt="cm> "' % name)
 
     plugin_objects = load_plugins(classprefixes[0], plugins)
     for classprefix in classprefixes[1:]:
-        plugin_objects = plugin_objects + load_plugins(classprefix, plugins, quiet)
+        plugin_objects = plugin_objects + load_plugins(classprefix, plugins)
     cmd = make_cmd_class(name, *plugin_objects)()
     return (cmd, plugin_objects)
 
@@ -138,10 +143,11 @@ def get_plugins(dir):
     return plugins
 
 
-def load_plugins(classprefix, list, quiet=False):
+def load_plugins(classprefix, list):
   # classprefix "cmd3.plugins."
     plugins = []
     object = {}
+    print "LLLLIST", list
     for plugin in list:
         try:
             object[plugin] = __import__(
@@ -218,31 +224,66 @@ def main():
     quiet = arguments['--quiet']
 
 
-    plugin_path = os.path.join(os.path.dirname(__file__), 'plugins')
-    plugins_a = get_plugins(plugin_path)
+    def get_plugins_from_dir(dir_path,classbase):
+      """dir_path/classbase/plugins"""
 
-    dir_path = "~/.futuregrid"
-    dir_path = os.path.expanduser(os.path.expandvars(dir_path))
-    user_path = "{0}/cmd3local/plugins".format(dir_path)
+      if dir_path == "sys":
+          dir_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'plugins'))
+          dir_plugins = get_plugins(dir_path)
+          return {"dir": dir_path, "plugins" : dir_plugins, "class": classbase}
 
-    create_dir(user_path)
-    create_file("{0}/cmd3local/__init__.py".format(dir_path))
-    create_file("{0}/cmd3local/plugins/__init__.py".format(dir_path))
+      if dir_path == ".":
+          dir_path = os.path.expanduser(os.path.expandvars(os.path.join(os.getcwd(), 'plugins')))
+          dir_plugins = get_plugins(dir_path)
+          return {"dir": dir_path, "plugins" : dir_plugins, "class": classbase}
+      else:
+
+          dir_path = os.path.expanduser(os.path.expandvars(dir_path))
+          prefix = "{0}/{1}".format(dir_path, classbase)
+          
+          user_path = "{0}/plugins".format(prefix)
+          
+          create_dir(user_path)
+          create_file("{0}/__init__.py".format(prefix))
+          create_file("{0}/plugins/__init__.py".format(prefix))
+          sys.path.append(os.path.expanduser(dir_path))
+          dir_plugins = get_plugins(user_path)
+          return {"dir": dir_path, "plugins" : dir_plugins, "class": classbase}
+
+    plugins = []
+    plugins.append(dict(get_plugins_from_dir ("sys", "cmd3")))
+    plugins.append(dict(get_plugins_from_dir ("~/.futuregrid", "cmd3local")))
+    #plugins.append(dict(get_plugins_from_dir (".", "dot")))
+    
 
 
-    sys.path.append(os.path.expanduser("~/.futuregrid"))
+    for plugin in plugins:
+      sys.path.append(os.path.expanduser(plugin['dir']))
+    sys.path.append("../..")
+    sys.path.append(".")
+    sys.path.append("..")
 
-    plugins_b = get_plugins(user_path)
+    for plugin in plugins:
+      plugin['class'] =      plugin['class'] + ".plugins"
 
-    plugins = plugins_a + plugins_b
+    pprint(plugins)    
+    pprint( sys.path)
 
+    #sys.exit()
     name = "CmCli"
 
-    (cmd, plugin_objects) = DynamicCmd(
-      name,
-      ["cmd3.plugins", "cmd3local.plugins"],
-      plugins,
-      quiet)
+    #
+    # not yet quite what i want, but falling back to a flatt array
+    #
+    all_classes = [plugin['class'] for plugin in plugins]
+    all_plugins = [plugin['plugins'] for plugin in plugins]
+    print all_classes
+    all_plugins = flatten(all_plugins)
+    print all_plugins
+    
+    (cmd, plugin_objects) = DynamicCmd(name,["cmd3.plugins", "cmd3local.plugins"],all_plugins)
+
+    #(cmd, plugin_objects) = DynamicCmd(name,["cmd3.plugins", "cmd3local.plugins"],plugins)
 
     print arguments
     print quiet
