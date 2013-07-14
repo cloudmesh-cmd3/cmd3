@@ -153,7 +153,7 @@ doctest:
 	      "results in $(BUILDDIR)/doctest/output.txt."
 
 manpages:
-	sphinx-apidoc -H "Modules and Classes" -o source/modules ../src/cmd3
+	sphinx-apidoc -H "Modules and Classes" -o source/modules ../cmd3
 	#exho "help" | cm 
 
 all: html singlehtml 
