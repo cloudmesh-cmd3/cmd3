@@ -27,7 +27,7 @@ Gregor von Laszewski, laszewski@gmail.com
 Instalation
 ----------------------------------------------------------------------
 
-Install from Pypi
+Install form Pypi
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. todo:: pypi installation
@@ -36,7 +36,7 @@ Install from Pypi
 
    pip install cmd3
 
-Install from Source
+Install form Source
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We recommend that you use virtual env for installing this package, but
@@ -191,11 +191,11 @@ to activate and deactivate certain plugins.
 A Basic Plugin
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Here is the sample classes from the file plugins/foo.py::
+Here is the sample classes form the file plugins/foo.py::
 
    class foo:
 
-       def activate_foo(self):
+       def activate_bar(self):
            print "... activate foo"
 
        def do_foo(self, arg):
@@ -210,7 +210,7 @@ It will print::
 
   I am Foo bar
    
-This does not seem much different from the original cmd, an in fact it
+THis does not seem much different from the original cmd, an in fact it
 is not. The only difference so far is the introduction of the plugins
 directory. Thus instead of changing my shell.py program, adding
 inheritance or other mechanisms and making sure I invoke the right
