@@ -53,13 +53,11 @@ follow the syntax $variable.
 
 Here is a list of features that we found important:
 
-*  dynamic class creation 
-*  plugins loadable via a plugin directory 
-*  easy installation with setup.py
-*  deployment via pip and py pi
-*  variable substitution
-*  scripts loadable from a script directory
-
+* command are loaded from plugin directories 
+* usage of docopts as part of the command creation
+* variable substitution
+* execution of python commands
+* scripts loadable from a script directory
 
    
 Indices and tables

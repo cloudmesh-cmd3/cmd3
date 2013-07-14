@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 
 
@@ -10,13 +9,13 @@
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootstrap-2.3.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootstrap-2.3.0/css/bootstrap-responsive.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
-        URL_ROOT:    '',
+        URL_ROOT:    './',
         VERSION:     '',
         COLLAPSE_INDEX: false,
         FILE_SUFFIX: '.html',
@@ -29,7 +28,7 @@
     <script type="text/javascript" src="_static/searchtools.js"></script>
     <script type="text/javascript" src="_static/js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-2.3.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="_static/fg-favicon.ico"/>
     <link rel="top" title="CMD3  documentation" href="index.html" />
@@ -45,25 +44,25 @@
 
   </head>
   <body>
-<div class="container">
-  
+
   <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
     <div class="navbar-inner">
-      <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-      <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
 
-      <a class="brand" href="index.html">CMD3</a>
-      <span class="navbar-text pull-left"><b>0.0.5</b></span>
+        <a class="brand" href="index.html">CMD3</a>
+        <span class="navbar-text pull-left"><b>0.0.9.a41.g0067e00</b></span>
 
-      <div class="nav-collapse">
-        <ul class="nav">
-          <li class="divider-vertical"></li>
-          
-            <li class="dropdown globaltoc-container">
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class="divider-vertical"></li>
+            
+              <li class="dropdown globaltoc-container">
   <a href="index.html"
      class="dropdown-toggle"
      data-toggle="dropdown">Site <b class="caret"></b></a>
@@ -108,8 +107,8 @@
 <li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="modules/cmd3.cyberaide.html">cyberaide Package</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="modules/cmd3.cyberaide.html#id1"><tt class="docutils literal"><span class="pre">cyberaide</span></tt> Package</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.cyberaide.html#module-cmd3.cyberaide.decorators"><tt class="docutils literal"><span class="pre">decorators</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.cyberaide.html#module-cmd3.cyberaide.dynamic_cmd"><tt class="docutils literal"><span class="pre">dynamic_cmd</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.cyberaide.html#decorators-module"><tt class="docutils literal"><span class="pre">decorators</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.cyberaide.html#dynamic-cmd-module"><tt class="docutils literal"><span class="pre">dynamic_cmd</span></tt> Module</a></li>
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="modules/cmd3.plugins.html">plugins Package</a><ul>
@@ -138,26 +137,28 @@
 </ul>
 </ul>
 </li>
-            <li class="dropdown">
+              <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
   <ul class="dropdown-menu localtoc"></ul>
 </li>
-          
+            
+            
+              
+            
+            
+              <li></li>
+            
+          </ul>
+
           
             
           
-          
-            <li></li>
-          
-        </ul>
-
-        
-          
-        
+        </div>
       </div>
     </div>
   </div>
 
+<div class="container">
   
   <h1 id="search-documentation">Search</h1>
   <div id="fallback" class="admonition warning">
@@ -173,11 +174,13 @@
     function will automatically search for all of the words. Pages
     containing fewer words won't appear in the result list.
   </p>
-  <form action="" method="get">
-    <input type="text" name="q" value="" />
-    <input type="submit" value="search" />
+
+  <form class="form-search" action="" method="get">
+    <input type="text" name="q" class="input-medium search-query">
+    <button type="submit" class="btn">search</button>
     <span id="search-progress" style="padding-left: 10px"></span>
   </form>
+
   
   <div id="search-results">
   
@@ -192,7 +195,7 @@
     </p>
     <p>
         &copy; Copyright 2013, Developed for FutureGrid by Gregor von Laszewski, based on his earlier code from cyberaide and cogkit..<br/>
-      Last updated on Mar 25, 2013.<br/>
+      Last updated on Jul 14, 2013.<br/>
     </p>
   </div>
 </footer>

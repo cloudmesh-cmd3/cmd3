@@ -1,0 +1,3 @@
+[console_scripts]
+cm = cmd3.shell:main
+
