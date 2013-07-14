@@ -41,9 +41,10 @@ req:
 dist:
 	make -f Makefile pip
 
-pip:
+sdist:
 	make -f Makefile clean
-	python setup.py sdist
+	python setup.py sdist --formats=tar
+#	gzip dist/*.tar
 
 
 force:
@@ -65,10 +66,10 @@ test:
 ######################################################################
 
 
-pip-upload:
-	make -f Makefile pip
+pip-upload: clean
+#	make -f Makefile sdist
 #	python setup.py register
-	python setup.py sdist upload
+	python setup.py sdist --format=bztar,zip upload
 
 pip-register:
 	python setup.py register
@@ -93,6 +94,7 @@ qc:
 
 
 clean:
+	rm -rf cmd3-*
 	rm -rf *.egg
 	find . -name "*~" -exec rm {} \;  
 	find . -name "*.pyc" -exec rm {} \;  
