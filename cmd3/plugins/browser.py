@@ -4,22 +4,22 @@ import webbrowser
 import platform
 import os
 
+
 class browser:
 
-    #####################################
+    #
     # Browser
-    #####################################
+    #
 
     def _expand_filename(self, line):
-	# expand .
-	newline = line
- 	path = os.getcwd()
-	if newline.startswith("."):
-	    newline = newline.replace(".",path,1)
-	# expand ~
-	newline = os.path.expanduser(newline)
-	return newline
-	    
+        # expand .
+        newline = line
+        path = os.getcwd()
+        if newline.startswith("."):
+            newline = newline.replace(".", path, 1)
+        # expand ~
+        newline = os.path.expanduser(newline)
+        return newline
 
     @command
     def do_open(self, args, arguments):
@@ -27,24 +27,26 @@ class browser:
                 open FILENAME
 
         ARGUMENTS:
-            FILNAME  the file to open in the cwd if . is specified. If file in in cwd
-	             you must specify it with ./FILENAME
-            
+            FILNAME  the file to open in the cwd if . is
+                     specified. If file in in cwd
+                     you must specify it with ./FILENAME
+
         Opens the given URL in a browser window.
         """
-	filename = arguments['FILENAME']
-	filename = self._expand_filename(filename)
-	print "open %s" % filename
-	
-	if not (filename.startswith("file:") or filename.startswith("http:")):
-	    try:
-		with open(filename): pass
-		filename = "file://" + filename
-	    except:
-		print "can not open file %s" % filename
-		return
+        filename = arguments['FILENAME']
+        filename = self._expand_filename(filename)
+        print "open %s" % filename
 
-	try:
-		webbrowser.open("%s" % filename)
-	except:
-		print "can not open browser %s" % filename
+        if not (filename.startswith("file:") or filename.startswith("http:")):
+            try:
+                with open(filename):
+                    pass
+                filename = "file://" + filename
+            except:
+                print "can not open file %s" % filename
+                return
+
+        try:
+            webbrowser.open("%s" % filename)
+        except:
+            print "can not open browser %s" % filename

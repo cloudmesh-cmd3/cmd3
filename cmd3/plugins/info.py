@@ -12,7 +12,7 @@ class info:
 
         for key in self.plugins:
             if self.verbose:
-                print "> %s" % key.replace("_"," ",1)
+                print "> %s" % key.replace("_", " ", 1)
             exec("self.%s()" % key)
 
     @command
@@ -31,4 +31,3 @@ class info:
             print element
         print 70 * "-"
         self.print_info()
-

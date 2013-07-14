@@ -1,13 +1,14 @@
 from cmd3.shell import command
 
+
 class timer:
 
     """
     needs to be integrated in pre post command
     """
-    ##########################################################################
+    #
     # TIMER
-    ##########################################################################
+    #
 
     @command
     def do_timer(self, args, arguments):

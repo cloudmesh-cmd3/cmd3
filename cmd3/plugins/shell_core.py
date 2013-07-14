@@ -4,6 +4,7 @@ from cmd3.shell import command
 import os
 import sys
 
+
 class shell_core:
 
     def info_shell_core(self):
@@ -13,12 +14,12 @@ class shell_core:
     def version(self):
         self.get_version()
         return self.__version__
-    
+
     def get_version(self):
         import pkg_resources  # part of setuptools
         self.__version__ = pkg_resources.require("cmd3")[0].version
 
-    def do_version(self,args):
+    def do_version(self, args):
         """
         Usage:
            version
@@ -31,7 +32,6 @@ class shell_core:
     def activate_shell_core(self):
         self._hist = []
 
-        
     def do_EOF(self, args):
         """
         Usage:
@@ -66,14 +66,14 @@ class shell_core:
                 import readline
                 self.old_completer = readline.get_completer()
                 readline.set_completer(self.complete)
-                readline.parse_and_bind(self.completekey+": complete")
+                readline.parse_and_bind(self.completekey + ": complete")
             except ImportError:
                 pass
         try:
             if intro is not None:
                 self.intro = intro
             if self.intro:
-                self.stdout.write(str(self.intro)+"\n")
+                self.stdout.write(str(self.intro) + "\n")
             stop = None
             while not stop:
                 if self.cmdqueue:
@@ -108,7 +108,7 @@ class shell_core:
         """Execute script file"""
         if not filename:
             return
-                                                                                
+
         if os.path.exists(filename):
             with open(filename, "r") as f:
                 for line in f:

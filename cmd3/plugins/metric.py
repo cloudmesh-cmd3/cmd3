@@ -10,16 +10,16 @@ class metric:
 
     def activate_metric(self):
         pass
-    
-    ######################################################################
+
+    #
     # analyze commands
-    ######################################################################
+    #
 
     @command
     def do_analyze(self, args, arguments):
         """
         Usage:
-               analyze METRIC --start START --end END 
+               analyze METRIC --start START --end END
                analyze METRIC --period [monthly|quaterly|daily]
                analyze METRIC --month MONTH
 
@@ -40,9 +40,9 @@ class metric:
         """
         print(arguments)
 
-    ######################################################################
+    #
     # CVS commands
-    ######################################################################
+    #
 
     @command
     def do_table(self, args, arguments):
@@ -62,57 +62,55 @@ class metric:
         """
         print(arguments)
 
-    ######################################################################
+    #
     # chart
-    ######################################################################
+    #
 
     @command
     def do_chart(self, args, arguments):
         """
         Usage:
                chart [--dir DIR] --type (bar|line|column|pie|motion)
-	             [--api (highchart|google|jquery|sparkline)] [FILENAME]
+                     [--api (highchart|google|jquery|sparkline)] [FILENAME]
 
         Creates a chart of a given type
 
         Arguments:
             DIR       The directory into which the chart is written
-	    FILENAME  The filename in which the chart is written.
-	    
+            FILENAME  The filename in which the chart is written.
+
         Options:
           --dir        The directory
-	  --type       The type of the chart
-	  --api        The chart api library
-	  
+          --type       The type of the chart
+          --api        The chart api library
+
         """
         print(arguments)
 
-
-    ######################################################################
+    #
     # count images
-    ######################################################################
-
+    #
     @command
     def do_count_images(self, line, opts=None):
         """
         Usage:
-               count_images [--detail | --summary] --user USER 
+               count_images [--detail | --summary] --user USER
 
-	Count bucket images per user (development level). It is
+        Count bucket images per user (development level). It is
         virtual machine image counts grouped by users or accounts
         based on euca2ools.  It shows that which user or account
         currently owns how many virtual machine images on the system.
         This metric is based on the euca2ool command.
-	euca-describe-images. that a eucalyptus user can see a list
+        euca-describe-images. that a eucalyptus user can see a list
         of machine images.
 
         Arguments:
             USER       The user
-	    
+
         Options:
           --user       Show only images from the specified userid.
-	  --detail     Show details of the image (What would that be?)
-	  --summary    show summary about the image (default)    
-	  
+          --detail     Show details of the image (What would that be?)
+          --summary    show summary about the image (default)
+
         """
         print(arguments)

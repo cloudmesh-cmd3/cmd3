@@ -6,7 +6,7 @@ from cmd3.shell import command
 
 class graphviz:
 
-    def do_graphviz(self,args, arguments):
+    def do_graphviz(self, args, arguments):
         """
         Usage:
                graphviz FILENAME
@@ -21,7 +21,6 @@ class graphviz:
         if platform.system() == 'Darwin':
             if os.path.isfile(file):
                 os.system("open -a '\''/Applications/Graphviz.app'\'' " + file)
-
 
     def do_dot2(self, args, arguments):
         """
@@ -40,7 +39,8 @@ class graphviz:
         base = file.replace(".dot", "")
         out = base + "." + format
         if format == "pdf":
-            command = "dot -Tps %s | epstopdf --filter --ooutput %s" % (file, out)
+            command = "dot -Tps %s | epstopdf --filter --ooutput %s" % (
+                file, out)
         else:
             command = "dot -T%s %s -o %s 2>/tmp/err" % (format, file, out)
         os.system(command)

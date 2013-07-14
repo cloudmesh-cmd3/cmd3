@@ -120,15 +120,16 @@ log.addHandler(handler)
 
 def DynamicCmd(name, plugins):
 
-  exec('class %s(cmd.Cmd):\n    prompt="cm> "' % name)
-  plugin_objects = []
-  for plugin in plugins:
-    classprefix = plugin['class']
-    plugin_list = plugin['plugins']
-    plugin_objects = plugin_objects + load_plugins(classprefix, plugin_list)
+    exec('class %s(cmd.Cmd):\n    prompt="cm> "' % name)
+    plugin_objects = []
+    for plugin in plugins:
+        classprefix = plugin['class']
+        plugin_list = plugin['plugins']
+        plugin_objects = plugin_objects + \
+            load_plugins(classprefix, plugin_list)
 
-  cmd = make_cmd_class(name, *plugin_objects)()
-  return (cmd, plugin_objects)
+    cmd = make_cmd_class(name, *plugin_objects)()
+    return (cmd, plugin_objects)
 
 
 def make_cmd_class(name, *bases):
@@ -149,7 +150,7 @@ def get_plugins(dir):
 
 
 def load_plugins(classprefix, list):
-  # classprefix "cmd3.plugins."
+    # classprefix "cmd3.plugins."
     plugins = []
     object = {}
     print "LLLLIST", list
@@ -160,8 +161,8 @@ def load_plugins(classprefix, list):
             exec("cls = object['%s'].%s" % (plugin, plugin))
             plugins.append(cls)
         except:
-          if not quiet:
-            print "No module found", plugin, classprefix
+            if not quiet:
+                print "No module found", plugin, classprefix
     return plugins
 
 
@@ -176,7 +177,7 @@ def command(func):
     doc = textwrap.dedent(func.__doc__)
 
     def new(instance, args):
-            # instance.new.__doc__ = doc
+                # instance.new.__doc__ = doc
         try:
             arguments = docopt(doc, help=True, argv=args)
             func(instance, args, arguments)
@@ -191,18 +192,20 @@ def command(func):
 # MAIN
 #
 
+
 def create_file(filename):
-  expanded_filename = os.path.expanduser(os.path.expandvars(filename))
-  if not os.path.exists(expanded_filename):
-    open(expanded_filename, "a").close()
+    expanded_filename = os.path.expanduser(os.path.expandvars(filename))
+    if not os.path.exists(expanded_filename):
+        open(expanded_filename, "a").close()
+
 
 def create_dir(dir_path):
-  if not os.path.exists(dir_path):
-    os.makedirs(dir_path)
+    if not os.path.exists(dir_path):
+        os.makedirs(dir_path)
 
 
 def main():
-    """cm. 
+    """cm.
 
     Usage:
       cm [--file=SCRIPT] [--interactive] [--quiet] [COMMAND ...]
@@ -212,7 +215,7 @@ def main():
       COMMAND                  A command to be executed
 
     Options:
-      --file=SCRIPT -f SCRIPT  Executes the scipt 
+      --file=SCRIPT -f SCRIPT  Executes the scipt
       --interactive -i         After start keep the shell interactive, otherwise quit
       --quiet       -q         Surpress some of the informational messages.
     """
@@ -226,65 +229,62 @@ def main():
     interactive = arguments['--interactive']
     quiet = arguments['--quiet']
 
+    def get_plugins_from_dir(dir_path, classbase):
+        """dir_path/classbase/plugins"""
 
-    def get_plugins_from_dir(dir_path,classbase):
-      """dir_path/classbase/plugins"""
+        if dir_path == "sys":
+            dir_path = os.path.abspath(
+                os.path.join(os.path.dirname(__file__), 'plugins'))
+            dir_plugins = get_plugins(dir_path)
+            return {"dir": dir_path, "plugins": dir_plugins, "class": classbase}
 
-      if dir_path == "sys":
-          dir_path = os.path.abspath(os.path.join(os.path.dirname(__file__), 'plugins'))
-          dir_plugins = get_plugins(dir_path)
-          return {"dir": dir_path, "plugins" : dir_plugins, "class": classbase}
+        if dir_path == ".":
+            dir_path = os.path.expanduser(
+                os.path.expandvars(os.path.join(os.getcwd(), 'plugins')))
+            dir_plugins = get_plugins(dir_path)
+            return {"dir": dir_path, "plugins": dir_plugins, "class": classbase}
+        else:
 
-      if dir_path == ".":
-          dir_path = os.path.expanduser(os.path.expandvars(os.path.join(os.getcwd(), 'plugins')))
-          dir_plugins = get_plugins(dir_path)
-          return {"dir": dir_path, "plugins" : dir_plugins, "class": classbase}
-      else:
+            dir_path = os.path.expanduser(os.path.expandvars(dir_path))
+            prefix = "{0}/{1}".format(dir_path, classbase)
 
-          dir_path = os.path.expanduser(os.path.expandvars(dir_path))
-          prefix = "{0}/{1}".format(dir_path, classbase)
-          
-          user_path = "{0}/plugins".format(prefix)
-          
-          create_dir(user_path)
-          create_file("{0}/__init__.py".format(prefix))
-          create_file("{0}/plugins/__init__.py".format(prefix))
-          sys.path.append(os.path.expanduser(dir_path))
-          dir_plugins = get_plugins(user_path)
-          return {"dir": dir_path, "plugins" : dir_plugins, "class": classbase}
+            user_path = "{0}/plugins".format(prefix)
+
+            create_dir(user_path)
+            create_file("{0}/__init__.py".format(prefix))
+            create_file("{0}/plugins/__init__.py".format(prefix))
+            sys.path.append(os.path.expanduser(dir_path))
+            dir_plugins = get_plugins(user_path)
+            return {"dir": dir_path, "plugins": dir_plugins, "class": classbase}
 
     plugins = []
-    plugins.append(dict(get_plugins_from_dir ("sys", "cmd3")))
-    plugins.append(dict(get_plugins_from_dir ("~/.futuregrid", "cmd3local")))
+    plugins.append(dict(get_plugins_from_dir("sys", "cmd3")))
+    plugins.append(dict(get_plugins_from_dir("~/.futuregrid", "cmd3local")))
     #plugins.append(dict(get_plugins_from_dir (".", "dot")))
-    
-
 
     for plugin in plugins:
-      sys.path.append(os.path.expanduser(plugin['dir']))
+        sys.path.append(os.path.expanduser(plugin['dir']))
     sys.path.append("../..")
     sys.path.append(".")
     sys.path.append("..")
 
     for plugin in plugins:
-      plugin['class'] =      plugin['class'] + ".plugins"
+        plugin['class'] = plugin['class'] + ".plugins"
 
-    pprint(plugins)    
-    pprint( sys.path)
+    pprint(plugins)
+    pprint(sys.path)
 
-    #sys.exit()
+    # sys.exit()
     name = "CmCli"
 
     #
     # not yet quite what i want, but falling back to a flatt array
     #
 
-
     (cmd, plugin_objects) = DynamicCmd(name, plugins)
 
-
     cmd.version()
-    #cmd.set_verbose(quiet)
+    # cmd.set_verbose(quiet)
     cmd.activate()
     cmd.do_exec(script_file)
 
@@ -309,7 +309,7 @@ def is_subcmd(opts, args):
 
 
 if __name__ == "__main__":
-  main()
+    main()
 
 
 """

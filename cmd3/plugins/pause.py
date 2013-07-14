@@ -1,7 +1,8 @@
 from cmd3.shell import command
 
+
 class pause:
-    
+
     def activate_pause(self):
         pass
 

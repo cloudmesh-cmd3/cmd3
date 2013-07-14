@@ -8,11 +8,12 @@ from cmd3.shell import command
 
 
 class opt_example:
+
     """opt_example class"""
-    
+
     def activate_opt_example(self):
         pass
-    
+
     @command
     def do_opt_example(self, args, arguments):
         """
@@ -30,7 +31,6 @@ class opt_example:
 
         """
         print(arguments)
-        
 
     @command
     def do_neu(self, args, arguments):

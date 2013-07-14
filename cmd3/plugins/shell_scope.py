@@ -7,6 +7,7 @@ import glob
 import datetime
 import os
 
+
 class shell_scope:
 
     echo = True
@@ -17,9 +18,9 @@ class shell_scope:
     prompt = 'cm> '
     variables = {}
 
-    ######################################################################
+    #
     # init
-    ######################################################################
+    #
 
     def info_shell_scope(self):
         print "%20s =" % "ECHO", self.echo
@@ -29,8 +30,8 @@ class shell_scope:
         print "%20s =" % "prompt", self.prompt
         print "%20s =" % "scripts", self.scripts
         print "%20s =" % "variables", self.variables
-    
-    def activate_shell_scope (self):
+
+    def activate_shell_scope(self):
         self.variables = {}
         self.prompt = 'cm> '
         self.echo = True
@@ -39,13 +40,13 @@ class shell_scope:
         self.scopeless = ['info', 'var', 'use', 'quit', 'q', 'help']
         #self.scopeless = ['use', 'quit', 'q', 'EOF', 'eof', 'help']
 
-    def do_EOF(self,args):
+    def do_EOF(self, args):
         """end of file"""
         return True
 
-    ######################################################################
+    #
     # Scope and use commands
-    ######################################################################
+    #
 
     def _add_scopeless(self, name):
         self.scopeless.append(name)
@@ -58,7 +59,7 @@ class shell_scope:
 
     def _delete_scope(self, name):
         self.scopes.remove(name)
-            
+
     def _list_scope(self):
         print 10 * "-"
         print 'Scope'
@@ -84,7 +85,7 @@ class shell_scope:
 
             use                without parameters allows an
                                interactive selection
-            
+
         DESCRIPTION
            often we have to type in a command multiple times. To save
            us typng the name of the commonad, we have defined a simple
@@ -110,11 +111,12 @@ class shell_scope:
             self._delete_scope(which_scope)
             return
         elif arg == "cm" or arg == "/":
-           self.active_scope = ""
+            self.active_scope = ""
         elif arg in self.scopes:
             self.active_scope = arg
         else:
-            self.active_scope = self.select([""] + self.scopes, 'Which scope? ')
+            self.active_scope = self.select(
+                [""] + self.scopes, 'Which scope? ')
 
         if self.active_scope == "":
             print "Switched scope to:", 'cm'
@@ -123,37 +125,32 @@ class shell_scope:
             print "Switched scope to:", self.active_scope
             self.prompt = self.active_scope + '> '
 
-
-    ######################################################################
+    #
     # emptyline
-    ######################################################################
-
+    #
     def emptyline(self):
         return
 
-    ######################################################################
+    #
     # replace vars
-    ######################################################################
+    #
 
     def update_time(self):
         time = datetime.datetime.now().strftime("%H:%M:%S")
         date = datetime.datetime.now().strftime("%Y-%m-%d")
-        
+
         self.variables['time'] = time
         self.variables['date'] = date
-        
 
-    ######################################################################
+    #
     # line handler
-    ######################################################################
-
+    #
     forblock = False
     block = []
     forstatement = ""
 
-    
     def precmd(self, line):
-        if line == None or line == "":
+        if line is None or line == "":
             return ""
 
         if line.startswith("#"):
@@ -162,23 +159,22 @@ class shell_scope:
 
         line = self.replace_vars(line)
 
-        ############################################################
+        #
         # handeling for loops
-        ############################################################
-        if self.forblock == True and line.startswith(" "):
+        #
+        if self.forblock is True and line.startswith(" "):
             self.block.append(line)
             # add line to block
-        elif self.forblock ==True:
+        elif self.forblock is True:
             print ">>>> EXECUTE LOOP"
             print self.forstatement
             print self.forblock
             print self.block
             self.forblock = False
 
-            
             (loopvar, values) = self.forstatement.split('in')
-            loopvar = loopvar.replace("for","").replace(" ","")
-            values = values.replace("[","").replace("]","").replace(" ","")
+            loopvar = loopvar.replace("for", "").replace(" ", "")
+            values = values.replace("[", "").replace("]", "").replace(" ", "")
             values = values.split(",")
             print values
             for v in values:
@@ -187,59 +183,52 @@ class shell_scope:
                     l = self.replace_vars(l)
                     self.precmd(l)
                     self.onecmd(l)
-                    
-            
+
         if line.startswith("for"):
             self.forblock = True
             self.forstatement = line
             self.block = []
-        ############################################################
+        #
         # history
-        ############################################################
-            
-        if line != "hist" and line:
-            self._hist += [ line.strip() ]
+        #
 
-        ############################################################
+        if line != "hist" and line:
+            self._hist += [line.strip()]
+
+        #
         # strip
-        ############################################################
+        #
 
         line = line.strip()
         if line == "":
             print
             return line
 
-
-
-        ############################################################
+        #
         # scopes
-        ############################################################
-
+        #
         try:
             (start, rest) = line.split(" ")
         except:
             start = line
-        
+
         if (start in self.scopeless) or (self.active_scope == ""):
             line = line
         else:
             line = self.active_scope + " " + line
 
-        ############################################################
+        #
         # echo
-        ############################################################
-        
+        #
+
         if self.echo:
             print line
 
         return line
 
-    
-
-    ######################################################################
+    #
     # Echo
-    ######################################################################
-
+    #
     def set_verbose(self, on):
         self.verbose = on
 
@@ -257,31 +246,29 @@ class shell_scope:
         """
         self.echo = on == 'True'
 
-
-    ######################################################################
+    #
     # VAR
-    ######################################################################
-
-    def replace_vars(self,line):
+    #
+    def replace_vars(self, line):
 
         self.update_time()
 
         newline = line
         for v in self.variables:
-            newline = newline.replace("$"+v,self.variables[v])
+            newline = newline.replace("$" + v, self.variables[v])
         for v in os.environ:
-            newline = newline.replace("$"+v,os.environ[v])
+            newline = newline.replace("$" + v, os.environ[v])
         return newline
-        
+
     def _add_variable(self, name, value):
         self.variables[name] = value
-        #self._list_variables()
+        # self._list_variables()
 
     def _delete_variable(self, name):
         self._list_variables()
         del self.variables[name]
-        #self._list_variables()
-            
+        # self._list_variables()
+
     def _list_variables(self):
         print 10 * "-"
         print 'Variables'
@@ -295,7 +282,7 @@ class shell_scope:
         Usage:
             var list | var
             var delete NAME
-            var NAME=VALUE 
+            var NAME=VALUE
 
         Arguments:
             NAME    Name of the variable
@@ -303,11 +290,11 @@ class shell_scope:
 
         special vars date and time are defined
         """
-        if arg == 'list' or arg == '' or arg == None:
+        if arg == 'list' or arg == '' or arg is None:
             self._list_variables()
             return
         elif '=' in arg:
-            (variable, value) = arg.split('=',1)
+            (variable, value) = arg.split('=', 1)
             if value == "time":
                 value = datetime.datetime.now().strftime("%H:%M:%S")
             elif value == "date":
@@ -318,4 +305,3 @@ class shell_scope:
             variable = arg.split(' ')[1]
             self._delete_variable(variable)
             return
-

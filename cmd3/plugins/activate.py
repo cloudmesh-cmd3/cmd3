@@ -1,5 +1,6 @@
 import sys
 
+
 class activate:
 
     verbose = True
@@ -16,7 +17,7 @@ class activate:
 
         activates the plugins."""
         self.activate()
-        
+
     def activate(self):
         d = dir(self)
         self.plugins = []
@@ -26,13 +27,8 @@ class activate:
         for key in d:
             if key.startswith("activate_"):
                 self.plugins.append(key)
-        
+
         for key in self.plugins:
             if self.verbose:
-                print "> %s" % key.replace("_"," ",1)
+                print "> %s" % key.replace("_", " ", 1)
             exec("self.%s()" % key)
-
-
-
-        
-

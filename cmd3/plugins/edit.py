@@ -5,11 +5,12 @@ import sys
 from sh import open as open_editor
 import platform
 
+
 class edit:
 
-    ########################################
+    #
     # EDIT
-    ########################################
+    #
 
     def activate_edit(self):
         pass
@@ -18,7 +19,7 @@ class edit:
     def do_edit(self, arg, arguments):
         """Usage:
              edit FILENAME
-             
+
         Arguments:
             FILENAME  the file to edit
 
@@ -26,14 +27,15 @@ class edit:
 
         filename = arg
         print filename
-        
+
         if platform.system() == 'Darwin':
 
             # touch filename
             if not os.path.exists(filename):
                 file(filename, 'w+').close()
 
-            editors = ["/Applications/Aquamacs.app", "/Applications/Emacs.app","/usr/bin/emacs"]
+            editors = ["/Applications/Aquamacs.app",
+                       "/Applications/Emacs.app", "/usr/bin/emacs"]
 
             for editor in editors:
                 if os.path.exists(editor):
@@ -41,4 +43,3 @@ class edit:
                     return
 
             print "ERROR: Could not find working editor in", editors
-            
