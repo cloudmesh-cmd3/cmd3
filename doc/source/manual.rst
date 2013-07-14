@@ -27,7 +27,7 @@ Gregor von Laszewski, laszewski@gmail.com
 Instalation
 ----------------------------------------------------------------------
 
-Install form Pypi
+Install from Pypi
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. todo:: pypi installation
@@ -36,7 +36,7 @@ Install form Pypi
 
    pip install cmd3
 
-Install form Source
+Install from Source
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We recommend that you use virtual env for installing this package, but
@@ -191,7 +191,7 @@ to activate and deactivate certain plugins.
 A Basic Plugin
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Here is the sample classes form the file plugins/foo.py::
+Here is the sample classes from the file plugins/foo.py::
 
    class foo:
 
