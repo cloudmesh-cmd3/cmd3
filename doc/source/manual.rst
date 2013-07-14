@@ -195,7 +195,7 @@ Here is the sample classes form the file plugins/foo.py::
 
    class foo:
 
-       def activate_bar(self):
+       def activate_foo(self):
            print "... activate foo"
 
        def do_foo(self, arg):
@@ -210,7 +210,7 @@ It will print::
 
   I am Foo bar
    
-THis does not seem much different from the original cmd, an in fact it
+This does not seem much different from the original cmd, an in fact it
 is not. The only difference so far is the introduction of the plugins
 directory. Thus instead of changing my shell.py program, adding
 inheritance or other mechanisms and making sure I invoke the right
