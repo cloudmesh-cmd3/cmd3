@@ -29,7 +29,7 @@ gregor:
 	git config --global user.email laszewski@gmail.com
 
 git-ssh:
-	git remote set-url origin git@github.com:cloudmesh/$(BASENAME).git
+	git remote set-url origin git@github.com:futuregrid/$(BASENAME).git
 
 
 ######################################################################
@@ -41,9 +41,10 @@ req:
 dist:
 	make -f Makefile pip
 
-pip:
+sdist:
 	make -f Makefile clean
-	python setup.py sdist
+	python setup.py sdist --formats=tar
+#	gzip dist/*.tar
 
 
 force:
@@ -65,10 +66,10 @@ test:
 ######################################################################
 
 
-pip-upload:
-	make -f Makefile pip
+pip-upload: clean
+#	make -f Makefile sdist
 #	python setup.py register
-	python setup.py sdist upload
+	python setup.py sdist --format=bztar,zip upload
 
 pip-register:
 	python setup.py register
@@ -83,9 +84,9 @@ qc-install:
 	pip install pyflakes
 
 qc:
-	pep8 ./cloudmesh/virtual/cluster/
-	pylint ./cloudmesh/virtual/cluster/ | less
-	pyflakes ./cloudmesh/virtual/cluster/
+	pep8 ./futuregrid/virtual/cluster/
+	pylint ./futuregrid/virtual/cluster/ | less
+	pyflakes ./futuregrid/virtual/cluster/
 
 # #####################################################################
 # CLEAN
@@ -93,6 +94,8 @@ qc:
 
 
 clean:
+	rm -rf cmd3-*
+	rm -rf *.egg
 	find . -name "*~" -exec rm {} \;  
 	find . -name "*.pyc" -exec rm {} \;  
 	rm -rf build dist 
@@ -144,7 +147,7 @@ pages: ghphtml ghpgit
 ghphtml:
 	cd /tmp
 	rm -rf $(DIR)
-	cd /tmp; git clone git://github.com/cloudmesh/$(PROJECT).git
+	cd /tmp; git clone git://github.com/futuregrid/$(PROJECT).git
 	cp $(DIR)/Makefile .
 	cd $(DOC); ls; make html
 	rm -fr _static
