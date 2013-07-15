@@ -3,11 +3,9 @@ import sys
 
 class activate:
 
-    verbose = True
     plugins = []
 
     def activate_activate(self):
-        self.verbose = True
         plugins = []
 
     def do_plugins(self, args):
@@ -29,6 +27,6 @@ class activate:
                 self.plugins.append(key)
 
         for key in self.plugins:
-            if self.verbose:
-                print "> %s" % key.replace("_", " ", 1)
+            if self.echo:
+               print "> %s" % key.replace("_", " ", 1)
             exec("self.%s()" % key)

@@ -49,7 +49,8 @@ class script:
 
                     (script, ext) = script.split(".")
                     script = script.replace("script_", "")
-                    print "Import Script", script, "from", filename
+                    if self.echo:
+                        print "Import Script", script, "from", filename
                     self.scripts[script] = filename
                 except:
                     print ">>>>> ", filename

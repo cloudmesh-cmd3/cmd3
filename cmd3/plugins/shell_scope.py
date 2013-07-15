@@ -34,7 +34,6 @@ class shell_scope:
     def activate_shell_scope(self):
         self.variables = {}
         self.prompt = 'cm> '
-        self.echo = True
         self.active_scope = ""
         self.scopes = []
         self.scopeless = ['info', 'var', 'use', 'quit', 'q', 'help']
@@ -230,7 +229,7 @@ class shell_scope:
     # Echo
     #
     def set_verbose(self, on):
-        self.verbose = on
+        self.echo = on
 
     @command
     def do_verbose(self, on):

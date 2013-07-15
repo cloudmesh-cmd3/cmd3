@@ -78,6 +78,7 @@ Here are the sample classes::
                print "> %s" % key.replace("_"," ")
                exec("self.%s()" % key)
 """
+import traceback
 import pkg_resources  # part of setuptools
 import sys
 import cmd
@@ -91,9 +92,7 @@ import inspect
 from pprint import pprint
 from compiler.ast import flatten
 
-quiet = False
-
-quiet = True
+echo = False
 
 #
 # SETTING UP A LOGGER
@@ -144,8 +143,8 @@ def get_plugins(dir):
         p = p.replace(dir + "/", "").replace(".py", "")
         if not p.startswith('_'):
             plugins.append(p)
-    log.info("Loading Plugins from {0}".format(dir))
-    log.info("   {0}".format(str(plugins)))
+    #log.info("Loading Plugins from {0}".format(dir))
+    #log.info("   {0}".format(str(plugins)))
     return plugins
 
 
@@ -153,7 +152,7 @@ def load_plugins(classprefix, list):
     # classprefix "cmd3.plugins."
     plugins = []
     object = {}
-    print "LLLLIST", list
+    #log.info(str(list))
     for plugin in list:
         try:
             object[plugin] = __import__(
@@ -161,7 +160,7 @@ def load_plugins(classprefix, list):
             exec("cls = object['%s'].%s" % (plugin, plugin))
             plugins.append(cls)
         except:
-            if not quiet:
+            if echo:
                 print "No module found", plugin, classprefix
     return plugins
 
@@ -208,8 +207,8 @@ def main():
     """cm.
 
     Usage:
-      cm [--file=SCRIPT] [--interactive] [--quiet] [COMMAND ...]
-      cm [-f SCRIPT] [-i] [-q] [COMMAND ...]
+      cm [-v] [--file=SCRIPT] [--interactive] [--quiet] [COMMAND ...]
+      cm [-v] [-f SCRIPT] [-i] [-q] [COMMAND ...]
 
     Arguments:
       COMMAND                  A command to be executed
@@ -227,7 +226,7 @@ def main():
 
     script_file = arguments['--file']
     interactive = arguments['--interactive']
-    quiet = arguments['--quiet']
+    echo = arguments['-v']
 
     def get_plugins_from_dir(dir_path, classbase):
         """dir_path/classbase/plugins"""
@@ -271,8 +270,8 @@ def main():
     for plugin in plugins:
         plugin['class'] = plugin['class'] + ".plugins"
 
-    pprint(plugins)
-    pprint(sys.path)
+    #pprint(plugins)
+    #pprint(sys.path)
 
     # sys.exit()
     name = "CmCli"
@@ -284,17 +283,21 @@ def main():
     (cmd, plugin_objects) = DynamicCmd(name, plugins)
 
     cmd.version()
-    # cmd.set_verbose(quiet)
+    cmd.set_verbose(echo)
     cmd.activate()
+    cmd.set_verbose(echo)
     cmd.do_exec(script_file)
 
     if len(arguments['COMMAND']) > 0:
         try:
             user_cmd = " ".join(arguments['COMMAND'])
-            print ">", user_cmd
+            if echo:
+                print ">", user_cmd
             cmd.onecmd(user_cmd)
-        except:
+        except Exception, e:
             print "'%s' is not recognized" % user_cmd
+            print e
+            print traceback.format_exc()
     elif not script_file or interactive:
         cmd.cmdloop()
 

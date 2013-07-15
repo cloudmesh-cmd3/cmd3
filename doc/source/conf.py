@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# cloudmesh documentation build configuration file, created by
+# cloudmesh/cmd3 documentation build configuration file, created by
 # sphinx-quickstart on Sat Feb  9 19:32:34 2013.
 #
 # This file is execfile()d with the current directory set to its containing dir.
