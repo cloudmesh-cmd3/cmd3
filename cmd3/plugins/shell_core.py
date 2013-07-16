@@ -3,10 +3,20 @@ from cmd3.shell import command
 
 import os
 import sys
+from textwrap import dedent
 
 
 class shell_core:
 
+    def help_help(self):
+        """
+        Usage:
+           help NAME
+
+        Prints out the help message for a given function
+        """
+        print dedent(self.help_help.__doc__)
+         
     def info_shell_core(self):
         self.get_version()
         print "%20s = " % "VERSION", self.__version__
