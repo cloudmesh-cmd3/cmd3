@@ -78,19 +78,20 @@ Here are the sample classes::
                print "> %s" % key.replace("_"," ")
                exec("self.%s()" % key)
 """
-import traceback
-import pkg_resources  # part of setuptools
-import sys
-import cmd
-import readline
-import glob
-import os
-import getopt
-import textwrap
-from docopt import docopt
-import inspect
-from pprint import pprint
 from compiler.ast import flatten
+from docopt import docopt
+from pprint import pprint
+import cmd
+import getopt
+import glob
+import inspect
+import logging
+import os
+import pkg_resources # part of setuptools
+import readline
+import sys
+import textwrap
+import traceback
 
 echo = False
 
@@ -98,7 +99,6 @@ echo = False
 # SETTING UP A LOGGER
 #
 
-import logging
 log = logging.getLogger('cmd3')
 log.setLevel(logging.DEBUG)
 formatter = logging.Formatter('CMD3: [%(levelname)s] %(message)s')
@@ -118,7 +118,12 @@ log.addHandler(handler)
 #
 
 def DynamicCmd(name, plugins):
-
+    '''
+    Returns a cmd with the added plugins,
+    
+    :param name: TODO:
+    :param plugins: list of plugins
+    '''
     exec('class %s(cmd.Cmd):\n    prompt="cm> "' % name)
     plugin_objects = []
     for plugin in plugins:
@@ -136,6 +141,10 @@ def make_cmd_class(name, *bases):
 
 
 def get_plugins(dir):
+    '''
+    returns the list of plugins from the specified directory
+    :param dir: directory that contains the plugins. Files starting with _ will be ignored.
+    '''
     # not just plugin_*.py
     plugins = []
     list = glob.glob(dir + "/*.py")
@@ -149,6 +158,11 @@ def get_plugins(dir):
 
 
 def load_plugins(classprefix, list):
+    '''
+    loads the plugins specified in the list
+    :param classprefix: the class prefix
+    :param list: the list of plugins
+    '''
     # classprefix "cmd3.plugins."
     plugins = []
     object = {}
@@ -170,6 +184,25 @@ def load_plugins(classprefix, list):
 #
 
 def command(func):
+    '''
+    A decorator to create a function with docopt arguments. It also generates a help function
+    
+    @command
+    def do_myfunc(self, args):
+        """ docopts text """
+        pass
+        
+    will create
+    
+    def do_myfunc(self, args, arguments):
+        """ docopts text """
+        ...
+        
+    def help_myfunc(self, args, arguments):
+        ... prints the docopt text ...
+    
+    :param func: the function for the decorator
+    '''
     classname = inspect.getouterframes(inspect.currentframe())[1][3]
     name = func.__name__
     help_name = name.replace("do_", "help_")
@@ -193,12 +226,21 @@ def command(func):
 
 
 def create_file(filename):
+    '''
+    Creates a new file if the file name does not exists
+    :param filename: the name of the file
+    '''
+    
     expanded_filename = os.path.expanduser(os.path.expandvars(filename))
     if not os.path.exists(expanded_filename):
         open(expanded_filename, "a").close()
 
 
 def create_dir(dir_path):
+    '''
+    creates a director at the given path
+    :param dir_path: the directory path
+    '''
     if not os.path.exists(dir_path):
         os.makedirs(dir_path)
 
