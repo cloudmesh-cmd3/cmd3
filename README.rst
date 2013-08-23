@@ -9,7 +9,7 @@ cmd is an extension for the CMD class with the following features:
 * execution of python commands
 * scripts loadable from a script directory
 
-Through these extensions cmd becomes very flicible and can be used to
+Through these extensions cmd becomes very flexible and can be used to
 extend command shell interface through simple add-ons via very simple
 plugins provided as classes.
 
