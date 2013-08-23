@@ -94,6 +94,7 @@ qc:
 
 
 clean:
+	rm -rf AUTHORS ChangeLog
 	rm -rf cmd3-*
 	rm -rf *.egg
 	find . -name "*~" -exec rm {} \;  
