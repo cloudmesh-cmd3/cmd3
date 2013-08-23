@@ -147,7 +147,7 @@ The rest is pretty simple::
 
 
 Many times you may want to provide some better location for your
-plugins such as system wide installed blugins, or plugins maintained
+plugins such as system wide installed plugins, or plugins maintained
 in your user environment rather than the current path. For this reason we provide the following examples.
 
 Reading plugins from your local instalation
@@ -256,7 +256,7 @@ So let us create a new plugin called bar::
             """
             print arguments
 
-Please not the differences to our previous class. We have introduced a
+Please note the differences to our previous class. We have introduced a
 decorator that transforms the do_bar method into a method that returns
 an additional parameter called arguments. This is the arguments dict
 that is created by docopt. And allows for some very convenient
@@ -264,6 +264,50 @@ introduction of handeling the parameters, arguments, and options.  If
 you like to find more out about docopts please visit the `website`_ ,
 which also includes some nice `examples`_ to show the use of docopt in
 python.
+
+Generating Information  
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Often it is good to provide som summary information about a module
+that you have installed. As each package may have such information we
+have implemented the info command that prints out all information from
+all modules if available
+
+So let us enhance the previous plugin while adding an information::
+
+   from cmd3.cyberaide.decorators import command
+
+   class bar:
+
+       def activate_bar(self):
+           print "... activate bar"
+
+       def info_bar(self):
+           print "information for the class bar"
+
+       @command
+       def do_bar(self, arg, arguments):
+           """Usage:
+                   bar -f FILE
+                   bar FILE
+                   bar list
+
+            This command does some useful things.
+
+            Arguments:
+                  FILE   a file name
+
+            Options:
+                  -f      specify the file
+
+            """
+            print arguments
+
+When you call the command::
+
+     cm> info 
+
+from the cm command it will execute the info method fo the class bar.
 
 .. _website: https://github.com/docopt
 .. _examples: https://github.com/docopt/docopt/tree/master/examples
