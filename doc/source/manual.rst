@@ -21,10 +21,9 @@ Gregor von Laszewski, laszewski@gmail.com
   .. contents:: Table of Contents
      :depth: 5
 
-
 ..
 
-Instalation
+Installation
 ----------------------------------------------------------------------
 
 Install from Pypi
