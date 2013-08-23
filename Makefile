@@ -128,9 +128,10 @@ tag:
 	make clean
 	git tag $(TAG)
 	git add .
+	touch README.rst
 	git commit -m "adding version $(TAG)"
 	git push
-
+	git push origin --tags
 
 ######################################################################
 # ONLY RUN ON GH-PAGES
