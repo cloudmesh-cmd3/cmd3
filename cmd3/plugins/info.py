@@ -11,7 +11,7 @@ class info:
                 self.plugins.append(key)
 
         for key in self.plugins:
-            if self.verbose:
+            if self.echo:
                 print "> %s" % key.replace("_", " ", 1)
             exec("self.%s()" % key)
 
