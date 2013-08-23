@@ -53,7 +53,7 @@
         </button>
 
         <a class="brand" href="../index.html">CMD3</a>
-        <span class="navbar-text pull-left"><b>0.0.9.a41.g0067e00</b></span>
+        <span class="navbar-text pull-left"><b>-v0.7.1-.a6.g8e5ae7d</b></span>
 
         <div class="nav-collapse">
           <ul class="nav">
@@ -72,8 +72,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../manual.html">Manual</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../manual.html#instalation">Instalation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../manual.html#install-form-pypi">Install form Pypi</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manual.html#install-form-source">Install form Source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#install-from-pypi">Install from Pypi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#install-from-source">Install from Source</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../manual.html#running-the-installed-version">Running the installed version</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../manual.html#running-from-the-source-directory">Running from the Source Directory</a></li>
 </ul>
@@ -87,6 +87,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../manual.html#writing-plugins">Writing Plugins</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../manual.html#a-basic-plugin">A Basic Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../manual.html#argument-parsing">Argument parsing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#generating-information">Generating Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../manual.html#help">Help</a></li>
 </ul>
 </li>
@@ -110,14 +111,14 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="cmd3.plugins.html">plugins Package</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.activate"><tt class="docutils literal"><span class="pre">activate</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.bar"><tt class="docutils literal"><span class="pre">bar</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#bar-module"><tt class="docutils literal"><span class="pre">bar</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.clear"><tt class="docutils literal"><span class="pre">clear</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.edit"><tt class="docutils literal"><span class="pre">edit</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.foo"><tt class="docutils literal"><span class="pre">foo</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#foo-module"><tt class="docutils literal"><span class="pre">foo</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.graphviz"><tt class="docutils literal"><span class="pre">graphviz</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.info"><tt class="docutils literal"><span class="pre">info</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.metric"><tt class="docutils literal"><span class="pre">metric</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.opt_example"><tt class="docutils literal"><span class="pre">opt_example</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#metric-module"><tt class="docutils literal"><span class="pre">metric</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#opt-example-module"><tt class="docutils literal"><span class="pre">opt_example</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.pause"><tt class="docutils literal"><span class="pre">pause</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.rst"><tt class="docutils literal"><span class="pre">rst</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.shell_core"><tt class="docutils literal"><span class="pre">shell_core</span></tt> Module</a></li>
@@ -259,27 +260,68 @@ flexibility during startup.</p>
 <dl class="function">
 <dt id="cmd3.shell.DynamicCmd">
 <tt class="descclassname">cmd3.shell.</tt><tt class="descname">DynamicCmd</tt><big>(</big><em>name</em>, <em>plugins</em><big>)</big><a class="headerlink" href="#cmd3.shell.DynamicCmd" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Returns a cmd with the added plugins,</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>name</strong> &#8211; TODO:</li>
+<li><strong>plugins</strong> &#8211; list of plugins</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="cmd3.shell.command">
 <tt class="descclassname">cmd3.shell.</tt><tt class="descname">command</tt><big>(</big><em>func</em><big>)</big><a class="headerlink" href="#cmd3.shell.command" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>A decorator to create a function with docopt arguments. It also generates a help function</p>
+<p>&#64;command
+def do_myfunc(self, args):</p>
+<blockquote>
+<div>&#8220;&#8221;&#8221; docopts text &#8220;&#8221;&#8221;
+pass</div></blockquote>
+<p>will create</p>
+<dl class="docutils">
+<dt>def do_myfunc(self, args, arguments):</dt>
+<dd>&#8220;&#8221;&#8221; docopts text &#8220;&#8221;&#8221;
+...</dd>
+<dt>def help_myfunc(self, args, arguments):</dt>
+<dd>... prints the docopt text ...</dd>
+</dl>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>func</strong> &#8211; the function for the decorator</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
 
 <dl class="function">
 <dt id="cmd3.shell.create_dir">
 <tt class="descclassname">cmd3.shell.</tt><tt class="descname">create_dir</tt><big>(</big><em>dir_path</em><big>)</big><a class="headerlink" href="#cmd3.shell.create_dir" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>creates a director at the given path
+:param dir_path: the directory path</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="cmd3.shell.create_file">
 <tt class="descclassname">cmd3.shell.</tt><tt class="descname">create_file</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#cmd3.shell.create_file" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>Creates a new file if the file name does not exists
+:param filename: the name of the file</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="cmd3.shell.get_plugins">
 <tt class="descclassname">cmd3.shell.</tt><tt class="descname">get_plugins</tt><big>(</big><em>dir</em><big>)</big><a class="headerlink" href="#cmd3.shell.get_plugins" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>returns the list of plugins from the specified directory
+:param dir: directory that contains the plugins. Files starting with _ will be ignored.</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="cmd3.shell.is_subcmd">
@@ -291,7 +333,10 @@ we simply assume it is a sub command to execute onecmd()</p>
 <dl class="function">
 <dt id="cmd3.shell.load_plugins">
 <tt class="descclassname">cmd3.shell.</tt><tt class="descname">load_plugins</tt><big>(</big><em>classprefix</em>, <em>list</em><big>)</big><a class="headerlink" href="#cmd3.shell.load_plugins" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
+<dd><p>loads the plugins specified in the list
+:param classprefix: the class prefix
+:param list: the list of plugins</p>
+</dd></dl>
 
 <dl class="function">
 <dt id="cmd3.shell.main">
@@ -301,8 +346,8 @@ we simply assume it is a sub command to execute onecmd()</p>
 </ol>
 <dl class="docutils">
 <dt>Usage:</dt>
-<dd>cm [&#8211;file=SCRIPT] [&#8211;interactive] [&#8211;quiet] [COMMAND ...]
-cm [-f SCRIPT] [-i] [-q] [COMMAND ...]</dd>
+<dd>cm [-v] [&#8211;file=SCRIPT] [&#8211;interactive] [&#8211;quiet] [COMMAND ...]
+cm [-v] [-f SCRIPT] [-i] [-q] [COMMAND ...]</dd>
 <dt>Arguments:</dt>
 <dd>COMMAND                  A command to be executed</dd>
 <dt>Options:</dt>
@@ -330,14 +375,14 @@ cm [-f SCRIPT] [-i] [-q] [COMMAND ...]</dd>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="cmd3.plugins.html">plugins Package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.activate"><tt class="docutils literal"><span class="pre">activate</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.bar"><tt class="docutils literal"><span class="pre">bar</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#bar-module"><tt class="docutils literal"><span class="pre">bar</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.clear"><tt class="docutils literal"><span class="pre">clear</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.edit"><tt class="docutils literal"><span class="pre">edit</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.foo"><tt class="docutils literal"><span class="pre">foo</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#foo-module"><tt class="docutils literal"><span class="pre">foo</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.graphviz"><tt class="docutils literal"><span class="pre">graphviz</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.info"><tt class="docutils literal"><span class="pre">info</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.metric"><tt class="docutils literal"><span class="pre">metric</span></tt> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.opt_example"><tt class="docutils literal"><span class="pre">opt_example</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#metric-module"><tt class="docutils literal"><span class="pre">metric</span></tt> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#opt-example-module"><tt class="docutils literal"><span class="pre">opt_example</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.pause"><tt class="docutils literal"><span class="pre">pause</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.rst"><tt class="docutils literal"><span class="pre">rst</span></tt> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.shell_core"><tt class="docutils literal"><span class="pre">shell_core</span></tt> Module</a></li>
@@ -360,7 +405,7 @@ cm [-f SCRIPT] [-i] [-q] [COMMAND ...]</dd>
     </p>
     <p>
         &copy; Copyright 2013, Developed for FutureGrid by Gregor von Laszewski, based on his earlier code from cyberaide and cogkit..<br/>
-      Last updated on Jul 14, 2013.<br/>
+      Last updated on Aug 23, 2013.<br/>
     </p>
   </div>
 </footer>

@@ -1,6 +1,6 @@
 .. raw:: html
 
- <a href="https://github.com/futuregrid/flask_cm"
+ <a href="https://github.com/cloudmesh/cmd3"
      class="visible-desktop"><img
     style="position: absolute; top: 40px; right: 0; border: 0;"
     src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"
@@ -53,11 +53,13 @@ follow the syntax $variable.
 
 Here is a list of features that we found important:
 
-* command are loaded from plugin directories 
-* usage of docopts as part of the command creation
-* variable substitution
-* execution of python commands
-* scripts loadable from a script directory
+*  dynamic class creation 
+*  plugins loadable via a plugin directory 
+*  easy installation with setup.py
+*  deployment via pip and py pi
+*  variable substitution
+*  scripts loadable from a script directory
+
 
    
 Indices and tables

@@ -52,7 +52,7 @@
         </button>
 
         <a class="brand" href="../index.html">CMD3</a>
-        <span class="navbar-text pull-left"><b>0.0.9.a41.g0067e00</b></span>
+        <span class="navbar-text pull-left"><b>-v0.7.1-.a6.g8e5ae7d</b></span>
 
         <div class="nav-collapse">
           <ul class="nav">
@@ -71,8 +71,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../manual.html">Manual</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../manual.html#instalation">Instalation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../manual.html#install-form-pypi">Install form Pypi</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manual.html#install-form-source">Install form Source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#install-from-pypi">Install from Pypi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#install-from-source">Install from Source</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../manual.html#running-the-installed-version">Running the installed version</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../manual.html#running-from-the-source-directory">Running from the Source Directory</a></li>
 </ul>
@@ -86,6 +86,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../manual.html#writing-plugins">Writing Plugins</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../manual.html#a-basic-plugin">A Basic Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../manual.html#argument-parsing">Argument parsing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#generating-information">Generating Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../manual.html#help">Help</a></li>
 </ul>
 </li>
@@ -109,14 +110,14 @@
 </li>
 <li class="toctree-l4 current"><a class="current reference internal" href="">plugins Package</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.activate"><tt class="docutils literal"><span class="pre">activate</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.bar"><tt class="docutils literal"><span class="pre">bar</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#bar-module"><tt class="docutils literal"><span class="pre">bar</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.clear"><tt class="docutils literal"><span class="pre">clear</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.edit"><tt class="docutils literal"><span class="pre">edit</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.foo"><tt class="docutils literal"><span class="pre">foo</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#foo-module"><tt class="docutils literal"><span class="pre">foo</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.graphviz"><tt class="docutils literal"><span class="pre">graphviz</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.info"><tt class="docutils literal"><span class="pre">info</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.metric"><tt class="docutils literal"><span class="pre">metric</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.opt_example"><tt class="docutils literal"><span class="pre">opt_example</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#metric-module"><tt class="docutils literal"><span class="pre">metric</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#opt-example-module"><tt class="docutils literal"><span class="pre">opt_example</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.pause"><tt class="docutils literal"><span class="pre">pause</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.rst"><tt class="docutils literal"><span class="pre">rst</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.shell_core"><tt class="docutils literal"><span class="pre">shell_core</span></tt> Module</a></li>
@@ -138,14 +139,14 @@
   <ul class="dropdown-menu localtoc"><ul>
 <li><a class="reference internal" href="#">plugins Package</a><ul>
 <li><a class="reference internal" href="#module-cmd3.plugins.activate"><tt class="docutils literal"><span class="pre">activate</span></tt> Module</a></li>
-<li><a class="reference internal" href="#module-cmd3.plugins.bar"><tt class="docutils literal"><span class="pre">bar</span></tt> Module</a></li>
+<li><a class="reference internal" href="#bar-module"><tt class="docutils literal"><span class="pre">bar</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-cmd3.plugins.clear"><tt class="docutils literal"><span class="pre">clear</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-cmd3.plugins.edit"><tt class="docutils literal"><span class="pre">edit</span></tt> Module</a></li>
-<li><a class="reference internal" href="#module-cmd3.plugins.foo"><tt class="docutils literal"><span class="pre">foo</span></tt> Module</a></li>
+<li><a class="reference internal" href="#foo-module"><tt class="docutils literal"><span class="pre">foo</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-cmd3.plugins.graphviz"><tt class="docutils literal"><span class="pre">graphviz</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-cmd3.plugins.info"><tt class="docutils literal"><span class="pre">info</span></tt> Module</a></li>
-<li><a class="reference internal" href="#module-cmd3.plugins.metric"><tt class="docutils literal"><span class="pre">metric</span></tt> Module</a></li>
-<li><a class="reference internal" href="#module-cmd3.plugins.opt_example"><tt class="docutils literal"><span class="pre">opt_example</span></tt> Module</a></li>
+<li><a class="reference internal" href="#metric-module"><tt class="docutils literal"><span class="pre">metric</span></tt> Module</a></li>
+<li><a class="reference internal" href="#opt-example-module"><tt class="docutils literal"><span class="pre">opt_example</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-cmd3.plugins.pause"><tt class="docutils literal"><span class="pre">pause</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-cmd3.plugins.rst"><tt class="docutils literal"><span class="pre">rst</span></tt> Module</a></li>
 <li><a class="reference internal" href="#module-cmd3.plugins.shell_core"><tt class="docutils literal"><span class="pre">shell_core</span></tt> Module</a></li>
@@ -214,35 +215,11 @@
 <tt class="descname">plugins</tt><em class="property"> = []</em><a class="headerlink" href="#cmd3.plugins.activate.activate.plugins" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
-<dl class="attribute">
-<dt id="cmd3.plugins.activate.activate.verbose">
-<tt class="descname">verbose</tt><em class="property"> = True</em><a class="headerlink" href="#cmd3.plugins.activate.activate.verbose" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
 </dd></dl>
 
 </div>
-<div class="section" id="module-cmd3.plugins.bar">
-<span id="bar-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">bar</span></tt> Module<a class="headerlink" href="#module-cmd3.plugins.bar" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="cmd3.plugins.bar.bar">
-<em class="property">class </em><tt class="descclassname">cmd3.plugins.bar.</tt><tt class="descname">bar</tt><a class="headerlink" href="#cmd3.plugins.bar.bar" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
-<dt id="cmd3.plugins.bar.bar.activate_bar">
-<tt class="descname">activate_bar</tt><big>(</big><big>)</big><a class="headerlink" href="#cmd3.plugins.bar.bar.activate_bar" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cmd3.plugins.bar.bar.do_bar">
-<tt class="descname">do_bar</tt><big>(</big><em>arg</em><big>)</big><a class="headerlink" href="#cmd3.plugins.bar.bar.do_bar" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Usage:</dt>
-<dd>bar line</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+<div class="section" id="bar-module">
+<h2><tt class="xref py py-mod docutils literal"><span class="pre">bar</span></tt> Module<a class="headerlink" href="#bar-module" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-cmd3.plugins.clear">
 <span id="clear-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">clear</span></tt> Module<a class="headerlink" href="#module-cmd3.plugins.clear" title="Permalink to this headline">¶</a></h2>
@@ -292,27 +269,8 @@
 </dd></dl>
 
 </div>
-<div class="section" id="module-cmd3.plugins.foo">
-<span id="foo-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">foo</span></tt> Module<a class="headerlink" href="#module-cmd3.plugins.foo" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="cmd3.plugins.foo.foo">
-<em class="property">class </em><tt class="descclassname">cmd3.plugins.foo.</tt><tt class="descname">foo</tt><a class="headerlink" href="#cmd3.plugins.foo.foo" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
-<dt id="cmd3.plugins.foo.foo.activate_foo">
-<tt class="descname">activate_foo</tt><big>(</big><big>)</big><a class="headerlink" href="#cmd3.plugins.foo.foo.activate_foo" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cmd3.plugins.foo.foo.do_foo">
-<tt class="descname">do_foo</tt><big>(</big><em>arg</em><big>)</big><a class="headerlink" href="#cmd3.plugins.foo.foo.do_foo" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Usage:</dt>
-<dd>foo line</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+<div class="section" id="foo-module">
+<h2><tt class="xref py py-mod docutils literal"><span class="pre">foo</span></tt> Module<a class="headerlink" href="#foo-module" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-cmd3.plugins.graphviz">
 <span id="graphviz-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">graphviz</span></tt> Module<a class="headerlink" href="#module-cmd3.plugins.graphviz" title="Permalink to this headline">¶</a></h2>
@@ -374,254 +332,11 @@ FORMAT     the export format, pdf, png, ...</dd>
 </dd></dl>
 
 </div>
-<div class="section" id="module-cmd3.plugins.metric">
-<span id="metric-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">metric</span></tt> Module<a class="headerlink" href="#module-cmd3.plugins.metric" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="cmd3.plugins.metric.metric">
-<em class="property">class </em><tt class="descclassname">cmd3.plugins.metric.</tt><tt class="descname">metric</tt><a class="headerlink" href="#cmd3.plugins.metric.metric" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
-<dt id="cmd3.plugins.metric.metric.activate_metric">
-<tt class="descname">activate_metric</tt><big>(</big><big>)</big><a class="headerlink" href="#cmd3.plugins.metric.metric.activate_metric" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cmd3.plugins.metric.metric.do_analyze">
-<tt class="descname">do_analyze</tt><big>(</big><em>instance</em>, <em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.metric.metric.do_analyze" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Usage:</dt>
-<dd>analyze METRIC &#8211;start START &#8211;end END
-analyze METRIC &#8211;period [monthly|quaterly|daily]
-analyze METRIC &#8211;month MONTH</dd>
-</dl>
-<p>Analyze the metric data</p>
-<dl class="docutils">
-<dt>Arguments:</dt>
-<dd>METRIC     The metric to be analyzed ... what values does it have?? ...
-START      The start time n the format YYYY-MM-DDThh:mm:ss
-ENDT       The end time n the format YYYY-MM-DDThh:mm:ss
-MONTH      The month in 01,02, ..., 12</dd>
-<dt>Options:</dt>
-<dd><table class="first last docutils option-list" frame="void" rules="none">
-<col class="option" />
-<col class="description" />
-<tbody valign="top">
-<tr><td class="option-group">
-<kbd><span class="option">--start</span></kbd></td>
-<td>specifies the time when to start the analysis</td></tr>
-<tr><td class="option-group">
-<kbd><span class="option">--end</span></kbd></td>
-<td>specified the time when to end the analysis</td></tr>
-<tr><td class="option-group">
-<kbd><span class="option">--month</span></kbd></td>
-<td>the month</td></tr>
-<tr><td class="option-group">
-<kbd><span class="option">--period</span></kbd></td>
-<td>the period</td></tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="cmd3.plugins.metric.metric.do_chart">
-<tt class="descname">do_chart</tt><big>(</big><em>instance</em>, <em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.metric.metric.do_chart" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Usage:</dt>
-<dd><dl class="first last docutils">
-<dt>chart [&#8211;dir DIR] &#8211;type (bar|line|column|pie|motion)</dt>
-<dd>[&#8211;api (highchart|google|jquery|sparkline)] [FILENAME]</dd>
-</dl>
-</dd>
-</dl>
-<p>Creates a chart of a given type</p>
-<dl class="docutils">
-<dt>Arguments:</dt>
-<dd>DIR       The directory into which the chart is written
-FILENAME  The filename in which the chart is written.</dd>
-<dt>Options:</dt>
-<dd><table class="first last docutils option-list" frame="void" rules="none">
-<col class="option" />
-<col class="description" />
-<tbody valign="top">
-<tr><td class="option-group">
-<kbd><span class="option">--dir</span></kbd></td>
-<td>The directory</td></tr>
-<tr><td class="option-group">
-<kbd><span class="option">--type</span></kbd></td>
-<td>The type of the chart</td></tr>
-<tr><td class="option-group">
-<kbd><span class="option">--api</span></kbd></td>
-<td>The chart api library</td></tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="cmd3.plugins.metric.metric.do_count_images">
-<tt class="descname">do_count_images</tt><big>(</big><em>instance</em>, <em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.metric.metric.do_count_images" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Usage:</dt>
-<dd>count_images [&#8211;detail | &#8211;summary] &#8211;user USER</dd>
-</dl>
-<p>Count bucket images per user (development level). It is
-virtual machine image counts grouped by users or accounts
-based on euca2ools.  It shows that which user or account
-currently owns how many virtual machine images on the system.
-This metric is based on the euca2ool command.
-euca-describe-images. that a eucalyptus user can see a list
-of machine images.</p>
-<dl class="docutils">
-<dt>Arguments:</dt>
-<dd>USER       The user</dd>
-<dt>Options:</dt>
-<dd><table class="first last docutils option-list" frame="void" rules="none">
-<col class="option" />
-<col class="description" />
-<tbody valign="top">
-<tr><td class="option-group">
-<kbd><span class="option">--user</span></kbd></td>
-<td>Show only images from the specified userid.</td></tr>
-<tr><td class="option-group">
-<kbd><span class="option">--detail</span></kbd></td>
-<td>Show details of the image (What would that be?)</td></tr>
-<tr><td class="option-group">
-<kbd><span class="option">--summary</span></kbd></td>
-<td>show summary about the image (default)</td></tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="cmd3.plugins.metric.metric.do_table">
-<tt class="descname">do_table</tt><big>(</big><em>instance</em>, <em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.metric.metric.do_table" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Usage:</dt>
-<dd>table FILENAME
-table &#8211;file FILENAME</dd>
-</dl>
-<p>Export the data in cvs format to a file. Former cvs command</p>
-<dl class="docutils">
-<dt>Arguments:</dt>
-<dd>FILENAME   The filename</dd>
-<dt>Options:</dt>
-<dd><table class="first last docutils option-list" frame="void" rules="none">
-<col class="option" />
-<col class="description" />
-<tbody valign="top">
-<tr><td class="option-group">
-<kbd><span class="option">--filet</span></kbd></td>
-<td>specifies the filename</td></tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+<div class="section" id="metric-module">
+<h2><tt class="xref py py-mod docutils literal"><span class="pre">metric</span></tt> Module<a class="headerlink" href="#metric-module" title="Permalink to this headline">¶</a></h2>
 </div>
-<div class="section" id="module-cmd3.plugins.opt_example">
-<span id="opt-example-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">opt_example</span></tt> Module<a class="headerlink" href="#module-cmd3.plugins.opt_example" title="Permalink to this headline">¶</a></h2>
-<dl class="class">
-<dt id="cmd3.plugins.opt_example.opt_example">
-<em class="property">class </em><tt class="descclassname">cmd3.plugins.opt_example.</tt><tt class="descname">opt_example</tt><a class="headerlink" href="#cmd3.plugins.opt_example.opt_example" title="Permalink to this definition">¶</a></dt>
-<dd><p>opt_example class</p>
-<dl class="method">
-<dt id="cmd3.plugins.opt_example.opt_example.activate_opt_example">
-<tt class="descname">activate_opt_example</tt><big>(</big><big>)</big><a class="headerlink" href="#cmd3.plugins.opt_example.opt_example.activate_opt_example" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="method">
-<dt id="cmd3.plugins.opt_example.opt_example.do_neu">
-<tt class="descname">do_neu</tt><big>(</big><em>instance</em>, <em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.opt_example.opt_example.do_neu" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Usage:</dt>
-<dd>opt_example [-vr] [FILE] ...</dd>
-</dl>
-<p>Process FILE and optionally apply some options</p>
-<dl class="docutils">
-<dt>Arguments:</dt>
-<dd>FILE        optional input file</dd>
-<dt>Options:</dt>
-<dd><table class="first last docutils option-list" frame="void" rules="none">
-<col class="option" />
-<col class="description" />
-<tbody valign="top">
-<tr><td class="option-group">
-<kbd><span class="option">-v</span></kbd></td>
-<td>verbose mode</td></tr>
-<tr><td class="option-group">
-<kbd><span class="option">-r</span></kbd></td>
-<td>make report</td></tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="cmd3.plugins.opt_example.opt_example.do_old">
-<tt class="descname">do_old</tt><big>(</big><em>instance</em>, <em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.opt_example.opt_example.do_old" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Usage:</dt>
-<dd>old [-ab] [FILE] ...</dd>
-</dl>
-<p>Process FILE and optionally apply some options</p>
-<dl class="docutils">
-<dt>Arguments:</dt>
-<dd>FILE        optional input file</dd>
-<dt>Options:</dt>
-<dd><table class="first last docutils option-list" frame="void" rules="none">
-<col class="option" />
-<col class="description" />
-<tbody valign="top">
-<tr><td class="option-group">
-<kbd><span class="option">-a</span></kbd></td>
-<td>verbose mode</td></tr>
-<tr><td class="option-group">
-<kbd><span class="option">-b</span></kbd></td>
-<td>make report</td></tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="method">
-<dt id="cmd3.plugins.opt_example.opt_example.do_opt_example">
-<tt class="descname">do_opt_example</tt><big>(</big><em>instance</em>, <em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.opt_example.opt_example.do_opt_example" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Usage:</dt>
-<dd>opt_example [-vr] [FILE] ...</dd>
-</dl>
-<p>Process FILE and optionally apply some options</p>
-<dl class="docutils">
-<dt>Arguments:</dt>
-<dd>FILE        optional input file</dd>
-<dt>Options:</dt>
-<dd><table class="first last docutils option-list" frame="void" rules="none">
-<col class="option" />
-<col class="description" />
-<tbody valign="top">
-<tr><td class="option-group">
-<kbd><span class="option">-v</span></kbd></td>
-<td>verbose mode</td></tr>
-<tr><td class="option-group">
-<kbd><span class="option">-r</span></kbd></td>
-<td>make report</td></tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-</dd></dl>
-
+<div class="section" id="opt-example-module">
+<h2><tt class="xref py py-mod docutils literal"><span class="pre">opt_example</span></tt> Module<a class="headerlink" href="#opt-example-module" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="module-cmd3.plugins.pause">
 <span id="pause-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">pause</span></tt> Module<a class="headerlink" href="#module-cmd3.plugins.pause" title="Permalink to this headline">¶</a></h2>
@@ -773,6 +488,16 @@ the remainder of the line as argument.</p>
 <dd></dd></dl>
 
 <dl class="method">
+<dt id="cmd3.plugins.shell_core.shell_core.help_help">
+<tt class="descname">help_help</tt><big>(</big><big>)</big><a class="headerlink" href="#cmd3.plugins.shell_core.shell_core.help_help" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd>help NAME</dd>
+</dl>
+<p>Prints out the help message for a given function</p>
+</dd></dl>
+
+<dl class="method">
 <dt id="cmd3.plugins.shell_core.shell_core.info_shell_core">
 <tt class="descname">info_shell_core</tt><big>(</big><big>)</big><a class="headerlink" href="#cmd3.plugins.shell_core.shell_core.info_shell_core" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -839,7 +564,7 @@ the remainder of the line as argument.</p>
     </p>
     <p>
         &copy; Copyright 2013, Developed for FutureGrid by Gregor von Laszewski, based on his earlier code from cyberaide and cogkit..<br/>
-      Last updated on Jul 14, 2013.<br/>
+      Last updated on Aug 23, 2013.<br/>
     </p>
   </div>
 </footer>

@@ -51,7 +51,7 @@
         </button>
 
         <a class="brand" href="index.html">CMD3</a>
-        <span class="navbar-text pull-left"><b>0.0.9.a41.g0067e00</b></span>
+        <span class="navbar-text pull-left"><b>-v0.7.1-.a6.g8e5ae7d</b></span>
 
         <div class="nav-collapse">
           <ul class="nav">
@@ -70,8 +70,8 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="manual.html">Manual</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="manual.html#instalation">Instalation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="manual.html#install-form-pypi">Install form Pypi</a></li>
-<li class="toctree-l3"><a class="reference internal" href="manual.html#install-form-source">Install form Source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual.html#install-from-pypi">Install from Pypi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual.html#install-from-source">Install from Source</a></li>
 <li class="toctree-l3"><a class="reference internal" href="manual.html#running-the-installed-version">Running the installed version</a></li>
 <li class="toctree-l3"><a class="reference internal" href="manual.html#running-from-the-source-directory">Running from the Source Directory</a></li>
 </ul>
@@ -85,6 +85,7 @@
 <li class="toctree-l2"><a class="reference internal" href="manual.html#writing-plugins">Writing Plugins</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="manual.html#a-basic-plugin">A Basic Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="manual.html#argument-parsing">Argument parsing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual.html#generating-information">Generating Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="manual.html#help">Help</a></li>
 </ul>
 </li>
@@ -108,14 +109,14 @@
 </li>
 <li class="toctree-l4"><a class="reference internal" href="modules/cmd3.plugins.html">plugins Package</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.activate"><tt class="docutils literal"><span class="pre">activate</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.bar"><tt class="docutils literal"><span class="pre">bar</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#bar-module"><tt class="docutils literal"><span class="pre">bar</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.clear"><tt class="docutils literal"><span class="pre">clear</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.edit"><tt class="docutils literal"><span class="pre">edit</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.foo"><tt class="docutils literal"><span class="pre">foo</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#foo-module"><tt class="docutils literal"><span class="pre">foo</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.graphviz"><tt class="docutils literal"><span class="pre">graphviz</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.info"><tt class="docutils literal"><span class="pre">info</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.metric"><tt class="docutils literal"><span class="pre">metric</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.opt_example"><tt class="docutils literal"><span class="pre">opt_example</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#metric-module"><tt class="docutils literal"><span class="pre">metric</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#opt-example-module"><tt class="docutils literal"><span class="pre">opt_example</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.pause"><tt class="docutils literal"><span class="pre">pause</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.rst"><tt class="docutils literal"><span class="pre">rst</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.shell_core"><tt class="docutils literal"><span class="pre">shell_core</span></tt> Module</a></li>
@@ -168,16 +169,14 @@
 
 <div class="genindex-jumpbox">
  <a href="#A"><strong>A</strong></a>
- | <a href="#B"><strong>B</strong></a>
  | <a href="#C"><strong>C</strong></a>
  | <a href="#D"><strong>D</strong></a>
  | <a href="#E"><strong>E</strong></a>
- | <a href="#F"><strong>F</strong></a>
  | <a href="#G"><strong>G</strong></a>
+ | <a href="#H"><strong>H</strong></a>
  | <a href="#I"><strong>I</strong></a>
  | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
- | <a href="#O"><strong>O</strong></a>
  | <a href="#P"><strong>P</strong></a>
  | <a href="#R"><strong>R</strong></a>
  | <a href="#S"><strong>S</strong></a>
@@ -201,10 +200,6 @@
   </dt>
 
       
-  <dt><a href="modules/cmd3.plugins.html#cmd3.plugins.bar.bar.activate_bar">activate_bar() (cmd3.plugins.bar.bar method)</a>
-  </dt>
-
-      
   <dt><a href="modules/cmd3.plugins.html#cmd3.plugins.clear.clear.activate_clear">activate_clear() (cmd3.plugins.clear.clear method)</a>
   </dt>
 
@@ -212,20 +207,8 @@
   <dt><a href="modules/cmd3.plugins.html#cmd3.plugins.edit.edit.activate_edit">activate_edit() (cmd3.plugins.edit.edit method)</a>
   </dt>
 
-      
-  <dt><a href="modules/cmd3.plugins.html#cmd3.plugins.foo.foo.activate_foo">activate_foo() (cmd3.plugins.foo.foo method)</a>
-  </dt>
-
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
-      
-  <dt><a href="modules/cmd3.plugins.html#cmd3.plugins.metric.metric.activate_metric">activate_metric() (cmd3.plugins.metric.metric method)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cmd3.plugins.html#cmd3.plugins.opt_example.opt_example.activate_opt_example">activate_opt_example() (cmd3.plugins.opt_example.opt_example method)</a>
-  </dt>
-
       
   <dt><a href="modules/cmd3.plugins.html#cmd3.plugins.pause.pause.activate_pause">activate_pause() (cmd3.plugins.pause.pause method)</a>
   </dt>
@@ -240,16 +223,6 @@
 
       
   <dt><a href="modules/cmd3.plugins.html#cmd3.plugins.template.template.activate_template">activate_template() (cmd3.plugins.template.template method)</a>
-  </dt>
-
-  </dl></td>
-</tr></table>
-
-<h2 id="B">B</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%" valign="top"><dl>
-      
-  <dt><a href="modules/cmd3.plugins.html#cmd3.plugins.bar.bar">bar (class in cmd3.plugins.bar)</a>
   </dt>
 
   </dl></td>
@@ -271,19 +244,11 @@
   </dt>
 
       
-  <dt><a href="modules/cmd3.plugins.html#module-cmd3.plugins.bar">cmd3.plugins.bar (module)</a>
-  </dt>
-
-      
   <dt><a href="modules/cmd3.plugins.html#module-cmd3.plugins.clear">cmd3.plugins.clear (module)</a>
   </dt>
 
       
   <dt><a href="modules/cmd3.plugins.html#module-cmd3.plugins.edit">cmd3.plugins.edit (module)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cmd3.plugins.html#module-cmd3.plugins.foo">cmd3.plugins.foo (module)</a>
   </dt>
 
       
@@ -295,16 +260,6 @@
   </dt>
 
       
-  <dt><a href="modules/cmd3.plugins.html#module-cmd3.plugins.metric">cmd3.plugins.metric (module)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cmd3.plugins.html#module-cmd3.plugins.opt_example">cmd3.plugins.opt_example (module)</a>
-  </dt>
-
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
-      
   <dt><a href="modules/cmd3.plugins.html#module-cmd3.plugins.pause">cmd3.plugins.pause (module)</a>
   </dt>
 
@@ -312,6 +267,8 @@
   <dt><a href="modules/cmd3.plugins.html#module-cmd3.plugins.rst">cmd3.plugins.rst (module)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cmd3.plugins.html#module-cmd3.plugins.shell_core">cmd3.plugins.shell_core (module)</a>
   </dt>
@@ -351,23 +308,7 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="modules/cmd3.plugins.html#cmd3.plugins.metric.metric.do_analyze">do_analyze() (cmd3.plugins.metric.metric method)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cmd3.plugins.html#cmd3.plugins.bar.bar.do_bar">do_bar() (cmd3.plugins.bar.bar method)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cmd3.plugins.html#cmd3.plugins.metric.metric.do_chart">do_chart() (cmd3.plugins.metric.metric method)</a>
-  </dt>
-
-      
   <dt><a href="modules/cmd3.plugins.html#cmd3.plugins.clear.clear.do_clear">do_clear() (cmd3.plugins.clear.clear method)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cmd3.plugins.html#cmd3.plugins.metric.metric.do_count_images">do_count_images() (cmd3.plugins.metric.metric method)</a>
   </dt>
 
       
@@ -387,10 +328,6 @@
   </dt>
 
       
-  <dt><a href="modules/cmd3.plugins.html#cmd3.plugins.foo.foo.do_foo">do_foo() (cmd3.plugins.foo.foo method)</a>
-  </dt>
-
-      
   <dt><a href="modules/cmd3.plugins.html#cmd3.plugins.graphviz.graphviz.do_graphviz">do_graphviz() (cmd3.plugins.graphviz.graphviz method)</a>
   </dt>
 
@@ -404,18 +341,6 @@
 
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
-      
-  <dt><a href="modules/cmd3.plugins.html#cmd3.plugins.opt_example.opt_example.do_neu">do_neu() (cmd3.plugins.opt_example.opt_example method)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cmd3.plugins.html#cmd3.plugins.opt_example.opt_example.do_old">do_old() (cmd3.plugins.opt_example.opt_example method)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cmd3.plugins.html#cmd3.plugins.opt_example.opt_example.do_opt_example">do_opt_example() (cmd3.plugins.opt_example.opt_example method)</a>
-  </dt>
-
       
   <dt><a href="modules/cmd3.plugins.html#cmd3.plugins.pause.pause.do_pause">do_pause() (cmd3.plugins.pause.pause method)</a>
   </dt>
@@ -434,10 +359,6 @@
 
       
   <dt><a href="modules/cmd3.plugins.html#cmd3.plugins.rst.rst.do_rst">do_rst() (cmd3.plugins.rst.rst method)</a>
-  </dt>
-
-      
-  <dt><a href="modules/cmd3.plugins.html#cmd3.plugins.metric.metric.do_table">do_table() (cmd3.plugins.metric.metric method)</a>
   </dt>
 
       
@@ -471,16 +392,6 @@
   </dl></td>
 </tr></table>
 
-<h2 id="F">F</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%" valign="top"><dl>
-      
-  <dt><a href="modules/cmd3.plugins.html#cmd3.plugins.foo.foo">foo (class in cmd3.plugins.foo)</a>
-  </dt>
-
-  </dl></td>
-</tr></table>
-
 <h2 id="G">G</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
@@ -496,6 +407,16 @@
   <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cmd3.plugins.html#cmd3.plugins.graphviz.graphviz">graphviz (class in cmd3.plugins.graphviz)</a>
+  </dt>
+
+  </dl></td>
+</tr></table>
+
+<h2 id="H">H</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="modules/cmd3.plugins.html#cmd3.plugins.shell_core.shell_core.help_help">help_help() (cmd3.plugins.shell_core.shell_core method)</a>
   </dt>
 
   </dl></td>
@@ -544,24 +465,10 @@
   <dt><a href="modules/cmd3.html#cmd3.shell.main">main() (in module cmd3.shell)</a>
   </dt>
 
+  </dl></td>
+  <td style="width: 33%" valign="top"><dl>
       
   <dt><a href="modules/cmd3.html#cmd3.shell.make_cmd_class">make_cmd_class() (in module cmd3.shell)</a>
-  </dt>
-
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
-      
-  <dt><a href="modules/cmd3.plugins.html#cmd3.plugins.metric.metric">metric (class in cmd3.plugins.metric)</a>
-  </dt>
-
-  </dl></td>
-</tr></table>
-
-<h2 id="O">O</h2>
-<table style="width: 100%" class="indextable genindextable"><tr>
-  <td style="width: 33%" valign="top"><dl>
-      
-  <dt><a href="modules/cmd3.plugins.html#cmd3.plugins.opt_example.opt_example">opt_example (class in cmd3.plugins.opt_example)</a>
   </dt>
 
   </dl></td>
@@ -631,12 +538,6 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="modules/cmd3.plugins.html#cmd3.plugins.activate.activate.verbose">verbose (cmd3.plugins.activate.activate attribute)</a>
-  </dt>
-
-  </dl></td>
-  <td style="width: 33%" valign="top"><dl>
-      
   <dt><a href="modules/cmd3.plugins.html#cmd3.plugins.shell_core.shell_core.version">version() (cmd3.plugins.shell_core.shell_core method)</a>
   </dt>
 
@@ -654,7 +555,7 @@
     </p>
     <p>
         &copy; Copyright 2013, Developed for FutureGrid by Gregor von Laszewski, based on his earlier code from cyberaide and cogkit..<br/>
-      Last updated on Jul 14, 2013.<br/>
+      Last updated on Aug 23, 2013.<br/>
     </p>
   </div>
 </footer>
