@@ -1,7 +1,7 @@
 PATHNAME=$(shell pwd)
 BASENAME=$(shell basename $(PATHNAME))
 
-TAG=`cat VERSION.txt`
+TAG=`grep "version" setup.cfg | sed "s/version = //g" | sed "s/'//g"`
 
 all:
 	make -f Makefile force
@@ -126,13 +126,12 @@ gh-pages:
 
 tag:
 	make clean
-	python bin/util/next_tag.py
 	git tag $(TAG)
-	echo $(TAG) > VERSION.txt
 	git add .
+	touch README.rst
 	git commit -m "adding version $(TAG)"
 	git push
-
+	git push origin --tags
 
 ######################################################################
 # ONLY RUN ON GH-PAGES
