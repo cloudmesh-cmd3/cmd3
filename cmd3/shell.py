@@ -324,7 +324,7 @@ def main():
 
     (cmd, plugin_objects) = DynamicCmd(name, plugins)
 
-    cmd.version()
+    cmd.get_version()
     cmd.set_verbose(echo)
     cmd.activate()
     cmd.set_verbose(echo)
