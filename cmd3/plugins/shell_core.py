@@ -16,7 +16,7 @@ class shell_core:
         Prints out the help message for a given function
         """
         print dedent(self.help_help.__doc__)
-         
+
     def info_shell_core(self):
         self.get_version()
         print "%20s = " % "VERSION", self.__version__
@@ -26,8 +26,10 @@ class shell_core:
         return self.__version__
 
     def get_version(self):
-        import pkg_resources  # part of setuptools
-        self.__version__ = pkg_resources.require("cmd3")[0].version
+        # import pkg_resources  # part of setuptools
+        # self.__version__ = pkg_resources.require("cmd3")[0].version
+        import cmd3
+        self.__version__ = cmd3.__version__
 
     def do_version(self, args):
         """
