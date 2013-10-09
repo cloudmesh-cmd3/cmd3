@@ -22,14 +22,13 @@ class shell_core:
         print "%20s = " % "VERSION", self.__version__
 
     def version(self):
-        self.get_version()
-        return self.__version__
+        import cmd3
+        return cmd3.__version__
 
     def get_version(self):
         # import pkg_resources  # part of setuptools
         # self.__version__ = pkg_resources.require("cmd3")[0].version
-        import cmd3
-        self.__version__ = cmd3.__version__
+        return self.version()
 
     def do_version(self, args):
         """
