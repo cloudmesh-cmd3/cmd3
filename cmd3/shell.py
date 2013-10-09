@@ -87,7 +87,7 @@ import glob
 import inspect
 import logging
 import os
-import pkg_resources # part of setuptools
+import pkg_resources  # part of setuptools
 import readline
 import sys
 import textwrap
@@ -116,6 +116,13 @@ log.addHandler(handler)
 # code insired from cyberaide and cogkit, while trying to develop a
 # dynamic CMD that loads from plugin directory
 #
+
+def get_version(self):
+    # import pkg_resources  # part of setuptools
+    # self.__version__ = pkg_resources.require("cmd3")[0].version
+    import cmd3
+    self.__version__ = cmd3.__version__
+    return cmd3.__version__
 
 def DynamicCmd(name, plugins):
     '''
@@ -152,8 +159,8 @@ def get_plugins(dir):
         p = p.replace(dir + "/", "").replace(".py", "")
         if not p.startswith('_'):
             plugins.append(p)
-    #log.info("Loading Plugins from {0}".format(dir))
-    #log.info("   {0}".format(str(plugins)))
+    # log.info("Loading Plugins from {0}".format(dir))
+    # log.info("   {0}".format(str(plugins)))
     return plugins
 
 
@@ -166,7 +173,7 @@ def load_plugins(classprefix, list):
     # classprefix "cmd3.plugins."
     plugins = []
     object = {}
-    #log.info(str(list))
+    # log.info(str(list))
     for plugin in list:
         try:
             object[plugin] = __import__(
@@ -230,7 +237,7 @@ def create_file(filename):
     Creates a new file if the file name does not exists
     :param filename: the name of the file
     '''
-    
+
     expanded_filename = os.path.expanduser(os.path.expandvars(filename))
     if not os.path.exists(expanded_filename):
         open(expanded_filename, "a").close()
@@ -262,7 +269,7 @@ def main():
     """
 
     #    __version__ = pkg_resources.require("cmd3")[0].version
-    #arguments = docopt(main.__doc__, help=True, version=__version__)
+    # arguments = docopt(main.__doc__, help=True, version=__version__)
 
     arguments = docopt(main.__doc__, help=True)
 
@@ -301,7 +308,9 @@ def main():
     plugins = []
     plugins.append(dict(get_plugins_from_dir("sys", "cmd3")))
     plugins.append(dict(get_plugins_from_dir("~/.futuregrid", "cmd3local")))
-    #plugins.append(dict(get_plugins_from_dir (".", "dot")))
+    # plugins.append(dict(get_plugins_from_dir (".", "dot")))
+
+    print "PLUGINS", plugins
 
     for plugin in plugins:
         sys.path.append(os.path.expanduser(plugin['dir']))
@@ -312,8 +321,8 @@ def main():
     for plugin in plugins:
         plugin['class'] = plugin['class'] + ".plugins"
 
-    #pprint(plugins)
-    #pprint(sys.path)
+    # pprint(plugins)
+    # pprint(sys.path)
 
     # sys.exit()
     name = "CmCli"

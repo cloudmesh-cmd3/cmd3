@@ -26,10 +26,6 @@ classifiers =
 packages =
     cmd3
 
-[global]
-setup-hooks =
-   pbr.hooks.setup_hook
-
 [entry_points]
 console_scripts =
     cm = cmd3.shell:main

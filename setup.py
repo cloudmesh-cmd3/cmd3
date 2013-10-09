@@ -16,6 +16,47 @@
 # limitations under the License.                                             #
 # -------------------------------------------------------------------------- #
 
+import os
+from setuptools import setup, find_packages
+
+def read(fname):
+    return open(os.path.join(os.path.dirname(__file__), fname)).read()
+
+setup(
+    version="0.7.6",
+    name="cmd3",
+    summary="cmd3 - A dynamic CMD shell with plugins",
+    description="cmd3 - A dynamic CMD shell with plugins",
+    long_description=read('README.rst'),
+    license="Apache License, Version 2.0",
+    author="Gregor von Laszewski",
+    author_email="laszewski@gmail.com",
+    url="https://github.com/cloudmesh/cmd3",
+    classifiers=[
+         "Intended Audience :: Developers",
+         "Intended Audience :: Education",
+         "Intended Audience :: Science/Research",
+         "Development Status :: 5 - Production/Stable",
+         "Intended Audience :: Developers",
+         "License :: OSI Approved :: Apache Software License",
+         "Operating System :: POSIX :: Linux :: MacOS :: MacOS X",
+         "Programming Language :: Python :: 2.7",
+         "Topic :: Scientific/Engineering",
+         "Topic :: System :: Clustering",
+         "Topic :: System :: Distributed Computing",
+         "Topic :: Software Development :: Libraries :: Python Modules",
+         "Environment :: Console"
+         ],
+    keywords="cmd commandshell plugins",
+    packages=find_packages(),
+    entry_points={
+        'console_scripts': [
+            'cm = cmd3.shell:main',
+        ],
+    }
+ )
+
+"""
 import setuptools
 
 
@@ -26,3 +67,4 @@ setuptools.setup(
     ],
     d2to1=True
 )
+"""
