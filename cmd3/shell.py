@@ -310,7 +310,6 @@ def main():
     plugins.append(dict(get_plugins_from_dir("~/.futuregrid", "cmd3local")))
     # plugins.append(dict(get_plugins_from_dir (".", "dot")))
 
-    print "PLUGINS", plugins
 
     for plugin in plugins:
         sys.path.append(os.path.expanduser(plugin['dir']))
