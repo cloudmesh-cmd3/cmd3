@@ -23,7 +23,7 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(
-    version="0.7.6",
+    version="0.7.7",
     name="cmd3",
     summary="cmd3 - A dynamic CMD shell with plugins",
     description="cmd3 - A dynamic CMD shell with plugins",
@@ -39,7 +39,8 @@ setup(
          "Development Status :: 5 - Production/Stable",
          "Intended Audience :: Developers",
          "License :: OSI Approved :: Apache Software License",
-         "Operating System :: POSIX :: Linux :: MacOS :: MacOS X",
+         "Operating System :: MacOS :: MacOS X",
+         "Operating System :: POSIX :: Linux",
          "Programming Language :: Python :: 2.7",
          "Topic :: Scientific/Engineering",
          "Topic :: System :: Clustering",
