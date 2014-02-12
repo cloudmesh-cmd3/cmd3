@@ -9,9 +9,9 @@
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootstrap-2.3.2/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
     
     <script type="text/javascript">
       var DOCUMENTATION_OPTIONS = {
@@ -28,7 +28,7 @@
     <script type="text/javascript" src="_static/searchtools.js"></script>
     <script type="text/javascript" src="_static/js/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.0.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="_static/fg-favicon.ico"/>
     <link rel="top" title="CMD3  documentation" href="index.html" />
@@ -45,22 +45,24 @@
   </head>
   <body>
 
-  <div id="navbar" class="navbar navbar-inverse navbar-fixed-top">
-    <div class="navbar-inner">
-      <div class="container">
+  <div id="navbar" class="navbar navbar-inverse navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
         <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
-        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
+        <a class="navbar-brand" href="index.html"><img src="_static/fg-logo-white-24x36.png">
+          CMD3</a>
+        <span class="navbar-text navbar-version pull-left"><b>0.7.7</b></span>
+      </div>
 
-        <a class="brand" href="index.html">CMD3</a>
-        <span class="navbar-text pull-left"><b>0.7.4</b></span>
-
-        <div class="nav-collapse">
-          <ul class="nav">
+        <div class="collapse navbar-collapse nav-collapse">
+          <ul class="nav navbar-nav">
             <li class="divider-vertical"></li>
+            
             
               <li class="dropdown globaltoc-container">
   <a href="index.html"
@@ -74,9 +76,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="manual.html">Manual</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="manual.html#instalation">Instalation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="manual.html#install-form-pypi">Install form Pypi</a></li>
-<li class="toctree-l3"><a class="reference internal" href="manual.html#install-form-source">Install form Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual.html#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="manual.html#install-from-pypi">Install from Pypi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual.html#install-from-source">Install from Source</a></li>
 <li class="toctree-l3"><a class="reference internal" href="manual.html#running-the-installed-version">Running the installed version</a></li>
 <li class="toctree-l3"><a class="reference internal" href="manual.html#running-from-the-source-directory">Running from the Source Directory</a></li>
 </ul>
@@ -90,6 +92,7 @@
 <li class="toctree-l2"><a class="reference internal" href="manual.html#writing-plugins">Writing Plugins</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="manual.html#a-basic-plugin">A Basic Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="manual.html#argument-parsing">Argument parsing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual.html#generating-information">Generating Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="manual.html#help">Help</a></li>
 </ul>
 </li>
@@ -112,20 +115,20 @@
 </ul>
 </li>
 <li class="toctree-l4"><a class="reference internal" href="modules/cmd3.plugins.html">plugins Package</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#activate-module"><tt class="docutils literal"><span class="pre">activate</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.activate"><tt class="docutils literal"><span class="pre">activate</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#bar-module"><tt class="docutils literal"><span class="pre">bar</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#clear-module"><tt class="docutils literal"><span class="pre">clear</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#edit-module"><tt class="docutils literal"><span class="pre">edit</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.clear"><tt class="docutils literal"><span class="pre">clear</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.edit"><tt class="docutils literal"><span class="pre">edit</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#foo-module"><tt class="docutils literal"><span class="pre">foo</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#graphviz-module"><tt class="docutils literal"><span class="pre">graphviz</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#info-module"><tt class="docutils literal"><span class="pre">info</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.graphviz"><tt class="docutils literal"><span class="pre">graphviz</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.info"><tt class="docutils literal"><span class="pre">info</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#metric-module"><tt class="docutils literal"><span class="pre">metric</span></tt> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#opt-example-module"><tt class="docutils literal"><span class="pre">opt_example</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#pause-module"><tt class="docutils literal"><span class="pre">pause</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#rst-module"><tt class="docutils literal"><span class="pre">rst</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#shell-core-module"><tt class="docutils literal"><span class="pre">shell_core</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#template-module"><tt class="docutils literal"><span class="pre">template</span></tt> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#timer-module"><tt class="docutils literal"><span class="pre">timer</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.pause"><tt class="docutils literal"><span class="pre">pause</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.rst"><tt class="docutils literal"><span class="pre">rst</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.shell_core"><tt class="docutils literal"><span class="pre">shell_core</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.template"><tt class="docutils literal"><span class="pre">template</span></tt> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.timer"><tt class="docutils literal"><span class="pre">timer</span></tt> Module</a></li>
 </ul>
 </li>
 </ul>
@@ -137,16 +140,22 @@
 </ul>
 </ul>
 </li>
-              <li class="dropdown">
+              
+                <li class="dropdown">
   <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
   <ul class="dropdown-menu localtoc"></ul>
 </li>
-            
-            
               
             
             
-              <li></li>
+              
+                
+              
+            
+            
+            
+            
+              <li class="hidden-sm"></li>
             
           </ul>
 
@@ -154,12 +163,13 @@
             
           
         </div>
-      </div>
     </div>
   </div>
 
 <div class="container">
-  
+  <div class="row">
+    <div class="col-md-12">
+      
   <h1 id="search-documentation">Search</h1>
   <div id="fallback" class="admonition warning">
   <script type="text/javascript">$('#fallback').hide();</script>
@@ -186,6 +196,9 @@
   
   </div>
 
+    </div>
+      
+  </div>
 </div>
 <footer class="footer">
   <div class="container">
@@ -195,7 +208,7 @@
     </p>
     <p>
         &copy; Copyright 2013, Developed for FutureGrid by Gregor von Laszewski, based on his earlier code from cyberaide and cogkit..<br/>
-      Last updated on Aug 23, 2013.<br/>
+      Last updated on Feb 12, 2014.<br/>
     </p>
   </div>
 </footer>

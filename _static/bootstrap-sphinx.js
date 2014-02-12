@@ -51,8 +51,7 @@
       .attr("border", 0);
   };
 
-  $(document).ready(function () {
-
+  $(window).load(function () {
     /*
      * Scroll the window to avoid the topnav bar
      * https://github.com/twitter/bootstrap/issues/1768
@@ -62,12 +61,14 @@
         shiftWindow = function() { scrollBy(0, -navHeight - 10); };
 
       if (location.hash) {
-        shiftWindow();
+        setTimeout(shiftWindow, 1);
       }
 
       window.addEventListener("hashchange", shiftWindow);
     }
+  });
 
+  $(document).ready(function () {
     // Add styling, structure to TOC's.
     $(".dropdown-menu").each(function () {
       $(this).find("ul").each(function (index, item){
@@ -83,6 +84,33 @@
       // Remove Global TOC.
       $(".globaltoc-container").remove();
     }
+
+    // Local TOC.
+    $(".bs-sidenav ul").addClass("nav nav-list");
+    $(".bs-sidenav > ul > li > a").addClass("nav-header");
+
+    
+    // back to top
+    setTimeout(function () {
+      var $sideBar = $('.bs-sidenav');
+
+      $sideBar.affix({
+        offset: {
+          top: function () {
+            var offsetTop      = $sideBar.offset().top;
+            var sideBarMargin  = parseInt($sideBar.children(0).css('margin-top'), 10);
+            var navOuterHeight = $('#navbar').height();
+
+            return (this.top = offsetTop - navOuterHeight - sideBarMargin);
+          }
+        , bottom: function () {
+            // add 25 because the footer height doesn't seem to be enough
+            return (this.bottom = $('.footer').outerHeight(true) + 25);
+          }
+        }
+      });
+    }, 100);
+    
 
     // Local TOC.
     patchToc($("ul.localtoc"), 2);
@@ -116,17 +144,21 @@
     // Patch tables.
     patchTables();
 
-    // Add Note, Warning styles.
-    $('div.note').addClass('alert').addClass('alert-info');
-    $('div.warning').addClass('alert');
+    // Add Note, Warning styles. (BS v2,3 compatible).
+    $('div.note').addClass('alert alert-info');
+    $('div.warning').addClass('alert alert-danger alert-error');
 
     // Inline code styles to Bootstrap style.
     $('tt.docutils.literal').not(".xref").each(function (i, e) {
       // ignore references
       if (!$(e).parent().hasClass("reference")) {
         $(e).replaceWith(function () {
-          return $("<code />").text($(this).text());
+          return $("<code />").html($(this).html());
         });
       }});
+
+    // Update sourcelink to remove outerdiv (fixes appearance in navbar).
+    var $srcLink = $(".nav #sourcelink");
+    $srcLink.parent().html($srcLink.html());
   });
 }($jqTheme || window.jQuery));
