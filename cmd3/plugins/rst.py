@@ -11,6 +11,7 @@ from cmd3.shell import command
 class rst:
 
     def activate_rst(self):
+        """activates the RST command"""
         pass
 
     @command

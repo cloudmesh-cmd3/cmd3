@@ -6,6 +6,11 @@ from cmd3.shell import command
 
 class graphviz:
 
+
+    def activate_graphviz(self):
+        """activates the graphviz command"""
+        pass
+
     def do_graphviz(self, args, arguments):
         """
         Usage:

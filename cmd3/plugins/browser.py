@@ -12,6 +12,7 @@ class browser:
     #
 
     def _expand_filename(self, line):
+        """expands the filename if there is a . as leading path"""
         # expand .
         newline = line
         path = os.getcwd()

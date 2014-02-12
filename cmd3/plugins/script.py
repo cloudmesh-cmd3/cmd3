@@ -13,7 +13,10 @@ class script:
     scripts = {}
 
     def activate_script(self):
-        # locationof scripts must be rethought
+        """activates the script command"""
+        
+        
+        # must be rethought
         # ./scripts
         # deploydir/./scripts
         self._add_scope("script")

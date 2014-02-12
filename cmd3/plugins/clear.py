@@ -11,6 +11,7 @@ class clear:
     #
 
     def activate_clear(self):
+        """activates the clear command"""
         pass
 
     @command
