@@ -18,8 +18,8 @@ class shell_core:
         print dedent(self.help_help.__doc__)
 
     def info_shell_core(self):
-        self.get_version()
-        print "%20s = " % "VERSION", self.__version__
+        version = self.get_version()
+        print "%20s = " % "VERSION", version
 
     def version(self):
         import cmd3
