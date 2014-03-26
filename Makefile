@@ -10,7 +10,6 @@ all:
 # NOVA CLIENT
 ######################################################################
 nova:
-	#pip install --upgrade -e git+https://github.com/openstack/python-novaclient.git#egg=python-novaclient
 	pip install --upgrade -e git://github.com/openstack/python-novaclient.git#egg=python-novaclient
 
 ######################################################################
@@ -35,7 +34,7 @@ git-ssh:
 ######################################################################
 # INSTALLATION
 ######################################################################
-req:
+pip:
 	pip install -r requirements.txt
 
 dist:
@@ -50,7 +49,7 @@ sdist:
 force:
 	make -f Makefile nova
 	make -f Makefile pip
-	pip install -U dist/*.tar.gz
+	#pip install -U dist/*.tar.gz
 
 install:
 	pip install dist/*.tar.gz

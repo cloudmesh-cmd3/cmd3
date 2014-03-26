@@ -40,7 +40,7 @@ Install from Source
 
 We recommend that you use virtual env for installing this package, but
 you can naturally also install it in other ways. To use virtual env
-you may consult with its manaula. We assume we create a virtual env
+you may consult with its manaul. We assume we create a virtual env
 called CMD3::
 
    virtualenv ~/CMD3
@@ -87,10 +87,13 @@ Which will give you something like this::
 
   cm> 
 
-It first prints the plugin that it found and loads the, and than gets
-into the shell. As we use the shell to develop a much larger shell for
-clouds, we called it cloud mesh. However cloudmesh is not yet
-available for distribution.
+It first prints the plugins that it found, loads them and than starts
+the shell. As we use the shell to develop a much larger shell for
+clouds (which we call cloudmesh) you will see a welcome
+message. Cloudmesh is available on github at
+http://cloudmesh.futuregrid.org. Please note that cloudmesh is under
+development and you can actively help us while joining the cloudmesh
+project.
 
 Running from the Source Directory
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -109,12 +112,20 @@ Using the Shell
 
 .. todo:: using the shell
 
+The shell is easy to use and you can get started by exploring the
+available commands simply by saying::
+
+  help
+
+It will list you a number of commands that are available to you. some
+of them will be located in your plugin directories where you can place
+additional plugins. Upon start of cmd3 the plugins will be reread and
+all of them, including new once, will be available to you.
+
 Extending the Shell
 ----------------------------------------------------------------------
 
-.. todo:: using the shell
-
-This project is about developing a dynamic CMD class based on cmd.CMD. 
+CMD3 allows you to extend the commands provided in via plugin directories. 
 We assume the following directory structure::
 
   ./shell.py
@@ -124,13 +135,18 @@ We assume the following directory structure::
  
    ... other dirs and file ...
 
-We have provides examples of the classes in this document
+We provide a simple example of how to write and add new classes via
+the plugin directory in this manual.
 
-foo and bar contain some classes that include he usual do_ methods. It
-also includes an activate method that is called with the activation
-module, so you can control its behavior upon startup.
+Let us assume that `foo` and `bar` contain some classes that include
+the usual do_ methods yo may know from cmd. However in addition to the
+do_ method it also includes an
+activate method that is called with the activation module, so you can
+control its behavior upon startup. This is similar to an __init__
+method, but we decided not to name them __init__ in order to highlight
+that they are called only at the activation of the plugin.
 
-To specify the plugins please use::
+To specify the plugins please use in the shell.py code::
 
   plugins = ["foo", "bar","activate"]
 
@@ -178,11 +194,13 @@ Writing Plugins
 ----------------------------------------------------------------------
 
 Plugins are very simple to design and write. However we have to be
-aware of several facts. First, if you design a method within two
-different plugins, the last loaded plugin will overwrite the previous
+aware of several facts. First, if you design a method with the same
+name within two
+different plugins, the method from the last loaded plugin will overwrite the previous
 method. This is the intended behavior as to allow for easy extensions
-to be put in place. However, you need to be careful as not to confuse
-yourself by minding the order in which the plugins are loaded.  In
+to be put in place and overwrite default behaviour. However, you need
+to be careful as not to confuse yourself by properly ordering the
+plugins upon load loaded.  In
 addition we have on purpose not used an __init__ method in the class
 but instead used an activate method to indicate that we like in future
 to activate and deactivate certain plugins.  
@@ -190,7 +208,7 @@ to activate and deactivate certain plugins.
 A Basic Plugin
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Here is the sample classes from the file plugins/foo.py::
+Here is the sample class from the file plugins/foo.py::
 
    class foo:
 
@@ -226,7 +244,7 @@ handeling documentation. Although it is possible to use just the same
 mechanism as in cmd, Cmd3 also allows the use of docopts. This has the
 advantage that we can very quickly design prototypes of commands with
 nice option parsing based on the documentation that is provided with
-the method.
+the method as documented at http://docopt.org.
 
 So let us create a new plugin called bar::
 
@@ -258,7 +276,7 @@ So let us create a new plugin called bar::
 Please note the differences to our previous class. We have introduced a
 decorator that transforms the do_bar method into a method that returns
 an additional parameter called arguments. This is the arguments dict
-that is created by docopt. And allows for some very convenient
+that is created by `docopt` and allows for some very convenient
 introduction of handeling the parameters, arguments, and options.  If
 you like to find more out about docopts please visit the `website`_ ,
 which also includes some nice `examples`_ to show the use of docopt in
@@ -267,9 +285,9 @@ python.
 Generating Information  
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Often it is good to provide som summary information about a module
+Often it is good to provide some summary information about a module
 that you have installed. As each package may have such information we
-have implemented the info command that prints out all information from
+have implemented the `info` command that prints out all information from
 all modules if available
 
 So let us enhance the previous plugin while adding an information::
@@ -320,4 +338,88 @@ automatically registers a help string so you can say::
    help bar
 
 and you will get presented with the manual page
+
+Manual Pages
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Often you will run in the situation where you may have to create a
+list of manual pages for your commands for your users. To simplify
+that we have not provided this in Unix Man format, but simply in RST
+format. You can type in the command::
+
+  man
+
+and it will print you in RST format a list of all commands available
+to you for your cmd3 shell. This naturally you could put into a sphinx
+documentation to create a nice user manual for your users.
+
+Variables
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+CMD3 contains the ability to use variables within the shell. To see a
+list of all variables, use the command::
+
+  var list
+
+or simply::
+
+  var
+
+To use the content of the variable, simple use it on the shell with a
+dollar sign such as::
+
+  $date
+
+Note that the variables $dat and $time are predefined and give the
+current date and time.
+
+Scope
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Often we have to type in a command multiple times. To save
+us typng the name of the commonad, we have defined a simple
+scope that can be activated with the use command.
+
+You can list the scopes by typing::
+
+  use list
+
+To use a scope simply type::
+
+  use
+
+Scripts
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Multiple commands can be stored in scripts. To find out more about
+scripts, please execute::
+
+  help script
+
+You can use a script that is stored in a file simply by saying::
+
+  script load filename
+
+where filename is the name of teh file containing the script.
+
+Python
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+You can execute a python command as follows::
+
+  py COMMAND
+
+where command is the command you like to execute
+
+Quitting the shell
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+To quit the shell you can use either the commands::
+
+  q
+  quit
+  EOF
+
+
+
 

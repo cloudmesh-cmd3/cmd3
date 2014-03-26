@@ -57,7 +57,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'CMD3'
-copyright = u'2013, Developed for FutureGrid by Gregor von Laszewski, based on his earlier code from cyberaide and cogkit.'
+copyright = u'2012-2014, Developed for FutureGrid by Gregor von Laszewski, based on his earlier code from cyberaide and cogkit'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
