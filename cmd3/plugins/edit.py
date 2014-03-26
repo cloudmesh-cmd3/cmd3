@@ -13,6 +13,7 @@ class edit:
     #
 
     def activate_edit(self):
+        """activates the edit command"""
         pass
 
     @command

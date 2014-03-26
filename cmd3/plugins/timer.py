@@ -29,5 +29,6 @@ class timer:
             self.help_timer()
 
     def list_tmers(self):
+        """list of all timers"""
         print "TODO"
         pass

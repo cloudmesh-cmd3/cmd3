@@ -4,6 +4,7 @@ from cmd3.shell import command
 class pause:
 
     def activate_pause(self):
+        """activates the pause command"""
         pass
 
     @command

@@ -23,6 +23,7 @@ class shell_scope:
     #
 
     def info_shell_scope(self):
+        """prints some information about the shell scope"""
         print "%20s =" % "ECHO", self.echo
         print "%20s =" % "SCOPE", self.active_scope
         print "%20s =" % "SCOPES", self.scopes
@@ -32,6 +33,7 @@ class shell_scope:
         print "%20s =" % "variables", self.variables
 
     def activate_shell_scope(self):
+        """activates the shell scope"""
         self.variables = {}
         self.prompt = 'cm> '
         self.active_scope = ""

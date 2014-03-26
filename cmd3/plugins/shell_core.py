@@ -18,14 +18,17 @@ class shell_core:
         print dedent(self.help_help.__doc__)
 
     def info_shell_core(self):
+        """prints information about the shell core"""
         version = self.get_version()
         print "%20s = " % "VERSION", version
 
     def version(self):
+        """prints the version of cmd3"""
         import cmd3
         return cmd3.__version__
 
     def get_version(self):
+        """prints the version of cmd3"""        
         # import pkg_resources  # part of setuptools
         # self.__version__ = pkg_resources.require("cmd3")[0].version
         return self.version()
@@ -41,6 +44,7 @@ class shell_core:
         print self.__version__
 
     def activate_shell_core(self):
+        """activates the shell_core commands"""
         self._hist = []
 
     def do_EOF(self, args):
