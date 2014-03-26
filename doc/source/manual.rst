@@ -329,6 +329,10 @@ from the cm command it will execute the info method fo the class bar.
 .. _website: https://github.com/docopt
 .. _examples: https://github.com/docopt/docopt/tree/master/examples
 
+
+Build In Commands
+----------------------------------------------------------------------
+
 Help
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
