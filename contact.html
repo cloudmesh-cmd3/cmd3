@@ -9,8 +9,8 @@
     
     <link rel="stylesheet" href="_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootstrap-3.0.0/css/bootstrap.min.css" type="text/css" />
-    <link rel="stylesheet" href="_static/bootstrap-3.0.0/css/bootstrap-theme.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.1.0/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="_static/bootstrap-3.1.0/css/bootstrap-theme.min.css" type="text/css" />
     <link rel="stylesheet" href="_static/bootstrap-sphinx.css" type="text/css" />
     
     <script type="text/javascript">
@@ -25,9 +25,9 @@
     <script type="text/javascript" src="_static/jquery.js"></script>
     <script type="text/javascript" src="_static/underscore.js"></script>
     <script type="text/javascript" src="_static/doctools.js"></script>
-    <script type="text/javascript" src="_static/js/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="_static/js/jquery-1.11.0.min.js"></script>
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
-    <script type="text/javascript" src="_static/bootstrap-3.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="_static/bootstrap-3.1.0/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
     <link rel="shortcut icon" href="_static/fg-favicon.ico"/>
     <link rel="top" title="CMD3  documentation" href="index.html" />
@@ -61,20 +61,23 @@
             
             
               <li class="dropdown globaltoc-container">
-  <a href="index.html"
-     class="dropdown-toggle"
-     data-toggle="dropdown">Site <b class="caret"></b></a>
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="index.html">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
-    ><ul class="current">
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1 current"><a class="current reference internal" href="">Contact</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#authors">Authors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#repository">Repository</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="manual.html">Manual</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="manual.html#instalation">Instalation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="manual.html#install-form-pypi">Install form Pypi</a></li>
-<li class="toctree-l3"><a class="reference internal" href="manual.html#install-form-source">Install form Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual.html#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="manual.html#install-from-pypi">Install from Pypi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual.html#install-from-source">Install from Source</a></li>
 <li class="toctree-l3"><a class="reference internal" href="manual.html#running-the-installed-version">Running the installed version</a></li>
 <li class="toctree-l3"><a class="reference internal" href="manual.html#running-from-the-source-directory">Running from the Source Directory</a></li>
 </ul>
@@ -88,7 +91,14 @@
 <li class="toctree-l2"><a class="reference internal" href="manual.html#writing-plugins">Writing Plugins</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="manual.html#a-basic-plugin">A Basic Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="manual.html#argument-parsing">Argument parsing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual.html#generating-information">Generating Information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="manual.html#help">Help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual.html#manual-pages">Manual Pages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual.html#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual.html#scope">Scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual.html#scripts">Scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual.html#python">Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="manual.html#quitting-the-shell">Quitting the shell</a></li>
 </ul>
 </li>
 </ul>
@@ -137,8 +147,14 @@
 </li>
               
                 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown">Page <b class="caret"></b></a>
-  <ul class="dropdown-menu localtoc"><ul>
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Contact</a><ul>
 <li><a class="reference internal" href="#authors">Authors</a></li>
 <li><a class="reference internal" href="#repository">Repository</a></li>
@@ -226,8 +242,8 @@
       
     </p>
     <p>
-        &copy; Copyright 2013, Developed for FutureGrid by Gregor von Laszewski, based on his earlier code from cyberaide and cogkit..<br/>
-      Last updated on Feb 12, 2014.<br/>
+        &copy; Copyright 2012-2014, Developed for FutureGrid by Gregor von Laszewski, based on his earlier code from cyberaide and cogkit.<br/>
+      Last updated on Mar 26, 2014.<br/>
     </p>
   </div>
 </footer>
