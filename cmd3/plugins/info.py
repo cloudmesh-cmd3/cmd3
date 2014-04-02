@@ -3,8 +3,6 @@ from cmd3.shell import command
 
 class info:
 
-
-
     def print_info(self):
         """prints some info that the user may find useful"""
         

@@ -18,7 +18,8 @@ class edit:
 
     @command
     def do_edit(self, arg, arguments):
-        """Usage:
+        """
+        Usage:
              edit FILENAME
 
         Arguments:

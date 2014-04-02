@@ -13,7 +13,7 @@ class timer:
     @command
     def do_timer(self, args, arguments):
         """
-        Ussage:
+        Usage:
             timer (on|off)
 
         switches timers on and off not yet implemented

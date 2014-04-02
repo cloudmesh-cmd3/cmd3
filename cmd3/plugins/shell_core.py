@@ -120,7 +120,16 @@ class shell_core:
                     pass
 
     def do_exec(self, filename):
-        """Execute script file"""
+        """
+        Usage:
+           exec FILENAME
+
+        executes the command sin the file. See also the script command.
+
+        Arguments:
+          FILENAME   The name of the file
+
+        """
         if not filename:
             return
 
