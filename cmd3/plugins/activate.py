@@ -11,7 +11,7 @@ class activate:
 
     def do_plugins(self, args):
         """
-        Ussage:
+        Usage:
             plugins
 
         activates the plugins."""

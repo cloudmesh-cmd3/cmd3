@@ -29,7 +29,7 @@ class rst:
 
         what = arguments['COMMAND']
         print
-        print "Commnad - %s::" % what
+        print "Command - %s::" % what
 
         exec("h = self.do_%s.__doc__" % what)
         h = textwrap.dedent(h).replace("\n", "\n    ")

@@ -20,12 +20,14 @@ class edit:
     def do_edit(self, arg, arguments):
         """
         Usage:
-             edit FILENAME
+                edit FILENAME
 
+        Edits the file with the given name
+        
         Arguments:
             FILENAME  the file to edit
 
-        Edits a file."""
+        """
 
         filename = arg
         print filename
@@ -45,3 +47,5 @@ class edit:
                     return
 
             print "ERROR: Could not find working editor in", editors
+
+            

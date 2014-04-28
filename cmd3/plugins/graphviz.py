@@ -11,6 +11,7 @@ class graphviz:
         """activates the graphviz command"""
         pass
 
+    @command
     def do_graphviz(self, args, arguments):
         """
         Usage:
@@ -27,6 +28,7 @@ class graphviz:
             if os.path.isfile(file):
                 os.system("open -a '\''/Applications/Graphviz.app'\'' " + file)
 
+    @command
     def do_dot2(self, args, arguments):
         """
         Usage:

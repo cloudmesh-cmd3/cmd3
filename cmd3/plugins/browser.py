@@ -24,7 +24,8 @@ class browser:
 
     @command
     def do_open(self, args, arguments):
-        """Usage:
+        """
+        Usage:
                 open FILENAME
 
         ARGUMENTS:
