@@ -14,20 +14,15 @@ class rst:
         """activates the RST command"""
         pass
 
-    @command
-    def do_rst(self, args, arguments):
+    def _print_rst(self, what):
         """
-        Usage:
-               rst COMMAND
+        prints the rst page of the command what
 
-        Prints out the comand for inclusion into rst
-
-        Arguments:
-          COMMAND    The name of the command
+        :param what: the command
+        :type what: string
 
         """
 
-        what = arguments['COMMAND']
         print
         print "Command - %s::" % what
 
@@ -39,20 +34,38 @@ class rst:
     def do_man(self, args, arguments):
         """
         Usage:
+               man COMMAND
                man [--noheader]
 
         Options:
                --norule   no rst header
 
-        Prints out the help pages
+        Arguments:
+               COMMAND   the command to be printed 
+        
+        Description:
+
+          man 
+                Prints out the help pages
+
+          man COMMAND
+                Prints out the help page for a specific command
+
+        
         """
+        if arguments['COMMAND'] is None:
+        
+            print
+            print "Commands"
+            print 70 * "="
 
-        print
-        print "Commands"
-        print 70 * "="
+            commands = [k for k in dir(self) if k.startswith("do_")]
+            commands.sort()
 
-        commands = [k for k in dir(self) if k.startswith("do_")]
-        commands.sort()
+        else:
+            print arguments
+            commands = [arguments['COMMAND']]
+
 
         for command in commands:
             what = command.replace("do_", "")
@@ -60,7 +73,7 @@ class rst:
                 if not arguments["--noheader"]:
                     print what
                     print 70 * "-"
-                self.do_rst(what)
+                self._print_rst(what)
             except:
                 print "\n    Command documentation %s missing, help_%s" % (what, what)
             print

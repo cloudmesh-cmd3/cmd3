@@ -23,7 +23,7 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(
-    version="0.7.9",
+    version="0.8.0",
     name="cmd3",
     description="cmd3 - A dynamic CMD shell with plugins",
     long_description=read('README.rst'),
