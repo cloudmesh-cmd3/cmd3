@@ -234,18 +234,26 @@ class shell_scope:
         self.echo = on
 
     @command
-    def do_verbose(self, on):
+    def do_verbose(self, args, arguments):
         """
         Usage:
             verbose (True | False)
+            verbose
 
         If set to True prints the command befor execution.
         In interactive mode you may want to set it to False.
         When using scripts we recommend to set it to True.
 
-        The default is set to True
+        The default is set to False
+
+        If verbose is specified without parameter the flag is
+        toggled.
+        
         """
-        self.echo = on == 'True'
+        if args == '':
+            self.echo = not self.echo
+        else:
+            self.echo = arguments['True']
 
     #
     # VAR
