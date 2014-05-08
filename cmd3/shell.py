@@ -226,6 +226,49 @@ def command(func):
             print doc
     new.__doc__ = doc
     return new
+#
+# DECORATOR: COMMAND
+#
+
+def function_command(main_func):
+    def _function_command(func):
+        '''
+        A decorator to create a function with docopt arguments. It also generates a help function
+
+        @command
+        def do_myfunc(self, args):
+            """ docopts text """
+            pass
+
+        will create
+
+        def do_myfunc(self, args, arguments):
+            """ docopts text """
+            ...
+
+        def help_myfunc(self, args, arguments):
+            ... prints the docopt text ...
+
+        :param func: the function for the decorator
+        '''
+        classname = inspect.getouterframes(inspect.currentframe())[1][3]
+        name = func.__name__
+        help_name = name.replace("do_", "help_")
+        doc = textwrap.dedent(main_func.__doc__)
+
+        def new(instance, args):
+                    # instance.new.__doc__ = doc
+            try:
+                arguments = docopt(doc, help=True, argv=args)
+                func(instance, args, arguments)
+                #func.__doc__ = doc
+            except SystemExit:
+                if not args in ('-h', '--help'):
+                    print "Error: Wrong Format"
+                print doc
+        new.__doc__ = doc
+        return new
+    return _function_command
 
 #
 # MAIN
@@ -320,7 +363,7 @@ def main():
     for plugin in plugins:
         plugin['class'] = plugin['class'] + ".plugins"
 
-    # pprint(plugins)
+    pprint(plugins)
     # pprint(sys.path)
 
     # sys.exit()
