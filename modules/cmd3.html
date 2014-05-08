@@ -53,7 +53,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><img src="../_static/fg-logo-white-24x36.png">
           CMD3</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.7.8</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.7.9</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -76,9 +76,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../manual.html">Manual</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../manual.html#instalation">Instalation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../manual.html#install-form-pypi">Install form Pypi</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manual.html#install-form-source">Install form Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manual.html#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#install-from-pypi">Install from Pypi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#install-from-source">Install from Source</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../manual.html#running-the-installed-version">Running the installed version</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../manual.html#running-from-the-source-directory">Running from the Source Directory</a></li>
 </ul>
@@ -92,7 +92,17 @@
 <li class="toctree-l2"><a class="reference internal" href="../manual.html#writing-plugins">Writing Plugins</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../manual.html#a-basic-plugin">A Basic Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../manual.html#argument-parsing">Argument parsing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#generating-information">Generating Information</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../manual.html#build-in-commands">Build In Commands</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../manual.html#help">Help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#manual-pages">Manual Pages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#scope">Scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#scripts">Scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#python">Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#quitting-the-shell">Quitting the shell</a></li>
 </ul>
 </li>
 </ul>
@@ -152,9 +162,7 @@
 <li><a class="reference internal" href="#">cmd3 Package</a><ul>
 <li><a class="reference internal" href="#id1"><tt class="docutils literal"><span class="pre">cmd3</span></tt> Package</a></li>
 <li><a class="reference internal" href="#module-cmd3.shell"><tt class="docutils literal"><span class="pre">shell</span></tt> Module</a></li>
-<li><a class="reference internal" href="#subpackages">Subpackages</a><ul>
-</ul>
-</li>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
 </ul>
 </li>
 </ul>
@@ -209,10 +217,11 @@
 <span id="shell-module"></span><h2><tt class="xref py py-mod docutils literal"><span class="pre">shell</span></tt> Module<a class="headerlink" href="#module-cmd3.shell" title="Permalink to this headline">¶</a></h2>
 <p>This project is about developing a dynamic CMD class based on cmd.CMD.
 We assume the following directory structure:</p>
-<div class="highlight-python"><pre>./shell.py
+<div class="highlight-python"><div class="highlight"><pre>./shell.py
 ./plugins/foo.py
 ./plugins/bar.py
-./plugins/activate.py</pre>
+./plugins/activate.py
+</pre></div>
 </div>
 <p>We have provided examples of the classes in this document</p>
 <p>foo and bar contain some classes that include he usual <a href="#id2"><span class="problematic" id="id3">do_</span></a> methods. It
@@ -435,8 +444,8 @@ cm [-v] [-f SCRIPT] [-i] [-q] [COMMAND ...]</dd>
       
     </p>
     <p>
-        &copy; Copyright 2013, Developed for FutureGrid by Gregor von Laszewski, based on his earlier code from cyberaide and cogkit..<br/>
-      Last updated on Apr 28, 2014.<br/>
+        &copy; Copyright 2012-2014, Developed for FutureGrid by Gregor von Laszewski, based on his earlier code from cyberaide and cogkit.<br/>
+      Last updated on May 07, 2014.<br/>
     </p>
   </div>
 </footer>
