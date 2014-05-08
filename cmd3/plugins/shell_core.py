@@ -40,8 +40,8 @@ class shell_core:
 
         Prints out the version number
         """
-        self.get_version()
-        print self.__version__
+        print self.get_version()
+        #print self.__version__
 
     def activate_shell_core(self):
         """activates the shell_core commands"""
