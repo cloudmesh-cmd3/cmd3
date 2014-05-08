@@ -357,6 +357,7 @@ and it will print you in RST format a list of all commands available
 to you for your cmd3 shell. This naturally you could put into a sphinx
 documentation to create a nice user manual for your users.
 
+
 Variables
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 

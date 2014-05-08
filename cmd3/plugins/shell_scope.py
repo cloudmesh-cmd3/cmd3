@@ -281,12 +281,14 @@ class shell_scope:
     def do_var(self, arg, arguments):
         """
         Usage:
-            var list | var
-            var delete NAME
+            var list 
+            var delete NAMES
             var NAME=VALUE
+            var NAME
 
         Arguments:
             NAME    Name of the variable
+            NAMES   Names of the variable seperated by spaces
             VALUE   VALUE to be assigned
 
         special vars date and time are defined
@@ -294,6 +296,7 @@ class shell_scope:
         if arg == 'list' or arg == '' or arg is None:
             self._list_variables()
             return
+
         elif '=' in arg:
             (variable, value) = arg.split('=', 1)
             if value == "time":
@@ -302,6 +305,13 @@ class shell_scope:
                 value = datetime.datetime.now().strftime("%Y-%m-%d")
             self._add_variable(variable, value)
             return
+        elif '=' not in arg and arguments['NAME=VALUE'] is not None:
+            try:
+                v = arguments['NAME=VALUE']
+                print self.variables[v]
+            except:
+                print 'ERROR: variable', arguments['NAME=VALUE'], 'not defined'
+            
         elif arg.startswith('delete'):
             variable = arg.split(' ')[1]
             self._delete_variable(variable)

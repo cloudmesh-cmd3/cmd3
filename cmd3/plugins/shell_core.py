@@ -124,13 +124,14 @@ class shell_core:
         Usage:
            exec FILENAME
 
-        executes the command sin the file. See also the script command.
+        executes the commands in the file. See also the script command.
 
         Arguments:
           FILENAME   The name of the file
 
         """
         if not filename:
+            print "ERROR: the command requires a filename as parameter"
             return
 
         if os.path.exists(filename):
@@ -139,5 +140,5 @@ class shell_core:
                     print ">", line
                     self.onecmd(line)
         else:
-            print '"%s" file does not exist.' % filename
+            print 'ERROR: "%s" file does not exist.' % filename
             sys.exit()
