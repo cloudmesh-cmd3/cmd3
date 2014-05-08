@@ -363,7 +363,7 @@ def main():
     for plugin in plugins:
         plugin['class'] = plugin['class'] + ".plugins"
 
-    pprint(plugins)
+    # pprint(plugins)
     # pprint(sys.path)
 
     # sys.exit()
