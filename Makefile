@@ -107,8 +107,15 @@ clean:
 # SPHINX DOC
 ###############################################################################
 
+html:
+	make -f Makefile sphinx
+
+
 sphinx:
 	cd doc; make html
+
+view: html
+	open doc/build/html/index.html
 
 #############################################################################
 # PUBLISH GIT HUB PAGES

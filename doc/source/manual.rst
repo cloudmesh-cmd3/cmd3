@@ -282,6 +282,8 @@ you like to find more out about docopts please visit the `website`_ ,
 which also includes some nice `examples`_ to show the use of docopt in
 python.
 
+
+
 Generating Information  
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -328,6 +330,24 @@ from the cm command it will execute the info method fo the class bar.
 
 .. _website: https://github.com/docopt
 .. _examples: https://github.com/docopt/docopt/tree/master/examples
+
+
+Function Registration
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+Sometimes you have already developed a function with docopts and
+instead of redeveloping it you may just want to add it. Although we
+could just register the function as is it is beneficial for us to
+still ouse our class concept to organize many differnet
+commands. Hence we have developed a function_command decorator, that
+accepts an external function so you can specify a new function to the
+shell while using the predefined function. After these many words, we
+demonstarte this very easily through the following program.  In this
+example the command fbar will inherit the documentation form the
+function main_func and will also execute it.
+
+.. include:: ../../cmd3/examples/fbar.py
+   :literal: 
 
 
 Build In Commands

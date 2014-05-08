@@ -1,7 +1,6 @@
 from cmd3.shell import command
 from cmd3.shell import function_command
 
-
 def main_func(arguments):
     """
     Usage:
@@ -13,10 +12,6 @@ def main_func(arguments):
     print arguments
     print "Name", arguments["NAME"]
 
-
-
-
-
 class fbar:
 
     def activate_fbar(self):
@@ -27,4 +22,5 @@ class fbar:
 
     @function_command(main_func)
     def do_fbar(self, arg, arguments):
-        print arguments
+        main_func(arguments)
+        pass
