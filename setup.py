@@ -18,12 +18,13 @@
 
 import os
 from setuptools import setup, find_packages
+import cmd3
 
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(
-    version="0.8.1",
+    version=cmd3.__version__,
     name="cmd3",
     description="cmd3 - A dynamic CMD shell with plugins",
     long_description=read('README.rst'),
