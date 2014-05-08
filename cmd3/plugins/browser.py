@@ -29,9 +29,9 @@ class browser:
                 open FILENAME
 
         ARGUMENTS:
-            FILNAME  the file to open in the cwd if . is
-                     specified. If file in in cwd
-                     you must specify it with ./FILENAME
+            FILENAME  the file to open in the cwd if . is
+                      specified. If file in in cwd
+                      you must specify it with ./FILENAME
 
         Opens the given URL in a browser window.
         """
