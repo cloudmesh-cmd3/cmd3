@@ -1,7 +1,7 @@
 PATHNAME=$(shell pwd)
 BASENAME=$(shell basename $(PATHNAME))
 
-TAG=`grep "version" setup.cfg | sed "s/version = //g" | sed "s/'//g"`
+TAG=`echo "print __version__" > v.py;  cat cmd3/__init__.py v.py > /tmp/v1.py; python /tmp/v1.py; rm /tmp/v1.py v.py`
 
 all:
 	make -f Makefile force
@@ -129,8 +129,8 @@ gh-pages:
 # TAGGING
 ######################################################################
 
-
 tag:
+	@echo "VERSION: $(TAG)"
 	make clean
 	git tag $(TAG)
 	git add .
