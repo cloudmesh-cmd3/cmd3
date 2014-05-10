@@ -299,16 +299,16 @@ def main():
     """cm.
 
     Usage:
-      cm [-v] [--file=SCRIPT] [--interactive] [--quiet] [COMMAND ...]
-      cm [-v] [-f SCRIPT] [-i] [-q] [COMMAND ...]
+      cm help
+      cm [-v] [--file=SCRIPT] [--interactive] [COMMAND ...]
 
     Arguments:
       COMMAND                  A command to be executed
 
     Options:
-      --file=SCRIPT -f SCRIPT  Executes the scipt
-      --interactive -i         After start keep the shell interactive, otherwise quit
-      --quiet       -q         Surpress some of the informational messages.
+      --file=SCRIPT  -f SCRIPT  Executes the scipt
+      --interactive  -i         After start keep the shell interactive,
+                                otherwise quit
     """
 
     #    __version__ = pkg_resources.require("cmd3")[0].version
@@ -379,7 +379,8 @@ def main():
     cmd.set_verbose(echo)
     cmd.activate()
     cmd.set_verbose(echo)
-    cmd.do_exec(script_file)
+    if script_file is not None:
+        cmd.do_exec(script_file)
 
     if len(arguments['COMMAND']) > 0:
         try:
