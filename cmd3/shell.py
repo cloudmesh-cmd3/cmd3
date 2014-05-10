@@ -299,16 +299,17 @@ def main():
     """cm.
 
     Usage:
-      cm help
-      cm [-v] [--file=SCRIPT] [--interactive] [COMMAND ...]
+      cm [-q] help
+      cm [-v] [-b] [--file=SCRIPT] [-i] [COMMAND ...]
 
     Arguments:
       COMMAND                  A command to be executed
 
     Options:
-      --file=SCRIPT  -f SCRIPT  Executes the scipt
-      --interactive  -i         After start keep the shell interactive,
-                                otherwise quit
+      --file=SCRIPT  -f  SCRIPT  Executes the scipt
+      -i                 After start keep the shell interactive,
+                         otherwise quit
+      -b                 surpress the printing of the banner [default: False]
     """
 
     #    __version__ = pkg_resources.require("cmd3")[0].version
@@ -316,10 +317,17 @@ def main():
 
     arguments = docopt(main.__doc__, help=True)
 
-    script_file = arguments['--file']
-    interactive = arguments['--interactive']
-    echo = arguments['-v']
+    # fixing the help parameter parsing
+    if arguments['help']:
+        arguments['COMMAND'] = ['help']
+        arguments['help'] = 'False'
 
+    script_file = arguments['--file']
+    interactive = arguments['-i']
+    echo = arguments['-v']
+    if echo:
+        print arguments
+        
     def get_plugins_from_dir(dir_path, classbase):
         """dir_path/classbase/plugins"""
 
@@ -379,6 +387,9 @@ def main():
     cmd.set_verbose(echo)
     cmd.activate()
     cmd.set_verbose(echo)
+
+    if arguments['-b']:
+        cmd.set_banner("")
     if script_file is not None:
         cmd.do_exec(script_file)
 
@@ -392,6 +403,9 @@ def main():
             print "'%s' is not recognized" % user_cmd
             print e
             print traceback.format_exc()
+        if not script_file or interactive:
+            cmd.cmdloop()
+            
     elif not script_file or interactive:
         cmd.cmdloop()
 

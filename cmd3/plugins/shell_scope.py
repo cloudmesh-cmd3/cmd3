@@ -233,6 +233,9 @@ class shell_scope:
     def set_verbose(self, on):
         self.echo = on
 
+    def set_banner(self, banner):
+        self.banner = banner
+
     @command
     def do_verbose(self, args, arguments):
         """
