@@ -21,15 +21,19 @@ class info:
     def do_info(self, arg, arguments):
         """
         Usage:
-               info
+               info [--all]
+               
+        Options:
+               --all  -a   more extensive information 
 
         Prints some internal information about the shell
 
         """
-        print 70 * "-"
-        print 'DIR'
-        print 70 * "-"
-        for element in dir(self):
-            print element
-        print 70 * "-"
+        if arguments["--all"]:
+            print 70 * "-"
+            print 'DIR'
+            print 70 * "-"
+            for element in dir(self):
+                print element
+            print 70 * "-"
         self.print_info()
