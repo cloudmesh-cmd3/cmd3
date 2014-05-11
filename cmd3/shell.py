@@ -308,7 +308,7 @@ def main():
     Options:
       --file=SCRIPT  -f  SCRIPT  Executes the scipt
       -i                 After start keep the shell interactive,
-                         otherwise quit
+                         otherwise quit [default: False]
       -b                 surpress the printing of the banner [default: False]
     """
 
@@ -394,7 +394,7 @@ def main():
         cmd.do_exec(script_file)
 
     if len(arguments['COMMAND']) > 0:
-        try:
+        try:            
             user_cmd = " ".join(arguments['COMMAND'])
             if echo:
                 print ">", user_cmd
@@ -403,7 +403,7 @@ def main():
             print "'%s' is not recognized" % user_cmd
             print e
             print traceback.format_exc()
-        if not script_file or interactive:
+        if interactive:
             cmd.cmdloop()
             
     elif not script_file or interactive:
