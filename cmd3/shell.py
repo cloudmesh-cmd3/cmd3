@@ -78,6 +78,7 @@ Here are the sample classes::
                print "> %s" % key.replace("_"," ")
                exec("self.%s()" % key)
 """
+import textwrap
 from compiler.ast import flatten
 from docopt import docopt
 from pprint import pprint
@@ -93,6 +94,7 @@ import sys
 import textwrap
 import traceback
 
+#echo = False
 echo = False
 
 #
@@ -180,9 +182,17 @@ def load_plugins(classprefix, list):
                 classprefix + "." + plugin, globals(), locals(), [plugin], -1)
             exec("cls = object['%s'].%s" % (plugin, plugin))
             plugins.append(cls)
-        except:
-            if echo:
-                print "No module found", plugin, classprefix
+        except Exception, e:
+            #if echo:
+            print "ERROR: loading module ", plugin, classprefix
+            print 70 * "="
+            print e
+            print 70 * "="            
+            print traceback.format_exc()
+            print 70 * "-"
+            print sys.exc_info()[0]
+            print 70 * "-"q
+            
     return plugins
 
 
