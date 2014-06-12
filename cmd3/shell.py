@@ -191,7 +191,7 @@ def load_plugins(classprefix, list):
             print traceback.format_exc()
             print 70 * "-"
             print sys.exc_info()[0]
-            print 70 * "-"q
+            print 70 * "-"
             
     return plugins
 
