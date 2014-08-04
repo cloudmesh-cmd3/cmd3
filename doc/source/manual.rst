@@ -23,6 +23,13 @@ Gregor von Laszewski, laszewski@gmail.com
 
 ..
 
+Documentation
+----------------------------------------------------------------------
+
+The documentation of cmd3 is maintained at 
+
+* http://cloudmesh.github.com/cmd3/
+
 Installation
 ----------------------------------------------------------------------
 
