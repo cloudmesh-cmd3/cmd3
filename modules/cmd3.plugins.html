@@ -52,7 +52,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><img src="../_static/fg-logo-white-24x36.png">
           CMD3</a>
-        <span class="navbar-text navbar-version pull-left"><b>0.9.3</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>0.9.8</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -75,9 +75,10 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../manual.html">Manual</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../manual.html#instalation">Instalation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../manual.html#install-form-pypi">Install form Pypi</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manual.html#install-form-source">Install form Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manual.html#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manual.html#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#install-from-pypi">Install from Pypi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#install-from-source">Install from Source</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../manual.html#running-the-installed-version">Running the installed version</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../manual.html#running-from-the-source-directory">Running from the Source Directory</a></li>
 </ul>
@@ -91,7 +92,18 @@
 <li class="toctree-l2"><a class="reference internal" href="../manual.html#writing-plugins">Writing Plugins</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../manual.html#a-basic-plugin">A Basic Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../manual.html#argument-parsing">Argument parsing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#generating-information">Generating Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#function-registration">Function Registration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../manual.html#build-in-commands">Build In Commands</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../manual.html#help">Help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#manual-pages">Manual Pages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#scope">Scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#scripts">Scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#python">Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#quitting-the-shell">Quitting the shell</a></li>
 </ul>
 </li>
 </ul>
@@ -224,6 +236,17 @@ its plugins.</p>
 <dd><p>activate the activation method</p>
 </dd></dl>
 
+<dl class="attribute">
+<dt id="cmd3.plugins.activate.activate.command_topics">
+<tt class="descname">command_topics</tt><em class="property"> = {}</em><a class="headerlink" href="#cmd3.plugins.activate.activate.command_topics" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.activate.activate.do_help">
+<tt class="descname">do_help</tt><big>(</big><em>arg</em><big>)</big><a class="headerlink" href="#cmd3.plugins.activate.activate.do_help" title="Permalink to this definition">¶</a></dt>
+<dd><p>List available commands with &#8220;help&#8221; or detailed help with &#8220;help cmd&#8221;.</p>
+</dd></dl>
+
 <dl class="method">
 <dt id="cmd3.plugins.activate.activate.do_plugins">
 <tt class="descname">do_plugins</tt><big>(</big><em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.activate.activate.do_plugins" title="Permalink to this definition">¶</a></dt>
@@ -237,6 +260,11 @@ its plugins.</p>
 <dl class="attribute">
 <dt id="cmd3.plugins.activate.activate.plugins">
 <tt class="descname">plugins</tt><em class="property"> = []</em><a class="headerlink" href="#cmd3.plugins.activate.activate.plugins" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.activate.activate.register_command_topic">
+<tt class="descname">register_command_topic</tt><big>(</big><em>topic</em>, <em>topic_command</em><big>)</big><a class="headerlink" href="#cmd3.plugins.activate.activate.register_command_topic" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -699,8 +727,8 @@ timers are reset</dd>
       
     </p>
     <p>
-        &copy; Copyright 2013, Developed for FutureGrid by Gregor von Laszewski, based on his earlier code from cyberaide and cogkit..<br/>
-      Last updated on May 09, 2014.<br/>
+        &copy; Copyright 2012-2014, Developed for FutureGrid by Gregor von Laszewski, based on his earlier code from cyberaide and cogkit.<br/>
+      Last updated on Aug 04, 2014.<br/>
     </p>
   </div>
 </footer>
