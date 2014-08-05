@@ -47,14 +47,14 @@ Install from Source
 
 We recommend that you use virtual env for installing this package, but
 you can naturally also install it in other ways. To use virtual env
-you may consult with its manaul. We assume we create a virtual env
+you may consult with its manual. We assume we create a virtual env
 called CMD3::
 
    virtualenv ~/CMD3
    ~/CMD3/bin/activate
 
 Next you need to get the source code from git as follows and conduct
-the instalation
+the installation
 
 ::
 
@@ -147,11 +147,11 @@ the plugin directory in this manual.
 
 Let us assume that `foo` and `bar` contain some classes that include
 the usual do_ methods yo may know from cmd. However in addition to the
-do_ method it also includes an
-activate method that is called with the activation module, so you can
-control its behavior upon startup. This is similar to an __init__
-method, but we decided not to name them __init__ in order to highlight
-that they are called only at the activation of the plugin.
+do_ method it also includes an activate method that is called with the
+activation module, so you can control its behavior upon startup. This
+is similar to an __init__ method, but we decided not to name them
+__init__ in order to highlight that they are called only at the
+activation of the plugin.
 
 To specify the plugins please use in the shell.py code::
 
@@ -170,7 +170,8 @@ The rest is pretty simple::
 
 Many times you may want to provide some better location for your
 plugins such as system wide installed plugins, or plugins maintained
-in your user environment rather than the current path. For this reason we provide the following examples.
+in your user environment rather than the current path. For this reason
+we provide the following examples.
 
 Reading plugins from your local instalation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -202,15 +203,14 @@ Writing Plugins
 
 Plugins are very simple to design and write. However we have to be
 aware of several facts. First, if you design a method with the same
-name within two
-different plugins, the method from the last loaded plugin will overwrite the previous
-method. This is the intended behavior as to allow for easy extensions
-to be put in place and overwrite default behaviour. However, you need
-to be careful as not to confuse yourself by properly ordering the
-plugins upon load loaded.  In
-addition we have on purpose not used an __init__ method in the class
-but instead used an activate method to indicate that we like in future
-to activate and deactivate certain plugins.  
+name within two different plugins, the method from the last loaded
+plugin will overwrite the previous method. This is the intended
+behavior as to allow for easy extensions to be put in place and
+overwrite default behavior. However, you need to be careful as not to
+confuse yourself by properly ordering the plugins upon load loaded.
+In addition we have on purpose not used an __init__ method in the
+class but instead used an activate method to indicate that we like in
+future to activate and deactivate certain plugins.
 
 A Basic Plugin
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -348,7 +348,7 @@ could just register the function it is beneficial for us to use our
 plugin and class concept to organize such a command.  Hence we have
 developed a very convenient function_command decorator, that accepts
 an external function so you can integrate it trivially into the
-shell. After these many words, we demonstarte this through
+shell. After these many words, we demonstrate this through
 the following program.  In this example the command fbar will inherit
 the documentation form the function main_func and will also execute
 it.
@@ -358,8 +358,8 @@ it.
 
 This has also the advantage that you could make the main_func
 available through a python main section so you could also run it directly
-on the commandline. This will simplyfy debugging of the main_func as
-certain checkings are switched of when it is run through the command
+on the commandline. This will simplify debugging of the main_func as
+certain debug checks are switched of when it is run through the command
 shell. Just make sure that you parse the arguments in docpots before
 you call the main_func::
 
@@ -423,9 +423,9 @@ current date and time.
 Scope
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-Often we have to type in a command multiple times. To save
-us typng the name of the commonad, we have defined a simple
-scope that can be activated with the use command.
+Often we have to type in a command multiple times. To save us typing
+the name of the command, we have defined a simple scope that can be
+activated with the use command.
 
 You can list the scopes by typing::
 
@@ -447,7 +447,7 @@ You can use a script that is stored in a file simply by saying::
 
   script load filename
 
-where filename is the name of teh file containing the script.
+where filename is the name of the file containing the script.
 
 Python
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
