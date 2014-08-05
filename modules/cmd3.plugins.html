@@ -75,10 +75,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../manual.html">Manual</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../manual.html#documentation">Documentation</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../manual.html#installation">Installation</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="../manual.html#install-from-pypi">Install from Pypi</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manual.html#install-from-source">Install from Source</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manual.html#instalation">Instalation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#install-form-pypi">Install form Pypi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#install-form-source">Install form Source</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../manual.html#running-the-installed-version">Running the installed version</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../manual.html#running-from-the-source-directory">Running from the Source Directory</a></li>
 </ul>
@@ -92,18 +91,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../manual.html#writing-plugins">Writing Plugins</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../manual.html#a-basic-plugin">A Basic Plugin</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../manual.html#argument-parsing">Argument parsing</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manual.html#generating-information">Generating Information</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manual.html#function-registration">Function Registration</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../manual.html#build-in-commands">Build In Commands</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../manual.html#help">Help</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manual.html#manual-pages">Manual Pages</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manual.html#variables">Variables</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manual.html#scope">Scope</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manual.html#scripts">Scripts</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manual.html#python">Python</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../manual.html#quitting-the-shell">Quitting the shell</a></li>
 </ul>
 </li>
 </ul>
@@ -287,33 +275,23 @@ its plugins.</p>
 <dl class="method">
 <dt id="cmd3.plugins.clear.clear.do_banner">
 <tt class="descname">do_banner</tt><big>(</big><em>instance</em>, <em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.clear.clear.do_banner" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Usage:</dt>
-<dd>banner [-c CHAR] [-n WIDTH] [-i INDENT] TEXT</dd>
-<dt>Arguments:</dt>
-<dd>TEXT   The text message from which to create the banner
-CHAR   The character for the frame. 
-WIDTH  Width of the banner
-INDENT indentation of the banner</dd>
-<dt>Options:</dt>
-<dd><table class="first last docutils option-list" frame="void" rules="none">
-<col class="option" />
-<col class="description" />
-<tbody valign="top">
-<tr><td class="option-group">
-<kbd><span class="option">-c <var>CHAR</var></span></kbd></td>
-<td>The character for the frame. [default: #]</td></tr>
-<tr><td class="option-group">
-<kbd><span class="option">-n <var>WIDTH</var></span></kbd></td>
-<td>The width of the banner. [default: 70]</td></tr>
-<tr><td class="option-group">
-<kbd><span class="option">-i <var>INDENT</var></span></kbd></td>
-<td>The width of the banner. [default: 0]</td></tr>
-</tbody>
-</table>
-</dd>
-</dl>
-<p>Prints a banner form a one line text message.</p>
+<dd><div class="highlight-python"><div class="highlight"><pre>Usage:
+    banner [-c CHAR] [-n WIDTH] [-i INDENT] TEXT
+
+Arguments:
+    TEXT   The text message from which to create the banner
+    CHAR   The character for the frame. 
+    WIDTH  Width of the banner
+    INDENT indentation of the banner
+
+Options:
+    -c CHAR   The character for the frame. [default: #]
+    -n WIDTH  The width of the banner. [default: 70]
+    -i INDENT  The width of the banner. [default: 0]            
+
+Prints a banner form a one line text message.
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -343,15 +321,15 @@ INDENT indentation of the banner</dd>
 <dl class="method">
 <dt id="cmd3.plugins.edit.edit.do_edit">
 <tt class="descname">do_edit</tt><big>(</big><em>instance</em>, <em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.edit.edit.do_edit" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Usage:</dt>
-<dd>edit FILENAME</dd>
-</dl>
-<p>Edits the file with the given name</p>
-<dl class="docutils">
-<dt>Arguments:</dt>
-<dd>FILENAME  the file to edit</dd>
-</dl>
+<dd><div class="highlight-python"><div class="highlight"><pre>Usage:
+        edit FILENAME
+
+Edits the file with the given name
+
+Arguments:
+    FILENAME  the file to edit
+</pre></div>
+</div>
 </dd></dl>
 
 </dd></dl>
@@ -374,30 +352,30 @@ INDENT indentation of the banner</dd>
 <dl class="method">
 <dt id="cmd3.plugins.graphviz.graphviz.do_dot2">
 <tt class="descname">do_dot2</tt><big>(</big><em>instance</em>, <em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.graphviz.graphviz.do_dot2" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Usage:</dt>
-<dd>dot2 FILENAME FORMAT</dd>
-</dl>
-<p>Export the data in cvs format to a file. Former cvs command</p>
-<dl class="docutils">
-<dt>Arguments:</dt>
-<dd>FILENAME   The filename
-FORMAT     the export format, pdf, png, ...</dd>
-</dl>
+<dd><div class="highlight-python"><div class="highlight"><pre>Usage:
+       dot2 FILENAME FORMAT
+
+Export the data in cvs format to a file. Former cvs command
+
+Arguments:
+    FILENAME   The filename
+    FORMAT     the export format, pdf, png, ...
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
 <dt id="cmd3.plugins.graphviz.graphviz.do_graphviz">
 <tt class="descname">do_graphviz</tt><big>(</big><em>instance</em>, <em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.graphviz.graphviz.do_graphviz" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Usage:</dt>
-<dd>graphviz FILENAME</dd>
-</dl>
-<p>Export the data in cvs format to a file. Former cvs command</p>
-<dl class="docutils">
-<dt>Arguments:</dt>
-<dd>FILENAME   The filename</dd>
-</dl>
+<dd><div class="highlight-python"><div class="highlight"><pre>Usage:
+       graphviz FILENAME
+
+Export the data in cvs format to a file. Former cvs command
+
+Arguments:
+    FILENAME   The filename
+</pre></div>
+</div>
 </dd></dl>
 
 </dd></dl>
@@ -411,31 +389,15 @@ FORMAT     the export format, pdf, png, ...</dd>
 <dd><dl class="method">
 <dt id="cmd3.plugins.info.info.do_info">
 <tt class="descname">do_info</tt><big>(</big><em>instance</em>, <em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.info.info.do_info" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Usage:</dt>
-<dd>info [&#8211;all]</dd>
-<dt>Options:</dt>
-<dd><table class="first last docutils option-list" frame="void" rules="none">
-<col class="option" />
-<col class="description" />
-<tbody valign="top">
-<tr><td class="option-group">
-<kbd><span class="option">--all</span></kbd></td>
-<td><table class="first last docutils option-list" frame="void" rules="none">
-<col class="option" />
-<col class="description" />
-<tbody valign="top">
-<tr><td class="option-group">
-<kbd><span class="option">-a</span></kbd></td>
-<td>more extensive information</td></tr>
-</tbody>
-</table>
-</td></tr>
-</tbody>
-</table>
-</dd>
-</dl>
-<p>Prints some internal information about the shell</p>
+<dd><div class="highlight-python"><div class="highlight"><pre>Usage:
+       info [--all]
+
+Options:
+       --all  -a   more extensive information 
+
+Prints some internal information about the shell
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -467,15 +429,15 @@ FORMAT     the export format, pdf, png, ...</dd>
 <dl class="method">
 <dt id="cmd3.plugins.pause.pause.do_pause">
 <tt class="descname">do_pause</tt><big>(</big><em>instance</em>, <em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.pause.pause.do_pause" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Usage:</dt>
-<dd>pause [MESSAGE]</dd>
-</dl>
-<p>Displays the specified text then waits for the user to press RETURN.</p>
-<dl class="docutils">
-<dt>Arguments:</dt>
-<dd>MESSAGE  message to be displayed</dd>
-</dl>
+<dd><div class="highlight-python"><div class="highlight"><pre>Usage:
+    pause [MESSAGE]
+
+Displays the specified text then waits for the user to press RETURN.
+
+Arguments:
+   MESSAGE  message to be displayed
+</pre></div>
+</div>
 </dd></dl>
 
 </dd></dl>
@@ -495,33 +457,23 @@ FORMAT     the export format, pdf, png, ...</dd>
 <dl class="method">
 <dt id="cmd3.plugins.rst.rst.do_man">
 <tt class="descname">do_man</tt><big>(</big><em>instance</em>, <em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.rst.rst.do_man" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Usage:</dt>
-<dd>man COMMAND
-man [&#8211;noheader]</dd>
-<dt>Options:</dt>
-<dd><table class="first last docutils option-list" frame="void" rules="none">
-<col class="option" />
-<col class="description" />
-<tbody valign="top">
-<tr><td class="option-group">
-<kbd><span class="option">--norule</span></kbd></td>
-<td>no rst header</td></tr>
-</tbody>
-</table>
-</dd>
-<dt>Arguments:</dt>
-<dd>COMMAND   the command to be printed</dd>
-</dl>
-<p>Description:</p>
-<blockquote>
-<div><dl class="docutils">
-<dt>man </dt>
-<dd>Prints out the help pages</dd>
-<dt>man COMMAND</dt>
-<dd>Prints out the help page for a specific command</dd>
-</dl>
-</div></blockquote>
+<dd><div class="highlight-python"><div class="highlight"><pre>Usage:
+       man COMMAND
+       man [--noheader]
+
+Options:
+       --norule   no rst header
+
+Arguments:
+       COMMAND   the command to be printed 
+
+Description:
+    man 
+        Prints out the help pages
+    man COMMAND
+        Prints out the help page for a specific command
+</pre></div>
+</div>
 </dd></dl>
 
 </dd></dl>
@@ -559,15 +511,15 @@ the remainder of the line as argument.</p>
 <dl class="method">
 <dt id="cmd3.plugins.shell_core.shell_core.do_exec">
 <tt class="descname">do_exec</tt><big>(</big><em>filename</em><big>)</big><a class="headerlink" href="#cmd3.plugins.shell_core.shell_core.do_exec" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Usage:</dt>
-<dd>exec FILENAME</dd>
-</dl>
-<p>executes the commands in the file. See also the script command.</p>
-<dl class="docutils">
-<dt>Arguments:</dt>
-<dd>FILENAME   The name of the file</dd>
-</dl>
+<dd><div class="highlight-python"><div class="highlight"><pre>Usage:
+   exec FILENAME
+
+executes the commands in the file. See also the script command.
+
+Arguments:
+  FILENAME   The name of the file
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -665,43 +617,43 @@ the remainder of the line as argument.</p>
 <dl class="method">
 <dt id="cmd3.plugins.timer.timer.do_timer">
 <tt class="descname">do_timer</tt><big>(</big><em>instance</em>, <em>args</em><big>)</big><a class="headerlink" href="#cmd3.plugins.timer.timer.do_timer" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="docutils">
-<dt>Usage:</dt>
-<dd>timer on
-timer off            
-timer list
-timer start NAME
-timer stop NAME
-timer resume NAME
-timer reset [NAME]</dd>
-</dl>
-<p>Description (NOT IMPLEMENTED YET):</p>
-<blockquote>
-<div><blockquote>
-<div><dl class="docutils">
-<dt>timer on | off</dt>
-<dd>switches timers on and off not yet implemented.
-If the timer is on each command will be timed and its
-time is printed after the command. Please note that
-background command times are not added.</dd>
-</dl>
-</div></blockquote>
-<dl class="docutils">
-<dt>timer list</dt>
-<dd>list all timers</dd>
-<dt>timer start NAME</dt>
-<dd>starts the timer with the name. A start resets the timer to 0.</dd>
-<dt>timer stop NAME</dt>
-<dd>stops the timer</dd>
-<dt>timer resume NAME</dt>
-<dd>resumes the timer</dd>
-<dt>timer reset NAME</dt>
-<dd>resets the named timer to 0. If no name is specified all
-timers are reset</dd>
-<dt>Implementation note: we have a stopwatch in cloudmesh,</dt>
-<dd>that we could copy into cmd3</dd>
-</dl>
-</div></blockquote>
+<dd><div class="highlight-python"><div class="highlight"><pre>Usage:
+    timer on
+    timer off            
+    timer list
+    timer start NAME
+    timer stop NAME
+    timer resume NAME
+    timer reset [NAME]
+
+Description (NOT IMPLEMENTED YET):
+
+     timer on | off
+         switches timers on and off not yet implemented.
+         If the timer is on each command will be timed and its
+         time is printed after the command. Please note that
+         background command times are not added.
+
+    timer list
+        list all timers
+
+    timer start NAME
+        starts the timer with the name. A start resets the timer to 0.
+
+    timer stop NAME
+        stops the timer
+
+    timer resume NAME
+        resumes the timer
+
+    timer reset NAME
+        resets the named timer to 0. If no name is specified all
+        timers are reset
+
+    Implementation note: we have a stopwatch in cloudmesh,
+                         that we could copy into cmd3
+</pre></div>
+</div>
 </dd></dl>
 
 <dl class="method">
@@ -727,7 +679,7 @@ timers are reset</dd>
       
     </p>
     <p>
-        &copy; Copyright 2012-2014, Developed for FutureGrid by Gregor von Laszewski, based on his earlier code from cyberaide and cogkit.<br/>
+        &copy; Copyright 2013, Developed for FutureGrid by Gregor von Laszewski, based on his earlier code from cyberaide and cogkit..<br/>
       Last updated on Aug 04, 2014.<br/>
     </p>
   </div>

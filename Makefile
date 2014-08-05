@@ -1,7 +1,7 @@
 PATHNAME=$(shell pwd)
 BASENAME=$(shell basename $(PATHNAME))
 
-TAG=`echo "print __version__" > v.py;  cat cmd3/__init__.py v.py > /tmp/v1.py; python /tmp/v1.py; rm /tmp/v1.py v.py`
+TAG=`cat VERSION.txt`
 
 all:
 	make -f Makefile force
@@ -10,6 +10,7 @@ all:
 # NOVA CLIENT
 ######################################################################
 nova:
+	#pip install --upgrade -e git+https://github.com/openstack/python-novaclient.git#egg=python-novaclient
 	pip install --upgrade -e git://github.com/openstack/python-novaclient.git#egg=python-novaclient
 
 ######################################################################
@@ -28,28 +29,27 @@ gregor:
 	git config --global user.email laszewski@gmail.com
 
 git-ssh:
-	git remote set-url origin git@github.com:futuregrid/$(BASENAME).git
+	git remote set-url origin git@github.com:cloudmesh/$(BASENAME).git
 
 
 ######################################################################
 # INSTALLATION
 ######################################################################
-pip:
+req:
 	pip install -r requirements.txt
 
 dist:
 	make -f Makefile pip
 
-sdist:
+pip:
 	make -f Makefile clean
-	python setup.py sdist --formats=tar
-#	gzip dist/*.tar
+	python setup.py sdist
 
 
 force:
 	make -f Makefile nova
 	make -f Makefile pip
-	#pip install -U dist/*.tar.gz
+	pip install -U dist/*.tar.gz
 
 install:
 	pip install dist/*.tar.gz
@@ -65,10 +65,10 @@ test:
 ######################################################################
 
 
-pip-upload: clean
-#	make -f Makefile sdist
+pip-upload:
+	make -f Makefile pip
 #	python setup.py register
-	python setup.py sdist --format=bztar,zip upload
+	python setup.py sdist upload
 
 pip-register:
 	python setup.py register
@@ -83,9 +83,9 @@ qc-install:
 	pip install pyflakes
 
 qc:
-	pep8 ./futuregrid/virtual/cluster/
-	pylint ./futuregrid/virtual/cluster/ | less
-	pyflakes ./futuregrid/virtual/cluster/
+	pep8 ./cloudmesh/virtual/cluster/
+	pylint ./cloudmesh/virtual/cluster/ | less
+	pyflakes ./cloudmesh/virtual/cluster/
 
 # #####################################################################
 # CLEAN
@@ -93,9 +93,6 @@ qc:
 
 
 clean:
-	rm -rf AUTHORS ChangeLog
-	rm -rf cmd3-*
-	rm -rf *.egg
 	find . -name "*~" -exec rm {} \;  
 	find . -name "*.pyc" -exec rm {} \;  
 	rm -rf build dist 
@@ -107,15 +104,8 @@ clean:
 # SPHINX DOC
 ###############################################################################
 
-html:
-	make -f Makefile sphinx
-
-
 sphinx:
 	cd doc; make html
-
-view: html
-	open doc/build/html/index.html
 
 #############################################################################
 # PUBLISH GIT HUB PAGES
@@ -129,15 +119,16 @@ gh-pages:
 # TAGGING
 ######################################################################
 
+
 tag:
-	@echo "VERSION: $(TAG)"
 	make clean
+	python bin/util/next_tag.py
 	git tag $(TAG)
+	echo $(TAG) > VERSION.txt
 	git add .
-	touch README.rst
 	git commit -m "adding version $(TAG)"
 	git push
-	git push origin --tags
+
 
 ######################################################################
 # ONLY RUN ON GH-PAGES
@@ -153,7 +144,7 @@ pages: ghphtml ghpgit
 ghphtml:
 	cd /tmp
 	rm -rf $(DIR)
-	cd /tmp; git clone git://github.com/futuregrid/$(PROJECT).git
+	cd /tmp; git clone git://github.com/cloudmesh/$(PROJECT).git
 	cp $(DIR)/Makefile .
 	cd $(DOC); ls; make html
 	rm -fr _static
