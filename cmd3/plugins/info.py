@@ -20,13 +20,15 @@ class info:
     @command
     def do_info(self, arg, arguments):
         """
-        Usage:
-               info [--all]
-               
-        Options:
-               --all  -a   more extensive information 
+        ::
 
-        Prints some internal information about the shell
+            Usage:
+                   info [--all]
+
+            Options:
+                   --all  -a   more extensive information 
+
+            Prints some internal information about the shell
 
         """
         if arguments["--all"]:

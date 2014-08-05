@@ -33,25 +33,23 @@ class rst:
     @command
     def do_man(self, args, arguments):
         """
-        Usage:
-               man COMMAND
-               man [--noheader]
-
-        Options:
-               --norule   no rst header
-
-        Arguments:
-               COMMAND   the command to be printed 
+        ::
         
-        Description:
+            Usage:
+                   man COMMAND
+                   man [--noheader]
 
-          man 
-                Prints out the help pages
+            Options:
+                   --norule   no rst header
 
-          man COMMAND
-                Prints out the help page for a specific command
+            Arguments:
+                   COMMAND   the command to be printed 
 
-        
+            Description:
+                man 
+                    Prints out the help pages
+                man COMMAND
+                    Prints out the help page for a specific command
         """
         if arguments['COMMAND'] is None:
         

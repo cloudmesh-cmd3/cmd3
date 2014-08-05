@@ -121,14 +121,15 @@ class shell_core:
 
     def do_exec(self, filename):
         """
-        Usage:
-           exec FILENAME
+        ::
+        
+            Usage:
+               exec FILENAME
 
-        executes the commands in the file. See also the script command.
+            executes the commands in the file. See also the script command.
 
-        Arguments:
-          FILENAME   The name of the file
-
+            Arguments:
+              FILENAME   The name of the file
         """
         if not filename:
             print "ERROR: the command requires a filename as parameter"

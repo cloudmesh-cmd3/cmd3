@@ -14,13 +14,15 @@ class graphviz:
     @command
     def do_graphviz(self, args, arguments):
         """
-        Usage:
-               graphviz FILENAME
+        ::
+        
+            Usage:
+                   graphviz FILENAME
 
-        Export the data in cvs format to a file. Former cvs command
+            Export the data in cvs format to a file. Former cvs command
 
-        Arguments:
-            FILENAME   The filename
+            Arguments:
+                FILENAME   The filename
 
         """
         file = arguments['FILENAME']
@@ -31,14 +33,16 @@ class graphviz:
     @command
     def do_dot2(self, args, arguments):
         """
-        Usage:
-               dot2 FILENAME FORMAT
+        ::
 
-        Export the data in cvs format to a file. Former cvs command
+            Usage:
+                   dot2 FILENAME FORMAT
 
-        Arguments:
-            FILENAME   The filename
-            FORMAT     the export format, pdf, png, ...
+            Export the data in cvs format to a file. Former cvs command
+
+            Arguments:
+                FILENAME   The filename
+                FORMAT     the export format, pdf, png, ...
 
         """
         file = arguments['FILENAME']

@@ -76,29 +76,31 @@ class shell_scope:
 
     def do_use(self, arg):
         """
-        USAGE:
+        ::
+        
+            USAGE:
 
-            use list           lists the available scopes
+                use list           lists the available scopes
 
-            use add SCOPE      adds a scope <scope>
+                use add SCOPE      adds a scope <scope>
 
-            use delete SCOPE   removes the <scope>
+                use delete SCOPE   removes the <scope>
 
-            use                without parameters allows an
-                               interactive selection
+                use                without parameters allows an
+                                   interactive selection
 
-        DESCRIPTION
-           often we have to type in a command multiple times. To save
-           us typng the name of the commonad, we have defined a simple
-           scope thatcan be activated with the use command
+            DESCRIPTION
+               often we have to type in a command multiple times. To save
+               us typng the name of the commonad, we have defined a simple
+               scope thatcan be activated with the use command
 
-        ARGUMENTS:
-            list         list the available scopes
-            add          add a scope with a name
-            delete       delete a named scope
-            use          activate a scope
+            ARGUMENTS:
+                list         list the available scopes
+                add          add a scope with a name
+                delete       delete a named scope
+                use          activate a scope
 
-        """
+            """
         if arg == 'list':
             self._list_scope()
             return

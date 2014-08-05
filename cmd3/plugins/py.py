@@ -38,24 +38,28 @@ class py:
 
     def do_py(self, arg):
         '''
-        Usage:
-            py
-            py COMMAND
+        ::
 
-        Arguments:
-            COMMAND   the command to be executed
+            Usage:
+                py
+                py COMMAND
 
-        The command without a parameter will be extecuted and the
-        interactive python mode is entered. The python mode can be
-        ended with ``Ctrl-D`` (Unix) / ``Ctrl-Z`` (Windows),
-        ``quit()``,'`exit()``. Non-python commands can be issued with
-        ``cmd("your command")``.  If the python code is located in an
-        external file it can be run with ``run("filename.py")``.
+            Arguments:
+                COMMAND   the command to be executed
 
-        In case a COMMAND is provided it will be executed and the
-        python interpreter will return to the commandshell.
+            Description:
 
-        This code is copied from Cmd2.
+                The command without a parameter will be extecuted and the
+                interactive python mode is entered. The python mode can be
+                ended with ``Ctrl-D`` (Unix) / ``Ctrl-Z`` (Windows),
+                ``quit()``,'`exit()``. Non-python commands can be issued with
+                ``cmd("your command")``.  If the python code is located in an
+                external file it can be run with ``run("filename.py")``.
+
+                In case a COMMAND is provided it will be executed and the
+                python interpreter will return to the commandshell.
+
+                This code is copied from Cmd2.
         '''
         self.pystate['self'] = self
         arg = arg.strip()

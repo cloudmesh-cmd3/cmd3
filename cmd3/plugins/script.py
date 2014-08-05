@@ -81,32 +81,34 @@ class script:
     @command
     def do_script(self, args, arguments):
         """
-        Usage:
-               script
-               script load
+        ::
+        
+            Usage:
+                   script
+                   script load
+                   script load LABEL FILENAME
+                   script load REGEXP
+                   script list
+                   script LABEL
+
+            Arguments:
+                   load       indicates that we try to do actions toload files.
+                              Without parameters, loads scripts from default locations
+                    NAME      specifies a label for a script
+                    LABEL     a conveninet LABEL, it must be unique
+                    FILENAME  the filename in which the script is located
+                    REGEXP    Not supported yet.
+                              If specified looks for files identified by the REGEXP.
+
+            NOT SUPPORTED YET
+
                script load LABEL FILENAME
+               script load FILENAME
                script load REGEXP
-               script list
-               script LABEL
 
-        Arguments:
-               load       indicates that we try to do actions toload files.
-                          Without parameters, loads scripts from default locations
-                NAME      specifies a label for a script
-                LABEL     a conveninet LABEL, it must be unique
-                FILENAME  the filename in which the script is located
-                REGEXP    Not supported yet.
-                          If specified looks for files identified by the REGEXP.
+            Process FILE and optionally apply some options
 
-        NOT SUPPORTED YET
-
-           script load LABEL FILENAME
-           script load FILENAME
-           script load REGEXP
-
-        Process FILE and optionally apply some options
-
-        """
+            """
         if args == "load":
             self._load_scripts(self.script_files)
             self._list_scripts()

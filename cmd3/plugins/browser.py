@@ -25,15 +25,17 @@ class browser:
     @command
     def do_open(self, args, arguments):
         """
-        Usage:
-                open FILENAME
+        ::
 
-        ARGUMENTS:
-            FILENAME  the file to open in the cwd if . is
-                      specified. If file in in cwd
-                      you must specify it with ./FILENAME
+            Usage:
+                    open FILENAME
 
-        Opens the given URL in a browser window.
+            ARGUMENTS:
+                FILENAME  the file to open in the cwd if . is
+                          specified. If file in in cwd
+                          you must specify it with ./FILENAME
+
+            Opens the given URL in a browser window.
         """
         filename = arguments['FILENAME']
         filename = self._expand_filename(filename)

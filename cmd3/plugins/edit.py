@@ -19,13 +19,15 @@ class edit:
     @command
     def do_edit(self, arg, arguments):
         """
-        Usage:
-                edit FILENAME
+        ::
 
-        Edits the file with the given name
-        
-        Arguments:
-            FILENAME  the file to edit
+            Usage:
+                    edit FILENAME
+
+            Edits the file with the given name
+
+            Arguments:
+                FILENAME  the file to edit
 
         """
 
