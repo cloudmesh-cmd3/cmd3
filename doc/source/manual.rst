@@ -344,17 +344,32 @@ Function Registration
 
 Sometimes you have already developed a function with docopts and
 instead of redeveloping it you may just want to add it. Although we
-could just register the function as is it is beneficial for us to
-still ouse our class concept to organize many differnet
-commands. Hence we have developed a function_command decorator, that
-accepts an external function so you can specify a new function to the
-shell while using the predefined function. After these many words, we
-demonstarte this very easily through the following program.  In this
-example the command fbar will inherit the documentation form the
-function main_func and will also execute it.
+could just register the function it is beneficial for us to use our
+plugin and class concept to organize such a command.  Hence we have
+developed a very convenient function_command decorator, that accepts
+an external function so you can integrate it trivially into the
+shell. After these many words, we demonstarte this through
+the following program.  In this example the command fbar will inherit
+the documentation form the function main_func and will also execute
+it.
 
 .. include:: ../../cmd3/examples/fbar.py
    :literal: 
+
+This has also the advantage that you could make the main_func
+available through a python main section so you could also run it directly
+on the commandline. This will simplyfy debugging of the main_func as
+certain checkings are switched of when it is run through the command
+shell. Just make sure that you parse the arguments in docpots before
+you call the main_func::
+
+  def main():
+      arguments = docopt(main_func.__doc__)
+      main_func(arguments)
+
+  if __name__ == '__main__':
+      main()
+
 
 
 Build In Commands
