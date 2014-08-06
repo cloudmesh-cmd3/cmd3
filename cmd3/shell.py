@@ -429,6 +429,13 @@ def is_subcmd(opts, args):
     return False
 
 
+def cmd3_call(f):
+    """ calls a function defined with cmd3 arguments the function must be
+        defined as f(arguments)"""
+    
+    arguments = docopt(f.__doc__)
+    f(arguments)
+
 if __name__ == "__main__":
     main()
 
