@@ -28,7 +28,7 @@ gregor:
 	git config --global user.email laszewski@gmail.com
 
 git-ssh:
-	git remote set-url origin git@github.com:futuregrid/$(BASENAME).git
+	git remote set-url origin git@github.com:cloudmesh/$(BASENAME).git
 
 
 ######################################################################
@@ -81,11 +81,6 @@ qc-install:
 	pip install pep8
 	pip install pylint
 	pip install pyflakes
-
-qc:
-	pep8 ./futuregrid/virtual/cluster/
-	pylint ./futuregrid/virtual/cluster/ | less
-	pyflakes ./futuregrid/virtual/cluster/
 
 # #####################################################################
 # CLEAN
@@ -153,7 +148,7 @@ pages: ghphtml ghpgit
 ghphtml:
 	cd /tmp
 	rm -rf $(DIR)
-	cd /tmp; git clone git://github.com/futuregrid/$(PROJECT).git
+	cd /tmp; git clone git://github.com/cloudmesh/$(PROJECT).git
 	cp $(DIR)/Makefile .
 	cd $(DOC); ls; make html
 	rm -fr _static

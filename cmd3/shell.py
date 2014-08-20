@@ -368,7 +368,7 @@ def main():
 
     plugins = []
     plugins.append(dict(get_plugins_from_dir("sys", "cmd3")))
-    plugins.append(dict(get_plugins_from_dir("~/.futuregrid", "cmd3local")))
+    plugins.append(dict(get_plugins_from_dir("~/.cloudmesh", "cmd3local")))
     # plugins.append(dict(get_plugins_from_dir (".", "dot")))
 
 

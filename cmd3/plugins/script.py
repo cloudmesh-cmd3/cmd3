@@ -22,7 +22,7 @@ class script:
         self._add_scope("script")
         self.scripts = {}
         self.script_files = [
-            "./scripts/script_*.txt", "~/.futuregrid/scripts/script_*.txt"]
+            "./scripts/script_*.txt", "~/.cloudmesh/scripts/script_*.txt"]
         self._load_scripts(self.script_files)
 
     def add_script_dir(self, regexp):

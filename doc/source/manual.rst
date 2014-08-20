@@ -177,9 +177,9 @@ Reading plugins from your local instalation
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 We assume you have placed a plugin directory at
-"~/.futuregrid/cmd3/". Than you simply can read the plugins by ::
+"~/.cloudmesh/cmd3local/". Than you simply can read the plugins by ::
 
-  plugin_path = os.path.expanduser("~/.futuregrid/cmd3/")
+  plugin_path = os.path.expanduser("~/.cloudmesh/cmd3local/")
 
   plugins = get_plugins(plugin_path)
 
