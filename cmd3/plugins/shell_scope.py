@@ -38,7 +38,7 @@ class shell_scope:
         self.prompt = 'cm> '
         self.active_scope = ""
         self.scopes = []
-        self.scopeless = ['info', 'var', 'use', 'quit', 'q', 'help']
+        self.scopeless = ['load', 'info', 'var', 'use', 'quit', 'q', 'help']
         #self.scopeless = ['use', 'quit', 'q', 'EOF', 'eof', 'help']
 
     def do_EOF(self, args):

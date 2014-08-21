@@ -304,6 +304,44 @@ def create_dir(dir_path):
     if not os.path.exists(dir_path):
         os.makedirs(dir_path)
 
+def get_plugins_from_dir(dir_path, classbase):
+    """dir_path/classbase/plugins"""
+
+    if dir_path == "sys":
+        dir_path = os.path.abspath(
+            os.path.join(os.path.dirname(__file__), 'plugins'))
+        dir_plugins = get_plugins(dir_path)
+        return {"dir": dir_path, "plugins": dir_plugins, "class": classbase}
+
+    if dir_path == ".":
+        dir_path = os.path.expanduser(
+            os.path.expandvars(os.path.join(os.getcwd(), 'plugins')))
+        dir_plugins = get_plugins(dir_path)
+        return {"dir": dir_path, "plugins": dir_plugins, "class": classbase}
+    else:
+
+        dir_path = os.path.expanduser(os.path.expandvars(dir_path))
+        prefix = "{0}/{1}".format(dir_path, classbase)
+
+        user_path = "{0}/plugins".format(prefix)
+
+        create_dir(user_path)
+        create_file("{0}/__init__.py".format(prefix))
+        create_file("{0}/plugins/__init__.py".format(prefix))
+        sys.path.append(os.path.expanduser(dir_path))
+        dir_plugins = get_plugins(user_path)
+        return {"dir": dir_path, "plugins": dir_plugins, "class": classbase}
+
+        
+
+        
+def get_plugins_from_module(name):
+
+    cmd3_module = __import__(name)
+    location = os.path.dirname(cmd3_module.__file__)
+    package_location = os.path.dirname(location)
+    class_name = os.path.basename(location)
+    return dict(get_plugins_from_dir(package_location, class_name))
 
 def main():
     """cm.
@@ -338,37 +376,20 @@ def main():
     if echo:
         print arguments
         
-    def get_plugins_from_dir(dir_path, classbase):
-        """dir_path/classbase/plugins"""
-
-        if dir_path == "sys":
-            dir_path = os.path.abspath(
-                os.path.join(os.path.dirname(__file__), 'plugins'))
-            dir_plugins = get_plugins(dir_path)
-            return {"dir": dir_path, "plugins": dir_plugins, "class": classbase}
-
-        if dir_path == ".":
-            dir_path = os.path.expanduser(
-                os.path.expandvars(os.path.join(os.getcwd(), 'plugins')))
-            dir_plugins = get_plugins(dir_path)
-            return {"dir": dir_path, "plugins": dir_plugins, "class": classbase}
-        else:
-
-            dir_path = os.path.expanduser(os.path.expandvars(dir_path))
-            prefix = "{0}/{1}".format(dir_path, classbase)
-
-            user_path = "{0}/plugins".format(prefix)
-
-            create_dir(user_path)
-            create_file("{0}/__init__.py".format(prefix))
-            create_file("{0}/plugins/__init__.py".format(prefix))
-            sys.path.append(os.path.expanduser(dir_path))
-            dir_plugins = get_plugins(user_path)
-            return {"dir": dir_path, "plugins": dir_plugins, "class": classbase}
-
+    
     plugins = []
+
     plugins.append(dict(get_plugins_from_dir("sys", "cmd3")))
-    plugins.append(dict(get_plugins_from_dir("~/.cloudmesh", "cmd3local")))
+    # plugins.append(dict(get_plugins_from_dir("~/.cloudmesh", "cmd3local")))
+    try:
+        plugins.append(dict(get_plugins_from_module('cloudmesh_cmd3.plugins')))
+    except:
+        # ignoring in case the module is not there
+        pass
+    
+    #sys.exit()    
+    #plugins.append(dict(get_plugins_from_dir("~/.cloudmesh", "cmd3local")))    
+    
     # plugins.append(dict(get_plugins_from_dir (".", "dot")))
 
 

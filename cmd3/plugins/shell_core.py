@@ -66,7 +66,7 @@ class shell_core:
         sys.exit()
 
     do_q = do_quit
-
+        
     def emptyline(self):
         return
 

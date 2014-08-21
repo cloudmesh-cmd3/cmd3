@@ -1,4 +1,5 @@
 from cmd3.shell import command
+from cmd3.shell import load_cmd3_from_module
 import glob
 import os
 
@@ -108,7 +109,7 @@ class script:
 
             Process FILE and optionally apply some options
 
-            """
+        """
         if args == "load":
             self._load_scripts(self.script_files)
             self._list_scripts()
@@ -126,3 +127,55 @@ class script:
             print "script execution not yet defined"
             print arguments
             print args
+
+    '''
+
+    This may be fixed in a future version
+    
+    @command
+    def do_load(self, args, arguments):
+        """
+        ::
+
+            Usage:
+               load MODULENAME
+
+            Arguments:
+               MODULENAME   the name of the module to be loaded.
+
+            Description:
+
+                you can load a module into the shell dynamically
+                by specifying the module name. The modules must be
+                written in such a way that they include a plugins 
+                directory.
+
+		        Assume your module looks like:
+
+                   my_cmd3/__init__.py
+                          /plugins/__init__.py
+                          /plugins/myfirstplugin.py
+
+                and you have deployed the cloudmesh_cmd3 moduly
+                into your site-packages, than you can load it
+                simply by saying 
+
+                   load my_cmd3
+                   
+                This will than import all modules in the plugins 
+		        subdirectory.
+        """
+        
+        print "HALLO"
+
+        module_name = arguments["MODULENAME"]
+
+        try:
+            plugins.append(dict(load_cmd3_from_module ('cloudmesh_cmd3.plugins')))
+        except Exception, e:	
+            # ignoring in case the module is not there
+            print "ERROR: loading module", module_name
+            print e
+
+
+        '''
