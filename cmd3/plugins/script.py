@@ -1,5 +1,5 @@
 from cmd3.shell import command
-from cmd3.shell import load_cmd3_from_module
+#from cmd3.shell import get_plugins_from_module
 import glob
 import os
 
@@ -171,7 +171,9 @@ class script:
         module_name = arguments["MODULENAME"]
 
         try:
-            plugins.append(dict(load_cmd3_from_module ('cloudmesh_cmd3.plugins')))
+
+
+            plugins.append(dict(get_plugins_from_module('cloudmesh_cmd3.plugins')))
         except Exception, e:	
             # ignoring in case the module is not there
             print "ERROR: loading module", module_name
