@@ -1,7 +1,7 @@
 PATHNAME=$(shell pwd)
 BASENAME=$(shell basename $(PATHNAME))
 
-TAG=`cat VERSION.txt`
+TAG=`echo "print __version__" > v.py;  cat cmd3/__init__.py v.py > /tmp/v1.py; python /tmp/v1.py; rm /tmp/v1.py v.py`
 
 all:
 	make -f Makefile force
@@ -10,7 +10,6 @@ all:
 # NOVA CLIENT
 ######################################################################
 nova:
-	#pip install --upgrade -e git+https://github.com/openstack/python-novaclient.git#egg=python-novaclient
 	pip install --upgrade -e git://github.com/openstack/python-novaclient.git#egg=python-novaclient
 
 ######################################################################
@@ -35,21 +34,22 @@ git-ssh:
 ######################################################################
 # INSTALLATION
 ######################################################################
-req:
+pip:
 	pip install -r requirements.txt
 
 dist:
 	make -f Makefile pip
 
-pip:
+sdist:
 	make -f Makefile clean
-	python setup.py sdist
+	python setup.py sdist --formats=tar
+#	gzip dist/*.tar
 
 
 force:
 	make -f Makefile nova
 	make -f Makefile pip
-	pip install -U dist/*.tar.gz
+	#pip install -U dist/*.tar.gz
 
 install:
 	pip install dist/*.tar.gz
@@ -65,10 +65,10 @@ test:
 ######################################################################
 
 
-pip-upload:
-	make -f Makefile pip
+pip-upload: clean
+#	make -f Makefile sdist
 #	python setup.py register
-	python setup.py sdist upload
+	python setup.py sdist --format=bztar,zip upload
 
 pip-register:
 	python setup.py register
@@ -82,17 +82,15 @@ qc-install:
 	pip install pylint
 	pip install pyflakes
 
-qc:
-	pep8 ./cloudmesh/virtual/cluster/
-	pylint ./cloudmesh/virtual/cluster/ | less
-	pyflakes ./cloudmesh/virtual/cluster/
-
 # #####################################################################
 # CLEAN
 # #####################################################################
 
 
 clean:
+	rm -rf AUTHORS ChangeLog
+	rm -rf cmd3-*
+	rm -rf *.egg
 	find . -name "*~" -exec rm {} \;  
 	find . -name "*.pyc" -exec rm {} \;  
 	rm -rf build dist 
@@ -104,8 +102,15 @@ clean:
 # SPHINX DOC
 ###############################################################################
 
+html:
+	make -f Makefile sphinx
+
+
 sphinx:
 	cd doc; make html
+
+view: html
+	open doc/build/html/index.html
 
 #############################################################################
 # PUBLISH GIT HUB PAGES
@@ -119,16 +124,15 @@ gh-pages:
 # TAGGING
 ######################################################################
 
-
 tag:
+	@echo "VERSION: $(TAG)"
 	make clean
-	python bin/util/next_tag.py
 	git tag $(TAG)
-	echo $(TAG) > VERSION.txt
 	git add .
+	touch README.rst
 	git commit -m "adding version $(TAG)"
 	git push
-
+	git push origin --tags
 
 ######################################################################
 # ONLY RUN ON GH-PAGES
