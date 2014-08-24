@@ -27,7 +27,8 @@ class rst:
         print "Command - %s::" % what
 
         exec("h = self.do_%s.__doc__" % what)
-        h = textwrap.dedent(h).replace("\n", "\n    ")
+        h = textwrap.dedent(h).replace("::\n\n", "")
+        h = textwrap.dedent(h).replace("\n", "\n    ")        
         print h
 
     @command
