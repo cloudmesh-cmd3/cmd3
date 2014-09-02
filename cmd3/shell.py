@@ -354,7 +354,7 @@ def main():
       COMMAND                  A command to be executed
 
     Options:
-      --file=SCRIPT  -f  SCRIPT  Executes the scipt
+      --file=SCRIPT  -f  SCRIPT  Executes the script
       -i                 After start keep the shell interactive,
                          otherwise quit [default: False]
       -b                 surpress the printing of the banner [default: False]
