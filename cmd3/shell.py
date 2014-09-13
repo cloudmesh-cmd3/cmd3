@@ -431,7 +431,9 @@ def main():
                 print ">", user_cmd
             cmd.onecmd(user_cmd)
         except Exception, e:
-            print "'%s' is not recognized" % user_cmd
+            print
+            print "ERROR: executing command '{0}'".format(user_cmd)
+            print
             print e
             print traceback.format_exc()
         if interactive:
