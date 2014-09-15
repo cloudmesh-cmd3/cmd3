@@ -10,33 +10,39 @@ ENDC = '\033[0m'
 BOLD = "\033[1m"
 
 class Console(object):
+    
+    def __init__(self, _color_on = True):
+        self._color_on = _color_on
 
-    def __init__(self):
-        pass
-
-    @staticmethod
-    def _msg(message, width=90):
+    def _msg(self, message, width=90):
         return textwrap.fill(message, width=width)
 
-    @staticmethod
-    def msg(message):
+    def msg(self, message):
         print (message)
 
-    @staticmethod
-    def error(message):
-        print FAIL + Console._msg("ERROR: " + message) + ENDC
+    def error(self, message):
+        if self._color_on:
+            print FAIL + self._msg("ERROR: " + message) + ENDC
+        else:
+            print self._msg("ERROR: " + message)
 
-    @staticmethod
-    def info(message):
-        print OKBLUE + Console._msg("INFO: " + message) + ENDC
+    def info(self, message):
+        if self._color_on:
+            print OKBLUE + self._msg("INFO: " + message) + ENDC
+        else:
+            print self._msg("INFO: " + message)
 
-    @staticmethod
-    def warning(message):
-        print WARNING + Console._msg("WARNING: " + message) + ENDC
+    def warning(self, message):
+        if self._color_on:
+            print WARNING + self._msg("WARNING: " + message) + ENDC
+        else:
+            print self._msg("WARNING: " + message)
 
-    @staticmethod
-    def ok(message):
-        print OKGREEN + Console._msg(message) + ENDC
+    def ok(self, message):
+        if self._color_on:
+            print OKGREEN + self._msg(message) + ENDC
+        else:
+            print self._msg(message)
 
 #
 # Example
