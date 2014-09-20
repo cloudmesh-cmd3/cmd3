@@ -1,57 +1,75 @@
 import textwrap
 
-    
+
 class Console(object):
 
-    def __init__(self, color_on):
-        self.color_on = True
-        self.theme = {
+    color = True
+    
+    theme = {
             'HEADER': '\033[95m',
+            'BLACK': '\033[30m',
+            'PURPLE': '\033[35m',
+            'CYAN': '\033[36m',
+            'WHITE': '\033[37m',
             'OKBLUE': '\033[34m',
             'OKGREEN': '\033[32m',
             'FAIL': '\033[31m',
             'WARNING': '\033[31m',
-            'ENDC': '\033[m',
+            'RED': '\033[31m',
+            'ENDC': '\033[0m',
             'BOLD': "\033[1m",
-        }
+    }
 
+    @staticmethod
+    def get(name):
+        if name in Console.theme:
+            Console.theme[name]
+        else:
+            Console.theme['BLACK']
 
-    def theme(self, theme):
-        self.theme = theme
-        
-    def color(self, on):
-        self.color_on = on
-                
-    def _msg(self, message, width=90):
+    @staticmethod
+    def _msg(message, width=90):
         return textwrap.fill(message, width=width)
 
-    def msg(self, message):
+    @staticmethod
+    def msg(message):
         print (message)
 
-    def error(self, message):
-        if self.color_on:
-            print self.theme['FAIL'] + self._msg("ERROR: " + message) + self.theme['ENDC']
+    @staticmethod
+    def error(message):
+        if Console.color:
+            Console._print ('FAIL', "ERROR: ", message)                                    
         else:
-            print self._msg("ERROR: " + message)
+            print Console._msg("ERROR: " + message)
 
-    def info(self, message):
-        if self.color_on:
-            print self.theme['OKBLUE'] + self._msg("INFO: " + message) + self.theme['ENDC']
+    @staticmethod
+    def info(message):
+        if Console.color:
+            Console._print ('OKBLUE', "INFO: ", message)                        
         else:
-            print self._msg("INFO: " + message)
+            print Console._msg("INFO: " + message)
 
-    def warning(self, message):
-        if self.color_on:
-            print self.theme['WARNING'] + self._msg("WARNING: " + message) + self.theme['ENDC']
+    @staticmethod            
+    def warning(message):
+        if Console.color:
+            Console._print ('WARNING', "WARNING: ", message)            
         else:
-            print self._msg("WARNING: " + message)
+            print Console._msg("WARNING: " + message)
 
-    def ok(self, message):
-        if self.color_on:
-            print self.theme['OKGREEN'] + self._msg(message) + self.theme['ENDC']
+    @staticmethod            
+    def ok(message):
+        if Console.color:
+            Console._print ('OKGREEN', "", message)
         else:
-            print self._msg(message)
+            print Console._msg(message)
 
+    @staticmethod            
+    def _print(color, prefix, message):
+        print (Console.theme[color] +
+               prefix + 
+               Console._msg(message) +
+               Console.theme['ENDC'])
+        
 #
 # Example
 #
@@ -59,10 +77,18 @@ class Console(object):
 """
 from cmd3.console import Console
 
-console = Console()
 
-console.warning("Warning")
-console.error("Error")
-console.info("Info")
-console.msg("msg")
+print Console.color
+
+print Console.theme
+
+Console.warning("Warning")
+Console.error("Error")
+Console.info("Info")
+Console.msg("msg")
+Console.ok("Success")
+
+print Console.color = False
+Console.error("Error")
+
 """
