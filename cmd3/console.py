@@ -3,8 +3,8 @@ import textwrap
     
 class Console(object):
 
-    def __init__(self, _color_on = True):
-        self._color_on = True
+    def __init__(self, color_on):
+        self.color_on = True
         self.theme = {
             'HEADER': '\033[95m',
             'OKBLUE': '\033[34m',
@@ -20,7 +20,7 @@ class Console(object):
         self.theme = theme
         
     def color(self, on):
-        self._color_on = on
+        self.color_on = on
                 
     def _msg(self, message, width=90):
         return textwrap.fill(message, width=width)
@@ -29,25 +29,25 @@ class Console(object):
         print (message)
 
     def error(self, message):
-        if self._color_on:
+        if self.color_on:
             print self.theme['FAIL'] + self._msg("ERROR: " + message) + self.theme['ENDC']
         else:
             print self._msg("ERROR: " + message)
 
     def info(self, message):
-        if self._color_on:
+        if self.color_on:
             print self.theme['OKBLUE'] + self._msg("INFO: " + message) + self.theme['ENDC']
         else:
             print self._msg("INFO: " + message)
 
     def warning(self, message):
-        if self._color_on:
+        if self.color_on:
             print self.theme['WARNING'] + self._msg("WARNING: " + message) + self.theme['ENDC']
         else:
             print self._msg("WARNING: " + message)
 
     def ok(self, message):
-        if self._color_on:
+        if self.color_on:
             print self.theme['OKGREEN'] + self._msg(message) + self.theme['ENDC']
         else:
             print self._msg(message)
