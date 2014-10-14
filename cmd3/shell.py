@@ -330,6 +330,7 @@ def get_plugins_from_dir(dir_path, classbase):
         create_file("{0}/plugins/__init__.py".format(prefix))
         sys.path.append(os.path.expanduser(dir_path))
         dir_plugins = get_plugins(user_path)
+        # pprint({"dir": dir_path, "plugins": dir_plugins, "class": classbase})
         return {"dir": dir_path, "plugins": dir_plugins, "class": classbase}
 
         
@@ -381,11 +382,17 @@ def main():
 
     plugins.append(dict(get_plugins_from_dir("sys", "cmd3")))
     # plugins.append(dict(get_plugins_from_dir("~/.cloudmesh", "cmd3local")))
-    try:
-        plugins.append(dict(get_plugins_from_module('cloudmesh_cmd3.plugins')))
-    except:
-        # ignoring in case the module is not there
-        pass
+
+
+    modules = ['cloudmesh_cmd3.plugins', 'cloudmesh_cluster.plugins']
+    for module_name in modules:
+        # print "INSTALL", module_name
+        try:
+            plugins.append(dict(get_plugins_from_module(module_name)))
+        except:
+            #print "WARNING: could not find", module_name
+            pass
+
     
     #sys.exit()    
     #plugins.append(dict(get_plugins_from_dir("~/.cloudmesh", "cmd3local")))    
