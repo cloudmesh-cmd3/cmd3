@@ -4,20 +4,20 @@ import textwrap
 class Console(object):
 
     color = True
-    
+
     theme = {
-            'HEADER': '\033[95m',
-            'BLACK': '\033[30m',
-            'PURPLE': '\033[35m',
-            'CYAN': '\033[36m',
-            'WHITE': '\033[37m',
-            'OKBLUE': '\033[34m',
-            'OKGREEN': '\033[32m',
-            'FAIL': '\033[31m',
-            'WARNING': '\033[31m',
-            'RED': '\033[31m',
-            'ENDC': '\033[0m',
-            'BOLD': "\033[1m",
+        'HEADER': '\033[95m',
+        'BLACK': '\033[30m',
+        'PURPLE': '\033[35m',
+        'CYAN': '\033[36m',
+        'WHITE': '\033[37m',
+        'OKBLUE': '\033[34m',
+        'OKGREEN': '\033[32m',
+        'FAIL': '\033[31m',
+        'WARNING': '\033[31m',
+        'RED': '\033[31m',
+        'ENDC': '\033[0m',
+        'BOLD': "\033[1m",
     }
 
     @staticmethod
@@ -38,38 +38,38 @@ class Console(object):
     @staticmethod
     def error(message):
         if Console.color:
-            Console._print ('FAIL', "ERROR: ", message)                                    
+            Console._print('FAIL', "ERROR: ", message)
         else:
             print Console._msg("ERROR: " + message)
 
     @staticmethod
     def info(message):
         if Console.color:
-            Console._print ('OKBLUE', "INFO: ", message)                        
+            Console._print('OKBLUE', "INFO: ", message)
         else:
             print Console._msg("INFO: " + message)
 
-    @staticmethod            
+    @staticmethod
     def warning(message):
         if Console.color:
-            Console._print ('WARNING', "WARNING: ", message)            
+            Console._print('WARNING', "WARNING: ", message)
         else:
             print Console._msg("WARNING: " + message)
 
-    @staticmethod            
+    @staticmethod
     def ok(message):
         if Console.color:
-            Console._print ('OKGREEN', "", message)
+            Console._print('OKGREEN', "", message)
         else:
             print Console._msg(message)
 
-    @staticmethod            
+    @staticmethod
     def _print(color, prefix, message):
         print (Console.theme[color] +
-               prefix + 
+               prefix +
                Console._msg(message) +
                Console.theme['ENDC'])
-        
+
 #
 # Example
 #
