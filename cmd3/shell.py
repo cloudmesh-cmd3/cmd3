@@ -78,6 +78,7 @@ Here are the sample classes::
                print "> %s" % key.replace("_"," ")
                exec("self.%s()" % key)
 """
+from __future__ import print_function
 import textwrap
 from compiler.ast import flatten
 from docopt import docopt
@@ -184,14 +185,14 @@ def load_plugins(classprefix, list):
             plugins.append(cls)
         except Exception, e:
             #if echo:
-            print "ERROR: loading module ", plugin, classprefix
-            print 70 * "="
-            print e
-            print 70 * "="            
-            print traceback.format_exc()
-            print 70 * "-"
-            print sys.exc_info()[0]
-            print 70 * "-"
+            print("ERROR: loading module ", plugin, classprefix)
+            print(70 * "=")
+            print(e)
+            print(70 * "=")            
+            print(traceback.format_exc())
+            print(70 * "-")
+            print(sys.exc_info()[0])
+            print(70 * "-")
             
     return plugins
 
@@ -232,8 +233,8 @@ def command(func):
             func(instance, args, arguments)
         except SystemExit:
             if not args in ('-h', '--help'):
-                print "Error: Wrong Format"
-            print doc
+                print("Error: Wrong Format")
+            print(doc)
     new.__doc__ = doc
     return new
 #
@@ -274,8 +275,8 @@ def function_command(main_func):
                 #func.__doc__ = doc
             except SystemExit:
                 if not args in ('-h', '--help'):
-                    print "Error: Wrong Format"
-                print doc
+                    print("Error: Wrong Format")
+                print(doc)
         new.__doc__ = doc
         return new
     return _function_command
@@ -383,7 +384,7 @@ def main():
     interactive = arguments['-i']
     echo = arguments['-v']
     if echo:
-        print arguments
+        print(arguments)
         
     
     plugins = []
@@ -445,14 +446,14 @@ def main():
         try:            
             user_cmd = " ".join(arguments['COMMAND'])
             if echo:
-                print ">", user_cmd
+                print(">", user_cmd)
             cmd.onecmd(user_cmd)
         except Exception, e:
-            print
-            print "ERROR: executing command '{0}'".format(user_cmd)
-            print
-            print e
-            print traceback.format_exc()
+            print()
+            print("ERROR: executing command '{0}'".format(user_cmd))
+            print()
+            print(e)
+            print(traceback.format_exc())
         if interactive:
             cmd.cmdloop()
             
