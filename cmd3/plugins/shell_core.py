@@ -143,3 +143,4 @@ class shell_core:
         else:
             print 'ERROR: "%s" file does not exist.' % filename
             sys.exit()
+

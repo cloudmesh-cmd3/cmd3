@@ -337,12 +337,20 @@ def get_plugins_from_dir(dir_path, classbase):
 
         
 def get_plugins_from_module(name):
-
     cmd3_module = __import__(name)
     location = os.path.dirname(cmd3_module.__file__)
     package_location = os.path.dirname(location)
     class_name = os.path.basename(location)
     return dict(get_plugins_from_dir(package_location, class_name))
+
+class plugin_manager:
+
+    def __init__():
+        plugins = []
+
+    def add(self, plugin):
+        plugins.append(plugin)
+
 
 def main():
     """cm.
@@ -384,7 +392,9 @@ def main():
     # plugins.append(dict(get_plugins_from_dir("~/.cloudmesh", "cmd3local")))
 
 
-    modules = ['cloudmesh_cmd3.plugins', 'cloudmesh_cluster.plugins']
+    modules = ['cloudmesh_cmd3.plugins',
+               'cloudmesh_docker.plugins']               
+               'cloudmesh_cluster.plugins']
     for module_name in modules:
         # print "INSTALL", module_name
         try:
