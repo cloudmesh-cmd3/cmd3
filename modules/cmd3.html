@@ -53,7 +53,7 @@
         </button>
         <a class="navbar-brand" href="../index.html"><img src="../_static/fg-logo-white-24x36.png">
           CMD3</a>
-        <span class="navbar-text navbar-version pull-left"><b>1.0.1</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.0.8</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -370,6 +370,17 @@ pass</div></blockquote>
 </dd></dl>
 
 <dl class="function">
+<dt id="cmd3.shell.get_plugins_from_dir">
+<tt class="descclassname">cmd3.shell.</tt><tt class="descname">get_plugins_from_dir</tt><big>(</big><em>dir_path</em>, <em>classbase</em><big>)</big><a class="headerlink" href="#cmd3.shell.get_plugins_from_dir" title="Permalink to this definition">¶</a></dt>
+<dd><p>dir_path/classbase/plugins</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="cmd3.shell.get_plugins_from_module">
+<tt class="descclassname">cmd3.shell.</tt><tt class="descname">get_plugins_from_module</tt><big>(</big><em>name</em><big>)</big><a class="headerlink" href="#cmd3.shell.get_plugins_from_module" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
 <dt id="cmd3.shell.get_version">
 <tt class="descclassname">cmd3.shell.</tt><tt class="descname">get_version</tt><big>(</big><em>self</em><big>)</big><a class="headerlink" href="#cmd3.shell.get_version" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
@@ -414,7 +425,7 @@ cm [-v] [-b] [&#8211;file=SCRIPT] [-i] [COMMAND ...]</dd>
 <tbody valign="top">
 <tr><td class="option-group">
 <kbd><span class="option">-f</span></kbd></td>
-<td>SCRIPT  Executes the scipt</td></tr>
+<td>SCRIPT  Executes the script</td></tr>
 </tbody>
 </table>
 </td></tr>
@@ -435,6 +446,16 @@ otherwise quit [default: False]</td></tr>
 <dt id="cmd3.shell.make_cmd_class">
 <tt class="descclassname">cmd3.shell.</tt><tt class="descname">make_cmd_class</tt><big>(</big><em>name</em>, <em>*bases</em><big>)</big><a class="headerlink" href="#cmd3.shell.make_cmd_class" title="Permalink to this definition">¶</a></dt>
 <dd></dd></dl>
+
+<dl class="class">
+<dt id="cmd3.shell.plugin_manager">
+<em class="property">class </em><tt class="descclassname">cmd3.shell.</tt><tt class="descname">plugin_manager</tt><a class="headerlink" href="#cmd3.shell.plugin_manager" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="cmd3.shell.plugin_manager.add">
+<tt class="descname">add</tt><big>(</big><em>plugin</em><big>)</big><a class="headerlink" href="#cmd3.shell.plugin_manager.add" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
 
 </div>
 <div class="section" id="subpackages">
@@ -482,7 +503,7 @@ otherwise quit [default: False]</td></tr>
     </p>
     <p>
         &copy; Copyright 2012-2014, Developed for FutureGrid by Gregor von Laszewski, based on his earlier code from cyberaide and cogkit.<br/>
-      Last updated on Aug 21, 2014.<br/>
+      Last updated on Nov 11, 2014.<br/>
     </p>
   </div>
 </footer>
