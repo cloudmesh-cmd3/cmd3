@@ -277,7 +277,12 @@ So let us create a new plugin called bar::
             Options:
                   -f      specify the file
 
-            """
+            Example:
+	          bar myfile.txt
+
+		       executes the bar command on the file myfile.txt
+
+           """
             print arguments
 
 Please note the differences to our previous class. We have introduced a
@@ -325,6 +330,11 @@ So let us enhance the previous plugin while adding an information::
 
             Options:
                   -f      specify the file
+
+            Example:
+	          bar myfile.txt
+
+		       executes the bar command on the file myfile.txt
 
             """
             print arguments
