@@ -395,7 +395,8 @@ def main():
 
     modules = ['cloudmesh_cmd3.plugins',
                'cloudmesh_docker.plugins',
-               'cloudmesh_slurm.plugins']
+               'cloudmesh_slurm.plugins',
+               'cloudmesh_deploy.plugins']
     for module_name in modules:
         # print "INSTALL", module_name
         try:

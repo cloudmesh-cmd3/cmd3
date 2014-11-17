@@ -277,6 +277,11 @@ So let us create a new plugin called bar::
             Options:
                   -f      specify the file
 
+            Example:
+	        bar filename
+
+		     executes the bar command with the given filename
+		     
             """
             print arguments
 
@@ -326,6 +331,11 @@ So let us enhance the previous plugin while adding an information::
             Options:
                   -f      specify the file
 
+            Example:
+	        bar filename
+
+		     executes the bar command with the given filename
+		     
             """
             print arguments
 
