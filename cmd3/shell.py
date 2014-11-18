@@ -373,19 +373,29 @@ def main():
     #    __version__ = pkg_resources.require("cmd3")[0].version
     # arguments = docopt(main.__doc__, help=True, version=__version__)
 
-    arguments = docopt(main.__doc__, help=True)
+    echo = False
+    
+    try:
+        arguments = docopt(main.__doc__, help=True)
+        # fixing the help parameter parsing
+        if arguments['help']:
+          arguments['COMMAND'] = ['help']
+          arguments['help'] = 'False'
 
-    # fixing the help parameter parsing
-    if arguments['help']:
-        arguments['COMMAND'] = ['help']
-        arguments['help'] = 'False'
+        script_file = arguments['--file']
+        interactive = arguments['-i']
+        echo = arguments['-v']
+        if echo:
+          pprint(arguments)
 
-    script_file = arguments['--file']
-    interactive = arguments['-i']
-    echo = arguments['-v']
-    if echo:
-        print(arguments)
-        
+    except:
+        script_file = None
+        interactive = False
+
+        arguments = {}
+        arguments['-b'] = True
+        arguments['COMMAND'] = [' '.join(sys.argv[1:])]
+            
     
     plugins = []
 
