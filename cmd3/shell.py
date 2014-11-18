@@ -91,6 +91,7 @@ import logging
 import os
 import pkg_resources  # part of setuptools
 import readline
+import shlex
 import sys
 import textwrap
 import traceback
@@ -229,7 +230,8 @@ def command(func):
     def new(instance, args):
                 # instance.new.__doc__ = doc
         try:
-            arguments = docopt(doc, help=True, argv=args)
+            argv = shlex.split(args)
+            arguments = docopt(doc, help=True, argv=argv)
             func(instance, args, arguments)
         except SystemExit:
             if not args in ('-h', '--help'):
