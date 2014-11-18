@@ -282,7 +282,6 @@ So let us create a new plugin called bar::
 
 		     executes the bar command with the given filename
 		     
-            """
             print arguments
 
 Please note the differences to our previous class. We have introduced a
@@ -335,7 +334,7 @@ So let us enhance the previous plugin while adding an information::
 	        bar filename
 
 		     executes the bar command with the given filename
-		     
+
             """
             print arguments
 
