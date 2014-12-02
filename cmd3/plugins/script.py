@@ -96,7 +96,7 @@ class script:
                    load       indicates that we try to do actions toload files.
                               Without parameters, loads scripts from default locations
                     NAME      specifies a label for a script
-                    LABEL     a conveninet LABEL, it must be unique
+                    LABEL     an identification name, it must be unique
                     FILENAME  the filename in which the script is located
                     REGEXP    Not supported yet.
                               If specified looks for files identified by the REGEXP.
