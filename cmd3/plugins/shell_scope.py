@@ -245,9 +245,9 @@ class shell_scope:
             verbose (True | False)
             verbose
 
-        If set to True prints the command befor execution.
-        In interactive mode you may want to set it to False.
-        When using scripts we recommend to set it to True.
+        If it sets to True, a command will be printed before execution.
+        In the interactive mode, you may want to set it to False.
+        When you use scripts, we recommend to set it to True.
 
         The default is set to False
 
