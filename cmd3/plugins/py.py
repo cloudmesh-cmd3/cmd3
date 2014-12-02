@@ -49,7 +49,7 @@ class py:
 
             Description:
 
-                The command without a parameter will be extecuted and the
+                The command without a parameter will be executed and the
                 interactive python mode is entered. The python mode can be
                 ended with ``Ctrl-D`` (Unix) / ``Ctrl-Z`` (Windows),
                 ``quit()``,'`exit()``. Non-python commands can be issued with
@@ -57,7 +57,7 @@ class py:
                 external file it can be run with ``run("filename.py")``.
 
                 In case a COMMAND is provided it will be executed and the
-                python interpreter will return to the commandshell.
+                python interpreter will return to the command shell.
 
                 This code is copied from Cmd2.
         '''
