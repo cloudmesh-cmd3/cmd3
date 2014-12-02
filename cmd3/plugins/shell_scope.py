@@ -90,9 +90,9 @@ class shell_scope:
                                    interactive selection
 
             DESCRIPTION
-               often we have to type in a command multiple times. To save
-               us typng the name of the commonad, we have defined a simple
-               scope thatcan be activated with the use command
+               Often we have to type in a command multiple times. To save
+               us typng the name of the command, we have defined a simple
+               scope that can be activated with the use command
 
             ARGUMENTS:
                 list         list the available scopes
