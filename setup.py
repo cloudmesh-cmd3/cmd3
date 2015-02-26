@@ -16,15 +16,57 @@
 # limitations under the License.                                             #
 # -------------------------------------------------------------------------- #
 
+version = "1.2.0"
+
+from setuptools import setup, find_packages
+from setuptools.command.install import install
 import os
 from setuptools import setup, find_packages
-import cmd3
+from cloudmesh_base.util import banner
+from cloudmesh_base.util import path_expand
+from cloudmesh_base.Shell import Shell
+import shutil
 
+banner("Installing Cmd3")
+
+
+
+with open("cmd3/__init__.py", "r") as f:
+    content = f.read()
+
+if content != 'version = "{0}"'.format(version):
+    banner("Updating version to {0}".format(version))
+    with open("cmd3/__init__.py", "w") as text_file:
+        text_file.write('version="%s"' % version)
+
+class SetupYaml(install):
+    """Upload the package to pypi."""
+    def run(self):
+        banner("Setup the cmd3.yaml file")
+
+        cmd3_yaml = path_expand("~/.cloudmesh/cmd3.yaml")
+        
+        if os.path.isfile(cmd3_yaml):
+            print ("ERROR: the file {0} already exists".format(cmd3_yaml))
+            print
+            print ("If you like to reinstall it, please remove the file")
+        else:
+            print ("Copy file:  {0} -> {1} ".format(path_expand("etc/cmd3.yaml"), cmd3_yaml))
+            Shell.mkdir("~/.cloudmesh")
+            
+            shutil.copy("etc/cmd3.yaml", path_expand("~/.cloudmesh/cmd3.yaml"))
+
+class InstallBase(install):
+    """Install the package."""
+    def run(self):
+        banner("Install Cmd3")
+        install.run(self)
+        
 def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 setup(
-    version=cmd3.__version__,
+    version=version,
     name="cmd3",
     description="cmd3 - A dynamic CMD shell with plugins",
     long_description=read('README.rst'),
@@ -54,18 +96,10 @@ setup(
         'console_scripts': [
             'cm = cmd3.shell:main',
         ],
-    }
+    },
+    cmdclass={
+        'install': InstallBase,
+        'yaml': SetupYaml,
+        },
  )
 
-"""
-import setuptools
-
-
-setuptools.setup(
-    setup_requires=[
-        'd2to1',
-        'pbr'
-    ],
-    d2to1=True
-)
-"""

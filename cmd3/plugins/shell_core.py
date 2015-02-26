@@ -25,7 +25,7 @@ class shell_core:
     def version(self):
         """prints the version of cmd3"""
         import cmd3
-        return cmd3.__version__
+        return cmd3.version
 
     def get_version(self):
         """prints the version of cmd3"""        

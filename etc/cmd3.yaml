@@ -1,0 +1,14 @@
+meta:
+    yaml_version: 2.1
+    kind: cmd3
+    filename: ${HOME}/.cloudmesh/cloudmesh_server.yaml
+    location: ${HOME}/.cloudmesh/cloudmesh_server.yaml
+    prefix: null
+cmd3:
+    modules:
+    - cloudmesh_cmd3.plugins
+    - cloudmesh_docker.plugins
+    - cloudmesh_slurm.plugins
+    - cloudmesh_deploy.plugins
+
+

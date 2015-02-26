@@ -9,3 +9,4 @@ sphinx_bootstrap_theme
 sphinxcontrib-blockdiag
 autopep8
 pylint
+cloudmesh_base

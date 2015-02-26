@@ -95,6 +95,7 @@ import shlex
 import sys
 import textwrap
 import traceback
+from  cloudmesh_base.ConfigDict import ConfigDict
 
 #echo = False
 echo = False
@@ -125,8 +126,8 @@ def get_version(self):
     # import pkg_resources  # part of setuptools
     # self.__version__ = pkg_resources.require("cmd3")[0].version
     import cmd3
-    self.__version__ = cmd3.__version__
-    return cmd3.__version__
+    self.__version__ = cmd3.version
+    return cmd3.version
 
 def DynamicCmd(name, plugins):
     '''
@@ -404,13 +405,16 @@ def main():
     plugins.append(dict(get_plugins_from_dir("sys", "cmd3")))
     # plugins.append(dict(get_plugins_from_dir("~/.cloudmesh", "cmd3local")))
 
+    module_config = ConfigDict(filename="~/.cloudmesh/cmd3.yaml")
 
-    modules = ['cloudmesh_cmd3.plugins',
-               'cloudmesh_docker.plugins',
-               'cloudmesh_slurm.plugins',
-               'cloudmesh_deploy.plugins']
+    modules = module_config["cmd3"]["modules"]
+
+    # modules = ['cloudmesh_cmd3.plugins',
+    #            'cloudmesh_docker.plugins',
+    #            'cloudmesh_slurm.plugins',
+    #            'cloudmesh_deploy.plugins']
     for module_name in modules:
-        # print "INSTALL", module_name
+        # print ("INSTALL", module_name)
         try:
             plugins.append(dict(get_plugins_from_module(module_name)))
         except:
