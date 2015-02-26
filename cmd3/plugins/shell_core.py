@@ -52,7 +52,7 @@ class shell_core:
         Usage:
             EOF
 
-        Action to be performed at the` end of a file. If true it terminates reating the file.
+        Command to the shell to terminate reading a script.
         """
         return True
 
