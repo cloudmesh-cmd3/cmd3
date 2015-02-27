@@ -10,3 +10,5 @@ sphinxcontrib-blockdiag
 autopep8
 pylint
 cloudmesh_base
+simplejson
+pyaml

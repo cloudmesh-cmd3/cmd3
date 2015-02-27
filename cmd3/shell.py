@@ -405,10 +405,11 @@ def main():
     plugins.append(dict(get_plugins_from_dir("sys", "cmd3")))
     # plugins.append(dict(get_plugins_from_dir("~/.cloudmesh", "cmd3local")))
 
-    module_config = ConfigDict(filename="~/.cloudmesh/cmd3.yaml")
-
-    modules = module_config["cmd3"]["modules"]
-
+    try:
+        module_config = ConfigDict(filename="~/.cloudmesh/cmd3.yaml")
+        modules = module_config["cmd3"]["modules"]
+    except:
+        modules = []
     # modules = ['cloudmesh_cmd3.plugins',
     #            'cloudmesh_docker.plugins',
     #            'cloudmesh_slurm.plugins',
