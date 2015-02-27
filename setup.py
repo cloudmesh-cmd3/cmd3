@@ -16,7 +16,7 @@
 # limitations under the License.                                             #
 # -------------------------------------------------------------------------- #
 
-version = "1.2.0"
+version = "1.2.1"
 
 from setuptools import setup, find_packages
 from setuptools.command.install import install

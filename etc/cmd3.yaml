@@ -1,8 +1,8 @@
 meta:
     yaml_version: 2.1
     kind: cmd3
-    filename: ${HOME}/.cloudmesh/cloudmesh_server.yaml
-    location: ${HOME}/.cloudmesh/cloudmesh_server.yaml
+    filename: ${HOME}/.cloudmesh/cmd3.yaml
+    location: ${HOME}/.cloudmesh/cmd3.yaml
     prefix: null
 cmd3:
     modules:
