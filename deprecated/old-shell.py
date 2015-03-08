@@ -51,6 +51,7 @@ import textwrap
 imports = []
 add_bases = ()
 
+
 def importer(regex):
     global imports
     plugins = glob.glob(regex)
@@ -58,15 +59,16 @@ def importer(regex):
         for filename in plugins:
             filename = filename.replace(".py", "")
             (dir, plugin) = filename.split("/")
-            importer_line =  "from %(dir)s.%(plugin)s import %(plugin)s as %(plugin)s" % {"plugin": plugin, "dir": dir}
+            importer_line = "from %(dir)s.%(plugin)s import %(plugin)s as %(plugin)s" % {"plugin": plugin, "dir": dir}
             imports.append(importer_line)
             print "Loading Plugin:", plugin
+
 
 importer("plugins/shell_*.py")
 
 for import_line in imports:
     # I am just doing exec and not __import__ for now due to simplicity
-    exec(import_line)
+    exec (import_line)
 
 
 #
@@ -79,11 +81,9 @@ class Shell(cmd.Cmd,
             shell_util,
             shell_banner,
             shell_scope):
-            
-
     scopes = ['rain', 'gregor']
 
-    def __init__ (self, silent=False):
+    def __init__(self, silent=False):
         cmd.Cmd.__init__(self)
         self.silent = silent
         # determins if logo should be printed
@@ -101,15 +101,15 @@ class Shell(cmd.Cmd,
            Despite the claims in the Cmd documentaion, Cmd.preloop() is not a stub.
         """
         shell_banner.preloop(self)
-        cmd.Cmd.preloop(self)   ## sets up command completion
-        self._hist    = []      ## No history yet
-        self._locals  = {}      ## Initialize execution namespace for user
+        cmd.Cmd.preloop(self)  ## sets up command completion
+        self._hist = []  ## No history yet
+        self._locals = {}  ## Initialize execution namespace for user
         self._globals = {}
-    
-    prompt  = shell_scope.prompt
-    precmd  = shell_scope.precmd
+
+    prompt = shell_scope.prompt
+    precmd = shell_scope.precmd
     emptyline = shell_scope.emptyline
-    
+
     ######################################################################
     # Info Command
     ######################################################################
@@ -122,8 +122,8 @@ class Shell(cmd.Cmd,
         """
         print textwrap.dedent(msg)
 
-        
-    def do_info(self,arg):
+
+    def do_info(self, arg):
         print "%20s =" % "Scripts", str(self.scripts)
         print "%20s =" % "Variables", str(self.variables)
         print "%20s =" % "Echo", str(self.echo)
@@ -135,25 +135,26 @@ class Shell(cmd.Cmd,
     # Sample Command
     ######################################################################
 
-    def do_gregor(self,arg):
+    def do_gregor(self, arg):
         print "GREGOR", arg
 
-    def do_rain(self,arg):
+    def do_rain(self, arg):
         print "RAIN ", arg
 
-    def default(self, line):       
+    def default(self, line):
         """Called on an input line when the command prefix is not recognized.
            In that case we execute the line as Python code.
         """
-        if line.startswith ("for"):
+        if line.startswith("for"):
             return
         try:
-            exec(line) in self._locals, self._globals
+            exec (line) in self._locals, self._globals
         except Exception, e:
             self.do_shell(line)
-            #print e.__class__, ":", e
+            # print e.__class__, ":", e
 
- ## Command definitions ##
+            ## Command definitions ##
+
     def do_hist(self, args):
         """Print a list of commands that have been entered"""
         print self._hist
@@ -162,8 +163,9 @@ class Shell(cmd.Cmd,
         """Pass command to a system shell when line begins with '!'"""
         os.system(args)
 
+
 def runCLI(filename=None, silent=False, interactive=False):
-    if filename == None:
+    if filename is None:
         cli = Shell(silent)
         cli.cmdloop()
     else:
@@ -177,18 +179,19 @@ def main():
     arguments = docopt(__doc__)
     print(arguments)
 
-    
-    if arguments["-f"] and arguments['FILE'] != None:
+    if arguments["-f"] and arguments['FILE'] is not None:
         script_filename = arguments['FILE']
         try:
-            with open(script_file): pass
+            with open(script_file):
+                pass
         except IOError:
             print 'Script file "%s" does not exists.' % script_file
 
-    quiet = arguments['-q'] or arguments['q'] != None
-    interactive = arguments['-q'] or arguments['q'] != None
+    quiet = arguments['-q'] or arguments['q'] is not None
+    interactive = arguments['-q'] or arguments['q'] is not None
 
     run(script_file, quiet, interactive)
+
 
 if __name__ == "__main__":
     main()

@@ -1,11 +1,11 @@
-from cmd3.shell import command
-
 import os
-import sys
-from sh import open as open_editor
 import platform
 
+from cmd3.shell import command
+from sh import open as open_editor
 
+
+# noinspection PyUnusedLocal
 class edit:
 
     #
@@ -49,5 +49,3 @@ class edit:
                     return
 
             print "ERROR: Could not find working editor in", editors
-
-            

@@ -1,6 +1,3 @@
-from cmd3.shell import command
-
-
 class foo:
 
     def activate_foo(self):

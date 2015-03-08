@@ -83,7 +83,7 @@ Which will give you something like this::
   > activate rst
   > activate template
 
-		FutureGrid - Cloud Mesh Shell
+  FutureGrid - Cloud Mesh Shell
   ------------------------------------------------------
      ____ _                 _   __  __           _     
     / ___| | ___  _   _  __| | |  \/  | ___  ___| |__  
@@ -288,7 +288,7 @@ Please note the differences to our previous class. We have introduced a
 decorator that transforms the do_bar method into a method that returns
 an additional parameter called arguments. This is the arguments dict
 that is created by `docopt` and allows for some very convenient
-introduction of handeling the parameters, arguments, and options.  If
+introduction of handling the parameters, arguments, and options.  If
 you like to find more out about docopts please visit the `website`_ ,
 which also includes some nice `examples`_ to show the use of docopt in
 python.

@@ -1,5 +1,4 @@
-from cmd3.shell import command
-from code import InteractiveConsole, InteractiveInterpreter
+from code import InteractiveConsole
 import sys
 """ This code has been copied and modified from cmd2 to work with cmd3"""
 
@@ -37,7 +36,7 @@ class py:
         pass
 
     def do_py(self, arg):
-        '''
+        """
         ::
 
             Usage:
@@ -60,7 +59,7 @@ class py:
                 python interpreter will return to the command shell.
 
                 This code is copied from Cmd2.
-        '''
+        """
         self.pystate['self'] = self
         arg = arg.strip()
         localvars = (self.locals_in_py and self.pystate) or {}
@@ -77,9 +76,9 @@ class py:
 
             def run(arg):
                 try:
-                    file = open(arg)
-                    interp.runcode(file.read())
-                    file.close()
+                    f = open(arg)
+                    interp.runcode(f.read())
+                    f.close()
                 except IOError, e:
                     self.perror(e)
             self.pystate['quit'] = quit
@@ -92,7 +91,7 @@ class py:
                 sys.stdout = self.stdout
                 sys.stdin = self.stdin
                 interp.interact(banner="Python %s on %s\n%s\n(%s)\n%s" %
-                               (sys.version, sys.platform, cprt, self.__class__.__name__, self.do_py.__doc__))
+                                (sys.version, sys.platform, cprt, self.__class__.__name__, self.do_py.__doc__))
             except EmbeddedConsoleExit:
                 pass
             keepstate.restore()

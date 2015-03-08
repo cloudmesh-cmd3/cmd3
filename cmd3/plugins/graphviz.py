@@ -1,11 +1,12 @@
 import os
 import os.path
-import tempfile
+
 from cmd3.shell import command
 
 
-class graphviz:
 
+# noinspection PyUnusedLocal
+class graphviz:
 
     def activate_graphviz(self):
         """activates the graphviz command"""
@@ -25,10 +26,10 @@ class graphviz:
                 FILENAME   The filename
 
         """
-        file = arguments['FILENAME']
+        filename = arguments['FILENAME']
         if platform.system() == 'Darwin':
-            if os.path.isfile(file):
-                os.system("open -a '\''/Applications/Graphviz.app'\'' " + file)
+            if os.path.isfile(filename):
+                os.system("open -a '\''/Applications/Graphviz.app'\'' " + filename)
 
     @command
     def do_dot2(self, args, arguments):
@@ -45,13 +46,13 @@ class graphviz:
                 FORMAT     the export format, pdf, png, ...
 
         """
-        file = arguments['FILENAME']
-        format = arguments['FORMAT']
-        base = file.replace(".dot", "")
-        out = base + "." + format
-        if format == "pdf":
+        filename = arguments['FILENAME']
+        output_format = arguments['FORMAT']
+        base = filename.replace(".dot", "")
+        out = base + "." + output_format
+        if output_format == "pdf":
             command = "dot -Tps %s | epstopdf --filter --ooutput %s" % (
                 file, out)
         else:
-            command = "dot -T%s %s -o %s 2>/tmp/err" % (format, file, out)
+            command = "dot -T%s %s -o %s 2>/tmp/err" % (output_format, file, out)
         os.system(command)

@@ -1,5 +1,5 @@
 cmd3 - A dynamic CMD shell with plugins
-=========================================
+=======================================
 
 cmd is an extension for the CMD class with the following features:
 

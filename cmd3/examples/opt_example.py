@@ -1,14 +1,8 @@
-import types
-import textwrap
-from docopt import docopt
-import inspect
-import sys
-import importlib
 from cmd3.shell import command
 
 
+# noinspection PyUnusedLocal
 class opt_example:
-
     """opt_example class"""
 
     def activate_opt_example(self):
@@ -48,7 +42,7 @@ class opt_example:
           -r       make report
 
         """
-        #arguments = _get_doc_args(self.do_neu,args)
+        # arguments = _get_doc_args(self.do_neu,args)
 
         print(arguments)
         return ""
@@ -69,7 +63,7 @@ class opt_example:
           -b       make report
 
         """
-        #arguments = _get_doc_args(self.do_neu,args)
+        # arguments = _get_doc_args(self.do_neu,args)
 
         print(arguments)
         return ""

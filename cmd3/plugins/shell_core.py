@@ -1,11 +1,9 @@
-import traceback
-from cmd3.shell import command
-
 import os
 import sys
 from textwrap import dedent
 
 
+# noinspection PyUnusedLocal
 class shell_core:
 
     def help_help(self):
@@ -41,7 +39,7 @@ class shell_core:
         Prints out the version number
         """
         print self.get_version()
-        #print self.__version__
+        # print self.__version__
 
     def activate_shell_core(self):
         """activates the shell_core commands"""

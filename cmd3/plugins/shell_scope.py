@@ -1,19 +1,16 @@
-from cmd3.shell import command
-
-import cmd
-import string
-import textwrap
-import glob
 import datetime
 import os
 
+from cmd3.shell import command
 
+
+# noinspection PyUnusedLocal
 class shell_scope:
 
     echo = True
     active_scope = ""
     scopes = []
-    #scopeless = ['info', 'var', 'use', 'quit', 'q', 'EOF', 'eof', 'help']
+    # scopeless = ['info', 'var', 'use', 'quit', 'q', 'EOF', 'eof', 'help']
     scopeless = ['info', 'var', 'use', 'quit', 'q', 'help']
     prompt = 'cm> '
     variables = {}
@@ -39,7 +36,7 @@ class shell_scope:
         self.active_scope = ""
         self.scopes = []
         self.scopeless = ['load', 'info', 'var', 'use', 'quit', 'q', 'help']
-        #self.scopeless = ['use', 'quit', 'q', 'EOF', 'eof', 'help']
+        # self.scopeless = ['use', 'quit', 'q', 'EOF', 'eof', 'help']
 
     def do_EOF(self, args):
         """end of file"""

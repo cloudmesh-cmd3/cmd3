@@ -1,5 +1,5 @@
-from cmd3.shell import command
 from cmd3.shell import function_command
+
 
 def main_func(arguments):
     """
@@ -12,10 +12,12 @@ def main_func(arguments):
     print arguments
     print "Name", arguments["NAME"]
 
+
+# noinspection PyUnusedLocal
 class fbar:
 
     def activate_fbar(self):
-       print "... activate fbar"
+        print "... activate fbar"
 
     def info_fbar(self):
         print "information for the class bar"

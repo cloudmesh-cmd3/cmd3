@@ -1,15 +1,11 @@
-from cStringIO import StringIO
-import string
 import textwrap
-from docopt import docopt
-import inspect
-import sys
-import importlib
+
 from cmd3.shell import command
 
 
-class rst:
 
+# noinspection PyUnusedLocal
+class rst:
     def activate_rst(self):
         """activates the RST command"""
         pass
@@ -26,9 +22,10 @@ class rst:
         print
         print "Command - %s::" % what
 
-        exec("h = self.do_%s.__doc__" % what)
+        exec ("h = self.do_%s.__doc__" % what)
+        # noinspection PyUnboundLocalVariable
         h = textwrap.dedent(h).replace("::\n\n", "")
-        h = textwrap.dedent(h).replace("\n", "\n    ")        
+        h = textwrap.dedent(h).replace("\n", "\n    ")
         print h
 
     @command
@@ -53,7 +50,7 @@ class rst:
                     Prints out the help page for a specific command
         """
         if arguments['COMMAND'] is None:
-        
+
             print
             print "Commands"
             print 70 * "="
@@ -64,7 +61,6 @@ class rst:
         else:
             print arguments
             commands = [arguments['COMMAND']]
-
 
         for command in commands:
             what = command.replace("do_", "")

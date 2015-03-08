@@ -1,11 +1,7 @@
-import textwrap
-from docopt import docopt
-import inspect
-import sys
-import importlib
 from cmd3.shell import command
 
 
+# noinspection PyUnusedLocal
 class metric:
 
     def activate_metric(self):

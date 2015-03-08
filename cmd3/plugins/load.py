@@ -1,6 +1,7 @@
 from cmd3.shell import command
 
 
+# noinspection PyUnusedLocal
 class load:
 
     def activate_load(self):

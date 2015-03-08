@@ -1,10 +1,11 @@
 from cmd3.shell import command
 
 
+# noinspection PyUnusedLocal
 class bar:
 
     def activate_bar(self):
-       print "... activate bar"
+        print "... activate bar"
 
     def info_bar(self):
         print "information for the class bar"

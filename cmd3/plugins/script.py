@@ -1,11 +1,10 @@
 from cmd3.shell import command
-#from cmd3.shell import get_plugins_from_module
+# from cmd3.shell import get_plugins_from_module
 import glob
 import os
 
 
 class script:
-
     #
     # Scripts
     #
@@ -15,8 +14,7 @@ class script:
 
     def activate_script(self):
         """activates the script command"""
-        
-        
+
         # must be rethought
         # ./scripts
         # deploydir/./scripts
@@ -49,7 +47,7 @@ class script:
             for filename in scripts:
                 try:
                     script = os.path.basename(filename)
-                    dir = os.path.dirname(filename)
+                    directory = os.path.dirname(filename)
 
                     (script, ext) = script.split(".")
                     script = script.replace("script_", "")
@@ -67,17 +65,17 @@ class script:
             print v, '=', self.scripts[v]
 
     # logic of load does not work
-    # we want load regex and load without that just loads defaul
+    # we want load regex and load without that just loads default
     # needs docopt
 
     def run_script(self, filename):
         print filename
-        file = open(filename, "r")
-        for line in file:
+        f = open(filename, "r")
+        for line in f:
             line = self.precmd(line)
             line = self.onecmd(line)
-            #line = self.postcmd(line)
-        file.close()
+            # line = self.postcmd(line)
+        f.close()
 
     @command
     def do_script(self, args, arguments):

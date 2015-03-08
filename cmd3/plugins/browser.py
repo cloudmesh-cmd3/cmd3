@@ -1,10 +1,10 @@
-from cmd3.shell import command
-
 import webbrowser
-import platform
 import os
 
+from cmd3.shell import command
 
+
+# noinspection PyUnusedLocal
 class browser:
 
     #
@@ -45,7 +45,7 @@ class browser:
             try:
                 with open(filename):
                     pass
-                filename = "file://" + filename
+                filename += "file://"
             except:
                 print "can not open file %s" % filename
                 return

@@ -4,6 +4,7 @@ import os
 import sys
 
 
+# noinspection PyUnusedLocal
 class clear:
 
     #
