@@ -185,7 +185,7 @@ def load_plugins(classprefix, plugin_list):
         try:
             import_object[plugin] = __import__(
                 classprefix + "." + plugin, globals(), locals(), [plugin], -1)
-            print ("TTT", import_object[plugin], type(import_object[plugin]))
+            # print ("TTT", import_object[plugin], type(import_object[plugin]))
             load_module = "cls = import_object['{0}'].{1}".format(plugin, plugin)
             exec(load_module)
             plugins.append(cls)

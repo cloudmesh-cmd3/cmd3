@@ -16,7 +16,7 @@
 # limitations under the License.                                             #
 # -------------------------------------------------------------------------- #
 
-version = "1.3"
+version = "1.3.1"
 
 from distutils.core import setup, Command
 
@@ -34,17 +34,11 @@ except:
 from cloudmesh_base.util import banner    
 from cloudmesh_base.util import path_expand
 from cloudmesh_base.Shell import Shell
-
+from cloudmesh_base.setup import auto_create_version
 
 banner("Installing Cmd3")
 
-with open("cmd3/__init__.py", "r") as f:
-    content = f.read()
-
-if content != 'version = "{0}"'.format(version):
-    banner("Updating version to {0}".format(version))
-    with open("cmd3/__init__.py", "w") as text_file:
-        text_file.write('version = "%s"' % version)
+auto_create_version("cmd3", version)
 
 
 # class SetupTest(Command):
@@ -82,6 +76,16 @@ class SetupYaml(install):
 
             shutil.copy("etc/cmd3.yaml", path_expand("~/.cloudmesh/cmd3.yaml"))
 
+
+
+class UploadToPypi(install):
+    """Upload the package to pypi."""
+    def run(self):
+        auto_create_version()
+        os.system("Make clean Install")
+        os.system("python setup.py install")
+        banner("Build Distribution")
+        os.system("python setup.py sdist --format=bztar,zip upload")
 
 class InstallBase(install):
     """Install the package."""
