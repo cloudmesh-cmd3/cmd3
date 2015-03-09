@@ -18,6 +18,8 @@
 
 version = "1.3"
 
+from distutils.core import setup, Command
+
 from setuptools import setup, find_packages
 from setuptools.command.install import install
 import os
@@ -45,8 +47,25 @@ if content != 'version = "{0}"'.format(version):
         text_file.write('version = "%s"' % version)
 
 
+# class SetupTest(Command):
+#    """A test"""
+#    description = __doc__
+#
+#    user_options = []
+#    def initialize_options(self):
+#        pass
+#
+#    def finalize_options(self):
+#        pass
+#
+#    def run(self):
+#        """gregor run"""
+#        print ("Hallo")
+
 class SetupYaml(install):
-    """Copies a cmd3yaml file to ~/.cloudmesh."""
+    """Copies a cmd3 yaml file to ~/.cloudmesh."""
+
+    description = __doc__
 
     def run(self):
         banner("Setup the cmd3.yaml file")
@@ -111,6 +130,7 @@ setup(
     cmdclass={
         'install': InstallBase,
         'yaml': SetupYaml,
+        # 'gregor': SetupTest,
     },
 )
 
