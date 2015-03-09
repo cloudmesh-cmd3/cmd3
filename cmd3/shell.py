@@ -95,9 +95,9 @@ import shlex
 import sys
 import textwrap
 import traceback
-from  cloudmesh_base.ConfigDict import ConfigDict
+from cloudmesh_base.ConfigDict import ConfigDict
 
-#echo = False
+# echo = False
 echo = False
 
 #
@@ -122,12 +122,14 @@ log.addHandler(handler)
 # dynamic CMD that loads from plugin directory
 #
 
+"""
 def get_version(self):
     # import pkg_resources  # part of setuptools
     # self.__version__ = pkg_resources.require("cmd3")[0].version
     import cmd3
     self.__version__ = cmd3.version
     return cmd3.version
+"""
 
 def DynamicCmd(name, plugins):
     '''
@@ -152,16 +154,16 @@ def make_cmd_class(name, *bases):
     return type(cmd.Cmd)(name, bases + (cmd.Cmd,), {})
 
 
-def get_plugins(dir):
+def get_plugins(directory):
     '''
     returns the list of plugins from the specified directory
-    :param dir: directory that contains the plugins. Files starting with _ will be ignored.
+    :param directory: directory that contains the plugins. Files starting with _ will be ignored.
     '''
     # not just plugin_*.py
     plugins = []
-    list = glob.glob(dir + "/*.py")
-    for p in list:
-        p = p.replace(dir + "/", "").replace(".py", "")
+    files = glob.glob(directory + "/*.py")
+    for p in files:
+        p = p.replace(directory + "/", "").replace(".py", "")
         if not p.startswith('_'):
             plugins.append(p)
     # log.info("Loading Plugins from {0}".format(dir))
@@ -169,21 +171,22 @@ def get_plugins(dir):
     return plugins
 
 
-def load_plugins(classprefix, list):
+def load_plugins(classprefix, plugin_list):
     '''
     loads the plugins specified in the list
     :param classprefix: the class prefix
-    :param list: the list of plugins
+    :param plugin_list: the list of plugins
     '''
     # classprefix "cmd3.plugins."
     plugins = []
-    object = {}
+    import_object = {}
     # log.info(str(list))
-    for plugin in list:
+    for plugin in plugin_list:
         try:
-            object[plugin] = __import__(
+            import_object[plugin] = __import__(
                 classprefix + "." + plugin, globals(), locals(), [plugin], -1)
-            exec("cls = object['%s'].%s" % (plugin, plugin))
+            load_class = "cls = import_object['{0}'].{1}".format(plugin, plugin)
+            exec(load_class)
             plugins.append(cls)
         except Exception, e:
             #if echo:
@@ -398,8 +401,7 @@ def main():
         arguments = {}
         arguments['-b'] = True
         arguments['COMMAND'] = [' '.join(sys.argv[1:])]
-            
-    
+
     plugins = []
 
     plugins.append(dict(get_plugins_from_dir("sys", "cmd3")))
@@ -418,15 +420,13 @@ def main():
         try:
             plugins.append(dict(get_plugins_from_module(module_name)))
         except:
-            #print "WARNING: could not find", module_name
+            # print "WARNING: could not find", module_name
             pass
 
-    
-    #sys.exit()    
-    #plugins.append(dict(get_plugins_from_dir("~/.cloudmesh", "cmd3local")))    
+    # sys.exit()
+    # plugins.append(dict(get_plugins_from_dir("~/.cloudmesh", "cmd3local")))
     
     # plugins.append(dict(get_plugins_from_dir (".", "dot")))
-
 
     for plugin in plugins:
         sys.path.append(os.path.expanduser(plugin['dir']))
