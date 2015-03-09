@@ -84,7 +84,7 @@ class UploadToPypi(install):
     description = __doc__
 
     def run(self):
-        auto_create_version()
+        auto_create_version("cmd3", version)
         os.system("Make clean Install")
         os.system("python setup.py install")
         banner("Build Distribution")
