@@ -79,7 +79,10 @@ class SetupYaml(install):
 
 
 class UploadToPypi(install):
-    """Upload the package to pypi."""
+    """Upload the package to pypi. -- only for Maintainers."""
+
+    description = __doc__
+
     def run(self):
         auto_create_version()
         os.system("Make clean Install")
@@ -88,7 +91,9 @@ class UploadToPypi(install):
         os.system("python setup.py sdist --format=bztar,zip upload")
 
 class InstallBase(install):
-    """Install the package."""
+    """Install the cmd3 package."""
+
+    description = __doc__
 
     def run(self):
         banner("Install Cmd3")
@@ -134,6 +139,7 @@ setup(
     cmdclass={
         'install': InstallBase,
         'yaml': SetupYaml,
+        'pypi': UploadToPypi,
         # 'gregor': SetupTest,
     },
 )
