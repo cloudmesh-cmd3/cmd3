@@ -22,11 +22,17 @@ from setuptools import setup, find_packages
 from setuptools.command.install import install
 import os
 from setuptools import setup, find_packages
+import shutil
 
-from cloudmesh_base.util import banner
+try:
+    from cloudmesh_base.util import banner
+except:
+    os.system("pip install cloudmesh_base")
+
+from cloudmesh_base.util import banner    
 from cloudmesh_base.util import path_expand
 from cloudmesh_base.Shell import Shell
-import shutil
+
 
 banner("Installing Cmd3")
 

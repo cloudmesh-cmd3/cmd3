@@ -298,7 +298,7 @@ class shell_scope:
 
         Arguments:
             NAME    Name of the variable
-            NAMES   Names of the variable seperated by spaces
+            NAMES   Names of the variable separated by spaces
             VALUE   VALUE to be assigned
 
         special vars date and time are defined

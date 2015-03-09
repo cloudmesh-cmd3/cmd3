@@ -3,8 +3,6 @@ import textwrap
 from cmd3.shell import command
 
 
-
-# noinspection PyUnusedLocal
 class rst:
     def activate_rst(self):
         """activates the RST command"""

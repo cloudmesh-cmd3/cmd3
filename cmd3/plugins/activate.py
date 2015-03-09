@@ -69,10 +69,10 @@ class activate:
             names = self.get_names()
             cmds_doc = []
             cmds_undoc = []
-            help = {}
+            help_page = {}
             for name in names:
                 if name[:5] == 'help_':
-                    help[name[5:]] = 1
+                    help_page[name[5:]] = 1
             names.sort()
             # There can be duplicates if routines overridden
             prevname = ''
@@ -82,9 +82,9 @@ class activate:
                         continue
                     prevname = name
                     cmd = name[3:]
-                    if cmd in help:
+                    if cmd in help_page:
                         cmds_doc.append(cmd)
-                        del help[cmd]
+                        del help_page[cmd]
                     elif getattr(self, name).__doc__:
                         cmds_doc.append(cmd)
                     else:
@@ -92,7 +92,7 @@ class activate:
 
             self.stdout.write("%s\n" % str(self.doc_leader))
             self.print_topics(self.doc_header, cmds_doc, 15, 80)
-            self.print_topics(self.misc_header, list(help.keys()), 15, 80)
+            self.print_topics(self.misc_header, list(help_page.keys()), 15, 80)
             self.print_topics(self.undoc_header, cmds_undoc, 15, 80)
 
             for topic in self.command_topics:

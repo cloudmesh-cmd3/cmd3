@@ -4,8 +4,6 @@ import os.path
 from cmd3.shell import command
 
 
-
-# noinspection PyUnusedLocal
 class graphviz:
 
     def activate_graphviz(self):
