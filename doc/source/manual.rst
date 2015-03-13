@@ -331,9 +331,10 @@ So let us enhance the previous plugin while adding an information::
                   -f      specify the file
 
             Example:
-	        bar filename
 
-		     executes the bar command with the given filename
+	            bar filename
+
+		        executes the bar command with the given filename
 
             """
             print arguments

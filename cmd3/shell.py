@@ -131,13 +131,14 @@ def get_version(self):
     return cmd3.version
 """
 
+
 def DynamicCmd(name, plugins):
-    '''
+    """
     Returns a cmd with the added plugins,
     
     :param name: TODO:
     :param plugins: list of plugins
-    '''
+    """
     exec('class %s(cmd.Cmd):\n    prompt="cm> "' % name)
     plugin_objects = []
     for plugin in plugins:
@@ -146,8 +147,8 @@ def DynamicCmd(name, plugins):
         plugin_objects = plugin_objects + \
             load_plugins(classprefix, plugin_list)
 
-    cmd = make_cmd_class(name, *plugin_objects)()
-    return (cmd, plugin_objects)
+    exec_command = make_cmd_class(name, *plugin_objects)()
+    return (exec_command, plugin_objects)
 
 
 def make_cmd_class(name, *bases):
@@ -155,10 +156,10 @@ def make_cmd_class(name, *bases):
 
 
 def get_plugins(directory):
-    '''
+    """
     returns the list of plugins from the specified directory
     :param directory: directory that contains the plugins. Files starting with _ will be ignored.
-    '''
+    """
     # not just plugin_*.py
     plugins = []
     files = glob.glob(directory + "/*.py")
@@ -172,11 +173,11 @@ def get_plugins(directory):
 
 
 def load_plugins(classprefix, plugin_list):
-    '''
+    """
     loads the plugins specified in the list
     :param classprefix: the class prefix
     :param plugin_list: the list of plugins
-    '''
+    """
     # classprefix "cmd3.plugins."
     plugins = []
     import_object = {}
@@ -190,7 +191,7 @@ def load_plugins(classprefix, plugin_list):
             exec(load_module)
             plugins.append(cls)
         except Exception, e:
-            #if echo:
+            # if echo:
             print("ERROR: loading module ", plugin, classprefix)
             print(70 * "=")
             print(e)
@@ -239,7 +240,7 @@ def command(func):
             arguments = docopt(doc, help=True, argv=argv)
             func(instance, args, arguments)
         except SystemExit:
-            if not args in ('-h', '--help'):
+            if args not in ('-h', '--help'):
                 print("Error: Wrong Format")
             print(doc)
     new.__doc__ = doc
@@ -247,6 +248,7 @@ def command(func):
 #
 # DECORATOR: COMMAND
 #
+
 
 def function_command(main_func):
     def _function_command(func):
@@ -279,9 +281,9 @@ def function_command(main_func):
             try:
                 arguments = docopt(doc, help=True, argv=args)
                 func(instance, args, arguments)
-                #func.__doc__ = doc
+                # func.__doc__ = doc
             except SystemExit:
-                if not args in ('-h', '--help'):
+                if args not in ('-h', '--help'):
                     print("Error: Wrong Format")
                 print(doc)
         new.__doc__ = doc
@@ -294,10 +296,10 @@ def function_command(main_func):
 
 
 def create_file(filename):
-    '''
+    """
     Creates a new file if the file name does not exists
     :param filename: the name of the file
-    '''
+    """
 
     expanded_filename = os.path.expanduser(os.path.expandvars(filename))
     if not os.path.exists(expanded_filename):
@@ -305,12 +307,13 @@ def create_file(filename):
 
 
 def create_dir(dir_path):
-    '''
+    """
     creates a director at the given path
     :param dir_path: the directory path
-    '''
+    """
     if not os.path.exists(dir_path):
         os.makedirs(dir_path)
+
 
 def get_plugins_from_dir(dir_path, classbase):
     """dir_path/classbase/plugins"""
@@ -341,9 +344,7 @@ def get_plugins_from_dir(dir_path, classbase):
         # pprint({"dir": dir_path, "plugins": dir_plugins, "class": classbase})
         return {"dir": dir_path, "plugins": dir_plugins, "class": classbase}
 
-        
 
-        
 def get_plugins_from_module(name):
     cmd3_module = __import__(name)
     location = os.path.dirname(cmd3_module.__file__)
@@ -351,9 +352,11 @@ def get_plugins_from_module(name):
     class_name = os.path.basename(location)
     return dict(get_plugins_from_dir(package_location, class_name))
 
+
 class plugin_manager:
 
-    def __init__():
+    # TODO: verify, used to be just __init__():
+    def __init__(self):
         plugins = []
 
     def add(self, plugin):
@@ -386,14 +389,14 @@ def main():
         arguments = docopt(main.__doc__, help=True)
         # fixing the help parameter parsing
         if arguments['help']:
-          arguments['COMMAND'] = ['help']
-          arguments['help'] = 'False'
+            arguments['COMMAND'] = ['help']
+            arguments['help'] = 'False'
 
         script_file = arguments['--file']
         interactive = arguments['-i']
         echo = arguments['-v']
         if echo:
-          pprint(arguments)
+            pprint(arguments)
 
     except:
         script_file = None
@@ -436,7 +439,7 @@ def main():
     sys.path.append("..")
 
     for plugin in plugins:
-        plugin['class'] = plugin['class'] + ".plugins"
+        plugin['class'] += ".plugins"
 
     # pprint(plugins)
     # pprint(sys.path)

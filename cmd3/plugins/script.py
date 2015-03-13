@@ -4,6 +4,7 @@ import glob
 import os
 
 
+# noinspection PyShadowingNames
 class script:
     #
     # Scripts

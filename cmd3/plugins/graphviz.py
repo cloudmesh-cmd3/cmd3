@@ -29,7 +29,7 @@ class graphviz:
             if os.path.isfile(filename):
                 os.system("open -a '\''/Applications/Graphviz.app'\'' " + filename)
 
-    @command
+    @exec_command
     def do_dot2(self, args, arguments):
         """
         ::
@@ -49,8 +49,8 @@ class graphviz:
         base = filename.replace(".dot", "")
         out = base + "." + output_format
         if output_format == "pdf":
-            command = "dot -Tps %s | epstopdf --filter --ooutput %s" % (
+            exec_command = "dot -Tps %s | epstopdf --filter --ooutput %s" % (
                 file, out)
         else:
-            command = "dot -T%s %s -o %s 2>/tmp/err" % (output_format, file, out)
-        os.system(command)
+            exec_command = "dot -T%s %s -o %s 2>/tmp/err" % (output_format, file, out)
+        os.system(exec_command)

@@ -25,6 +25,7 @@ class Statekeeper(object):
                 setattr(self.obj, attrib, getattr(self, attrib))
 
 
+# noinspection PyShadowingBuiltins,PyShadowingNames
 class py:
 
     pystate = {}

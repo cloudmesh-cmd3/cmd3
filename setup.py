@@ -18,9 +18,21 @@
 
 version = "1.3.2"
 
-from distutils.core import setup, Command
+requirements = [
+        'd2to1>=0.2.10,<0.3',
+        'future',
+        'sh',
+        'cloudmesh-base',
+        'docopt',
+        'pyaml',
+        'simplejson',
+        'nose',
+        'python-hostlist',
+        'prettytable',
+        'pytimeparse',
+    ]
 
-from setuptools import setup, find_packages
+
 from setuptools.command.install import install
 import os
 from setuptools import setup, find_packages
@@ -34,7 +46,7 @@ except:
 from cloudmesh_base.util import banner    
 from cloudmesh_base.util import path_expand
 from cloudmesh_base.Shell import Shell
-from cloudmesh_base.setup import auto_create_version
+from cloudmesh_base.util import auto_create_version
 
 banner("Installing Cmd3")
 
@@ -131,6 +143,7 @@ setup(
     ],
     keywords="cmd commandshell plugins",
     packages=find_packages(),
+    install_requires=requirements,
     entry_points={
         'console_scripts': [
             'cm = cmd3.shell:main',
