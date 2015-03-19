@@ -16,7 +16,7 @@
 # limitations under the License.                                          #
 # ------------------------------------------------------------------------#
 
-version = "1.3.4"
+version = "1.4.0"
 
 requirements = [
         'cloudmesh_base',    

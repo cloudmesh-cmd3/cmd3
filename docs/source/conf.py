@@ -59,7 +59,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'CMD3'
-copyright = u'2012-2014, Developed for FutureGrid by Gregor von Laszewski, " + ' \
+copyright = u'2012-2014, Developed for FutureGrid by Gregor von Laszewski, ' \
             u'based on his earlier code from cyberaide and cogkit'
 
 # The version info for the project you're documenting, acts as replacement for

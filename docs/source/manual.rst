@@ -62,7 +62,40 @@ the installation
    cd cmd3
    python setup.py install
 
+Install the cmd3 Configuration file
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
+Cloudmesh is configured with a configuration file in the yaml
+format. Please place this file in::
+
+  ~/.cloudmesh/cmd3.yaml
+
+This file specifies which modules are imported in addition to the
+default locations for the plugins.
+
+An example file is located at:
+
+* https://github.com/cloudmesh/cmd3/blob/master/etc/cmd3.yaml
+
+and looks as follows::
+
+    meta:
+	yaml_version: 2.1
+	kind: cmd3
+	filename: ${HOME}/.cloudmesh/cmd3.yaml
+	location: ${HOME}/.cloudmesh/cmd3.yaml
+	prefix: null
+    cmd3:
+	modules:
+	- cloudmesh_cmd3.plugins
+	- cloudmesh_docker.plugins
+	- cloudmesh_slurm.plugins
+	- cloudmesh_deploy.plugins
+
+In the modules attribute you can add new plugin modules following the
+cmd3 specification. This has the advantage that you do not have to
+worry about the path as it is taken from a local deployed version.
+	  
 Running the installed version
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
