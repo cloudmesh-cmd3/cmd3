@@ -69,6 +69,7 @@
       aria-labelledby="dLabelGlobalToc"><ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="contact.html">Contact</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="contact.html#authors">Authors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="contact.html#contributors">Contributors</a></li>
 <li class="toctree-l2"><a class="reference internal" href="contact.html#repository">Repository</a></li>
 </ul>
 </li>
@@ -77,6 +78,7 @@
 <li class="toctree-l2"><a class="reference internal" href="#installation">Installation</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#install-from-pypi">Install from Pypi</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#install-from-source">Install from Source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#install-the-cmd3-configuration-file">Install the cmd3 Configuration file</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#running-the-installed-version">Running the installed version</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#running-from-the-source-directory">Running from the Source Directory</a></li>
 </ul>
@@ -116,22 +118,12 @@
 <li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#id1"><code class="docutils literal"><span class="pre">cmd3</span></code> Package</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#module-cmd3.shell"><code class="docutils literal"><span class="pre">shell</span></code> Module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#subpackages">Subpackages</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="modules/cmd3.cyberaide.html">cyberaide Package</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.cyberaide.html#id1"><code class="docutils literal"><span class="pre">cyberaide</span></code> Package</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.cyberaide.html#decorators-module"><code class="docutils literal"><span class="pre">decorators</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.cyberaide.html#dynamic-cmd-module"><code class="docutils literal"><span class="pre">dynamic_cmd</span></code> Module</a></li>
-</ul>
-</li>
 <li class="toctree-l4"><a class="reference internal" href="modules/cmd3.plugins.html">plugins Package</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.activate"><code class="docutils literal"><span class="pre">activate</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#bar-module"><code class="docutils literal"><span class="pre">bar</span></code> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.clear"><code class="docutils literal"><span class="pre">clear</span></code> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.edit"><code class="docutils literal"><span class="pre">edit</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#foo-module"><code class="docutils literal"><span class="pre">foo</span></code> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.graphviz"><code class="docutils literal"><span class="pre">graphviz</span></code> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.info"><code class="docutils literal"><span class="pre">info</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#metric-module"><code class="docutils literal"><span class="pre">metric</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#opt-example-module"><code class="docutils literal"><span class="pre">opt_example</span></code> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.pause"><code class="docutils literal"><span class="pre">pause</span></code> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.rst"><code class="docutils literal"><span class="pre">rst</span></code> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.shell_core"><code class="docutils literal"><span class="pre">shell_core</span></code> Module</a></li>
@@ -163,6 +155,7 @@
 <li><a class="reference internal" href="#installation">Installation</a><ul>
 <li><a class="reference internal" href="#install-from-pypi">Install from Pypi</a></li>
 <li><a class="reference internal" href="#install-from-source">Install from Source</a></li>
+<li><a class="reference internal" href="#install-the-cmd3-configuration-file">Install the cmd3 Configuration file</a></li>
 <li><a class="reference internal" href="#running-the-installed-version">Running the installed version</a></li>
 <li><a class="reference internal" href="#running-from-the-source-directory">Running from the Source Directory</a></li>
 </ul>
@@ -252,31 +245,32 @@
 <li><a class="reference internal" href="#installation" id="id3">Installation</a><ul>
 <li><a class="reference internal" href="#install-from-pypi" id="id4">Install from Pypi</a></li>
 <li><a class="reference internal" href="#install-from-source" id="id5">Install from Source</a></li>
-<li><a class="reference internal" href="#running-the-installed-version" id="id6">Running the installed version</a></li>
-<li><a class="reference internal" href="#running-from-the-source-directory" id="id7">Running from the Source Directory</a></li>
+<li><a class="reference internal" href="#install-the-cmd3-configuration-file" id="id6">Install the cmd3 Configuration file</a></li>
+<li><a class="reference internal" href="#running-the-installed-version" id="id7">Running the installed version</a></li>
+<li><a class="reference internal" href="#running-from-the-source-directory" id="id8">Running from the Source Directory</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#using-the-shell" id="id8">Using the Shell</a></li>
-<li><a class="reference internal" href="#extending-the-shell" id="id9">Extending the Shell</a><ul>
-<li><a class="reference internal" href="#reading-plugins-from-your-local-instalation" id="id10">Reading plugins from your local instalation</a></li>
-<li><a class="reference internal" href="#reading-plugins-from-the-deploy-directory" id="id11">Reading plugins from the deploy directory</a></li>
+<li><a class="reference internal" href="#using-the-shell" id="id9">Using the Shell</a></li>
+<li><a class="reference internal" href="#extending-the-shell" id="id10">Extending the Shell</a><ul>
+<li><a class="reference internal" href="#reading-plugins-from-your-local-instalation" id="id11">Reading plugins from your local instalation</a></li>
+<li><a class="reference internal" href="#reading-plugins-from-the-deploy-directory" id="id12">Reading plugins from the deploy directory</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#writing-plugins" id="id12">Writing Plugins</a><ul>
-<li><a class="reference internal" href="#a-basic-plugin" id="id13">A Basic Plugin</a></li>
-<li><a class="reference internal" href="#argument-parsing" id="id14">Argument parsing</a></li>
-<li><a class="reference internal" href="#generating-information" id="id15">Generating Information</a></li>
-<li><a class="reference internal" href="#function-registration" id="id16">Function Registration</a></li>
+<li><a class="reference internal" href="#writing-plugins" id="id13">Writing Plugins</a><ul>
+<li><a class="reference internal" href="#a-basic-plugin" id="id14">A Basic Plugin</a></li>
+<li><a class="reference internal" href="#argument-parsing" id="id15">Argument parsing</a></li>
+<li><a class="reference internal" href="#generating-information" id="id16">Generating Information</a></li>
+<li><a class="reference internal" href="#function-registration" id="id17">Function Registration</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#build-in-commands" id="id17">Build In Commands</a><ul>
-<li><a class="reference internal" href="#help" id="id18">Help</a></li>
-<li><a class="reference internal" href="#manual-pages" id="id19">Manual Pages</a></li>
-<li><a class="reference internal" href="#variables" id="id20">Variables</a></li>
-<li><a class="reference internal" href="#scope" id="id21">Scope</a></li>
-<li><a class="reference internal" href="#scripts" id="id22">Scripts</a></li>
-<li><a class="reference internal" href="#python" id="id23">Python</a></li>
-<li><a class="reference internal" href="#quitting-the-shell" id="id24">Quitting the shell</a></li>
+<li><a class="reference internal" href="#build-in-commands" id="id18">Build In Commands</a><ul>
+<li><a class="reference internal" href="#help" id="id19">Help</a></li>
+<li><a class="reference internal" href="#manual-pages" id="id20">Manual Pages</a></li>
+<li><a class="reference internal" href="#variables" id="id21">Variables</a></li>
+<li><a class="reference internal" href="#scope" id="id22">Scope</a></li>
+<li><a class="reference internal" href="#scripts" id="id23">Scripts</a></li>
+<li><a class="reference internal" href="#python" id="id24">Python</a></li>
+<li><a class="reference internal" href="#quitting-the-shell" id="id25">Quitting the shell</a></li>
 </ul>
 </li>
 </ul>
@@ -317,8 +311,40 @@ python setup.py install
 </pre></div>
 </div>
 </div>
+<div class="section" id="install-the-cmd3-configuration-file">
+<h3><a class="toc-backref" href="#id6">Install the cmd3 Configuration file</a><a class="headerlink" href="#install-the-cmd3-configuration-file" title="Permalink to this headline">¶</a></h3>
+<p>Cloudmesh is configured with a configuration file in the yaml
+format. Please place this file in:</p>
+<div class="highlight-python"><div class="highlight"><pre>~/.cloudmesh/cmd3.yaml
+</pre></div>
+</div>
+<p>This file specifies which modules are imported in addition to the
+default locations for the plugins.</p>
+<p>An example file is located at:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/cloudmesh/cmd3/blob/master/etc/cmd3.yaml">https://github.com/cloudmesh/cmd3/blob/master/etc/cmd3.yaml</a></li>
+</ul>
+<p>and looks as follows:</p>
+<div class="highlight-python"><div class="highlight"><pre>meta:
+    yaml_version: 2.1
+    kind: cmd3
+    filename: ${HOME}/.cloudmesh/cmd3.yaml
+    location: ${HOME}/.cloudmesh/cmd3.yaml
+    prefix: null
+cmd3:
+    modules:
+    - cloudmesh_cmd3.plugins
+    - cloudmesh_docker.plugins
+    - cloudmesh_slurm.plugins
+    - cloudmesh_deploy.plugins
+</pre></div>
+</div>
+<p>In the modules attribute you can add new plugin modules following the
+cmd3 specification. This has the advantage that you do not have to
+worry about the path as it is taken from a local deployed version.</p>
+</div>
 <div class="section" id="running-the-installed-version">
-<h3><a class="toc-backref" href="#id6">Running the installed version</a><a class="headerlink" href="#running-the-installed-version" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id7">Running the installed version</a><a class="headerlink" href="#running-the-installed-version" title="Permalink to this headline">¶</a></h3>
 <p>Now you are ready to run the shell with the command:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">cm</span>
 </pre></div>
@@ -356,7 +382,7 @@ development and you can actively help us while joining the cloudmesh
 project.</p>
 </div>
 <div class="section" id="running-from-the-source-directory">
-<h3><a class="toc-backref" href="#id7">Running from the Source Directory</a><a class="headerlink" href="#running-from-the-source-directory" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id8">Running from the Source Directory</a><a class="headerlink" href="#running-from-the-source-directory" title="Permalink to this headline">¶</a></h3>
 <p>This will install you code in to the site-packages directory. If you
 do not want to install the package, you can also go into src/cmd3
 where you can find the shell.py program. Now you can alternatively
@@ -367,7 +393,7 @@ start it with:</p>
 </div>
 </div>
 <div class="section" id="using-the-shell">
-<h2><a class="toc-backref" href="#id8">Using the Shell</a><a class="headerlink" href="#using-the-shell" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id9">Using the Shell</a><a class="headerlink" href="#using-the-shell" title="Permalink to this headline">¶</a></h2>
 <p>The shell is easy to use and you can get started by exploring the
 available commands simply by saying:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">help</span>
@@ -379,7 +405,7 @@ additional plugins. Upon start of cmd3 the plugins will be reread and
 all of them, including new once, will be available to you.</p>
 </div>
 <div class="section" id="extending-the-shell">
-<h2><a class="toc-backref" href="#id9">Extending the Shell</a><a class="headerlink" href="#extending-the-shell" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id10">Extending the Shell</a><a class="headerlink" href="#extending-the-shell" title="Permalink to this headline">¶</a></h2>
 <p>CMD3 allows you to extend the commands provided in via plugin directories.
 We assume the following directory structure:</p>
 <div class="highlight-python"><div class="highlight"><pre>./shell.py
@@ -393,8 +419,8 @@ We assume the following directory structure:</p>
 <p>We provide a simple example of how to write and add new classes via
 the plugin directory in this manual.</p>
 <p>Let us assume that <cite>foo</cite> and <cite>bar</cite> contain some classes that include
-the usual <a href="#id25"><span class="problematic" id="id26">do_</span></a> methods yo may know from cmd. However in addition to the
-<a href="#id27"><span class="problematic" id="id28">do_</span></a> method it also includes an activate method that is called with the
+the usual <a href="#id26"><span class="problematic" id="id27">do_</span></a> methods yo may know from cmd. However in addition to the
+<a href="#id28"><span class="problematic" id="id29">do_</span></a> method it also includes an activate method that is called with the
 activation module, so you can control its behavior upon startup. This
 is similar to an __init__ method, but we decided not to name them
 __init__ in order to highlight that they are called only at the
@@ -418,7 +444,7 @@ plugins such as system wide installed plugins, or plugins maintained
 in your user environment rather than the current path. For this reason
 we provide the following examples.</p>
 <div class="section" id="reading-plugins-from-your-local-instalation">
-<h3><a class="toc-backref" href="#id10">Reading plugins from your local instalation</a><a class="headerlink" href="#reading-plugins-from-your-local-instalation" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id11">Reading plugins from your local instalation</a><a class="headerlink" href="#reading-plugins-from-your-local-instalation" title="Permalink to this headline">¶</a></h3>
 <p>We assume you have placed a plugin directory at
 &#8220;~/.cloudmesh/cmd3local/&#8221;. Than you simply can read the plugins by</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">plugin_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s">&quot;~/.cloudmesh/cmd3local/&quot;</span><span class="p">)</span>
@@ -431,7 +457,7 @@ expanding our plugin module called plugin so users could add their own
 plugin directories on demand.</p>
 </div>
 <div class="section" id="reading-plugins-from-the-deploy-directory">
-<h3><a class="toc-backref" href="#id11">Reading plugins from the deploy directory</a><a class="headerlink" href="#reading-plugins-from-the-deploy-directory" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id12">Reading plugins from the deploy directory</a><a class="headerlink" href="#reading-plugins-from-the-deploy-directory" title="Permalink to this headline">¶</a></h3>
 <p>Assume you like to load the plugins from the deployed cmd3, this can
 be done easily while looking at the code for shell.py:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">plugin_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span><span class="s">&#39;plugins&#39;</span><span class="p">)</span>
@@ -442,7 +468,7 @@ be done easily while looking at the code for shell.py:</p>
 </div>
 </div>
 <div class="section" id="writing-plugins">
-<h2><a class="toc-backref" href="#id12">Writing Plugins</a><a class="headerlink" href="#writing-plugins" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id13">Writing Plugins</a><a class="headerlink" href="#writing-plugins" title="Permalink to this headline">¶</a></h2>
 <p>Plugins are very simple to design and write. However we have to be
 aware of several facts. First, if you design a method with the same
 name within two different plugins, the method from the last loaded
@@ -454,7 +480,7 @@ In addition we have on purpose not used an __init__ method in the
 class but instead used an activate method to indicate that we like in
 future to activate and deactivate certain plugins.</p>
 <div class="section" id="a-basic-plugin">
-<h3><a class="toc-backref" href="#id13">A Basic Plugin</a><a class="headerlink" href="#a-basic-plugin" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id14">A Basic Plugin</a><a class="headerlink" href="#a-basic-plugin" title="Permalink to this headline">¶</a></h3>
 <p>Here is the sample class from the file plugins/foo.py:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">foo</span><span class="p">:</span>
 
@@ -483,7 +509,7 @@ __init__ methods, all this is not needed here.</p>
 if you like to use a plugin or an inheritance mode.</p>
 </div>
 <div class="section" id="argument-parsing">
-<h3><a class="toc-backref" href="#id14">Argument parsing</a><a class="headerlink" href="#argument-parsing" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id15">Argument parsing</a><a class="headerlink" href="#argument-parsing" title="Permalink to this headline">¶</a></h3>
 <p>One of the important differentiation to the original cmd is how we are
 handeling documentation. Although it is possible to use just the same
 mechanism as in cmd, Cmd3 also allows the use of docopts. This has the
@@ -531,7 +557,7 @@ which also includes some nice <a class="reference external" href="https://github
 python.</p>
 </div>
 <div class="section" id="generating-information">
-<h3><a class="toc-backref" href="#id15">Generating Information</a><a class="headerlink" href="#generating-information" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id16">Generating Information</a><a class="headerlink" href="#generating-information" title="Permalink to this headline">¶</a></h3>
 <p>Often it is good to provide some summary information about a module
 that you have installed. As each package may have such information we
 have implemented the <cite>info</cite> command that prints out all information from
@@ -579,7 +605,7 @@ class bar:
 <p>from the cm command it will execute the info method fo the class bar.</p>
 </div>
 <div class="section" id="function-registration">
-<h3><a class="toc-backref" href="#id16">Function Registration</a><a class="headerlink" href="#function-registration" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id17">Function Registration</a><a class="headerlink" href="#function-registration" title="Permalink to this headline">¶</a></h3>
 <p>Sometimes you have already developed a function with docopts and
 instead of redeveloping it you may just want to add it. Although we
 could just register the function it is beneficial for us to use our
@@ -637,9 +663,9 @@ you call the main_func:</p>
 </div>
 </div>
 <div class="section" id="build-in-commands">
-<h2><a class="toc-backref" href="#id17">Build In Commands</a><a class="headerlink" href="#build-in-commands" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id18">Build In Commands</a><a class="headerlink" href="#build-in-commands" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="help">
-<h3><a class="toc-backref" href="#id18">Help</a><a class="headerlink" href="#help" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id19">Help</a><a class="headerlink" href="#help" title="Permalink to this headline">¶</a></h3>
 <p>One other good feature the above declaration has is that it
 automatically registers a help string so you can say:</p>
 <div class="highlight-python"><div class="highlight"><pre>help bar
@@ -648,7 +674,7 @@ automatically registers a help string so you can say:</p>
 <p>and you will get presented with the manual page</p>
 </div>
 <div class="section" id="manual-pages">
-<h3><a class="toc-backref" href="#id19">Manual Pages</a><a class="headerlink" href="#manual-pages" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id20">Manual Pages</a><a class="headerlink" href="#manual-pages" title="Permalink to this headline">¶</a></h3>
 <p>Often you will run in the situation where you may have to create a
 list of manual pages for your commands for your users. To simplify
 that we have not provided this in Unix Man format, but simply in RST
@@ -661,7 +687,7 @@ to you for your cmd3 shell. This naturally you could put into a sphinx
 documentation to create a nice user manual for your users.</p>
 </div>
 <div class="section" id="variables">
-<h3><a class="toc-backref" href="#id20">Variables</a><a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id21">Variables</a><a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h3>
 <p>CMD3 contains the ability to use variables within the shell. To see a
 list of all variables, use the command:</p>
 <div class="highlight-python"><div class="highlight"><pre>var list
@@ -680,7 +706,7 @@ dollar sign such as:</p>
 current date and time.</p>
 </div>
 <div class="section" id="scope">
-<h3><a class="toc-backref" href="#id21">Scope</a><a class="headerlink" href="#scope" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id22">Scope</a><a class="headerlink" href="#scope" title="Permalink to this headline">¶</a></h3>
 <p>Often we have to type in a command multiple times. To save us typing
 the name of the command, we have defined a simple scope that can be
 activated with the use command.</p>
@@ -694,7 +720,7 @@ activated with the use command.</p>
 </div>
 </div>
 <div class="section" id="scripts">
-<h3><a class="toc-backref" href="#id22">Scripts</a><a class="headerlink" href="#scripts" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id23">Scripts</a><a class="headerlink" href="#scripts" title="Permalink to this headline">¶</a></h3>
 <p>Multiple commands can be stored in scripts. To find out more about
 scripts, please execute:</p>
 <div class="highlight-python"><div class="highlight"><pre>help script
@@ -707,7 +733,7 @@ scripts, please execute:</p>
 <p>where filename is the name of the file containing the script.</p>
 </div>
 <div class="section" id="python">
-<h3><a class="toc-backref" href="#id23">Python</a><a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id24">Python</a><a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
 <p>You can execute a python command as follows:</p>
 <div class="highlight-python"><div class="highlight"><pre>py COMMAND
 </pre></div>
@@ -715,7 +741,7 @@ scripts, please execute:</p>
 <p>where command is the command you like to execute</p>
 </div>
 <div class="section" id="quitting-the-shell">
-<h3><a class="toc-backref" href="#id24">Quitting the shell</a><a class="headerlink" href="#quitting-the-shell" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id25">Quitting the shell</a><a class="headerlink" href="#quitting-the-shell" title="Permalink to this headline">¶</a></h3>
 <p>To quit the shell you can use either the commands:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">q</span>
 <span class="n">quit</span>
@@ -738,7 +764,7 @@ scripts, please execute:</p>
       
     </p>
     <p>
-        &copy; Copyright 2012-2014, Developed for FutureGrid by Gregor von Laszewski, &#34; + based on his earlier code from cyberaide and cogkit.<br/>
+        &copy; Copyright 2012-2014, Developed for FutureGrid by Gregor von Laszewski, based on his earlier code from cyberaide and cogkit.<br/>
       Last updated on Mar 18, 2015.<br/>
     </p>
   </div>

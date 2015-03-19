@@ -8,8 +8,17 @@ For more info please contact Gregor von Laszewski at
 Authors
 -------
 
-* Gregor von Laszewski 
+* Gregor von Laszewski (laszewski@gmail.com)
 
+Contributors
+----------
+
+* Heng Cheng
+* Fugang Wang
+* Hyungro Lee
+
+* https://github.com/futuregrid/cmd3/graphs/contributors
+  
 Repository
 ----------
 
