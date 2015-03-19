@@ -35,6 +35,7 @@ requirements = [
         'python-hostlist',
         'prettytable',
         'pytimeparse',
+        'ghp-import',
     ]
 
 
