@@ -16,7 +16,7 @@
 # limitations under the License.                                          #
 # ------------------------------------------------------------------------#
 
-version = "1.4.0"
+version = "1.4.1"
 
 requirements = [
         'cloudmesh_base',    
@@ -103,7 +103,7 @@ class UploadToPypi(install):
 
     def run(self):
         auto_create_version("cmd3", version)
-        os.system("Make clean Install")
+        os.system("make clean")
         os.system("python setup.py install")
         banner("Build Distribution")
         os.system("python setup.py sdist --format=bztar,zip upload")
@@ -159,7 +159,6 @@ setup(
         'install': InstallBase,
         'yaml': SetupYaml,
         'pypi': UploadToPypi,
-        # 'gregor': SetupTest,
     },
 )
 
