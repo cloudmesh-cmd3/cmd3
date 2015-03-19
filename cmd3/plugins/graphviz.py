@@ -29,7 +29,7 @@ class graphviz:
             if os.path.isfile(filename):
                 os.system("open -a '\''/Applications/Graphviz.app'\'' " + filename)
 
-    @exec_command
+    @command
     def do_dot2(self, args, arguments):
         """
         ::

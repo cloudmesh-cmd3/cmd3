@@ -19,12 +19,17 @@
 version = "1.3.4"
 
 requirements = [
-        'd2to1>=0.2.10,<0.3',
+        'cloudmesh_base',    
         'future',
+        'pep8',
+        'docopt',
         'sh',
-        'cloudmesh-base',
+        'sphinx',
+        'sphinx_bootstrap_theme',
+        'sphinxcontrib-blockdiag',
         'docopt',
         'pyaml',
+        'pylint',
         'simplejson',
         'nose',
         'python-hostlist',

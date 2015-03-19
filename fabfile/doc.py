@@ -25,13 +25,14 @@ for cmd in ['pandoc','ipython']:
 @task
 def all():
     html()
-    pdf()
-    epub()
+    # pdf()
+    # epub()
 
     
 @task
 def clean():
-    local("rm -rf docs/build/html/notebook/*")
+    #local("rm -rf docs/build/html/notebook/*")
+    pass
 
 @task
 def notebook():
@@ -74,7 +75,6 @@ def html(theme_name='readthedocs'):
     # man()
     """build the doc locally and view"""
     clean()
-    convert()
     local("cd docs; make html")
     local("fab security.check")
     local("touch docs/build/html/.nojekyll")
