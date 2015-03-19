@@ -9,14 +9,6 @@ plugins Package
     :undoc-members:
     :show-inheritance:
 
-:mod:`bar` Module
------------------
-
-.. automodule:: cmd3.plugins.bar
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 :mod:`clear` Module
 -------------------
 
@@ -33,14 +25,6 @@ plugins Package
     :undoc-members:
     :show-inheritance:
 
-:mod:`foo` Module
------------------
-
-.. automodule:: cmd3.plugins.foo
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 :mod:`graphviz` Module
 ----------------------
 
@@ -53,22 +37,6 @@ plugins Package
 ------------------
 
 .. automodule:: cmd3.plugins.info
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-:mod:`metric` Module
---------------------
-
-.. automodule:: cmd3.plugins.metric
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
-:mod:`opt_example` Module
--------------------------
-
-.. automodule:: cmd3.plugins.opt_example
     :members:
     :undoc-members:
     :show-inheritance:
