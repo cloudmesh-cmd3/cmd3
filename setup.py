@@ -16,7 +16,7 @@
 # limitations under the License.                                          #
 # ------------------------------------------------------------------------#
 
-version = "1.4.1"
+version = "1.4.2"
 
 requirements = [
         'cloudmesh_base',    
@@ -53,11 +53,12 @@ from cloudmesh_base.util import banner
 from cloudmesh_base.util import path_expand
 from cloudmesh_base.Shell import Shell
 from cloudmesh_base.util import auto_create_version
+from cloudmesh_base.util import auto_create_requirements
 
 banner("Installing Cmd3")
 
 auto_create_version("cmd3", version)
-
+auto_create_requirements(requirements)
 
 # class SetupTest(Command):
 #    """A test"""
