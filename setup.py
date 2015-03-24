@@ -16,10 +16,9 @@
 # limitations under the License.                                          #
 # ------------------------------------------------------------------------#
 
-version = "1.4.4"
+version = "1.4.5"
 
 requirements = [
-        'pytz',
         'cloudmesh_base',    
         'future',
         'pep8',
