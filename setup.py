@@ -16,7 +16,7 @@
 # limitations under the License.                                          #
 # ------------------------------------------------------------------------#
 
-version = "1.4.5"
+version = "1.4.6"
 
 requirements = [
         'cloudmesh_base',    
@@ -123,6 +123,9 @@ def read(fname):
     return open(os.path.join(os.path.dirname(__file__), fname)).read()
 
 
+home = os.path.expanduser("~")
+
+
 setup(
     version=version,
     name="cmd3",
@@ -151,6 +154,11 @@ setup(
     keywords="cmd commandshell plugins",
     packages=find_packages(),
     install_requires=requirements,
+    include_package_data=True,
+    data_files=[
+        (home + '/.cloudmesh', [
+            'etc/cmd3.yaml']),
+    ],
     entry_points={
         'console_scripts': [
             'cm = cmd3.shell:main',
