@@ -29,8 +29,7 @@
     <script type="text/javascript" src="_static/js/jquery-fix.js"></script>
     <script type="text/javascript" src="_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="_static/bootstrap-sphinx.js"></script>
-    <link rel="top" title="CMD3  documentation" href="#" />
-    <link rel="next" title="Contact" href="contact.html" />
+    <link rel="top" title="CMD3  documentation" href="index.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -49,7 +48,7 @@
           <span class="icon-bar"></span>
         </button>
 
-        <a class="brand" href="#">
+        <a class="brand" href="index.html">
           CMD3</a>
         <span class="navbar-text pull-left"><b>1.4.6</b></span>
 
@@ -63,7 +62,7 @@
      id="dLabelGlobalToc"
      data-toggle="dropdown"
      data-target="#"
-     href="#">Site <b class="caret"></b></a>
+     href="index.html">Site <b class="caret"></b></a>
   <ul class="dropdown-menu globaltoc"
       role="menu"
       aria-labelledby="dLabelGlobalToc"><ul>
@@ -153,6 +152,7 @@
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">Cmd3</a></li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
+<li><a class="reference internal" href="#modules">Modules</a></li>
 </ul>
 </ul>
 </li>
@@ -161,10 +161,6 @@
             
               
                 
-  <li>
-    <a href="contact.html" title="Next Chapter: Contact"><span class="icon-chevron-right visible-tablet"></span><span class="hidden-sm hidden-tablet">Contact &raquo;</span>
-    </a>
-  </li>
               
             
             
@@ -287,20 +283,21 @@ features we needed were a mechanism to</p>
 <li>add plugins via a plugin directory and</li>
 <li>a better automatic option parsing</li>
 </ul>
-<p>while at the same time automatically generating the help messages from them. While our
-developers used optparse and argparse for this we found that the
-resulting code not necessarily lead to a proper documentation based on
-the complexity involved with dealing with the right syntactic layout
-using the parsers. Instead we decided to use docopt for our parsing
-that makes it possible to create the documentation in a single easy to
-write docstring and accessing them from our methods to create a data
-structure that simplifies the creation of writing programs using the
-information passed to the functions. Naturally if you do not want to
-use docopt, you can still use other argument parsers. In addition we also introduced a
-scope that allows us to save some typing while all commands executed
-in a scope will be preceded by the scope name. We also have
-introduced simple variable substitution based on variable names that
-follow the syntax $variable.</p>
+<p>while at the same time automatically generating the help messages from
+them. While our developers used optparse and argparse for this we
+found that the resulting code not necessarily lead to a proper
+documentation based on the complexity involved with dealing with the
+right syntactic layout using the parsers. Instead we decided to use
+docopt for our parsing that makes it possible to create the
+documentation in a single easy to write docstring and accessing them
+from our methods to create a data structure that simplifies the
+creation of writing programs using the information passed to the
+functions. Naturally if you do not want to use docopt, you can still
+use other argument parsers. In addition we also introduced a scope
+that allows us to save some typing while all commands executed in a
+scope will be preceded by the scope name. We also have introduced
+simple variable substitution based on variable names that follow the
+syntax $variable.</p>
 <p>Here is a list of features that we found important:</p>
 <ul class="simple">
 <li>dynamic class creation</li>
@@ -309,8 +306,8 @@ follow the syntax $variable.</p>
 <li>deployment via pip and pypi</li>
 <li>variable substitution</li>
 <li>scripts loadable from a script directory</li>
-<li>plugins via import</li>
-<li>modularized plugin from a python setup.py and a template package</li>
+<li>adding new commands through importable modules and plugins</li>
+<li>beinga able to manage new commands in independent packages</li>
 </ul>
 <p>The Source code is located at:</p>
 <ul class="simple">
@@ -319,11 +316,12 @@ follow the syntax $variable.</p>
 </div>
 <div class="section" id="indices-and-tables">
 <h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this headline">¶</a></h1>
-<ul class="simple">
-<li><a class="reference internal" href="genindex.html"><span>Index</span></a></li>
-<li><a class="reference internal" href="py-modindex.html"><span>Module Index</span></a></li>
-<li><a class="reference internal" href="search.html"><span>Search Page</span></a></li>
-</ul>
+<p><a class="reference internal" href="genindex.html"><span>Index</span></a>
+<a class="reference internal" href="py-modindex.html"><span>Module Index</span></a>
+<a class="reference internal" href="search.html"><span>Search Page</span></a></p>
+</div>
+<div class="section" id="modules">
+<h1>Modules<a class="headerlink" href="#modules" title="Permalink to this headline">¶</a></h1>
 </div>
 
 
