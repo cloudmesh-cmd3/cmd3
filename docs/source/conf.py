@@ -18,7 +18,7 @@ import cmd3
 
 import pkg_resources  # part of setuptools
 
-version = pkg_resources.require("cmd3")[0].version
+version = cmd3.version
 
 # version = "0.0.5"
 
