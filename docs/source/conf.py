@@ -41,7 +41,9 @@ sys.path.insert(0, os.path.abspath('../../src'))
 # Add any Sphinx extension module names here, as strings. They can be extensions
 # coming with Sphinx (named 'sphinx.ext.*') or your custom ones.
 
-extensions = ['sphinxcontrib.blockdiag', 'sphinx.ext.autodoc', 'sphinx.ext.todo']
+extensions = ['sphinxcontrib.blockdiag',
+              'sphinx.ext.autodoc',
+              'sphinx.ext.todo']
 
 blockdiag_html_image_format = "SVG"
 
@@ -59,7 +61,7 @@ master_doc = 'index'
 
 # General information about the project.
 project = u'CMD3'
-copyright = u'2012-2014, Developed for FutureGrid by Gregor von Laszewski, ' \
+copyright = u'2012-2014, Gregor von Laszewski, ' \
             u'based on his earlier code from cyberaide and cogkit'
 
 # The version info for the project you're documenting, acts as replacement for
@@ -88,7 +90,7 @@ exclude_patterns = []
 # The reST default role (used for this markup: `text`) to use for all documents.
 # default_role = None
 
-# If true, '()' will be appended to :func: etc. cross-reference text.
+# If true, '()' will be appended to :fucn: etc. cross-reference text.
 # add_function_parentheses = True
 
 # If true, the current module name will be prepended to all description
@@ -113,12 +115,16 @@ pygments_style = 'sphinx'
 # html_translator_class = 'bootstrap.HTMLTranslator'
 
 html_theme = 'bootstrap'
+html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
+
+    #'page_toc_position': 'sidebar-left',
+
     # Navigation bar title. (Default: ``project`` value)
     'navbar_title': "CMD3",
 
@@ -137,6 +143,46 @@ html_theme_options = {
     # Location of link to source.
     # Options are "nav" (default), "footer" or anything else to exclude.
     'source_link_position': "nav",
+
+    # Render the next and previous page links in navbar. (Default: true)
+    'navbar_sidebarrel': True,
+
+    # Render the current pages TOC in the navbar. (Default: true)
+    'navbar_pagenav': True,
+
+    # Tab name for the current pages TOC. (Default: "Page")
+    'navbar_pagenav_name': "Page",
+
+    # Include hidden TOCs in Site navbar?
+    #
+    # Note: If this is "false", you cannot have mixed ``:hidden:`` and
+    # non-hidden ``toctree`` directives in the same page, or else the build
+    # will break.
+    #
+    # Values: "true" (default) or "false"
+    'globaltoc_includehidden': "true",
+
+    # HTML navbar class (Default: "navbar") to attach to <div> element.
+    # For black navbar, do "navbar navbar-inverse"
+    'navbar_class': "navbar navbar",
+
+    # Fix navigation bar to top of page?
+    # Values: "true" (default) or "false"
+    'navbar_fixed_top': "true",
+
+    # Location of link to source.
+    # Options are "nav" (default), "footer" or anything else to exclude.
+    'source_link_position': "nav",
+
+    # Bootswatch (http://bootswatch.com/) theme.
+    #
+    # Options are nothing (default) or the name of a valid theme
+    # such as "amelia" or "cosmo".
+    'bootswatch_theme': "cosmo",
+
+    # Choose Bootstrap version.
+    # Values: "3" (default) or "2" (in quotes)
+    'bootstrap_version': "2",
 }
 # html_theme_options = {
 # 'page_toc_position': 'sidebar-right',
@@ -153,7 +199,7 @@ html_theme_path = sphinx_bootstrap_theme.get_html_theme_path()
 # html_title = None
 
 # A shorter title for the navigation bar.  Default is the same as html_title.
-html_short_title = "Cloud Mesh"
+html_short_title = "Cloudmesh"
 
 # The name of an image file (relative to this directory) to place at the top
 # of the sidebar.
@@ -178,7 +224,11 @@ html_last_updated_fmt = '%b %d, %Y'
 # html_use_smartypants = True
 
 # Custom sidebar templates, maps document names to template names.
-# html_sidebars = {}
+#html_sidebars = {}
+#html_sidebars = {'**': ['globaltoc.html',
+#                        'localtoc.html',
+#                        'sourcelink.html',
+#                        'searchbox.html']}
 
 # Additional templates that should be rendered to pages, maps page names to
 # template names.
@@ -188,10 +238,10 @@ html_last_updated_fmt = '%b %d, %Y'
 # html_domain_indices = True
 
 # If false, no index is generated.
-# html_use_index = True
+html_use_index = True
 
 # If true, the index is split into individual pages for each letter.
-# html_split_index = False
+html_split_index = False
 
 # If true, links to the reST sources are added to the pages.
 html_show_sourcelink = False

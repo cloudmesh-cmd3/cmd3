@@ -7,16 +7,6 @@
     alt="Fork me on GitHub"></a>
 
 
-.. raw: html
-
-  <div class="hero-unit">
-  <h1>Hello, world!</h1>
-  <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
-  <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
-  </div>
-
-
-
 Cmd3
 ======================================================================
 
@@ -57,13 +47,15 @@ follow the syntax $variable.
 
 Here is a list of features that we found important:
 
-*  dynamic class creation 
-*  plugins loadable via a plugin directory 
-*  easy installation with setup.py
-*  deployment via pip and pypi
-*  variable substitution
-*  scripts loadable from a script directory
-
+* dynamic class creation 
+* plugins loadable via a plugin directory 
+* easy installation with setup.py
+* deployment via pip and pypi
+* variable substitution
+* scripts loadable from a script directory
+* plugins via import
+* modularized plugin from a python setup.py and a template package
+  
 The Source code is located at:
 
 * https://github.com/cloudmesh/cmd3
@@ -71,9 +63,6 @@ The Source code is located at:
 Indices and tables
 ======================================================================
 
-:ref:`genindex`
-:ref:`modindex`
-:ref:`search`
-
-Modules
-======================================================================
+* :ref:`genindex`
+* :ref:`modindex`
+* :ref:`search`

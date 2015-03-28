@@ -16,9 +16,9 @@ List
 Github
 ----------------------------------------------------------------------
 
-  * `Issues`_
-  * `Milestones`_
-  * `Code`_
+* `Issues`_
+* `Milestones`_
+* `Code`_
 
 .. _Issues: https://github.com/cloudmesh/cmd3/issues?sort=updated&state=open
 .. _Milestones: https://github.com/cloudmesh/cmd3/issues/milestones

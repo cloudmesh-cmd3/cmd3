@@ -104,26 +104,15 @@ Now you are ready to run the shell with the command::
   cm
 
 Which will give you something like this::
-
-  > activate activate
-  > activate bar
-  > activate clear
-  > activate edit
-  > activate foo
-  > activate metric
-  > activate opt_example
-  > activate pause
-  > activate rst
-  > activate template
-
-  FutureGrid - Cloud Mesh Shell
-  ------------------------------------------------------
-     ____ _                 _   __  __           _     
-    / ___| | ___  _   _  __| | |  \/  | ___  ___| |__  
-   | |   | |/ _ \| | | |/ _` | | |\/| |/ _ \/ __| '_ \ 
-   | |___| | (_) | |_| | (_| | | |  | |  __/\__ \ | | |
-    \____|_|\___/ \__,_|\__,_| |_|  |_|\___||___/_| |_|
+  
   ======================================================
+     ____ _                 _                     _     
+    / ___| | ___  _   _  __| |_ __ ___   ___  ___| |__  
+   | |   | |/ _ \| | | |/ _` | '_ ` _ \ / _ \/ __| '_ \ 
+   | |___| | (_) | |_| | (_| | | | | | |  __/\__ \ | | |
+    \____|_|\___/ \__,_|\__,_|_| |_| |_|\___||___/_| |_|
+  ======================================================
+		       Cloudmesh Shell
 
   cm> 
 
@@ -412,6 +401,95 @@ you call the main_func::
 
   if __name__ == '__main__':
       main()
+
+Generating independent packages
+----------------------------
+
+Often you may want to generate your own extensions, but like to
+maintain them in a separate module. We have provided a command with
+cmd3 that creates from a template a new module including a directory
+structure and setup.py files. Thus once you create such a module, ypu
+can cd into it and install it just as any other python package.
+
+Let us walk through how to do this in more detail. The command to
+create such a module is called `cm-generate-command`. It uses a
+template that is installed in the directory::
+
+  ~/.cloudmesh/cmd3_template
+
+You can obtain the manual page by just typing::
+
+  $ cm-generate-command
+
+Let us assume you like to create a command called `uebercool` to be
+included in cmd3. This can be achieved with a very small number of steps.
+
+First, call the command::
+
+  cm-generate-command uebercool --path=~
+
+This will generate a a cloudmesh command module in your home
+directory. be careful that there is no such module already as the
+current version deletes the existing directory. 
+
+You will now have created a python module at::
+
+    ~/cloudmesh_uebercool
+
+You can install it simply with::
+
+    cd ~/cloudmesh_uebercool
+    python setup.py install
+
+Now you have installed the example into your environment. However you
+need to still register this new package with cmd3. This is easy as you
+can place the following filr into the directory::
+
+    ~/.cloudmesh/cmd3.yaml
+
+  ::
+    meta:
+	yaml_version: 2.1
+	kind: cmd3
+	filename: ${HOME}/.cloudmesh/cmd3.yaml
+	location: ${HOME}/.cloudmesh/cmd3.yaml
+	prefix: cmd3
+    cmd3:
+	modules:
+	- cloudmesh_cmd3.plugins
+	- cloudmesh_uebercool.plugins
+
+Make sure the yaml file does not have any tabs in it.
+
+Now you can start cmd3 with::
+
+  cm
+
+and issue the command::
+
+  help
+
+You should be able to see the new command. 
+
+To start it you simply say::
+
+ cm>  uebercool iu.edu
+ 
+to run it directly from commandline you can use::
+
+  cm uebercool iu.edu
+
+The template simply executes a ping that is defined in the source
+`command_uebercool.py`. If youlike to modify the command just change
+the code in the plugins and the command files.
+
+Yes its that simple!
+
+If you have written extensions with cmd3 let us know we could discuss
+the creation of user contributed space in the cmd3 git reporsitory. We
+like to host your extensions.
+
+
 
 
 
