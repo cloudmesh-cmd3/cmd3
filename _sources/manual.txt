@@ -416,7 +416,7 @@ you call the main_func::
 Generating independent packages
 ----------------------------
 
-Often you may want o generate your own extensions, but like to
+Often you may want to generate your own extensions, but like to
 maintain them in a separate module. We have provided a command with
 cmd3 that creates from a template a new module including a directory
 structure and setup.py files. Thus once you create such a module, ypu
@@ -435,7 +435,7 @@ You can obtain the manual page by just typing::
 Let us assume you like to create a command called `uebercool` to be
 included in cmd3. This can be achieved with a very small number of steps.
 
-First, call the command:
+First, call the command::
 
   cm-generate-command uebercool --path=~
 
@@ -454,7 +454,7 @@ You can install it simply with::
 
 Now you have installed the example into your environment. However you
 need to still register this new package with cmd3. This is easy as you
-can place the following filr into the directory
+can place the following filr into the directory::
 
     ~/.cloudmesh/cmd3.yaml
 
@@ -476,7 +476,7 @@ Now you can start cmd3 with::
 
   cm
 
-and issue the command
+and issue the command::
 
   help
 
