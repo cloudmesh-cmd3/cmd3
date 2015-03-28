@@ -16,24 +16,26 @@ Contributors
 * Heng Cheng
 * Fugang Wang
 * Hyungro Lee
-
-* https://github.com/futuregrid/cmd3/graphs/contributors
+* Mark Xiao
+* Aki Mimoto
+  
+* https://github.com/cloudmesh/cmd3/graphs/contributors
   
 Repository
 ----------
 
 The repository is located at
 
-* https://github.com/futuregrid/cmd3
+* https://github.com/cloudmesh/cmd3
 
   * `Issues`_
   * `Milestones`_
   * `Code`_
 
-* https://github.com/futuregrid/cmd3
+* https://github.com/cloudmesh/cmd3
 
 
 
-.. _Issues: https://github.com/futuregrid/cmd3/issues?sort=updated&state=open
-.. _Milestones: https://github.com/futuregrid/cmd3/issues/milestones
-.. _Code: https://github.com/futuregrid/cmd3
+.. _Issues: https://github.com/cloudmesh/cmd3/issues?sort=updated&state=open
+.. _Milestones: https://github.com/cloudmesh/cmd3/issues/milestones
+.. _Code: https://github.com/cloudmesh/cmd3

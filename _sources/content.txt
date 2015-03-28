@@ -1,8 +1,0 @@
-.. toctree::
-     :maxdepth: -1
-
-     contact
-     manual
-     todo
-     modules/modules.rst
-

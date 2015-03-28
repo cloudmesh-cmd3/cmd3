@@ -1,6 +1,6 @@
 .. raw:: html
 
- <a href="https://github.com/futuregrid/flask_cm"
+ <a href="https://github.com/cloudmesh/cmd3"
      class="visible-desktop"><img
     style="position: absolute; top: 40px; right: 0; border: 0;"
     src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"
@@ -58,7 +58,7 @@ the installation
 
 ::
 
-   git clone git@github.com:futuregrid/cmd3.git
+   git clone git@github.com:cloudmesh/cmd3.git
    cd cmd3
    python setup.py install
 
@@ -120,7 +120,7 @@ It first prints the plugins that it found, loads them and than starts
 the shell. As we use the shell to develop a much larger shell for
 clouds (which we call cloudmesh) you will see a welcome
 message. Cloudmesh is available on github at
-http://cloudmesh.futuregrid.org. Please note that cloudmesh is under
+https://github.com/cloudmesh/cmd3. Please note that cloudmesh is under
 development and you can actively help us while joining the cloudmesh
 project.
 
