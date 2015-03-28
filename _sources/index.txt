@@ -7,6 +7,16 @@
     alt="Fork me on GitHub"></a>
 
 
+.. raw: html
+
+  <div class="hero-unit">
+  <h1>Hello, world!</h1>
+  <p>This is a template for a simple marketing or informational website. It includes a large callout called the hero unit and three supporting pieces of content. Use it as a starting point to create something more unique.</p>
+  <p><a href="#" class="btn btn-primary btn-large">Learn more &raquo;</a></p>
+  </div>
+
+
+
 Cmd3
 ======================================================================
 
@@ -30,20 +40,21 @@ features we needed were a mechanism to
 * add plugins via a plugin directory and 
 * a better automatic option parsing 
 
-while at the same time automatically generating the help messages from them. While our
-developers used optparse and argparse for this we found that the
-resulting code not necessarily lead to a proper documentation based on
-the complexity involved with dealing with the right syntactic layout
-using the parsers. Instead we decided to use docopt for our parsing
-that makes it possible to create the documentation in a single easy to
-write docstring and accessing them from our methods to create a data
-structure that simplifies the creation of writing programs using the
-information passed to the functions. Naturally if you do not want to
-use docopt, you can still use other argument parsers. In addition we also introduced a
-scope that allows us to save some typing while all commands executed
-in a scope will be preceded by the scope name. We also have
-introduced simple variable substitution based on variable names that
-follow the syntax $variable.
+while at the same time automatically generating the help messages from
+them. While our developers used optparse and argparse for this we
+found that the resulting code not necessarily lead to a proper
+documentation based on the complexity involved with dealing with the
+right syntactic layout using the parsers. Instead we decided to use
+docopt for our parsing that makes it possible to create the
+documentation in a single easy to write docstring and accessing them
+from our methods to create a data structure that simplifies the
+creation of writing programs using the information passed to the
+functions. Naturally if you do not want to use docopt, you can still
+use other argument parsers. In addition we also introduced a scope
+that allows us to save some typing while all commands executed in a
+scope will be preceded by the scope name. We also have introduced
+simple variable substitution based on variable names that follow the
+syntax $variable.
 
 Here is a list of features that we found important:
 
@@ -53,9 +64,9 @@ Here is a list of features that we found important:
 * deployment via pip and pypi
 * variable substitution
 * scripts loadable from a script directory
-* plugins via import
-* modularized plugin from a python setup.py and a template package
-  
+* adding new commands through importable modules and plugins
+* being able to manage new commands in independent packages
+
 The Source code is located at:
 
 * https://github.com/cloudmesh/cmd3
@@ -63,6 +74,9 @@ The Source code is located at:
 Indices and tables
 ======================================================================
 
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+:ref:`genindex`
+:ref:`modindex`
+:ref:`search`
+
+Modules
+======================================================================
