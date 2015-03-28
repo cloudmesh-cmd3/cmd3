@@ -51,7 +51,7 @@
         </button>
         <a class="navbar-brand" href="index.html">
           CMD3</a>
-        <span class="navbar-text navbar-version pull-left"><b>1.4.0</b></span>
+        <span class="navbar-text navbar-version pull-left"><b>1.4.5</b></span>
       </div>
 
         <div class="collapse navbar-collapse nav-collapse">
@@ -96,6 +96,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#function-registration">Function Registration</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="#generating-independent-packages">Generating independent packages</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#build-in-commands">Build In Commands</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#help">Help</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#manual-pages">Manual Pages</a></li>
@@ -173,6 +174,7 @@
 <li><a class="reference internal" href="#function-registration">Function Registration</a></li>
 </ul>
 </li>
+<li><a class="reference internal" href="#generating-independent-packages">Generating independent packages</a></li>
 <li><a class="reference internal" href="#build-in-commands">Build In Commands</a><ul>
 <li><a class="reference internal" href="#help">Help</a></li>
 <li><a class="reference internal" href="#manual-pages">Manual Pages</a></li>
@@ -263,14 +265,15 @@
 <li><a class="reference internal" href="#function-registration" id="id17">Function Registration</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#build-in-commands" id="id18">Build In Commands</a><ul>
-<li><a class="reference internal" href="#help" id="id19">Help</a></li>
-<li><a class="reference internal" href="#manual-pages" id="id20">Manual Pages</a></li>
-<li><a class="reference internal" href="#variables" id="id21">Variables</a></li>
-<li><a class="reference internal" href="#scope" id="id22">Scope</a></li>
-<li><a class="reference internal" href="#scripts" id="id23">Scripts</a></li>
-<li><a class="reference internal" href="#python" id="id24">Python</a></li>
-<li><a class="reference internal" href="#quitting-the-shell" id="id25">Quitting the shell</a></li>
+<li><a class="reference internal" href="#generating-independent-packages" id="id18">Generating independent packages</a></li>
+<li><a class="reference internal" href="#build-in-commands" id="id19">Build In Commands</a><ul>
+<li><a class="reference internal" href="#help" id="id20">Help</a></li>
+<li><a class="reference internal" href="#manual-pages" id="id21">Manual Pages</a></li>
+<li><a class="reference internal" href="#variables" id="id22">Variables</a></li>
+<li><a class="reference internal" href="#scope" id="id23">Scope</a></li>
+<li><a class="reference internal" href="#scripts" id="id24">Scripts</a></li>
+<li><a class="reference internal" href="#python" id="id25">Python</a></li>
+<li><a class="reference internal" href="#quitting-the-shell" id="id26">Quitting the shell</a></li>
 </ul>
 </li>
 </ul>
@@ -419,8 +422,8 @@ We assume the following directory structure:</p>
 <p>We provide a simple example of how to write and add new classes via
 the plugin directory in this manual.</p>
 <p>Let us assume that <cite>foo</cite> and <cite>bar</cite> contain some classes that include
-the usual <a href="#id26"><span class="problematic" id="id27">do_</span></a> methods yo may know from cmd. However in addition to the
-<a href="#id28"><span class="problematic" id="id29">do_</span></a> method it also includes an activate method that is called with the
+the usual <a href="#id27"><span class="problematic" id="id28">do_</span></a> methods yo may know from cmd. However in addition to the
+<a href="#id29"><span class="problematic" id="id30">do_</span></a> method it also includes an activate method that is called with the
 activation module, so you can control its behavior upon startup. This
 is similar to an __init__ method, but we decided not to name them
 __init__ in order to highlight that they are called only at the
@@ -662,10 +665,92 @@ you call the main_func:</p>
 </div>
 </div>
 </div>
+<div class="section" id="generating-independent-packages">
+<h2><a class="toc-backref" href="#id18">Generating independent packages</a><a class="headerlink" href="#generating-independent-packages" title="Permalink to this headline">¶</a></h2>
+<p>Often you may want o generate your own extensions, but like to
+maintain them in a separate module. We have provided a command with
+cmd3 that creates from a template a new module including a directory
+structure and setup.py files. Thus once you create such a module, ypu
+can cd into it and install it just as any other python package.</p>
+<p>Let us walk through how to do this in more detail. The command to
+create such a module is called <cite>cm-generate-command</cite>. It uses a
+template that is installed in the directory:</p>
+<div class="highlight-python"><div class="highlight"><pre>~/.cloudmesh/cmd3_template
+</pre></div>
+</div>
+<p>You can obtain the manual page by just typing:</p>
+<div class="highlight-python"><div class="highlight"><pre>$ cm-generate-command
+</pre></div>
+</div>
+<p>Let us assume you like to create a command called <cite>uebercool</cite> to be
+included in cmd3. This can be achieved with a very small number of steps.</p>
+<p>First, call the command:</p>
+<blockquote>
+<div>cm-generate-command uebercool &#8211;path=~</div></blockquote>
+<p>This will generate a a cloudmesh command module in your home
+directory. be careful that there is no such module already as the
+current version deletes the existing directory.</p>
+<p>You will now have created a python module at:</p>
+<div class="highlight-python"><div class="highlight"><pre>~/cloudmesh_uebercool
+</pre></div>
+</div>
+<p>You can install it simply with:</p>
+<div class="highlight-python"><div class="highlight"><pre>cd ~/cloudmesh_uebercool
+python setup.py install
+</pre></div>
+</div>
+<p>Now you have installed the example into your environment. However you
+need to still register this new package with cmd3. This is easy as you
+can place the following filr into the directory</p>
+<blockquote>
+<div><blockquote>
+<div>~/.cloudmesh/cmd3.yaml</div></blockquote>
+<dl class="docutils">
+<dt>::</dt>
+<dd><dl class="first last docutils">
+<dt>meta:</dt>
+<dd>yaml_version: 2.1
+kind: cmd3
+filename: ${HOME}/.cloudmesh/cmd3.yaml
+location: ${HOME}/.cloudmesh/cmd3.yaml
+prefix: cmd3</dd>
+<dt>cmd3:</dt>
+<dd>modules:
+- cloudmesh_cmd3.plugins
+- cloudmesh_uebercool.plugins</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<p>Make sure the yaml file does not have any tabs in it.</p>
+<p>Now you can start cmd3 with:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">cm</span>
+</pre></div>
+</div>
+<p>and issue the command</p>
+<blockquote>
+<div>help</div></blockquote>
+<p>You should be able to see the new command.</p>
+<p>To start it you simply say:</p>
+<div class="highlight-python"><div class="highlight"><pre>cm&gt;  uebercool iu.edu
+</pre></div>
+</div>
+<p>to run it directly from commandline you can use:</p>
+<div class="highlight-python"><div class="highlight"><pre>cm uebercool iu.edu
+</pre></div>
+</div>
+<p>The template simply executes a ping that is defined in the source
+<cite>command_uebercool.py</cite>. If youlike to modify the command just change
+the code in the plugins and the command files.</p>
+<p>Yes its that simple!</p>
+<p>If you have written extensions with cmd3 let us know we could discuss
+the creation of user contributed space in the cmd3 git reporsitory. We
+like to host your extensions.</p>
+</div>
 <div class="section" id="build-in-commands">
-<h2><a class="toc-backref" href="#id18">Build In Commands</a><a class="headerlink" href="#build-in-commands" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id19">Build In Commands</a><a class="headerlink" href="#build-in-commands" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="help">
-<h3><a class="toc-backref" href="#id19">Help</a><a class="headerlink" href="#help" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id20">Help</a><a class="headerlink" href="#help" title="Permalink to this headline">¶</a></h3>
 <p>One other good feature the above declaration has is that it
 automatically registers a help string so you can say:</p>
 <div class="highlight-python"><div class="highlight"><pre>help bar
@@ -674,7 +759,7 @@ automatically registers a help string so you can say:</p>
 <p>and you will get presented with the manual page</p>
 </div>
 <div class="section" id="manual-pages">
-<h3><a class="toc-backref" href="#id20">Manual Pages</a><a class="headerlink" href="#manual-pages" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id21">Manual Pages</a><a class="headerlink" href="#manual-pages" title="Permalink to this headline">¶</a></h3>
 <p>Often you will run in the situation where you may have to create a
 list of manual pages for your commands for your users. To simplify
 that we have not provided this in Unix Man format, but simply in RST
@@ -687,7 +772,7 @@ to you for your cmd3 shell. This naturally you could put into a sphinx
 documentation to create a nice user manual for your users.</p>
 </div>
 <div class="section" id="variables">
-<h3><a class="toc-backref" href="#id21">Variables</a><a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id22">Variables</a><a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h3>
 <p>CMD3 contains the ability to use variables within the shell. To see a
 list of all variables, use the command:</p>
 <div class="highlight-python"><div class="highlight"><pre>var list
@@ -706,7 +791,7 @@ dollar sign such as:</p>
 current date and time.</p>
 </div>
 <div class="section" id="scope">
-<h3><a class="toc-backref" href="#id22">Scope</a><a class="headerlink" href="#scope" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id23">Scope</a><a class="headerlink" href="#scope" title="Permalink to this headline">¶</a></h3>
 <p>Often we have to type in a command multiple times. To save us typing
 the name of the command, we have defined a simple scope that can be
 activated with the use command.</p>
@@ -720,7 +805,7 @@ activated with the use command.</p>
 </div>
 </div>
 <div class="section" id="scripts">
-<h3><a class="toc-backref" href="#id23">Scripts</a><a class="headerlink" href="#scripts" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id24">Scripts</a><a class="headerlink" href="#scripts" title="Permalink to this headline">¶</a></h3>
 <p>Multiple commands can be stored in scripts. To find out more about
 scripts, please execute:</p>
 <div class="highlight-python"><div class="highlight"><pre>help script
@@ -733,7 +818,7 @@ scripts, please execute:</p>
 <p>where filename is the name of the file containing the script.</p>
 </div>
 <div class="section" id="python">
-<h3><a class="toc-backref" href="#id24">Python</a><a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id25">Python</a><a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
 <p>You can execute a python command as follows:</p>
 <div class="highlight-python"><div class="highlight"><pre>py COMMAND
 </pre></div>
@@ -741,7 +826,7 @@ scripts, please execute:</p>
 <p>where command is the command you like to execute</p>
 </div>
 <div class="section" id="quitting-the-shell">
-<h3><a class="toc-backref" href="#id25">Quitting the shell</a><a class="headerlink" href="#quitting-the-shell" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id26">Quitting the shell</a><a class="headerlink" href="#quitting-the-shell" title="Permalink to this headline">¶</a></h3>
 <p>To quit the shell you can use either the commands:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">q</span>
 <span class="n">quit</span>
@@ -765,7 +850,7 @@ scripts, please execute:</p>
     </p>
     <p>
         &copy; Copyright 2012-2014, Developed for FutureGrid by Gregor von Laszewski, based on his earlier code from cyberaide and cogkit.<br/>
-      Last updated on Mar 18, 2015.<br/>
+      Last updated on Mar 28, 2015.<br/>
     </p>
   </div>
 </footer>
