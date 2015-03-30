@@ -1,0 +1,14 @@
+git:
+  submodules: false
+language: python
+python:
+  - "2.7"
+# command to install dependencies
+install:
+#  - pip install progress
+  - python setup.py install
+#  - fab doc.html
+#  - fab build.install
+# command to run tests
+script: 
+  - nosetests -v --nocapture tests/test_pass.py
