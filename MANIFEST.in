@@ -3,5 +3,9 @@ include ChangeLog
 exclude .gitignore
 exclude .gitreview
 include requirements.txt
+include cmd3/etc/*.yaml
+include include cmd3/etc/cmd3_template/*
+include include cmd3/etc/cmd3_template/cmd3_template/*
+include include cmd3/etc/cmd3_template/cmd3_template/plugins/*
 
 global-exclude *.pyc
