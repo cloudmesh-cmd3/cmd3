@@ -6,6 +6,7 @@ python:
 # command to install dependencies
 install:
 #  - pip install progress
+  - pip install --upgrade pip
   - python setup.py install
 #  - fab doc.html
 #  - fab build.install
