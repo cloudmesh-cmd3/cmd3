@@ -403,7 +403,7 @@ you call the main_func::
       main()
 
 Generating independent packages
-----------------------------
+--------------------------------------------------------
 
 Often you may want to generate your own extensions, but like to
 maintain them in a separate module. We have provided a command with
@@ -447,7 +447,8 @@ can place the following filr into the directory::
 
     ~/.cloudmesh/cmd3.yaml
 
-  ::
+::
+
     meta:
 	yaml_version: 2.1
 	kind: cmd3
