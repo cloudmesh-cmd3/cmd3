@@ -8,6 +8,8 @@ nosetests -v
 
 """
 
+from cloudmesh_base.util import banner
+
 class Test_pass:
 
     def setup(self):

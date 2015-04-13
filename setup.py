@@ -16,7 +16,7 @@
 # limitations under the License.                                          #
 # ------------------------------------------------------------------------#
 
-version = "1.7.0"
+version = "1.7.1"
 
 
 from setuptools.command.install import install
