@@ -16,7 +16,7 @@
 # limitations under the License.                                          #
 # ------------------------------------------------------------------------#
 
-version = "1.6.3"
+version = "1.6.4"
 
 
 from setuptools.command.install import install
@@ -118,7 +118,7 @@ data_dirs = matches
 #
 # Hack because for some reason requirements does not work
 #
-os.system("pip install -r requirements.txt")
+# os.system("pip install -r requirements.txt")
     
 setup(
     version=version,
