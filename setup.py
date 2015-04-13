@@ -16,7 +16,7 @@
 # limitations under the License.                                          #
 # ------------------------------------------------------------------------#
 
-version = "1.6.1"
+version = "1.6.2"
 
 
 from setuptools.command.install import install
@@ -164,9 +164,3 @@ setup(
     },
 )
 
-from pprint import pprint
-pprint(data_files)
-
-print
-
-pprint(data_dirs)
