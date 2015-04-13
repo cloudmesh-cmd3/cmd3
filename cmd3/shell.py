@@ -96,6 +96,11 @@ import sys
 import textwrap
 import traceback
 from cloudmesh_base.ConfigDict import ConfigDict
+from cloudmesh_base.util import banner
+from cloudmesh_base.util import path_expand
+from cloudmesh_base.Shell import Shell
+from cmd3.console import Console
+import cmd3
 
 # echo = False
 echo = False
@@ -121,6 +126,26 @@ log.addHandler(handler)
 # code insired from cyberaide and cogkit, while trying to develop a
 # dynamic CMD that loads from plugin directory
 #
+
+
+def create_cmd3_yaml_file():
+
+    banner("Setup the cmd3.yaml file")        
+    pkg_cmd3_yaml = pkg_resources.resource_string(cmd3.__name__, "etc/cmd3.yaml")
+
+    import pdb;pdb.set_trace()
+    cmd3_yaml = path_expand("~/.cloudmesh/cmd3.yaml")
+        
+    if os.path.isfile(cmd3_yaml):
+        Console.warning("ERROR: the file {0} already exists".format(cmd3_yaml))
+        Console.warning("")
+        Console.warning("If you like to reinstall it, please remove the file first")
+        Console.warning("")            
+    else:
+        Shell.mkdir(path_expand("~/.cloudmesh"))
+        with open(path_expand("~/.cloudmesh/cmd3.yaml"), "w") as cmd3_file:
+            cmd3_file.write(pkg_cmd3_yaml)
+
 
 def get_version():
     # import pkg_resources  # part of setuptools
@@ -409,10 +434,16 @@ def main():
     plugins.append(dict(get_plugins_from_dir("sys", "cmd3")))
     # plugins.append(dict(get_plugins_from_dir("~/.cloudmesh", "cmd3local")))
 
+
+    
+    if not os.path.exists(path_expand( "~/.cloudmesh/cmd3.yaml")):
+        from cmd3.plugins.shell_core import create_cmd3_yaml_file
+        create_cmd3_yaml_file()
+        
     try:
         module_config = ConfigDict(filename="~/.cloudmesh/cmd3.yaml")
         modules = module_config["cmd3"]["modules"]
-    except:
+    except KeyError:
         modules = ['cloudmesh_cmd3.plugins',
                    'cloudmesh_docker.plugins',
                    'cloudmesh_slurm.plugins',
