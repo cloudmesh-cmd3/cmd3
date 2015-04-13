@@ -115,6 +115,10 @@ for root, dirnames, filenames in os.walk('cmd3/etc'):
     matches.append(os.path.join(root, filename).lstrip('cmd3/'))
 data_dirs = matches
 
+#
+# Hack because for some reason requirements does not work
+#
+os.system("pip install -r requirements.txt")
     
 setup(
     version=version,

@@ -1,16 +1,11 @@
 cloudmesh_base
 future
-pep8
 sh
-sphinx
-sphinx_bootstrap_theme
-sphinxcontrib-blockdiag
 docopt
 pyaml
-pylint
 simplejson
 nose
 python-hostlist
 prettytable
-pytimeparse
+cloudmesh_pytimeparse
 
