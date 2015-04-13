@@ -1,7 +1,6 @@
 cloudmesh_base
 future
 pep8
-docopt
 sh
 sphinx
 sphinx_bootstrap_theme

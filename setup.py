@@ -47,6 +47,8 @@ def parse_requirements(filename):
 
 requirements = parse_requirements('requirements.txt')
 
+print requirements
+
 auto_create_version("cmd3", version)
 
 class SetupYaml(install):
