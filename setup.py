@@ -155,10 +155,3 @@ setup(
     },
 )
 
-from pprint import pprint
-
-pprint (data_files)
-
-pprint ("OOOO")
-
-pprint (data_dirs)
