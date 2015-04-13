@@ -7,7 +7,6 @@ from cloudmesh_base.util import banner
 from cloudmesh_base.util import path_expand
 from cmd3.console import Console
 from cloudmesh_base.Shell import Shell
-from cmd3.shell import create_cmd3_yaml_file
 
 import cmd3
 
@@ -152,12 +151,4 @@ class shell_core:
             sys.exit()
 
 
-    def do_setup(self, args):
-        """
-        Usage:
-            setup   the yaml file
-
-        Copies a cmd3.yaml file into ~/.cloudmesh/cmd3.yaml
-        """
-        create_cmd3_yaml_file()
 

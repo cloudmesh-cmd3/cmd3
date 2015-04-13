@@ -128,24 +128,6 @@ log.addHandler(handler)
 #
 
 
-def create_cmd3_yaml_file():
-
-    banner("Setup the cmd3.yaml file")        
-    pkg_cmd3_yaml = pkg_resources.resource_string(cmd3.__name__, "etc/cmd3.yaml")
-
-    import pdb;pdb.set_trace()
-    cmd3_yaml = path_expand("~/.cloudmesh/cmd3.yaml")
-        
-    if os.path.isfile(cmd3_yaml):
-        Console.warning("ERROR: the file {0} already exists".format(cmd3_yaml))
-        Console.warning("")
-        Console.warning("If you like to reinstall it, please remove the file first")
-        Console.warning("")            
-    else:
-        Shell.mkdir(path_expand("~/.cloudmesh"))
-        with open(path_expand("~/.cloudmesh/cmd3.yaml"), "w") as cmd3_file:
-            cmd3_file.write(pkg_cmd3_yaml)
-
 
 def get_version():
     # import pkg_resources  # part of setuptools
@@ -436,14 +418,14 @@ def main():
 
 
     
-    if not os.path.exists(path_expand( "~/.cloudmesh/cmd3.yaml")):
-        from cmd3.plugins.shell_core import create_cmd3_yaml_file
-        create_cmd3_yaml_file()
+    #if not os.path.exists(path_expand( "~/.cloudmesh/cmd3.yaml")):
+    #    from cmd3.plugins.shell_core import create_cmd3_yaml_file
+    #    create_cmd3_yaml_file()
         
     try:
         module_config = ConfigDict(filename="~/.cloudmesh/cmd3.yaml")
         modules = module_config["cmd3"]["modules"]
-    except KeyError:
+    except:
         modules = ['cloudmesh_cmd3.plugins',
                    'cloudmesh_docker.plugins',
                    'cloudmesh_slurm.plugins',
