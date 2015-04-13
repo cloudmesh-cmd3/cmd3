@@ -2,6 +2,10 @@ import os
 import sys
 from textwrap import dedent
 
+import pkg_resources
+from cloudmesh_base.util import banner
+import cmd3.console
+import cmd3
 
 # noinspection PyUnusedLocal
 class shell_core:
@@ -141,4 +145,28 @@ class shell_core:
         else:
             print 'ERROR: "%s" file does not exist.' % filename
             sys.exit()
+
+
+    def do_setup(self, args):
+        """
+        Usage:
+            setup   the yaml file
+
+        Copies a cmd3.yaml file into ~/.cloudmesh/cmd3.yaml
+        """
+        banner("Setup the cmd3.yaml file")
+        pkg_cmd3_yaml = pkg_resources.resource_string(cmd3.__name__, "etc/cmd3.yaml")
+
+
+        cmd3_yaml = path_expand("~/.cloudmesh/cmd3.yaml")
+        
+        if os.path.isfile(cmd3_yaml):
+            warning("ERROR: the file {0} already exists".format(cmd3_yaml))
+            warning("")
+            warning("If you like to reinstall it, please remove the file first")
+            warning("")            
+        else:
+            Shell.mkdir(path_expand("~/.cloudmesh"))
+            with open(path_expand("~/.cloudmesh/cmd3.yaml"), "w") as cmd3_file:
+                cmd3_file.write(pkg_cmd3_yaml)
 
