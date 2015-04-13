@@ -31,7 +31,7 @@ def all():
     
 @task
 def clean():
-    #local("rm -rf docs/build/html/notebook/*")
+#    #local("rm -rf docs/build/html/notebook/*")
     pass
 
 @task
