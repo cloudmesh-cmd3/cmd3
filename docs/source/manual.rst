@@ -36,12 +36,28 @@ Installation
 Install from Pypi
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. todo:: pypi installation
-
 ::
 
+   
    pip install cmd3
 
+
+.. note:: dut to some current issues in pip, you will need to do the
+	  following steps::
+   
+	    pip --trusted-host pypi.python.org install cloudmesh_base	
+	    pip --trusted-host pypi.python.org install cmd3
+
+	  Make sure cm is installed and works with::
+
+	    cm help
+
+	  If you have not yet set up a cmd3.yaml file in ~/.cloudmesh
+	  you can do this with::
+
+	     cm setup-yaml
+
+   
 Install from Source
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
