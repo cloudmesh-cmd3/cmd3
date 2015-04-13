@@ -104,8 +104,13 @@ home = os.path.expanduser("~")
 #sys.exit()
 
 data_files= [ (home + '/.cloudmesh/' + d,
-                [os.path.join(d, f) for f in files]) for d, folders, files in os.walk('etc')]
+                [os.path.join(d, f) for f in files]) for d, folders, files in os.walk('cmd3/etc')]
 
+data_dirs = [os.path.join(d, f) for f in files for d, folders, files in os.walk('cmd3/etc')]
+
+
+
+    
 setup(
     version=version,
     name="cmd3",
@@ -136,7 +141,7 @@ setup(
     install_requires=requirements,
     include_package_data=True,
     data_files= data_files,
-    package_data={'etc':['etc/cmd3.yaml']},
+    package_data={'cmd3': data_dirs},
     Entry_points={
         'console_scripts': [
             'cm = cmd3.shell:main',
@@ -153,3 +158,7 @@ setup(
 from pprint import pprint
 
 pprint (data_files)
+
+pprint ("OOOO")
+
+pprint (data_dirs)
