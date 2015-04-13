@@ -16,9 +16,7 @@
 # limitations under the License.                                          #
 # ------------------------------------------------------------------------#
 
-version = "1.6.0"
-
-
+version = "1.6.1"
 
 
 from setuptools.command.install import install
@@ -47,7 +45,6 @@ def parse_requirements(filename):
 
 requirements = parse_requirements('requirements.txt')
 
-print requirements
 
 auto_create_version("cmd3", version)
 
@@ -108,9 +105,15 @@ home = os.path.expanduser("~")
 data_files= [ (home + '/.cloudmesh/' + d,
                 [os.path.join(d, f) for f in files]) for d, folders, files in os.walk('cmd3/etc')]
 
-data_dirs = [os.path.join(d, f) for f in files for d, folders, files in os.walk('cmd3/etc')]
 
+import fnmatch
+import os
 
+matches = []
+for root, dirnames, filenames in os.walk('cmd3/etc'):
+  for filename in fnmatch.filter(filenames, '*'):
+    matches.append(os.path.join(root, filename).lstrip('cmd3/'))
+data_dirs = matches
 
     
 setup(
@@ -157,3 +160,9 @@ setup(
     },
 )
 
+from pprint import pprint
+pprint(data_files)
+
+print
+
+pprint(data_dirs)
