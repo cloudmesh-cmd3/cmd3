@@ -16,27 +16,9 @@
 # limitations under the License.                                          #
 # ------------------------------------------------------------------------#
 
-version = "1.5.0"
+version = "1.6.0"
 
-requirements = [
-        'cloudmesh_base',    
-        'future',
-        'pep8',
-        'docopt',
-        'sh',
-        'sphinx',
-        'sphinx_bootstrap_theme',
-        'sphinxcontrib-blockdiag',
-        'docopt',
-        'pyaml',
-        'pylint',
-        'simplejson',
-        'nose',
-        'python-hostlist',
-        'prettytable',
-        'pytimeparse',
-        'ghp-import',
-    ]
+
 
 
 from setuptools.command.install import install
@@ -57,23 +39,15 @@ from cloudmesh_base.util import auto_create_requirements
 
 banner("Installing Cmd3")
 
-auto_create_version("cmd3", version)
-auto_create_requirements(requirements)
+def parse_requirements(filename):
+    """ load requirements from a pip requirements file """
+    lineiter = (line.strip() for line in open(filename))
+    return [line for line in lineiter if line and not line.startswith("#")]
 
-# class SetupTest(Command):
-#    """A test"""
-#    description = __doc__
-#
-#    user_options = []
-#    def initialize_options(self):
-#        pass
-#
-#    def finalize_options(self):
-#        pass
-#
-#    def run(self):
-#        """gregor run"""
-#        print ("Hallo")
+
+requirements = parse_requirements('requirements.txt')
+
+auto_create_version("cmd3", version)
 
 class SetupYaml(install):
     """Copies a cmd3 yaml file to ~/.cloudmesh."""
@@ -129,6 +103,9 @@ home = os.path.expanduser("~")
 #print [ (home + '/.cloudmesh/' + d, [os.path.join(d, f) for f in files]) for d, folders, files in os.walk('etc')],
 #sys.exit()
 
+data_files= [ (home + '/.cloudmesh/' + d,
+                [os.path.join(d, f) for f in files]) for d, folders, files in os.walk('etc')]
+
 setup(
     version=version,
     name="cmd3",
@@ -158,9 +135,9 @@ setup(
     packages=find_packages(),
     install_requires=requirements,
     include_package_data=True,
-    data_files= [ (home + '/.cloudmesh/' + d,
-                   [os.path.join(d, f) for f in files]) for d, folders, files in os.walk('etc')],
-    entry_points={
+    data_files= data_files,
+    package_data={'etc':['etc/cmd3.yaml']},
+    Entry_points={
         'console_scripts': [
             'cm = cmd3.shell:main',
             'cm-generate-command = cmd3.generate:generate',
@@ -173,3 +150,6 @@ setup(
     },
 )
 
+from pprint import pprint
+
+pprint (data_files)
