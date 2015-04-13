@@ -7,5 +7,5 @@ simplejson
 nose
 python-hostlist
 prettytable
-cloudmesh_pytimeparse
+cloudmesh_timestring
 
