@@ -16,7 +16,7 @@
 # limitations under the License.                                          #
 # ------------------------------------------------------------------------#
 
-version = "1.6.5"
+version = "1.6.6"
 
 
 from setuptools.command.install import install
@@ -102,7 +102,7 @@ home = os.path.expanduser("~")
 #print [ (home + '/.cloudmesh/' + d, [os.path.join(d, f) for f in files]) for d, folders, files in os.walk('etc')],
 #sys.exit()
 
-data_files= [ (home + '/.cloudmesh/' + d,
+data_files= [ (home + '/.cloudmesh/' + d.lstrip('cmd3/'),
                 [os.path.join(d, f) for f in files]) for d, folders, files in os.walk('cmd3/etc')]
 
 
