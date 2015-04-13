@@ -16,7 +16,7 @@
 # limitations under the License.                                          #
 # ------------------------------------------------------------------------#
 
-version = "1.6.2"
+version = "1.6.3"
 
 
 from setuptools.command.install import install
