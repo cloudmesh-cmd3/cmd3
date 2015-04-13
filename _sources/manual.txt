@@ -42,8 +42,8 @@ Install from Pypi
    pip install cmd3
 
 
-.. note:: dut to some current issues in pip, you will need to do the
-	  following steps::
+.. note:: due to some current issues in pip, you will need to do the
+	  following steps instead of just athe above::
    
 	    pip --trusted-host pypi.python.org install cloudmesh_base	
 	    pip --trusted-host pypi.python.org install cmd3
