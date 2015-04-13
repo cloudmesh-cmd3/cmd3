@@ -142,7 +142,7 @@ setup(
     include_package_data=True,
     data_files= data_files,
     package_data={'cmd3': data_dirs},
-    Entry_points={
+    entry_points={
         'console_scripts': [
             'cm = cmd3.shell:main',
             'cm-generate-command = cmd3.generate:generate',

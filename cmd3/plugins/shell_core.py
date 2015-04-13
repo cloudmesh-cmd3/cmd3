@@ -4,7 +4,8 @@ from textwrap import dedent
 
 import pkg_resources
 from cloudmesh_base.util import banner
-import cmd3.console
+from cloudmesh_base.util import path_expand
+import Console
 import cmd3
 
 # noinspection PyUnusedLocal
@@ -161,10 +162,10 @@ class shell_core:
         cmd3_yaml = path_expand("~/.cloudmesh/cmd3.yaml")
         
         if os.path.isfile(cmd3_yaml):
-            warning("ERROR: the file {0} already exists".format(cmd3_yaml))
-            warning("")
-            warning("If you like to reinstall it, please remove the file first")
-            warning("")            
+            Console.warning("ERROR: the file {0} already exists".format(cmd3_yaml))
+            Console.warning("")
+            Console.warning("If you like to reinstall it, please remove the file first")
+            Console.warning("")            
         else:
             Shell.mkdir(path_expand("~/.cloudmesh"))
             with open(path_expand("~/.cloudmesh/cmd3.yaml"), "w") as cmd3_file:
