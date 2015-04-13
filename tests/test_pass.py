@@ -8,7 +8,7 @@ nosetests -v
 
 """
 
-from cloudmesh_base.util import banner
+from cloudmesh_base.util import HEADING
 
 class Test_pass:
 
