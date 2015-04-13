@@ -53,7 +53,7 @@
 
         <a class="brand" href="../index.html">
           CMD3</a>
-        <span class="navbar-text pull-left"><b>1.5.0</b></span>
+        <span class="navbar-text pull-left"><b>1.3.3</b></span>
 
         <div class="nav-collapse">
           <ul class="nav">
@@ -119,19 +119,19 @@
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">Modules and Classes</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="">cmd3 Package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#id1"><code class="docutils literal"><span class="pre">cmd3</span></code> Package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#module-cmd3.shell"><code class="docutils literal"><span class="pre">shell</span></code> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#shell-module"><code class="docutils literal"><span class="pre">shell</span></code> Module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#subpackages">Subpackages</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="cmd3.plugins.html">plugins Package</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.activate"><code class="docutils literal"><span class="pre">activate</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.clear"><code class="docutils literal"><span class="pre">clear</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.edit"><code class="docutils literal"><span class="pre">edit</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.graphviz"><code class="docutils literal"><span class="pre">graphviz</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.info"><code class="docutils literal"><span class="pre">info</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.pause"><code class="docutils literal"><span class="pre">pause</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.rst"><code class="docutils literal"><span class="pre">rst</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#clear-module"><code class="docutils literal"><span class="pre">clear</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#edit-module"><code class="docutils literal"><span class="pre">edit</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#graphviz-module"><code class="docutils literal"><span class="pre">graphviz</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#info-module"><code class="docutils literal"><span class="pre">info</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#pause-module"><code class="docutils literal"><span class="pre">pause</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#rst-module"><code class="docutils literal"><span class="pre">rst</span></code> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.shell_core"><code class="docutils literal"><span class="pre">shell_core</span></code> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.template"><code class="docutils literal"><span class="pre">template</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.timer"><code class="docutils literal"><span class="pre">timer</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins.html#timer-module"><code class="docutils literal"><span class="pre">timer</span></code> Module</a></li>
 </ul>
 </li>
 </ul>
@@ -155,7 +155,7 @@
       aria-labelledby="dLabelLocalToc"><ul>
 <li><a class="reference internal" href="#">cmd3 Package</a><ul>
 <li><a class="reference internal" href="#id1"><code class="docutils literal"><span class="pre">cmd3</span></code> Package</a></li>
-<li><a class="reference internal" href="#module-cmd3.shell"><code class="docutils literal"><span class="pre">shell</span></code> Module</a></li>
+<li><a class="reference internal" href="#shell-module"><code class="docutils literal"><span class="pre">shell</span></code> Module</a></li>
 <li><a class="reference internal" href="#subpackages">Subpackages</a></li>
 </ul>
 </li>
@@ -208,243 +208,8 @@
 <div class="section" id="id1">
 <h2><code class="xref py py-mod docutils literal"><span class="pre">cmd3</span></code> Package<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <span class="target" id="module-cmd3.__init__"></span></div>
-<div class="section" id="module-cmd3.shell">
-<span id="shell-module"></span><h2><code class="xref py py-mod docutils literal"><span class="pre">shell</span></code> Module<a class="headerlink" href="#module-cmd3.shell" title="Permalink to this headline">¶</a></h2>
-<p>This project is about developing a dynamic CMD class based on cmd.CMD.
-We assume the following directory structure:</p>
-<div class="highlight-python"><div class="highlight"><pre>./shell.py
-./plugins/foo.py
-./plugins/bar.py
-./plugins/activate.py
-</pre></div>
-</div>
-<p>We have provided examples of the classes in this document</p>
-<p>foo and bar contain some classes that include he usual <a href="#id2"><span class="problematic" id="id3">do_</span></a> methods. It
-also includes an activate method that is called wih the acivation
-module, so you can control its behavior upon startup.</p>
-<p>To specify the plugins please use:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">plugins</span> <span class="o">=</span> <span class="p">[</span><span class="s">&quot;foo&quot;</span><span class="p">,</span> <span class="s">&quot;bar&quot;</span><span class="p">,</span><span class="s">&quot;activate&quot;</span><span class="p">]</span>
-</pre></div>
-</div>
-<p>Now you can set a name for your class:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="n">name</span> <span class="o">=</span> <span class="s">&quot;CmCLI&quot;</span>
-</pre></div>
-</div>
-<p>The rest is pretty simple:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">plugin_objects</span><span class="p">)</span> <span class="o">=</span> <span class="n">DynamicCmd</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">plugins</span><span class="p">)</span>
-<span class="n">cmd</span><span class="o">.</span><span class="n">activate</span><span class="p">(</span><span class="n">plugin_objects</span><span class="p">)</span>
-<span class="n">cmd</span><span class="o">.</span><span class="n">cmdloop</span><span class="p">()</span>
-</pre></div>
-</div>
-<p>The activate method is not called automatically as to give more
-flexibility during startup.</p>
-<p>Here are the sample classes:</p>
-<div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">bar</span><span class="p">:</span>
-
-    <span class="k">def</span> <span class="nf">activate_bar</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span> <span class="s">&quot;... activate bar&quot;</span>
-
-    <span class="k">def</span> <span class="nf">do_that</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
-        <span class="k">print</span> <span class="s">&quot;THAT&quot;</span><span class="p">,</span> <span class="n">arg</span>
-
-
-<span class="k">class</span> <span class="nc">foo</span><span class="p">:</span>
-
-    <span class="k">def</span> <span class="nf">do_this</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
-        <span class="k">print</span> <span class="s">&quot;THIS&quot;</span><span class="p">,</span> <span class="n">arg</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">activate_status</span><span class="p">()</span>
-
-    <span class="k">def</span> <span class="nf">activate_foo</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span> <span class="s">&quot;... activate foo&quot;</span>
-
-<span class="k">class</span> <span class="nc">activate</span><span class="p">:</span>
-
-    <span class="n">active</span> <span class="o">=</span> <span class="bp">False</span>
-
-    <span class="k">def</span> <span class="nf">do_on</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="bp">True</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">activate_status</span><span class="p">()</span>
-
-    <span class="k">def</span> <span class="nf">do_off</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">arg</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">active</span> <span class="o">=</span> <span class="bp">False</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">activate_status</span><span class="p">()</span>
-
-    <span class="k">def</span> <span class="nf">activate_status</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="k">print</span> <span class="s">&quot;Active:&quot;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">active</span>
-
-    <span class="k">def</span> <span class="nf">activate</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">plugins</span><span class="p">):</span>
-        <span class="n">d</span> <span class="o">=</span> <span class="nb">dir</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span>
-        <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
-        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">d</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">key</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&quot;activate_&quot;</span><span class="p">):</span>
-                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">key</span><span class="p">)</span>
-        <span class="k">print</span> <span class="n">result</span>
-        <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">result</span><span class="p">:</span>
-            <span class="k">print</span> <span class="s">&quot;&gt; </span><span class="si">%s</span><span class="s">&quot;</span> <span class="o">%</span> <span class="n">key</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;_&quot;</span><span class="p">,</span><span class="s">&quot; &quot;</span><span class="p">)</span>
-            <span class="k">exec</span><span class="p">(</span><span class="s">&quot;self.</span><span class="si">%s</span><span class="s">()&quot;</span> <span class="o">%</span> <span class="n">key</span><span class="p">)</span>
-</pre></div>
-</div>
-<dl class="function">
-<dt id="cmd3.shell.DynamicCmd">
-<code class="descclassname">cmd3.shell.</code><code class="descname">DynamicCmd</code><span class="sig-paren">(</span><em>name</em>, <em>plugins</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.shell.DynamicCmd" title="Permalink to this definition">¶</a></dt>
-<dd><p>Returns a cmd with the added plugins,</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>name</strong> &#8211; TODO:</li>
-<li><strong>plugins</strong> &#8211; list of plugins</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="cmd3.shell.cmd3_call">
-<code class="descclassname">cmd3.shell.</code><code class="descname">cmd3_call</code><span class="sig-paren">(</span><em>f</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.shell.cmd3_call" title="Permalink to this definition">¶</a></dt>
-<dd><p>calls a function defined with cmd3 arguments the function must be
-defined as f(arguments)</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="cmd3.shell.command">
-<code class="descclassname">cmd3.shell.</code><code class="descname">command</code><span class="sig-paren">(</span><em>func</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.shell.command" title="Permalink to this definition">¶</a></dt>
-<dd><p>A decorator to create a function with docopt arguments. It also generates a help function</p>
-<p>&#64;command
-def do_myfunc(self, args):</p>
-<blockquote>
-<div>&#8220;&#8221;&#8221; docopts text &#8220;&#8221;&#8221;
-pass</div></blockquote>
-<p>will create</p>
-<dl class="docutils">
-<dt>def do_myfunc(self, args, arguments):</dt>
-<dd>&#8220;&#8221;&#8221; docopts text &#8220;&#8221;&#8221;
-...</dd>
-<dt>def help_myfunc(self, args, arguments):</dt>
-<dd>... prints the docopt text ...</dd>
-</dl>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>func</strong> &#8211; the function for the decorator</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="cmd3.shell.create_dir">
-<code class="descclassname">cmd3.shell.</code><code class="descname">create_dir</code><span class="sig-paren">(</span><em>dir_path</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.shell.create_dir" title="Permalink to this definition">¶</a></dt>
-<dd><p>creates a director at the given path
-:param dir_path: the directory path</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="cmd3.shell.create_file">
-<code class="descclassname">cmd3.shell.</code><code class="descname">create_file</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.shell.create_file" title="Permalink to this definition">¶</a></dt>
-<dd><p>Creates a new file if the file name does not exists
-:param filename: the name of the file</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="cmd3.shell.function_command">
-<code class="descclassname">cmd3.shell.</code><code class="descname">function_command</code><span class="sig-paren">(</span><em>main_func</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.shell.function_command" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="cmd3.shell.get_plugins">
-<code class="descclassname">cmd3.shell.</code><code class="descname">get_plugins</code><span class="sig-paren">(</span><em>directory</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.shell.get_plugins" title="Permalink to this definition">¶</a></dt>
-<dd><p>returns the list of plugins from the specified directory
-:param directory: directory that contains the plugins. Files starting with _ will be ignored.</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="cmd3.shell.get_plugins_from_dir">
-<code class="descclassname">cmd3.shell.</code><code class="descname">get_plugins_from_dir</code><span class="sig-paren">(</span><em>dir_path</em>, <em>classbase</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.shell.get_plugins_from_dir" title="Permalink to this definition">¶</a></dt>
-<dd><p>dir_path/classbase/plugins</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="cmd3.shell.get_plugins_from_module">
-<code class="descclassname">cmd3.shell.</code><code class="descname">get_plugins_from_module</code><span class="sig-paren">(</span><em>name</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.shell.get_plugins_from_module" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="function">
-<dt id="cmd3.shell.is_subcmd">
-<code class="descclassname">cmd3.shell.</code><code class="descname">is_subcmd</code><span class="sig-paren">(</span><em>opts</em>, <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.shell.is_subcmd" title="Permalink to this definition">¶</a></dt>
-<dd><p>if sys.argv[1:] does not match any getopt options,
-we simply assume it is a sub command to execute onecmd()</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="cmd3.shell.load_plugins">
-<code class="descclassname">cmd3.shell.</code><code class="descname">load_plugins</code><span class="sig-paren">(</span><em>classprefix</em>, <em>plugin_list</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.shell.load_plugins" title="Permalink to this definition">¶</a></dt>
-<dd><p>loads the plugins specified in the list
-:param classprefix: the class prefix
-:param plugin_list: the list of plugins</p>
-</dd></dl>
-
-<dl class="function">
-<dt id="cmd3.shell.main">
-<code class="descclassname">cmd3.shell.</code><code class="descname">main</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.shell.main" title="Permalink to this definition">¶</a></dt>
-<dd><ol class="lowerroman simple" start="900">
-<li></li>
-</ol>
-<dl class="docutils">
-<dt>Usage:</dt>
-<dd>cm [-q] help
-cm [-v] [-b] [&#8211;file=SCRIPT] [-i] [COMMAND ...]</dd>
-<dt>Arguments:</dt>
-<dd>COMMAND                  A command to be executed</dd>
-<dt>Options:</dt>
-<dd><table class="first last docutils option-list" frame="void" rules="none">
-<col class="option" />
-<col class="description" />
-<tbody valign="top">
-<tr><td class="option-group">
-<kbd><span class="option">--file=<var>SCRIPT</var></span></kbd></td>
-<td><table class="first last docutils option-list" frame="void" rules="none">
-<col class="option" />
-<col class="description" />
-<tbody valign="top">
-<tr><td class="option-group">
-<kbd><span class="option">-f</span></kbd></td>
-<td>SCRIPT  Executes the script</td></tr>
-</tbody>
-</table>
-</td></tr>
-<tr><td class="option-group">
-<kbd><span class="option">-i</span></kbd></td>
-<td>After start keep the shell interactive,
-otherwise quit [default: False]</td></tr>
-<tr><td class="option-group">
-<kbd><span class="option">-b</span></kbd></td>
-<td>surpress the printing of the banner [default: False]</td></tr>
-</tbody>
-</table>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="function">
-<dt id="cmd3.shell.make_cmd_class">
-<code class="descclassname">cmd3.shell.</code><code class="descname">make_cmd_class</code><span class="sig-paren">(</span><em>name</em>, <em>*bases</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.shell.make_cmd_class" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="class">
-<dt id="cmd3.shell.plugin_manager">
-<em class="property">class </em><code class="descclassname">cmd3.shell.</code><code class="descname">plugin_manager</code><a class="headerlink" href="#cmd3.shell.plugin_manager" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="method">
-<dt id="cmd3.shell.plugin_manager.add">
-<code class="descname">add</code><span class="sig-paren">(</span><em>plugin</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.shell.plugin_manager.add" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
+<div class="section" id="shell-module">
+<h2><code class="xref py py-mod docutils literal"><span class="pre">shell</span></code> Module<a class="headerlink" href="#shell-module" title="Permalink to this headline">¶</a></h2>
 </div>
 <div class="section" id="subpackages">
 <h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
@@ -452,15 +217,15 @@ otherwise quit [default: False]</td></tr>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="cmd3.plugins.html">plugins Package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.activate"><code class="docutils literal"><span class="pre">activate</span></code> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.clear"><code class="docutils literal"><span class="pre">clear</span></code> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.edit"><code class="docutils literal"><span class="pre">edit</span></code> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.graphviz"><code class="docutils literal"><span class="pre">graphviz</span></code> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.info"><code class="docutils literal"><span class="pre">info</span></code> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.pause"><code class="docutils literal"><span class="pre">pause</span></code> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.rst"><code class="docutils literal"><span class="pre">rst</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#clear-module"><code class="docutils literal"><span class="pre">clear</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#edit-module"><code class="docutils literal"><span class="pre">edit</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#graphviz-module"><code class="docutils literal"><span class="pre">graphviz</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#info-module"><code class="docutils literal"><span class="pre">info</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#pause-module"><code class="docutils literal"><span class="pre">pause</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#rst-module"><code class="docutils literal"><span class="pre">rst</span></code> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.shell_core"><code class="docutils literal"><span class="pre">shell_core</span></code> Module</a></li>
 <li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.template"><code class="docutils literal"><span class="pre">template</span></code> Module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#module-cmd3.plugins.timer"><code class="docutils literal"><span class="pre">timer</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="cmd3.plugins.html#timer-module"><code class="docutils literal"><span class="pre">timer</span></code> Module</a></li>
 </ul>
 </li>
 </ul>
@@ -481,7 +246,7 @@ otherwise quit [default: False]</td></tr>
     </p>
     <p>
         &copy; Copyright 2012-2014, Gregor von Laszewski, based on his earlier code from cyberaide and cogkit.<br/>
-      Last updated on Mar 28, 2015.<br/>
+      Last updated on Apr 13, 2015.<br/>
     </p>
   </div>
 </footer>

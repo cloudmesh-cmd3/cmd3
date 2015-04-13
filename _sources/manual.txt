@@ -36,12 +36,28 @@ Installation
 Install from Pypi
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. todo:: pypi installation
-
 ::
 
+   
    pip install cmd3
 
+
+.. note:: dut to some current issues in pip, you will need to do the
+	  following steps::
+   
+	    pip --trusted-host pypi.python.org install cloudmesh_base	
+	    pip --trusted-host pypi.python.org install cmd3
+
+	  Make sure cm is installed and works with::
+
+	    cm help
+
+	  If you have not yet set up a cmd3.yaml file in ~/.cloudmesh
+	  you can do this with::
+
+	     cm setup-yaml
+
+   
 Install from Source
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -58,10 +74,18 @@ the installation
 
 ::
 
-   git clone git@github.com:cloudmesh/cmd3.git
+   git clone https://github.com/cloudmesh/cmd3.git
    cd cmd3
    python setup.py install
 
+
+Developers having access to the repository can use::
+
+   git clone git@github.com:cloudmesh/cmd3.git
+
+
+   
+   
 Install the cmd3 Configuration file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -75,7 +99,7 @@ default locations for the plugins.
 
 An example file is located at:
 
-* https://github.com/cloudmesh/cmd3/blob/master/etc/cmd3.yaml
+* https://github.com/cloudmesh/cmd3/blob/master/cmd3/etc/cmd3.yaml
 
 and looks as follows::
 
@@ -403,7 +427,7 @@ you call the main_func::
       main()
 
 Generating independent packages
-----------------------------
+--------------------------------------------------------
 
 Often you may want to generate your own extensions, but like to
 maintain them in a separate module. We have provided a command with
@@ -447,7 +471,8 @@ can place the following filr into the directory::
 
     ~/.cloudmesh/cmd3.yaml
 
-  ::
+::
+
     meta:
 	yaml_version: 2.1
 	kind: cmd3

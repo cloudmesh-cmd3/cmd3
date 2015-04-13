@@ -52,7 +52,7 @@
 
         <a class="brand" href="index.html">
           CMD3</a>
-        <span class="navbar-text pull-left"><b>1.5.0</b></span>
+        <span class="navbar-text pull-left"><b>1.3.3</b></span>
 
         <div class="nav-collapse">
           <ul class="nav">
@@ -118,19 +118,19 @@
 <li class="toctree-l1"><a class="reference internal" href="modules/modules.html">Modules and Classes</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="modules/cmd3.html">cmd3 Package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#id1"><code class="docutils literal"><span class="pre">cmd3</span></code> Package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#module-cmd3.shell"><code class="docutils literal"><span class="pre">shell</span></code> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#shell-module"><code class="docutils literal"><span class="pre">shell</span></code> Module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#subpackages">Subpackages</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="modules/cmd3.plugins.html">plugins Package</a><ul>
 <li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.activate"><code class="docutils literal"><span class="pre">activate</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.clear"><code class="docutils literal"><span class="pre">clear</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.edit"><code class="docutils literal"><span class="pre">edit</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.graphviz"><code class="docutils literal"><span class="pre">graphviz</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.info"><code class="docutils literal"><span class="pre">info</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.pause"><code class="docutils literal"><span class="pre">pause</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.rst"><code class="docutils literal"><span class="pre">rst</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#clear-module"><code class="docutils literal"><span class="pre">clear</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#edit-module"><code class="docutils literal"><span class="pre">edit</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#graphviz-module"><code class="docutils literal"><span class="pre">graphviz</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#info-module"><code class="docutils literal"><span class="pre">info</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#pause-module"><code class="docutils literal"><span class="pre">pause</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#rst-module"><code class="docutils literal"><span class="pre">rst</span></code> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.shell_core"><code class="docutils literal"><span class="pre">shell_core</span></code> Module</a></li>
 <li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.template"><code class="docutils literal"><span class="pre">template</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.timer"><code class="docutils literal"><span class="pre">timer</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#timer-module"><code class="docutils literal"><span class="pre">timer</span></code> Module</a></li>
 </ul>
 </li>
 </ul>
@@ -297,6 +297,24 @@
 <div class="highlight-python"><div class="highlight"><pre>pip install cmd3
 </pre></div>
 </div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>dut to some current issues in pip, you will need to do the
+following steps:</p>
+<div class="highlight-python"><div class="highlight"><pre>pip --trusted-host pypi.python.org install cloudmesh_base
+pip --trusted-host pypi.python.org install cmd3
+</pre></div>
+</div>
+<p>Make sure cm is installed and works with:</p>
+<div class="highlight-python"><div class="highlight"><pre>cm help
+</pre></div>
+</div>
+<p>If you have not yet set up a cmd3.yaml file in ~/.cloudmesh
+you can do this with:</p>
+<div class="last highlight-python"><div class="highlight"><pre>cm setup-yaml
+</pre></div>
+</div>
+</div>
 </div>
 <div class="section" id="install-from-source">
 <h3><a class="toc-backref" href="#id5">Install from Source</a><a class="headerlink" href="#install-from-source" title="Permalink to this headline">¶</a></h3>
@@ -310,9 +328,13 @@ called CMD3:</p>
 </div>
 <p>Next you need to get the source code from git as follows and conduct
 the installation</p>
-<div class="highlight-python"><div class="highlight"><pre>git clone git@github.com:cloudmesh/cmd3.git
+<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/cloudmesh/cmd3.git
 cd cmd3
 python setup.py install
+</pre></div>
+</div>
+<p>Developers having access to the repository can use:</p>
+<div class="highlight-python"><div class="highlight"><pre>git clone git@github.com:cloudmesh/cmd3.git
 </pre></div>
 </div>
 </div>
@@ -327,7 +349,7 @@ format. Please place this file in:</p>
 default locations for the plugins.</p>
 <p>An example file is located at:</p>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/cloudmesh/cmd3/blob/master/etc/cmd3.yaml">https://github.com/cloudmesh/cmd3/blob/master/etc/cmd3.yaml</a></li>
+<li><a class="reference external" href="https://github.com/cloudmesh/cmd3/blob/master/cmd3/etc/cmd3.yaml">https://github.com/cloudmesh/cmd3/blob/master/cmd3/etc/cmd3.yaml</a></li>
 </ul>
 <p>and looks as follows:</p>
 <div class="highlight-python"><div class="highlight"><pre>meta:
@@ -694,19 +716,19 @@ python setup.py install
 <p>Now you have installed the example into your environment. However you
 need to still register this new package with cmd3. This is easy as you
 can place the following filr into the directory:</p>
-<div class="highlight-python"><div class="highlight"><pre>  ~/.cloudmesh/cmd3.yaml
-
-::
-  meta:
-      yaml_version: 2.1
-      kind: cmd3
-      filename: ${HOME}/.cloudmesh/cmd3.yaml
-      location: ${HOME}/.cloudmesh/cmd3.yaml
-      prefix: cmd3
-  cmd3:
-      modules:
-      - cloudmesh_cmd3.plugins
-      - cloudmesh_uebercool.plugins
+<div class="highlight-python"><div class="highlight"><pre>~/.cloudmesh/cmd3.yaml
+</pre></div>
+</div>
+<div class="highlight-python"><div class="highlight"><pre>meta:
+    yaml_version: 2.1
+    kind: cmd3
+    filename: ${HOME}/.cloudmesh/cmd3.yaml
+    location: ${HOME}/.cloudmesh/cmd3.yaml
+    prefix: cmd3
+cmd3:
+    modules:
+    - cloudmesh_cmd3.plugins
+    - cloudmesh_uebercool.plugins
 </pre></div>
 </div>
 <p>Make sure the yaml file does not have any tabs in it.</p>
@@ -838,7 +860,7 @@ scripts, please execute:</p>
     </p>
     <p>
         &copy; Copyright 2012-2014, Gregor von Laszewski, based on his earlier code from cyberaide and cogkit.<br/>
-      Last updated on Mar 28, 2015.<br/>
+      Last updated on Apr 13, 2015.<br/>
     </p>
   </div>
 </footer>
