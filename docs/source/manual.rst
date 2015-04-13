@@ -74,10 +74,18 @@ the installation
 
 ::
 
-   git clone git@github.com:cloudmesh/cmd3.git
+   git clone https://github.com/cloudmesh/cmd3.git
    cd cmd3
    python setup.py install
 
+
+Developers having access to the repository can use::
+
+   git clone git@github.com:cloudmesh/cmd3.git
+
+
+   
+   
 Install the cmd3 Configuration file
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -91,7 +99,7 @@ default locations for the plugins.
 
 An example file is located at:
 
-* https://github.com/cloudmesh/cmd3/blob/master/etc/cmd3.yaml
+* https://github.com/cloudmesh/cmd3/blob/master/cmd3/etc/cmd3.yaml
 
 and looks as follows::
 
