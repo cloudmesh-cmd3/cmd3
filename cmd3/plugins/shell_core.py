@@ -9,7 +9,7 @@ from cmd3.console import Console
 from cloudmesh_base.Shell import Shell
 
 import cmd3
-
+import pip
 
 # noinspection PyUnusedLocal
 class shell_core:
@@ -46,8 +46,36 @@ class shell_core:
 
         Prints out the version number
         """
-        print self.get_version()
+        print "cmd3:", self.get_version()
         # print self.__version__
+
+        #
+        # python version
+        #
+        
+        python_version_tuple = sys.version_info[:3]
+        python_version = '.'.join(map(str, list(python_version_tuple)))
+        pip_version = pip.__version__
+
+        print "python:", python_version
+        print "pip:", pip_version
+        
+        if python_version == '2.7.9':
+            Console.info("You are running a supported version of python: " + str(python_version))    
+        else:
+            Console.error("You are running an unsupported version of python: " + str(python_version))
+            Console.error("We recommend you update your python version: " + str(python_version))    
+
+        #
+        # pip version
+        #
+
+        if pip_version == '6.1.1':
+            Console.info("You are running a supported version of pip: " + str(pip_version))    
+        else:
+            Console.error("You are running an unsupported version of pip: " + str(pip_version))    
+            Console.error("We recommend you update your pip version: " + str(pip_version))    
+
 
     def activate_shell_core(self):
         """activates the shell_core commands"""

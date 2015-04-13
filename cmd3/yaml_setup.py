@@ -43,20 +43,12 @@ def create_cmd3_yaml_file(force=False):
         import cmd3.etc.cmd3_template
 
         f1 = cmd3.etc.cmd3_template.__file__
-
-        print f1
-        
         cmd3_etc_path = os.path.dirname(f1)
-
-        print cmd3_etc_path
-
-        banner("JJJJ")      
         pattern = os.path.join(cmd3_etc_path, '*')
 
         for src in glob.glob(pattern):
             if os.path.isfile(src): continue
-            shutil.copytree(src, filename)
-
+            shutil.copytree(src, path_expand(filename))
     
 if __name__ == "__main__":
     create_cmd3_yaml_file()
