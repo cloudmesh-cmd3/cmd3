@@ -5,5 +5,3 @@ exclude .gitreview
 include requirements.txt
 
 global-exclude *.pyc
-recursive-include cmd3/etc/*
-recursive-include cmd3/scripts/*
