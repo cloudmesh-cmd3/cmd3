@@ -1,5 +1,5 @@
 import textwrap
-
+from cmd3.console import Console
 
 class template:
 
@@ -20,4 +20,6 @@ class template:
 
     def preloop(self):
         """adds the banner to the preloop"""
-        print textwrap.dedent(self.banner)
+        lines = textwrap.dedent(self.banner).split("\n")
+        for line in lines:
+            Console._print("BLUE", "", line)

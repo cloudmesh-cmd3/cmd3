@@ -3,7 +3,7 @@ import platform
 
 from cmd3.shell import command
 from sh import open as open_editor
-
+from cmd3.console import Console
 
 # noinspection PyUnusedLocal
 class edit:
@@ -32,7 +32,6 @@ class edit:
         """
 
         filename = arg
-        print filename
 
         if platform.system() == 'Darwin':
 
@@ -41,11 +40,12 @@ class edit:
                 file(filename, 'w+').close()
 
             editors = ["/Applications/Aquamacs.app",
-                       "/Applications/Emacs.app", "/usr/bin/emacs"]
+                       "/Applications/Emacs.app",
+                       "/usr/bin/emacs"]
 
             for editor in editors:
                 if os.path.exists(editor):
                     open_editor("-a", editor, filename)
                     return
 
-            print "ERROR: Could not find working editor in", editors
+            Console.error("Could not find working editor in {0}".format(str(editors)))

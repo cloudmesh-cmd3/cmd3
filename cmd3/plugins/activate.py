@@ -1,5 +1,5 @@
 import string
-
+from cmd3.console import Console
 
 # noinspection PyUnusedLocal
 class activate:
@@ -34,17 +34,17 @@ class activate:
         for key in d:
             if key.startswith("shell_activate_"):
                 if self.echo:
-                    print "Shell Activate:", key
+                    Console.ok("Shell Activate: {0}".format(key))
                 self.plugins.append(key)
         for key in d:
             if key.startswith("activate_"):
                 if self.echo:
-                    print "Activate:", key
+                    Console.ok("Activate: {0}".format(key))
                 self.plugins.append(key)
 
         for key in self.plugins:
             if self.echo:
-                print "> %s" % key.replace("_", " ", 1)
+                Console.ok("> {0}".format(key.replace("_", " ", 1)))
             exec ("self.%s()" % key)
 
     def do_help(self, arg):

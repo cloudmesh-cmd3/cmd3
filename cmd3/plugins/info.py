@@ -1,5 +1,5 @@
 from cmd3.shell import command
-
+from cmd3.console import Console
 
 # noinspection PyUnusedLocal
 class info:
@@ -15,7 +15,7 @@ class info:
 
         for key in self.plugins:
             if self.echo:
-                print "> %s" % key.replace("_", " ", 1)
+                Console.ok("> {0}".format(key.replace("_", " ", 1)))
             exec("self.%s()" % key)
 
     @command
@@ -33,10 +33,10 @@ class info:
 
         """
         if arguments["--all"]:
-            print 70 * "-"
-            print 'DIR'
-            print 70 * "-"
+            Console.ok(70 * "-")
+            Console.ok('DIR')
+            Console.ok(70 * "-")
             for element in dir(self):
-                print element
-            print 70 * "-"
+                Console.ok(str(element))
+            Console.ok(70 * "-")
         self.print_info()

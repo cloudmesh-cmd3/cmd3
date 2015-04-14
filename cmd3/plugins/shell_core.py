@@ -11,6 +11,7 @@ from cloudmesh_base.Shell import Shell
 import cmd3
 import pip
 
+
 # noinspection PyUnusedLocal
 class shell_core:
 
@@ -26,7 +27,7 @@ class shell_core:
     def info_shell_core(self):
         """prints information about the shell core"""
         version = self.get_version()
-        print "%20s = " % "VERSION", version
+        Console.ok("{:>20} = {:}".format("VERSION", version))
 
     def version(self):
         """prints the version of cmd3"""
@@ -46,7 +47,7 @@ class shell_core:
 
         Prints out the version number
         """
-        print "cmd3:", self.get_version()
+        Console.ok("cmd3: {:}".format(str(self.get_version())))
         # print self.__version__
 
         #
@@ -57,8 +58,8 @@ class shell_core:
         python_version = '.'.join(map(str, list(python_version_tuple)))
         pip_version = pip.__version__
 
-        print "python:", python_version
-        print "pip:", pip_version
+        Console.ok("python: {:}".format(str(python_version)))
+        Console.ok("pip: {:}".format(str(pip_version))
         
         if python_version == '2.7.9':
             Console.info("You are running a supported version of python: " + str(python_version))    
@@ -75,7 +76,6 @@ class shell_core:
         else:
             Console.error("You are running an unsupported version of pip: " + str(pip_version))    
             Console.error("We recommend you update your pip version: " + str(pip_version))    
-
 
     def activate_shell_core(self):
         """activates the shell_core commands"""
@@ -166,16 +166,16 @@ class shell_core:
               FILENAME   The name of the file
         """
         if not filename:
-            print "ERROR: the command requires a filename as parameter"
+            Console.error("the command requires a filename as parameter")
             return
 
         if os.path.exists(filename):
             with open(filename, "r") as f:
                 for line in f:
-                    print ">", line
+                    Console.ok("> {:}".format(str(line)))
                     self.onecmd(line)
         else:
-            print 'ERROR: "%s" file does not exist.' % filename
+            Console.error('file "{:}" does not exist.'.format(filename))
             sys.exit()
 
 

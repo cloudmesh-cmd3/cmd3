@@ -2,7 +2,7 @@ from cmd3.shell import command
 # from cmd3.shell import get_plugins_from_module
 import glob
 import os
-
+from cmd3.console import Console
 
 # noinspection PyShadowingNames
 class script:
@@ -30,8 +30,8 @@ class script:
 
     # just as activate when i specify info all info_ ar being called
     def info_script(self):
-        print "%20s =" % "Script Locations", str(self.script_files)
-        print "%20s =" % "Scripts", str(self.scripts)
+        Console.ok("{:>20} = {:}".format("Script Locations", str(self.script_files)))
+        Console.ok("{:>20} = {:}".format("Scripts", str(self.scripts)))
 
     def _load_scripts(self, script_files):
         for location in script_files:
@@ -59,18 +59,18 @@ class script:
                     print ">>>>> ", filename
 
     def _list_scripts(self):
-        print 10 * "-"
-        print 'Scripts'
-        print 10 * "-"
+        Console.ok(10 * "-")
+        Console.ok('Scripts')
+        Console.ok(10 * "-")
         for v in self.scripts:
-            print v, '=', self.scripts[v]
+            Console.ok('{:} = {:}'.format(v, str(self.scripts[v])))
 
     # logic of load does not work
     # we want load regex and load without that just loads default
     # needs docopt
 
     def run_script(self, filename):
-        print filename
+        Console.ok('Running Script {0}'.format(filename))
         f = open(filename, "r")
         for line in f:
             line = self.precmd(line)
@@ -123,7 +123,7 @@ class script:
             self._load_scripts(new_files)
             self._list_scripts()
         else:
-            print "script execution not yet defined"
+            Console.error("script execution not yet defined")
             print arguments
             print args
 

@@ -11,6 +11,7 @@ class Console(object):
         'PURPLE': '\033[35m',
         'CYAN': '\033[36m',
         'WHITE': '\033[37m',
+        'BLUE': '\033[34m',
         'OKBLUE': '\033[34m',
         'OKGREEN': '\033[32m',
         'FAIL': '\033[31m',

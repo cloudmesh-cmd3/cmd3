@@ -2,7 +2,7 @@ import webbrowser
 import os
 
 from cmd3.shell import command
-
+from cmd3.console import Console
 
 # noinspection PyUnusedLocal
 class browser:
@@ -39,7 +39,7 @@ class browser:
         """
         filename = arguments['FILENAME']
         filename = self._expand_filename(filename)
-        print "open %s" % filename
+        Console.ok("open {0}".format(filename))
 
         if not (filename.startswith("file:") or filename.startswith("http:")):
             try:
@@ -47,10 +47,10 @@ class browser:
                     pass
                 filename += "file://"
             except:
-                print "can not open file %s" % filename
+                Console.error("unsupported browser format in file {0}".format(filename))
                 return
 
         try:
             webbrowser.open("%s" % filename)
         except:
-            print "can not open browser %s" % filename
+            Console.error("can not open browser with file {0}".format(filename))

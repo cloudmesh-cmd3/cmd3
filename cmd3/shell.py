@@ -197,14 +197,14 @@ def load_plugins(classprefix, plugin_list):
             plugins.append(cls)
         except Exception, e:
             # if echo:
-            print("ERROR: loading module ", plugin, classprefix)
-            print(70 * "=")
+            Console.error("loading module {0} {1}".format(str(plugin), str(classprefix)))
+            Console.error(70 * "=")
             print(e)
-            print(70 * "=")            
+            Console.error(70 * "=")
             print(traceback.format_exc())
-            print(70 * "-")
+            Console.error(70 * "-")
             print(sys.exc_info()[0])
-            print(70 * "-")
+            Console.error(70 * "-")
             
     return plugins
 
@@ -246,7 +246,7 @@ def command(func):
             func(instance, args, arguments)
         except SystemExit:
             if args not in ('-h', '--help'):
-                print("Error: Wrong Format")
+                Console.error("Could not execute the command.")
             print(doc)
     new.__doc__ = doc
     return new
@@ -257,25 +257,26 @@ def command(func):
 
 def function_command(main_func):
     def _function_command(func):
+        # noinspection PySingleQuotedDocstring
         '''
-        A decorator to create a function with docopt arguments. It also generates a help function
+                A decorator to create a function with docopt arguments. It also generates a help function
 
-        @command
-        def do_myfunc(self, args):
-            """ docopts text """
-            pass
+                @command
+                def do_myfunc(self, args):
+                    """ docopts text """
+                    pass
 
-        will create
+                will create
 
-        def do_myfunc(self, args, arguments):
-            """ docopts text """
-            ...
+                def do_myfunc(self, args, arguments):
+                    """ docopts text """
+                    ...
 
-        def help_myfunc(self, args, arguments):
-            ... prints the docopt text ...
+                def help_myfunc(self, args, arguments):
+                    ... prints the docopt text ...
 
-        :param func: the function for the decorator
-        '''
+                :param func: the function for the decorator
+                '''
         classname = inspect.getouterframes(inspect.currentframe())[1][3]
         name = func.__name__
         help_name = name.replace("do_", "help_")
@@ -289,7 +290,7 @@ def function_command(main_func):
                 # func.__doc__ = doc
             except SystemExit:
                 if args not in ('-h', '--help'):
-                    print("Error: Wrong Format")
+                    Console.error("Could not execute the command.")
                 print(doc)
         new.__doc__ = doc
         return new
@@ -407,9 +408,8 @@ def main():
         script_file = None
         interactive = False
 
-        arguments = {}
-        arguments['-b'] = True
-        arguments['COMMAND'] = [' '.join(sys.argv[1:])]
+        arguments = {'-b': True,
+                     'COMMAND': [' '.join(sys.argv[1:])]}
 
     plugins = []
 
@@ -417,10 +417,9 @@ def main():
     # plugins.append(dict(get_plugins_from_dir("~/.cloudmesh", "cmd3local")))
 
 
-    
-    #if not os.path.exists(path_expand( "~/.cloudmesh/cmd3.yaml")):
-    #    from cmd3.plugins.shell_core import create_cmd3_yaml_file
-    #    create_cmd3_yaml_file()
+    # if not os.path.exists(path_expand( "~/.cloudmesh/cmd3.yaml")):
+    #     from cmd3.plugins.shell_core import create_cmd3_yaml_file
+    #     create_cmd3_yaml_file()
         
     try:
         module_config = ConfigDict(filename="~/.cloudmesh/cmd3.yaml")
@@ -481,11 +480,11 @@ def main():
                 print(">", user_cmd)
             cmd.onecmd(user_cmd)
         except Exception, e:
-            print()
-            print("ERROR: executing command '{0}'".format(user_cmd))
-            print()
-            print(e)
-            print(traceback.format_exc())
+            Console.error()
+            Console.error("ERROR: executing command '{0}'".format(user_cmd))
+            Console.error()
+            Console.error(e)
+            Console.error(traceback.format_exc())
         if interactive:
             cmd.cmdloop()
             

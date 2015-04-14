@@ -5,6 +5,7 @@ import sys
 from cloudmesh_base.util import banner
 from cloudmesh_base.util import path_expand
 
+
 def replace_dict(filename, data):
     if filename is None or filename == "":
         return
@@ -18,6 +19,7 @@ def replace_dict(filename, data):
     with open(filename, 'w') as f:
         for line in content:
             f.write(line)
+
 
 def replace_string(filename, data):
     if filename is None or filename == "":
@@ -35,6 +37,7 @@ def replace_string(filename, data):
                 new = data[key]
                 line = line.replace(old, new).rstrip()
             f.write(line + "\n")
+
 
 def generate(arguments=None):
     """
@@ -59,8 +62,8 @@ def generate(arguments=None):
              -v       verbose mode
 
         """
-    #if arguments is None:
-    #    argv=sys.argv[1:]
+    # if arguments is None:
+    #     argv=sys.argv[1:]
 
     arguments = docopt(generate.__doc__)
 

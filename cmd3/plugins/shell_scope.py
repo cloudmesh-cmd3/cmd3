@@ -2,7 +2,7 @@ import datetime
 import os
 
 from cmd3.shell import command
-
+from cmd3.console import Console
 
 # noinspection PyUnusedLocal
 class shell_scope:
@@ -21,13 +21,13 @@ class shell_scope:
 
     def info_shell_scope(self):
         """prints some information about the shell scope"""
-        print "%20s =" % "ECHO", self.echo
-        print "%20s =" % "SCOPE", self.active_scope
-        print "%20s =" % "SCOPES", self.scopes
-        print "%20s =" % "SCOPELESS", self.scopeless
-        print "%20s =" % "prompt", self.prompt
-        print "%20s =" % "scripts", self.scripts
-        print "%20s =" % "variables", self.variables
+        Console.ok("{:>20} = {:}".format("ECHO", self.echo))
+        Console.ok("{:>20} = {:}".format("SCOPE", self.active_scope))
+        Console.ok("{:>20} = {:}".format("SCOPES", self.scopes))
+        Console.ok("{:>20} = {:}".format("SCOPELESS", self.scopeless))
+        Console.ok("{:>20} = {:}".format("prompt", self.prompt))
+        Console.ok("{:>20} = {:}".format("scripts", self.scripts))
+        Console.ok("{:>20} = {:}".format("variables", self.variables))
 
     def activate_shell_scope(self):
         """activates the shell scope"""
@@ -59,17 +59,17 @@ class shell_scope:
         self.scopes.remove(name)
 
     def _list_scope(self):
-        print 10 * "-"
-        print 'Scope'
-        print 10 * "-"
+        Console.ok(10 * "-")
+        Console.ok('Scope')
+        Console.ok(10 * "-")
         for s in self.scopes:
-            print s
+            Console.ok(str(s))
 
-        print 10 * "-"
-        print 'Scopeless'
-        print 10 * "-"
+        Console.ok(10 * "-")
+        Console.ok('Scopeles')
+        Console.ok(10 * "-")
         for s in self.scopeless:
-            print s
+            Console.ok(str(s))
 
     def do_use(self, arg):
         """
@@ -119,10 +119,10 @@ class shell_scope:
                 [""] + self.scopes, 'Which scope? ')
 
         if self.active_scope == "":
-            print "Switched scope to:", 'cm'
+            Console.ok("Switched scope to: cm")
             self.prompt = self.active_scope + 'cm> '
         else:
-            print "Switched scope to:", self.active_scope
+            Console.ok("Switched scope to: {0}".format(self.active_scope))
             self.prompt = self.active_scope + '> '
 
     #
@@ -154,7 +154,7 @@ class shell_scope:
             return ""
 
         if line.startswith("#"):
-            print line
+            Console._print("BLUE", "", line)
             return ""
 
         line = self.replace_vars(line)
@@ -222,7 +222,7 @@ class shell_scope:
         #
 
         if self.echo:
-            print line
+            Console.ok(str(line))
 
         return line
 
@@ -281,11 +281,11 @@ class shell_scope:
         # self._list_variables()
 
     def _list_variables(self):
-        print 10 * "-"
-        print 'Variables'
-        print 10 * "-"
+        Console.ok(10 * "-")
+        Console.ok('Variables')
+        Console.ok(10 * "-")
         for v in self.variables:
-            print v, '=', self.variables[v]
+            Console.ok("{:} = {:}".format(v, self.variables[v]))
 
     @command
     def do_var(self, arg, arguments):
@@ -318,9 +318,9 @@ class shell_scope:
         elif '=' not in arg and arguments['NAME=VALUE'] is not None:
             try:
                 v = arguments['NAME=VALUE']
-                print self.variables[v]
+                Console.ok(str(self.variables[v]))
             except:
-                print 'ERROR: variable', arguments['NAME=VALUE'], 'not defined'
+                Console.error('variable {:} not defined'.format(arguments['NAME=VALUE']))
             
         elif arg.startswith('delete'):
             variable = arg.split(' ')[1]

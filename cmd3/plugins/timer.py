@@ -1,5 +1,5 @@
 from cmd3.shell import command
-
+from cmd3.console import Console
 
 class timer:
 
@@ -51,13 +51,13 @@ class timer:
                 Implementation note: we have a stopwatch in cloudmesh,
                                      that we could copy into cmd3
         """
-        print arguments
-        print "args", args
+        # print arguments
+        # print "args", args
         args = args.lower()
 
         if args in ("on", "off"):
             self.with_timers = (args == "on")
-            print "Timers are now:", self.with_timers
+            Console.ok ("Timers are now: {0}".format(args))
         if args == 'list':
             self.list_timers()
         else:
@@ -65,5 +65,5 @@ class timer:
 
     def list_timers(self):
         """list of all timers"""
-        print "TODO"
+        Console.error("TODO: not implemented")
         pass

@@ -1,5 +1,6 @@
 from cmd3.shell import command
 
+
 class yaml_setup:
 
     def activate_load(self):
