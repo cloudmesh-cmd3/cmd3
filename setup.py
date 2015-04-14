@@ -79,6 +79,7 @@ class UploadToPypi(install):
         auto_create_version("cmd3", version)
         os.system("make clean")
         os.system("python setup.py install")
+        os.system("python setup.py bdist_wheel")
         banner("Build Distribution")
         os.system("python setup.py sdist --format=bztar,zip upload")
 
