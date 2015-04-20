@@ -127,14 +127,14 @@ log.addHandler(handler)
 # dynamic CMD that loads from plugin directory
 #
 
-
+__version__ = None
 
 def get_version():
     # import pkg_resources  # part of setuptools
     # self.__version__ = pkg_resources.require("cmd3")[0].version
     import cmd3
-    self.__version__ = cmd3.__version__
-    return cmd3.__version__
+    __version__ = cmd3.version
+    return cmd3.version
 
 
 def DynamicCmd(name, plugins):
@@ -463,7 +463,7 @@ def main():
 
     (cmd, plugin_objects) = DynamicCmd(name, plugins)
 
-    cmd.get_version()
+    get_version()
     cmd.set_verbose(echo)
     cmd.activate()
     cmd.set_verbose(echo)

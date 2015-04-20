@@ -59,7 +59,7 @@ class shell_core:
         pip_version = pip.__version__
 
         Console.ok("python: {:}".format(str(python_version)))
-        Console.ok("pip: {:}".format(str(pip_version))
+        Console.ok("pip: {:}".format(str(pip_version)))
         
         if python_version == '2.7.9':
             Console.info("You are running a supported version of python: " + str(python_version))    
