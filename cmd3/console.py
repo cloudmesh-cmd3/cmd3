@@ -5,7 +5,7 @@ class Console(object):
 
     color = True
 
-    theme = {
+    theme_color = {
         'HEADER': '\033[95m',
         'BLACK': '\033[30m',
         'PURPLE': '\033[35m',
@@ -21,6 +21,33 @@ class Console(object):
         'BOLD': "\033[1m",
     }
 
+
+    theme_bw = {
+        'HEADER': '',
+        'BLACK': '',
+        'PURPLE': '',
+        'CYAN': '',
+        'WHITE': '',
+        'BLUE': '',
+        'OKBLUE': '',
+        'OKGREEN': '',
+        'FAIL': '',
+        'WARNING': '',
+        'RED': '',
+        'ENDC': '',
+        'BOLD': "",
+    }
+
+    theme = theme_color
+
+    @staticmethod
+    def set_theme(color=True):
+        if color:
+            Console.theme = Console.theme_color
+        else:
+            Console.theme = Console.theme_bw
+        Console.color = color
+    
     @staticmethod
     def get(name):
         if name in Console.theme:
