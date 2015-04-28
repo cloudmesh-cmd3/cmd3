@@ -1,3 +1,5 @@
+cloudmesh_base
+cmd3
 future
 sh
 docopt
