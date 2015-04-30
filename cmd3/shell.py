@@ -480,11 +480,14 @@ def main():
                 print(">", user_cmd)
             cmd.onecmd(user_cmd)
         except Exception, e:
-            Console.error()
+            Console.error("")
             Console.error("ERROR: executing command '{0}'".format(user_cmd))
-            Console.error()
-            Console.error(e)
-            Console.error(traceback.format_exc())
+            Console.error("")
+            print (70 * "=")
+            print(e)
+            print (70 * "=")
+            print(traceback.format_exc())
+
         if interactive:
             cmd.cmdloop()
             
