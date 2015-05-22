@@ -16,7 +16,7 @@
 # limitations under the License.                                          #
 # ------------------------------------------------------------------------#
 
-version = "1.8.1"
+version = "1.9.0"
 
 from setuptools.command.test import test as TestCommand
 from setuptools.command.install import install
@@ -78,10 +78,10 @@ class UploadToPypi(install):
     def run(self):
         auto_create_version("cmd3", version)
         os.system("make clean")
-        os.system("python setup.py install")
-        os.system("python setup.py bdist_wheel")
+        os.system("python shell_plugins.py install")
+        os.system("python shell_plugins.py bdist_wheel")
         banner("Build Distribution")
-        os.system("python setup.py sdist --format=bztar,zip upload")
+        os.system("python shell_plugins.py sdist --format=bztar,zip upload")
 
 class InstallBase(install):
     """Install the cmd3 package."""

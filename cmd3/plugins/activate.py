@@ -17,14 +17,6 @@ class activate:
         """activate the activation method"""
         plugins = []
 
-    def do_plugins(self, args):
-        """
-        Usage:
-            plugins
-
-        activates the plugins."""
-        self.activate()
-
     def activate(self):
         """method to activate all activation methods in the shell and
         its plugins.

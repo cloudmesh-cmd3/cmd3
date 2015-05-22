@@ -99,7 +99,7 @@ def generate(arguments=None):
         rm -rf {path}/{package}
         cp -rf {dir}/etc/cmd3_template {path}/{package}
         mv {path}/{package}/cmd3_template {path}/{package}/{package}
-        mv {path}/{package}/setup.py.in {path}/{package}/setup.py       
+        mv {path}/{package}/shell_plugins.py.in {path}/{package}/shell_plugins.py
         mv {path}/{package}/{package}/command_command.py.in {path}/{package}/{package}/command_{command}.py
         mv {path}/{package}/{package}/plugins/cm_shell_command.py.in {path}/{package}/{package}/plugins/cm_shell_{command}.py
         """.format(**data)
@@ -112,7 +112,7 @@ def generate(arguments=None):
 
     banner("replaceing comand and package name in template files")
     files = """
-       {path}/{package}/setup.py
+       {path}/{package}/shell_plugins.py
        {path}/{package}/Makefile
        {path}/{package}/{package}/plugins/cm_shell_{command}.py
        {path}/{package}/{package}/command_{command}.py
