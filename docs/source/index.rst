@@ -28,14 +28,15 @@ Cmd3
      contact
      manual
      todo
+     man/man
      modules/modules.rst
 
 Python has provided for a long time a very useful framework for
 creating simple command line shells via Cmd. Other projects have made
 use of them and extended it in various ways such as Cmd2. Although
 these tools are great, we found several features missing from them to
-make them more usable for our projects. Two of the main
-features we needed were a mechanism to 
+make them more usable for our projects. Two of the main features we
+needed were a mechanism to
 
 * add plugins via a plugin directory and 
 * a better automatic option parsing 
@@ -78,5 +79,6 @@ Indices and tables
 :ref:`modindex`
 :ref:`search`
 
+     
 Modules
 ======================================================================
