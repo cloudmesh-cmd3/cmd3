@@ -71,8 +71,8 @@ def html(theme_name='readthedocs'):
     # disable Flask RSTPAGES due to sphinx incompatibility
     os.environ['RSTPAGES'] = 'FALSE'
     theme(theme_name)
-    # api()
-    # man()
+    api()
+    man()
     """build the doc locally and view"""
     clean()
     local("cd docs; make html")
@@ -122,11 +122,12 @@ def publish():
 def man():
     """deploy the documentation on gh-pages"""
     #TODO: match on "Commands"
+    local("mkdir -p docs/source/man")
     local("cm man | grep -A10000 \"Commands\"  | sed \$d  > docs/source/man/man.rst")
 
 @task
 def api():
-    for modulename in ["cloudmesh", "cloudmesh_common", "cloudmesh_install", "cmd3local", "cloudmesh_web"]:
+    for modulename in ["cmd3"]:
         print 70 * "="
         print "Building API Doc:", modulename 
         print 70 * "="        
