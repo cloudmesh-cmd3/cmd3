@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>cmd3.etc package &mdash; CMD3  documentation</title>
+    
+    <link rel="stylesheet" href="../../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootswatch-2.3.2/cosmo/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    <link rel="stylesheet" href="../../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../../_static/jquery.js"></script>
+    <script type="text/javascript" src="../../_static/underscore.js"></script>
+    <script type="text/javascript" src="../../_static/doctools.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="CMD3  documentation" href="../../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="../../index.html">
+          CMD3</a>
+        <span class="navbar-text pull-left"><b>1.9.0</b></span>
+
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class="divider-vertical"></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../../contact.html">Contact</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../contact.html#authors">Authors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contact.html#contributors">Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../contact.html#repository">Repository</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../manual.html">Manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../manual.html#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual.html#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../manual.html#install-from-pypi">Install from Pypi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../manual.html#install-from-source">Install from Source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../manual.html#install-the-cmd3-configuration-file">Install the cmd3 Configuration file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../manual.html#running-the-installed-version">Running the installed version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../manual.html#running-from-the-source-directory">Running from the Source Directory</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual.html#using-the-shell">Using the Shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual.html#extending-the-shell">Extending the Shell</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../manual.html#reading-plugins-from-your-local-instalation">Reading plugins from your local instalation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../manual.html#reading-plugins-from-the-deploy-directory">Reading plugins from the deploy directory</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual.html#writing-plugins">Writing Plugins</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../manual.html#a-basic-plugin">A Basic Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../manual.html#argument-parsing">Argument parsing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../manual.html#generating-information">Generating Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../manual.html#function-registration">Function Registration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual.html#generating-independent-packages">Generating independent packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../manual.html#build-in-commands">Build In Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../manual.html#help">Help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../manual.html#manual-pages">Manual Pages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../manual.html#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../manual.html#scope">Scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../manual.html#scripts">Scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../manual.html#python">Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../manual.html#quitting-the-shell">Quitting the shell</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../todo.html">TODO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../todo.html#list">List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../todo.html#github">Github</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../modules/modules.html">Modules and Classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../../modules/cmd3.html">cmd3 Package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/cmd3.html#id1"><code class="docutils literal"><span class="pre">cmd3</span></code> Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/cmd3.html#module-cmd3.shell"><code class="docutils literal"><span class="pre">shell</span></code> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../../modules/cmd3.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../../modules/cmd3.plugins.html">plugins Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../../modules/cmd3.plugins.html#module-cmd3.plugins.activate"><code class="docutils literal"><span class="pre">activate</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../modules/cmd3.plugins.html#module-cmd3.plugins.clear"><code class="docutils literal"><span class="pre">clear</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../modules/cmd3.plugins.html#module-cmd3.plugins.edit"><code class="docutils literal"><span class="pre">edit</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../modules/cmd3.plugins.html#module-cmd3.plugins.graphviz"><code class="docutils literal"><span class="pre">graphviz</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../modules/cmd3.plugins.html#module-cmd3.plugins.info"><code class="docutils literal"><span class="pre">info</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../modules/cmd3.plugins.html#module-cmd3.plugins.pause"><code class="docutils literal"><span class="pre">pause</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../modules/cmd3.plugins.html#module-cmd3.plugins.rst"><code class="docutils literal"><span class="pre">rst</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../modules/cmd3.plugins.html#module-cmd3.plugins.shell_core"><code class="docutils literal"><span class="pre">shell_core</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../modules/cmd3.plugins.html#module-cmd3.plugins.template"><code class="docutils literal"><span class="pre">template</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../../modules/cmd3.plugins.html#module-cmd3.plugins.timer"><code class="docutils literal"><span class="pre">timer</span></code> Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">cmd3.etc package</a><ul>
+<li><a class="reference internal" href="#subpackages">Subpackages</a></li>
+<li><a class="reference internal" href="#module-cmd3.etc">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      
+  <div class="section" id="cmd3-etc-package">
+<h1>cmd3.etc package<a class="headerlink" href="#cmd3-etc-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="cmd3.etc.cmd3_template.html">cmd3.etc.cmd3_template package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="cmd3.etc.cmd3_template.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="cmd3.etc.cmd3_template.cmd3_template.html">cmd3.etc.cmd3_template.cmd3_template package</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="cmd3.etc.cmd3_template.cmd3_template.html#subpackages">Subpackages</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="cmd3.etc.cmd3_template.cmd3_template.html#module-cmd3.etc.cmd3_template.cmd3_template">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="cmd3.etc.cmd3_template.html#module-cmd3.etc.cmd3_template">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="module-cmd3.etc">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cmd3.etc" title="Permalink to this headline">¶</a></h2>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2012-2014, Gregor von Laszewski, based on his earlier code from cyberaide and cogkit.<br/>
+      Last updated on May 22, 2015.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>

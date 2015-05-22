@@ -1,0 +1,678 @@
+<!DOCTYPE html>
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Commands &mdash; CMD3  documentation</title>
+    
+    <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootswatch-2.3.2/cosmo/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-2.3.2/css/bootstrap-responsive.min.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/bootstrap-sphinx.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="../_static/js/jquery-fix.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
+    <link rel="top" title="CMD3  documentation" href="../index.html" />
+<meta charset='utf-8'>
+<meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
+<meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
+<meta name="apple-mobile-web-app-capable" content="yes">
+
+  </head>
+  <body role="document">
+
+  <div id="navbar" class="navbar navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <!-- .btn-navbar is used as the toggle for collapsed navbar content -->
+        <button class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <a class="brand" href="../index.html">
+          CMD3</a>
+        <span class="navbar-text pull-left"><b>1.9.0</b></span>
+
+        <div class="nav-collapse">
+          <ul class="nav">
+            <li class="divider-vertical"></li>
+            
+            
+              <li class="dropdown globaltoc-container">
+  <a role="button"
+     id="dLabelGlobalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="../index.html">Site <b class="caret"></b></a>
+  <ul class="dropdown-menu globaltoc"
+      role="menu"
+      aria-labelledby="dLabelGlobalToc"><ul>
+<li class="toctree-l1"><a class="reference internal" href="../contact.html">Contact</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../contact.html#authors">Authors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contact.html#contributors">Contributors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../contact.html#repository">Repository</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../manual.html">Manual</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../manual.html#documentation">Documentation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manual.html#installation">Installation</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#install-from-pypi">Install from Pypi</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#install-from-source">Install from Source</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#install-the-cmd3-configuration-file">Install the cmd3 Configuration file</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#running-the-installed-version">Running the installed version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#running-from-the-source-directory">Running from the Source Directory</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../manual.html#using-the-shell">Using the Shell</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manual.html#extending-the-shell">Extending the Shell</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#reading-plugins-from-your-local-instalation">Reading plugins from your local instalation</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#reading-plugins-from-the-deploy-directory">Reading plugins from the deploy directory</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../manual.html#writing-plugins">Writing Plugins</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#a-basic-plugin">A Basic Plugin</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#argument-parsing">Argument parsing</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#generating-information">Generating Information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#function-registration">Function Registration</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../manual.html#generating-independent-packages">Generating independent packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manual.html#build-in-commands">Build In Commands</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#help">Help</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#manual-pages">Manual Pages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#variables">Variables</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#scope">Scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#scripts">Scripts</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#python">Python</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#quitting-the-shell">Quitting the shell</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../todo.html">TODO</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../todo.html#list">List</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../todo.html#github">Github</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../modules/modules.html">Modules and Classes</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../modules/cmd3.html">cmd3 Package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../modules/cmd3.html#id1"><code class="docutils literal"><span class="pre">cmd3</span></code> Package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/cmd3.html#module-cmd3.shell"><code class="docutils literal"><span class="pre">shell</span></code> Module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../modules/cmd3.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="../modules/cmd3.plugins.html">plugins Package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cmd3.plugins.html#module-cmd3.plugins.activate"><code class="docutils literal"><span class="pre">activate</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cmd3.plugins.html#module-cmd3.plugins.clear"><code class="docutils literal"><span class="pre">clear</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cmd3.plugins.html#module-cmd3.plugins.edit"><code class="docutils literal"><span class="pre">edit</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cmd3.plugins.html#module-cmd3.plugins.graphviz"><code class="docutils literal"><span class="pre">graphviz</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cmd3.plugins.html#module-cmd3.plugins.info"><code class="docutils literal"><span class="pre">info</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cmd3.plugins.html#module-cmd3.plugins.pause"><code class="docutils literal"><span class="pre">pause</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cmd3.plugins.html#module-cmd3.plugins.rst"><code class="docutils literal"><span class="pre">rst</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cmd3.plugins.html#module-cmd3.plugins.shell_core"><code class="docutils literal"><span class="pre">shell_core</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cmd3.plugins.html#module-cmd3.plugins.template"><code class="docutils literal"><span class="pre">template</span></code> Module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="../modules/cmd3.plugins.html#module-cmd3.plugins.timer"><code class="docutils literal"><span class="pre">timer</span></code> Module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+                <li class="dropdown">
+  <a role="button"
+     id="dLabelLocalToc"
+     data-toggle="dropdown"
+     data-target="#"
+     href="#">Page <b class="caret"></b></a>
+  <ul class="dropdown-menu localtoc"
+      role="menu"
+      aria-labelledby="dLabelLocalToc"><ul>
+<li><a class="reference internal" href="#">Commands</a><ul>
+<li><a class="reference internal" href="#eof">EOF</a></li>
+<li><a class="reference internal" href="#banner">banner</a></li>
+<li><a class="reference internal" href="#clear">clear</a></li>
+<li><a class="reference internal" href="#dot2">dot2</a></li>
+<li><a class="reference internal" href="#edit">edit</a></li>
+<li><a class="reference internal" href="#exec">exec</a></li>
+<li><a class="reference internal" href="#graphviz">graphviz</a></li>
+<li><a class="reference internal" href="#help">help</a></li>
+<li><a class="reference internal" href="#info">info</a></li>
+<li><a class="reference internal" href="#load">load</a></li>
+<li><a class="reference internal" href="#man">man</a></li>
+<li><a class="reference internal" href="#open">open</a></li>
+<li><a class="reference internal" href="#pause">pause</a></li>
+<li><a class="reference internal" href="#plugins">plugins</a></li>
+<li><a class="reference internal" href="#py">py</a></li>
+<li><a class="reference internal" href="#q">q</a></li>
+<li><a class="reference internal" href="#quit">quit</a></li>
+<li><a class="reference internal" href="#script">script</a></li>
+<li><a class="reference internal" href="#setup">setup</a></li>
+<li><a class="reference internal" href="#setup-yaml">setup_yaml</a></li>
+<li><a class="reference internal" href="#timer">timer</a></li>
+<li><a class="reference internal" href="#use">use</a></li>
+<li><a class="reference internal" href="#var">var</a></li>
+<li><a class="reference internal" href="#verbose">verbose</a></li>
+<li><a class="reference internal" href="#version">version</a></li>
+</ul>
+</li>
+</ul>
+</ul>
+</li>
+              
+            
+            
+              
+                
+              
+            
+            
+            
+            
+              <li></li>
+            
+          </ul>
+
+          
+            
+<form class="navbar-form navbar-right" action="../search.html" method="get">
+ <div class="form-group">
+  <input type="text" name="q" class="form-control" placeholder="Search" />
+ </div>
+  <input type="hidden" name="check_keywords" value="yes" />
+  <input type="hidden" name="area" value="default" />
+</form>
+          
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="container">
+  <div class="row">
+    <div class="span12">
+      
+  <div class="section" id="commands">
+<h1>Commands<a class="headerlink" href="#commands" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="eof">
+<h2>EOF<a class="headerlink" href="#eof" title="Permalink to this headline">¶</a></h2>
+<p>Command - EOF:</p>
+<div class="highlight-python"><div class="highlight"><pre>Usage:
+    EOF
+
+Command to the shell to terminate reading a script.
+</pre></div>
+</div>
+</div>
+<div class="section" id="banner">
+<h2>banner<a class="headerlink" href="#banner" title="Permalink to this headline">¶</a></h2>
+<p>Command - banner:</p>
+<div class="highlight-python"><div class="highlight"><pre>Usage:
+    banner [-c CHAR] [-n WIDTH] [-i INDENT] [-r COLOR] TEXT
+
+Arguments:
+    TEXT   The text message from which to create the banner
+    CHAR   The character for the frame.
+    WIDTH  Width of the banner
+    INDENT indentation of the banner
+    COLOR  the color
+
+Options:
+    -c CHAR   The character for the frame. [default: #]
+    -n WIDTH  The width of the banner. [default: 70]
+    -i INDENT  The width of the banner. [default: 0]
+    -r COLOR  The color of the banner. [default: BLACK]
+
+Prints a banner form a one line text message.
+</pre></div>
+</div>
+</div>
+<div class="section" id="clear">
+<h2>clear<a class="headerlink" href="#clear" title="Permalink to this headline">¶</a></h2>
+<p>Command - clear:</p>
+<div class="highlight-python"><div class="highlight"><pre>Usage:
+    clear
+
+Clears the screen.
+</pre></div>
+</div>
+</div>
+<div class="section" id="dot2">
+<h2>dot2<a class="headerlink" href="#dot2" title="Permalink to this headline">¶</a></h2>
+<p>Command - dot2:</p>
+<div class="highlight-python"><div class="highlight"><pre>Usage:
+       dot2 FILENAME FORMAT
+
+Export the data in cvs format to a file. Former cvs command
+
+Arguments:
+    FILENAME   The filename
+    FORMAT     the export format, pdf, png, ...
+</pre></div>
+</div>
+</div>
+<div class="section" id="edit">
+<h2>edit<a class="headerlink" href="#edit" title="Permalink to this headline">¶</a></h2>
+<p>Command - edit:</p>
+<div class="highlight-python"><div class="highlight"><pre>Usage:
+        edit FILENAME
+
+Edits the file with the given name
+
+Arguments:
+    FILENAME  the file to edit
+</pre></div>
+</div>
+</div>
+<div class="section" id="exec">
+<h2>exec<a class="headerlink" href="#exec" title="Permalink to this headline">¶</a></h2>
+<p>Command - exec:</p>
+<div class="highlight-python"><div class="highlight"><pre>Usage:
+   exec FILENAME
+
+executes the commands in the file. See also the script command.
+
+Arguments:
+  FILENAME   The name of the file
+</pre></div>
+</div>
+</div>
+<div class="section" id="graphviz">
+<h2>graphviz<a class="headerlink" href="#graphviz" title="Permalink to this headline">¶</a></h2>
+<p>Command - graphviz:</p>
+<div class="highlight-python"><div class="highlight"><pre>Usage:
+       graphviz FILENAME
+
+Export the data in cvs format to a file. Former cvs command
+
+Arguments:
+    FILENAME   The filename
+</pre></div>
+</div>
+</div>
+<div class="section" id="help">
+<h2>help<a class="headerlink" href="#help" title="Permalink to this headline">¶</a></h2>
+<p>Command - help::
+List available commands with &#8220;help&#8221; or detailed help with &#8220;help cmd&#8221;.</p>
+</div>
+<div class="section" id="info">
+<h2>info<a class="headerlink" href="#info" title="Permalink to this headline">¶</a></h2>
+<p>Command - info:</p>
+<div class="highlight-python"><div class="highlight"><pre>Usage:
+       info [--all]
+
+Options:
+       --all  -a   more extensive information
+
+Prints some internal information about the shell
+</pre></div>
+</div>
+</div>
+<div class="section" id="load">
+<h2>load<a class="headerlink" href="#load" title="Permalink to this headline">¶</a></h2>
+<p>Command - load:</p>
+<div class="highlight-python"><div class="highlight"><pre>Usage:
+    load MODULE
+
+Loads the plugin given a specific module name. The plugin must be ina plugin directory.
+
+Arguments:
+   MODULE  The name of the module.
+</pre></div>
+</div>
+</div>
+<div class="section" id="man">
+<h2>man<a class="headerlink" href="#man" title="Permalink to this headline">¶</a></h2>
+<p>Command - man:</p>
+<div class="highlight-python"><div class="highlight"><pre>Usage:
+       man COMMAND
+       man [--noheader]
+
+Options:
+       --norule   no rst header
+
+Arguments:
+       COMMAND   the command to be printed
+
+Description:
+    man
+        Prints out the help pages
+    man COMMAND
+        Prints out the help page for a specific command
+</pre></div>
+</div>
+</div>
+<div class="section" id="open">
+<h2>open<a class="headerlink" href="#open" title="Permalink to this headline">¶</a></h2>
+<p>Command - open:</p>
+<div class="highlight-python"><div class="highlight"><pre>Usage:
+        open FILENAME
+
+ARGUMENTS:
+    FILENAME  the file to open in the cwd if . is
+              specified. If file in in cwd
+              you must specify it with ./FILENAME
+
+Opens the given URL in a browser window.
+</pre></div>
+</div>
+</div>
+<div class="section" id="pause">
+<h2>pause<a class="headerlink" href="#pause" title="Permalink to this headline">¶</a></h2>
+<p>Command - pause:</p>
+<div class="highlight-python"><div class="highlight"><pre>Usage:
+    pause [MESSAGE]
+
+Displays the specified text then waits for the user to press RETURN.
+
+Arguments:
+   MESSAGE  message to be displayed
+</pre></div>
+</div>
+</div>
+<div class="section" id="plugins">
+<h2>plugins<a class="headerlink" href="#plugins" title="Permalink to this headline">¶</a></h2>
+<p>Command - plugins:</p>
+<div class="highlight-python"><div class="highlight"><pre>Usage:
+    plugins add COMMAND [--dryrun] [-q]
+    plugins delete COMMAND [--dryrun] [-q]
+    plugins list [--output=FORMAT] [-q]
+    plugins activate
+
+Arguments:
+
+    FORMAT   format is either yaml, json, or list [default=yaml]
+
+Options:
+
+    -q        stands for quiet and suppresses additional messages
+
+Description:
+
+    Please note that adding and deleting plugins requires restarting
+    cm to activate them
+
+    plugins list
+
+        lists the plugins in the yaml file
+
+    plugins add COMMAND
+    plugins delete COMMAND
+
+        cmd3 contains a ~/.cloudmesh/cmd3.yaml file.
+        This command will add/delete a plugin for a given command
+        that has been generated with cm-generate-command
+        To the yaml this command will add to the modules
+
+            - cloudmesh_COMMAND.plugins
+
+        where COMMAND is the name of the command. In case we add
+        a command and the command is out commented the comment
+        will be removed so the command is enabled.
+
+    plugins activate
+
+        NOT YET SUPPORTED.
+
+Example:
+
+    plugins add pbs
+</pre></div>
+</div>
+</div>
+<div class="section" id="py">
+<h2>py<a class="headerlink" href="#py" title="Permalink to this headline">¶</a></h2>
+<p>Command - py:</p>
+<div class="highlight-python"><div class="highlight"><pre>Usage:
+    py
+    py COMMAND
+
+Arguments:
+    COMMAND   the command to be executed
+
+Description:
+
+    The command without a parameter will be executed and the
+    interactive python mode is entered. The python mode can be
+    ended with ``Ctrl-D`` (Unix) / ``Ctrl-Z`` (Windows),
+    ``quit()``,&#39;`exit()``. Non-python commands can be issued with
+    ``cmd(&quot;your command&quot;)``.  If the python code is located in an
+    external file it can be run with ``run(&quot;filename.py&quot;)``.
+
+    In case a COMMAND is provided it will be executed and the
+    python interpreter will return to the command shell.
+
+    This code is copied from Cmd2.
+</pre></div>
+</div>
+</div>
+<div class="section" id="q">
+<h2>q<a class="headerlink" href="#q" title="Permalink to this headline">¶</a></h2>
+<p>Command - q:</p>
+<div class="highlight-python"><div class="highlight"><pre>Usage:
+    quit
+
+Action to be performed whne quit is typed
+</pre></div>
+</div>
+</div>
+<div class="section" id="quit">
+<h2>quit<a class="headerlink" href="#quit" title="Permalink to this headline">¶</a></h2>
+<p>Command - quit:</p>
+<div class="highlight-python"><div class="highlight"><pre>Usage:
+    quit
+
+Action to be performed whne quit is typed
+</pre></div>
+</div>
+</div>
+<div class="section" id="script">
+<h2>script<a class="headerlink" href="#script" title="Permalink to this headline">¶</a></h2>
+<p>Command - script:</p>
+<div class="highlight-python"><div class="highlight"><pre>Usage:
+       script
+       script load
+       script load LABEL FILENAME
+       script load REGEXP
+       script list
+       script LABEL
+
+Arguments:
+       load       indicates that we try to do actions toload files.
+                  Without parameters, loads scripts from default locations
+        NAME      specifies a label for a script
+        LABEL     an identification name, it must be unique
+        FILENAME  the filename in which the script is located
+        REGEXP    Not supported yet.
+                  If specified looks for files identified by the REGEXP.
+
+NOT SUPPORTED YET
+
+   script load LABEL FILENAME
+   script load FILENAME
+   script load REGEXP
+
+Process FILE and optionally apply some options
+</pre></div>
+</div>
+</div>
+<div class="section" id="setup">
+<h2>setup<a class="headerlink" href="#setup" title="Permalink to this headline">¶</a></h2>
+<p>Command - setup:</p>
+<div class="highlight-python"><div class="highlight"><pre>::
+    Usage:
+      setup init [--force]
+      setup test
+
+    Copies a cmd3.yaml file into ~/.cloudmesh/cmd3.yaml
+</pre></div>
+</div>
+</div>
+<div class="section" id="setup-yaml">
+<h2>setup_yaml<a class="headerlink" href="#setup-yaml" title="Permalink to this headline">¶</a></h2>
+<p>Command - setup_yaml:</p>
+<div class="highlight-python"><div class="highlight"><pre>::
+    Usage:
+      setup_yaml  [--force]
+
+    Copies a cmd3.yaml file into ~/.cloudmesh/cmd3.yaml
+</pre></div>
+</div>
+</div>
+<div class="section" id="timer">
+<h2>timer<a class="headerlink" href="#timer" title="Permalink to this headline">¶</a></h2>
+<p>Command - timer:</p>
+<div class="highlight-python"><div class="highlight"><pre>Usage:
+    timer on
+    timer off
+    timer list
+    timer start NAME
+    timer stop NAME
+    timer resume NAME
+    timer reset [NAME]
+
+Description (NOT IMPLEMENTED YET):
+
+     timer on | off
+         switches timers on and off not yet implemented.
+         If the timer is on each command will be timed and its
+         time is printed after the command. Please note that
+         background command times are not added.
+
+    timer list
+        list all timers
+
+    timer start NAME
+        starts the timer with the name. A start resets the timer to 0.
+
+    timer stop NAME
+        stops the timer
+
+    timer resume NAME
+        resumes the timer
+
+    timer reset NAME
+        resets the named timer to 0. If no name is specified all
+        timers are reset
+
+    Implementation note: we have a stopwatch in cloudmesh,
+                         that we could copy into cmd3
+</pre></div>
+</div>
+</div>
+<div class="section" id="use">
+<h2>use<a class="headerlink" href="#use" title="Permalink to this headline">¶</a></h2>
+<p>Command - use:</p>
+<div class="highlight-python"><div class="highlight"><pre>USAGE:
+
+    use list           lists the available scopes
+
+    use add SCOPE      adds a scope &lt;scope&gt;
+
+    use delete SCOPE   removes the &lt;scope&gt;
+
+    use                without parameters allows an
+                       interactive selection
+
+DESCRIPTION
+   Often we have to type in a command multiple times. To save
+   us typng the name of the command, we have defined a simple
+   scope that can be activated with the use command
+
+ARGUMENTS:
+    list         list the available scopes
+    add          add a scope with a name
+    delete       delete a named scope
+    use          activate a scope
+</pre></div>
+</div>
+</div>
+<div class="section" id="var">
+<h2>var<a class="headerlink" href="#var" title="Permalink to this headline">¶</a></h2>
+<p>Command - var:</p>
+<div class="highlight-python"><div class="highlight"><pre>Usage:
+    var list
+    var delete NAMES
+    var NAME=VALUE
+    var NAME
+
+Arguments:
+    NAME    Name of the variable
+    NAMES   Names of the variable separated by spaces
+    VALUE   VALUE to be assigned
+
+special vars date and time are defined
+</pre></div>
+</div>
+</div>
+<div class="section" id="verbose">
+<h2>verbose<a class="headerlink" href="#verbose" title="Permalink to this headline">¶</a></h2>
+<p>Command - verbose:</p>
+<div class="highlight-python"><div class="highlight"><pre>Usage:
+    verbose (True | False)
+    verbose
+
+If it sets to True, a command will be printed before execution.
+In the interactive mode, you may want to set it to False.
+When you use scripts, we recommend to set it to True.
+
+The default is set to False
+
+If verbose is specified without parameter the flag is
+toggled.
+</pre></div>
+</div>
+</div>
+<div class="section" id="version">
+<h2>version<a class="headerlink" href="#version" title="Permalink to this headline">¶</a></h2>
+<p>Command - version:</p>
+<div class="highlight-python"><div class="highlight"><pre>Usage:
+   version
+
+Prints out the version number
+</pre></div>
+</div>
+</div>
+</div>
+
+
+    </div>
+      
+  </div>
+</div>
+<footer class="footer">
+  <div class="container">
+    <p class="pull-right">
+      <a href="#">Back to top</a>
+      
+    </p>
+    <p>
+        &copy; Copyright 2012-2014, Gregor von Laszewski, based on his earlier code from cyberaide and cogkit.<br/>
+      Last updated on May 22, 2015.<br/>
+    </p>
+  </div>
+</footer>
+  </body>
+</html>
