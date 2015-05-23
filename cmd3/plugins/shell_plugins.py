@@ -6,7 +6,7 @@ class shell_plugins:
 
     # Not needed as we moved this to cmd3
     #
-    # def activate_cm_shell_plugins(self):
+    # def activate_shell_plugins(self):
     #    self.register_command_topic('cmd3', 'plugins')
     #    self.register_command_topic('cmd3', 'setup')
 

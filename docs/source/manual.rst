@@ -55,7 +55,7 @@ Install from Pypi
 	  If you have not yet set up a cmd3.yaml file in ~/.cloudmesh
 	  you can do this with::
 
-	     cm setup-yaml
+	     cm setup_yaml
 
    
 Install from Source
