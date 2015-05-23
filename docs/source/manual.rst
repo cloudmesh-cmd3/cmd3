@@ -178,6 +178,11 @@ all of them, including new once, will be available to you.
 Extending the Shell
 ----------------------------------------------------------------------
 
+
+
+The plugins Directories
+^^^^^^^^^^^^^^^^^^^^^^^
+
 CMD3 allows you to extend the commands provided in via plugin directories. 
 We assume the following directory structure::
 
@@ -426,7 +431,7 @@ you call the main_func::
   if __name__ == '__main__':
       main()
 
-Generating independent packages
+The Easiest Way to Generate Plugins
 --------------------------------------------------------
 
 Often you may want to generate your own extensions, but like to
@@ -436,21 +441,21 @@ structure and setup.py files. Thus once you create such a module, ypu
 can cd into it and install it just as any other python package.
 
 Let us walk through how to do this in more detail. The command to
-create such a module is called `cm-generate-command`. It uses a
+create such a module is called `cm generate command`. It uses a
 template that is installed in the directory::
 
   ~/.cloudmesh/cmd3_template
 
 You can obtain the manual page by just typing::
 
-  $ cm-generate-command
+  $ cm generate help
 
 Let us assume you like to create a command called `uebercool` to be
 included in cmd3. This can be achieved with a very small number of steps.
 
 First, call the command::
 
-  cm-generate-command uebercool --path=~
+  cm generate command uebercool --path=~
 
 This will generate a a cloudmesh command module in your home
 directory. be careful that there is no such module already as the
@@ -466,25 +471,10 @@ You can install it simply with::
     python setup.py install
 
 Now you have installed the example into your environment. However you
-need to still register this new package with cmd3. This is easy as you
-can place the following filr into the directory::
+need to still register this new package with cmd3. This is easy with
+the build in plugin command. You simpl can say::
 
-    ~/.cloudmesh/cmd3.yaml
-
-::
-
-    meta:
-	yaml_version: 2.1
-	kind: cmd3
-	filename: ${HOME}/.cloudmesh/cmd3.yaml
-	location: ${HOME}/.cloudmesh/cmd3.yaml
-	prefix: cmd3
-    cmd3:
-	modules:
-	- cloudmesh_cmd3.plugins
-	- cloudmesh_uebercool.plugins
-
-Make sure the yaml file does not have any tabs in it.
+  cm plugins add cloudmesh_uebercool
 
 Now you can start cmd3 with::
 

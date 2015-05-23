@@ -1,5 +1,6 @@
 import sys
 from cmd3.console import Console
+import pip
 
 version = sys.version_info[:3]
 
