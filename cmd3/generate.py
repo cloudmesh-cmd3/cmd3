@@ -110,7 +110,7 @@ def generate(arguments=None):
             print line
             os.system(line)
 
-    banner("replaceing comand and package name in template files")
+    banner("replacing command and package name in template files")
     files = """
        {path}/{package}/shell_plugins.py
        {path}/{package}/Makefile
@@ -123,7 +123,7 @@ def generate(arguments=None):
         if filename != "":
             replace_string(filename, data)
 
-    banner("Comand code created.")
+    banner("Command code created.")
 
 if __name__ == "__main__":
     generate()
