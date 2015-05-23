@@ -45,22 +45,6 @@ Command - clear::
     
     Clears the screen.
 
-dot2
-----------------------------------------------------------------------
-
-Command - dot2::
-
-    Usage:
-           dot2 FILENAME FORMAT
-    
-    Export the data in cvs format to a file. Former cvs command
-    
-    Arguments:
-        FILENAME   The filename
-        FORMAT     the export format, pdf, png, ...
-    
-    
-
 edit
 ----------------------------------------------------------------------
 
@@ -90,18 +74,28 @@ Command - exec::
       FILENAME   The name of the file
     
 
-graphviz
+generate
 ----------------------------------------------------------------------
 
-Command - graphviz::
+Command - generate::
 
     Usage:
-           graphviz FILENAME
+        generate command COMMAND [PACKAGE] [--path=PATH] [--topic=TOPIC]
     
-    Export the data in cvs format to a file. Former cvs command
+    the command will generate the package and code for a sample cmd3 module.
     
     Arguments:
-        FILENAME   The filename
+        PACKAGE   name of the new package. Often this will be cloudmesh_COMMAND
+                  which will be used if not specified.
+    
+        COMMAND   the name of the command.
+    
+        PATH      path where to place the directory [default: .]
+    
+        TOPIC     the topic listed in cm [default: mycommands]
+    
+    Options:
+         -v       verbose mode
     
     
 

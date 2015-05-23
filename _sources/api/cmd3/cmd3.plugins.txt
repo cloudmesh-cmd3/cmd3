@@ -36,14 +36,6 @@ cmd3.plugins.edit module
     :undoc-members:
     :show-inheritance:
 
-cmd3.plugins.graphviz module
-----------------------------
-
-.. automodule:: cmd3.plugins.graphviz
-    :members:
-    :undoc-members:
-    :show-inheritance:
-
 cmd3.plugins.info module
 ------------------------
 
@@ -96,6 +88,14 @@ cmd3.plugins.shell_core module
 ------------------------------
 
 .. automodule:: cmd3.plugins.shell_core
+    :members:
+    :undoc-members:
+    :show-inheritance:
+
+cmd3.plugins.shell_generate module
+----------------------------------
+
+.. automodule:: cmd3.plugins.shell_generate
     :members:
     :undoc-members:
     :show-inheritance:
