@@ -14,6 +14,7 @@ class shell_plugins:
     def do_setup(self, arg, arguments):
         """
         ::
+
             Usage:
               setup init [--force]
               setup test

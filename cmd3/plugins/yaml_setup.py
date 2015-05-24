@@ -11,8 +11,9 @@ class yaml_setup:
     def do_setup_yaml(self, arg, arguments):
         """
         ::
+
             Usage:
-              setup_yaml  [--force] 
+                setup_yaml  [--force]
 
             Copies a cmd3.yaml file into ~/.cloudmesh/cmd3.yaml
         """

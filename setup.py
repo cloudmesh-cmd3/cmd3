@@ -16,7 +16,7 @@
 # limitations under the License.                                          #
 # ------------------------------------------------------------------------#
 
-version = "1.9.3"
+version = "1.9.4"
 
 from setuptools.command.test import test as TestCommand
 from setuptools.command.install import install
@@ -46,7 +46,7 @@ def parse_requirements(filename):
 requirements = parse_requirements('requirements.txt')
 
 
-auto_create_version("cmd3", version)
+auto_create_version("cmd3", version, filename="version.py")
 
 class SetupYaml(install):
     """Copies a cmd3 yaml file to ~/.cloudmesh."""

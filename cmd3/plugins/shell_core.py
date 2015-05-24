@@ -5,8 +5,11 @@ from textwrap import dedent
 import pkg_resources
 from cloudmesh_base.util import banner
 from cloudmesh_base.util import path_expand
+from cloudmesh_base.util import get_python
+from cloudmesh_base.util import check_python
 from cmd3.console import Console
 from cloudmesh_base.Shell import Shell
+import cloudmesh_base
 
 import cmd3
 import pip
@@ -48,34 +51,20 @@ class shell_core:
         Prints out the version number
         """
         Console.ok("cmd3: {:}".format(str(self.get_version())))
+        Console.ok("cloudmesh_base: {:}".format(str(cloudmesh_base.version)))
         # print self.__version__
 
         #
         # python version
         #
-        
-        python_version_tuple = sys.version_info[:3]
-        python_version = '.'.join(map(str, list(python_version_tuple)))
-        pip_version = pip.__version__
+        python_version, pip_version = get_python()
 
         Console.ok("python: {:}".format(str(python_version)))
         Console.ok("pip: {:}".format(str(pip_version)))
-        
-        if python_version == '2.7.9':
-            Console.info("You are running a supported version of python: " + str(python_version))    
-        else:
-            Console.error("You are running an unsupported version of python: " + str(python_version))
-            Console.error("We recommend you update your python version: " + str(python_version))    
 
-        #
-        # pip version
-        #
 
-        if pip_version == '6.1.1':
-            Console.info("You are running a supported version of pip: " + str(pip_version))    
-        else:
-            Console.error("You are running an unsupported version of pip: " + str(pip_version))    
-            Console.error("We recommend you update your pip version: " + str(pip_version))    
+        check_python()
+
 
     def activate_shell_core(self):
         """activates the shell_core commands"""
