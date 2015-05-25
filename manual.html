@@ -52,7 +52,7 @@
 
         <a class="brand" href="index.html">
           CMD3</a>
-        <span class="navbar-text pull-left"><b>1.9.1</b></span>
+        <span class="navbar-text pull-left"><b>1.7.1</b></span>
 
         <div class="nav-collapse">
           <ul class="nav">
@@ -86,6 +86,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#using-the-shell">Using the Shell</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#extending-the-shell">Extending the Shell</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#the-plugins-directories">The plugins Directories</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#reading-plugins-from-your-local-instalation">Reading plugins from your local instalation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#reading-plugins-from-the-deploy-directory">Reading plugins from the deploy directory</a></li>
 </ul>
@@ -97,7 +98,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#function-registration">Function Registration</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#generating-independent-packages">Generating independent packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#the-easiest-way-to-generate-plugins">The Easiest Way to Generate Plugins</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#build-in-commands">Build In Commands</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#help">Help</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#manual-pages">Manual Pages</a></li>
@@ -117,51 +118,129 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="man/man.html">Commands</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#eof">EOF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#admin">admin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#banner">banner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#clear">clear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#cloud">cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#cluster">cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#color">color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#debug">debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#default">default</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#dot2">dot2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#edit">edit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#exec">exec</a></li>
-<li class="toctree-l2"><a class="reference internal" href="man/man.html#generate">generate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#exp">exp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#flavor">flavor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#graphviz">graphviz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#group">group</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#help">help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#image">image</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#info">info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#init">init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#inventory">inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#key">key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#label">label</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#launcher">launcher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#limits">limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#list">list</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#load">load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#loglevel">loglevel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#man">man</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#metric">metric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#notebook">notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#nova">nova</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#open">open</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#pause">pause</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#plugins">plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#project">project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#py">py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#q">q</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#quit">quit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#quota">quota</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#rain">rain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#register">register</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#script">script</a></li>
-<li class="toctree-l2"><a class="reference internal" href="man/man.html#setup">setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#security-group">security_group</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#setup-yaml">setup_yaml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#ssh">ssh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#stack">stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#status">status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#storm">storm</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#timer">timer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#usage">usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#use">use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#user">user</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#var">var</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#verbose">verbose</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#version">version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#vm">vm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#volume">volume</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#web">web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#yaml">yaml</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="modules/modules.html">Modules and Classes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="modules/cmd3.html">cmd3 Package</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#id1"><code class="docutils literal"><span class="pre">cmd3</span></code> Package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#module-cmd3.shell"><code class="docutils literal"><span class="pre">shell</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/cmd3.html">cmd3 package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#subpackages">Subpackages</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="modules/cmd3.plugins.html">plugins Package</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.activate"><code class="docutils literal"><span class="pre">activate</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.clear"><code class="docutils literal"><span class="pre">clear</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.edit"><code class="docutils literal"><span class="pre">edit</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#graphviz-module"><code class="docutils literal"><span class="pre">graphviz</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.info"><code class="docutils literal"><span class="pre">info</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.pause"><code class="docutils literal"><span class="pre">pause</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.rst"><code class="docutils literal"><span class="pre">rst</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.shell_core"><code class="docutils literal"><span class="pre">shell_core</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.template"><code class="docutils literal"><span class="pre">template</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.timer"><code class="docutils literal"><span class="pre">timer</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/cmd3.etc.html">cmd3.etc package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.etc.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="modules/cmd3.etc.cmd3_template.html">cmd3.etc.cmd3_template package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="modules/cmd3.etc.cmd3_template.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="modules/cmd3.etc.cmd3_template.cmd3_template.html">cmd3.etc.cmd3_template.cmd3_template package</a><ul>
+<li class="toctree-l9"><a class="reference internal" href="modules/cmd3.etc.cmd3_template.cmd3_template.html#subpackages">Subpackages</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="modules/cmd3.etc.cmd3_template.cmd3_template.html#module-cmd3.etc.cmd3_template.cmd3_template">Module contents</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l7"><a class="reference internal" href="modules/cmd3.etc.cmd3_template.html#module-cmd3.etc.cmd3_template">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.etc.html#module-cmd3.etc">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="modules/cmd3.plugins.html">cmd3.plugins package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#submodules">Submodules</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.activate">cmd3.plugins.activate module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.browser">cmd3.plugins.browser module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.clear">cmd3.plugins.clear module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.edit">cmd3.plugins.edit module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.info">cmd3.plugins.info module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.load">cmd3.plugins.load module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.pause">cmd3.plugins.pause module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.py">cmd3.plugins.py module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.rst">cmd3.plugins.rst module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.script">cmd3.plugins.script module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.shell_core">cmd3.plugins.shell_core module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#cmd3-plugins-shell-generate-module">cmd3.plugins.shell_generate module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#cmd3-plugins-shell-plugins-module">cmd3.plugins.shell_plugins module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.shell_scope">cmd3.plugins.shell_scope module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.template">cmd3.plugins.template module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.timer">cmd3.plugins.timer module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.yaml_setup">cmd3.plugins.yaml_setup module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="modules/cmd3.plugins-example.html">cmd3.plugins-example package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins-example.html#submodules">Submodules</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins-example.html#cmd3-plugins-example-graphviz-module">cmd3.plugins-example.graphviz module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins-example.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#module-cmd3.console">cmd3.console module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#module-cmd3.generate">cmd3.generate module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#cmd3-setup-management-module">cmd3.setup_management module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#module-cmd3.shell">cmd3.shell module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#cmd3-version-module">cmd3.version module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#module-cmd3.yaml_setup">cmd3.yaml_setup module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#module-cmd3">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -191,6 +270,7 @@
 </li>
 <li><a class="reference internal" href="#using-the-shell">Using the Shell</a></li>
 <li><a class="reference internal" href="#extending-the-shell">Extending the Shell</a><ul>
+<li><a class="reference internal" href="#the-plugins-directories">The plugins Directories</a></li>
 <li><a class="reference internal" href="#reading-plugins-from-your-local-instalation">Reading plugins from your local instalation</a></li>
 <li><a class="reference internal" href="#reading-plugins-from-the-deploy-directory">Reading plugins from the deploy directory</a></li>
 </ul>
@@ -202,7 +282,7 @@
 <li><a class="reference internal" href="#function-registration">Function Registration</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#generating-independent-packages">Generating independent packages</a></li>
+<li><a class="reference internal" href="#the-easiest-way-to-generate-plugins">The Easiest Way to Generate Plugins</a></li>
 <li><a class="reference internal" href="#build-in-commands">Build In Commands</a><ul>
 <li><a class="reference internal" href="#help">Help</a></li>
 <li><a class="reference internal" href="#manual-pages">Manual Pages</a></li>
@@ -283,26 +363,27 @@
 </li>
 <li><a class="reference internal" href="#using-the-shell" id="id9">Using the Shell</a></li>
 <li><a class="reference internal" href="#extending-the-shell" id="id10">Extending the Shell</a><ul>
-<li><a class="reference internal" href="#reading-plugins-from-your-local-instalation" id="id11">Reading plugins from your local instalation</a></li>
-<li><a class="reference internal" href="#reading-plugins-from-the-deploy-directory" id="id12">Reading plugins from the deploy directory</a></li>
+<li><a class="reference internal" href="#the-plugins-directories" id="id11">The plugins Directories</a></li>
+<li><a class="reference internal" href="#reading-plugins-from-your-local-instalation" id="id12">Reading plugins from your local instalation</a></li>
+<li><a class="reference internal" href="#reading-plugins-from-the-deploy-directory" id="id13">Reading plugins from the deploy directory</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#writing-plugins" id="id13">Writing Plugins</a><ul>
-<li><a class="reference internal" href="#a-basic-plugin" id="id14">A Basic Plugin</a></li>
-<li><a class="reference internal" href="#argument-parsing" id="id15">Argument parsing</a></li>
-<li><a class="reference internal" href="#generating-information" id="id16">Generating Information</a></li>
-<li><a class="reference internal" href="#function-registration" id="id17">Function Registration</a></li>
+<li><a class="reference internal" href="#writing-plugins" id="id14">Writing Plugins</a><ul>
+<li><a class="reference internal" href="#a-basic-plugin" id="id15">A Basic Plugin</a></li>
+<li><a class="reference internal" href="#argument-parsing" id="id16">Argument parsing</a></li>
+<li><a class="reference internal" href="#generating-information" id="id17">Generating Information</a></li>
+<li><a class="reference internal" href="#function-registration" id="id18">Function Registration</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#generating-independent-packages" id="id18">Generating independent packages</a></li>
-<li><a class="reference internal" href="#build-in-commands" id="id19">Build In Commands</a><ul>
-<li><a class="reference internal" href="#help" id="id20">Help</a></li>
-<li><a class="reference internal" href="#manual-pages" id="id21">Manual Pages</a></li>
-<li><a class="reference internal" href="#variables" id="id22">Variables</a></li>
-<li><a class="reference internal" href="#scope" id="id23">Scope</a></li>
-<li><a class="reference internal" href="#scripts" id="id24">Scripts</a></li>
-<li><a class="reference internal" href="#python" id="id25">Python</a></li>
-<li><a class="reference internal" href="#quitting-the-shell" id="id26">Quitting the shell</a></li>
+<li><a class="reference internal" href="#the-easiest-way-to-generate-plugins" id="id19">The Easiest Way to Generate Plugins</a></li>
+<li><a class="reference internal" href="#build-in-commands" id="id20">Build In Commands</a><ul>
+<li><a class="reference internal" href="#help" id="id21">Help</a></li>
+<li><a class="reference internal" href="#manual-pages" id="id22">Manual Pages</a></li>
+<li><a class="reference internal" href="#variables" id="id23">Variables</a></li>
+<li><a class="reference internal" href="#scope" id="id24">Scope</a></li>
+<li><a class="reference internal" href="#scripts" id="id25">Scripts</a></li>
+<li><a class="reference internal" href="#python" id="id26">Python</a></li>
+<li><a class="reference internal" href="#quitting-the-shell" id="id27">Quitting the shell</a></li>
 </ul>
 </li>
 </ul>
@@ -338,7 +419,7 @@ pip --trusted-host pypi.python.org install cmd3
 </div>
 <p>If you have not yet set up a cmd3.yaml file in ~/.cloudmesh
 you can do this with:</p>
-<div class="last highlight-python"><div class="highlight"><pre>cm setup-yaml
+<div class="last highlight-python"><div class="highlight"><pre>cm setup_yaml
 </pre></div>
 </div>
 </div>
@@ -449,6 +530,8 @@ all of them, including new once, will be available to you.</p>
 </div>
 <div class="section" id="extending-the-shell">
 <h2><a class="toc-backref" href="#id10">Extending the Shell</a><a class="headerlink" href="#extending-the-shell" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-plugins-directories">
+<h3><a class="toc-backref" href="#id11">The plugins Directories</a><a class="headerlink" href="#the-plugins-directories" title="Permalink to this headline">¶</a></h3>
 <p>CMD3 allows you to extend the commands provided in via plugin directories.
 We assume the following directory structure:</p>
 <div class="highlight-python"><div class="highlight"><pre>./shell.py
@@ -462,8 +545,8 @@ We assume the following directory structure:</p>
 <p>We provide a simple example of how to write and add new classes via
 the plugin directory in this manual.</p>
 <p>Let us assume that <cite>foo</cite> and <cite>bar</cite> contain some classes that include
-the usual <a href="#id27"><span class="problematic" id="id28">do_</span></a> methods yo may know from cmd. However in addition to the
-<a href="#id29"><span class="problematic" id="id30">do_</span></a> method it also includes an activate method that is called with the
+the usual <a href="#id28"><span class="problematic" id="id29">do_</span></a> methods yo may know from cmd. However in addition to the
+<a href="#id30"><span class="problematic" id="id31">do_</span></a> method it also includes an activate method that is called with the
 activation module, so you can control its behavior upon startup. This
 is similar to an __init__ method, but we decided not to name them
 __init__ in order to highlight that they are called only at the
@@ -486,8 +569,9 @@ activation of the plugin.</p>
 plugins such as system wide installed plugins, or plugins maintained
 in your user environment rather than the current path. For this reason
 we provide the following examples.</p>
+</div>
 <div class="section" id="reading-plugins-from-your-local-instalation">
-<h3><a class="toc-backref" href="#id11">Reading plugins from your local instalation</a><a class="headerlink" href="#reading-plugins-from-your-local-instalation" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id12">Reading plugins from your local instalation</a><a class="headerlink" href="#reading-plugins-from-your-local-instalation" title="Permalink to this headline">¶</a></h3>
 <p>We assume you have placed a plugin directory at
 &#8220;~/.cloudmesh/cmd3local/&#8221;. Than you simply can read the plugins by</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">plugin_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">expanduser</span><span class="p">(</span><span class="s">&quot;~/.cloudmesh/cmd3local/&quot;</span><span class="p">)</span>
@@ -500,7 +584,7 @@ expanding our plugin module called plugin so users could add their own
 plugin directories on demand.</p>
 </div>
 <div class="section" id="reading-plugins-from-the-deploy-directory">
-<h3><a class="toc-backref" href="#id12">Reading plugins from the deploy directory</a><a class="headerlink" href="#reading-plugins-from-the-deploy-directory" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id13">Reading plugins from the deploy directory</a><a class="headerlink" href="#reading-plugins-from-the-deploy-directory" title="Permalink to this headline">¶</a></h3>
 <p>Assume you like to load the plugins from the deployed cmd3, this can
 be done easily while looking at the code for shell.py:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">plugin_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">__file__</span><span class="p">),</span><span class="s">&#39;plugins&#39;</span><span class="p">)</span>
@@ -511,7 +595,7 @@ be done easily while looking at the code for shell.py:</p>
 </div>
 </div>
 <div class="section" id="writing-plugins">
-<h2><a class="toc-backref" href="#id13">Writing Plugins</a><a class="headerlink" href="#writing-plugins" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id14">Writing Plugins</a><a class="headerlink" href="#writing-plugins" title="Permalink to this headline">¶</a></h2>
 <p>Plugins are very simple to design and write. However we have to be
 aware of several facts. First, if you design a method with the same
 name within two different plugins, the method from the last loaded
@@ -523,7 +607,7 @@ In addition we have on purpose not used an __init__ method in the
 class but instead used an activate method to indicate that we like in
 future to activate and deactivate certain plugins.</p>
 <div class="section" id="a-basic-plugin">
-<h3><a class="toc-backref" href="#id14">A Basic Plugin</a><a class="headerlink" href="#a-basic-plugin" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id15">A Basic Plugin</a><a class="headerlink" href="#a-basic-plugin" title="Permalink to this headline">¶</a></h3>
 <p>Here is the sample class from the file plugins/foo.py:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="k">class</span> <span class="nc">foo</span><span class="p">:</span>
 
@@ -552,7 +636,7 @@ __init__ methods, all this is not needed here.</p>
 if you like to use a plugin or an inheritance mode.</p>
 </div>
 <div class="section" id="argument-parsing">
-<h3><a class="toc-backref" href="#id15">Argument parsing</a><a class="headerlink" href="#argument-parsing" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id16">Argument parsing</a><a class="headerlink" href="#argument-parsing" title="Permalink to this headline">¶</a></h3>
 <p>One of the important differentiation to the original cmd is how we are
 handeling documentation. Although it is possible to use just the same
 mechanism as in cmd, Cmd3 also allows the use of docopts. This has the
@@ -600,7 +684,7 @@ which also includes some nice <a class="reference external" href="https://github
 python.</p>
 </div>
 <div class="section" id="generating-information">
-<h3><a class="toc-backref" href="#id16">Generating Information</a><a class="headerlink" href="#generating-information" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id17">Generating Information</a><a class="headerlink" href="#generating-information" title="Permalink to this headline">¶</a></h3>
 <p>Often it is good to provide some summary information about a module
 that you have installed. As each package may have such information we
 have implemented the <cite>info</cite> command that prints out all information from
@@ -648,7 +732,7 @@ class bar:
 <p>from the cm command it will execute the info method fo the class bar.</p>
 </div>
 <div class="section" id="function-registration">
-<h3><a class="toc-backref" href="#id17">Function Registration</a><a class="headerlink" href="#function-registration" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id18">Function Registration</a><a class="headerlink" href="#function-registration" title="Permalink to this headline">¶</a></h3>
 <p>Sometimes you have already developed a function with docopts and
 instead of redeveloping it you may just want to add it. Although we
 could just register the function it is beneficial for us to use our
@@ -705,27 +789,27 @@ you call the main_func:</p>
 </div>
 </div>
 </div>
-<div class="section" id="generating-independent-packages">
-<h2><a class="toc-backref" href="#id18">Generating independent packages</a><a class="headerlink" href="#generating-independent-packages" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="the-easiest-way-to-generate-plugins">
+<h2><a class="toc-backref" href="#id19">The Easiest Way to Generate Plugins</a><a class="headerlink" href="#the-easiest-way-to-generate-plugins" title="Permalink to this headline">¶</a></h2>
 <p>Often you may want to generate your own extensions, but like to
 maintain them in a separate module. We have provided a command with
 cmd3 that creates from a template a new module including a directory
 structure and setup.py files. Thus once you create such a module, ypu
 can cd into it and install it just as any other python package.</p>
 <p>Let us walk through how to do this in more detail. The command to
-create such a module is called <cite>cm-generate-command</cite>. It uses a
+create such a module is called <cite>cm generate command</cite>. It uses a
 template that is installed in the directory:</p>
 <div class="highlight-python"><div class="highlight"><pre>~/.cloudmesh/cmd3_template
 </pre></div>
 </div>
 <p>You can obtain the manual page by just typing:</p>
-<div class="highlight-python"><div class="highlight"><pre>$ cm-generate-command
+<div class="highlight-python"><div class="highlight"><pre>$ cm generate help
 </pre></div>
 </div>
 <p>Let us assume you like to create a command called <cite>uebercool</cite> to be
 included in cmd3. This can be achieved with a very small number of steps.</p>
 <p>First, call the command:</p>
-<div class="highlight-python"><div class="highlight"><pre>cm-generate-command uebercool --path=~
+<div class="highlight-python"><div class="highlight"><pre>cm generate command uebercool --path=~
 </pre></div>
 </div>
 <p>This will generate a a cloudmesh command module in your home
@@ -741,24 +825,11 @@ python setup.py install
 </pre></div>
 </div>
 <p>Now you have installed the example into your environment. However you
-need to still register this new package with cmd3. This is easy as you
-can place the following filr into the directory:</p>
-<div class="highlight-python"><div class="highlight"><pre>~/.cloudmesh/cmd3.yaml
+need to still register this new package with cmd3. This is easy with
+the build in plugin command. You simpl can say:</p>
+<div class="highlight-python"><div class="highlight"><pre>cm plugins add cloudmesh_uebercool
 </pre></div>
 </div>
-<div class="highlight-python"><div class="highlight"><pre>meta:
-    yaml_version: 2.1
-    kind: cmd3
-    filename: ${HOME}/.cloudmesh/cmd3.yaml
-    location: ${HOME}/.cloudmesh/cmd3.yaml
-    prefix: cmd3
-cmd3:
-    modules:
-    - cloudmesh_cmd3.plugins
-    - cloudmesh_uebercool.plugins
-</pre></div>
-</div>
-<p>Make sure the yaml file does not have any tabs in it.</p>
 <p>Now you can start cmd3 with:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">cm</span>
 </pre></div>
@@ -785,9 +856,9 @@ the creation of user contributed space in the cmd3 git reporsitory. We
 like to host your extensions.</p>
 </div>
 <div class="section" id="build-in-commands">
-<h2><a class="toc-backref" href="#id19">Build In Commands</a><a class="headerlink" href="#build-in-commands" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id20">Build In Commands</a><a class="headerlink" href="#build-in-commands" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="help">
-<h3><a class="toc-backref" href="#id20">Help</a><a class="headerlink" href="#help" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id21">Help</a><a class="headerlink" href="#help" title="Permalink to this headline">¶</a></h3>
 <p>One other good feature the above declaration has is that it
 automatically registers a help string so you can say:</p>
 <div class="highlight-python"><div class="highlight"><pre>help bar
@@ -796,7 +867,7 @@ automatically registers a help string so you can say:</p>
 <p>and you will get presented with the manual page</p>
 </div>
 <div class="section" id="manual-pages">
-<h3><a class="toc-backref" href="#id21">Manual Pages</a><a class="headerlink" href="#manual-pages" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id22">Manual Pages</a><a class="headerlink" href="#manual-pages" title="Permalink to this headline">¶</a></h3>
 <p>Often you will run in the situation where you may have to create a
 list of manual pages for your commands for your users. To simplify
 that we have not provided this in Unix Man format, but simply in RST
@@ -809,7 +880,7 @@ to you for your cmd3 shell. This naturally you could put into a sphinx
 documentation to create a nice user manual for your users.</p>
 </div>
 <div class="section" id="variables">
-<h3><a class="toc-backref" href="#id22">Variables</a><a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id23">Variables</a><a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h3>
 <p>CMD3 contains the ability to use variables within the shell. To see a
 list of all variables, use the command:</p>
 <div class="highlight-python"><div class="highlight"><pre>var list
@@ -828,7 +899,7 @@ dollar sign such as:</p>
 current date and time.</p>
 </div>
 <div class="section" id="scope">
-<h3><a class="toc-backref" href="#id23">Scope</a><a class="headerlink" href="#scope" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id24">Scope</a><a class="headerlink" href="#scope" title="Permalink to this headline">¶</a></h3>
 <p>Often we have to type in a command multiple times. To save us typing
 the name of the command, we have defined a simple scope that can be
 activated with the use command.</p>
@@ -842,7 +913,7 @@ activated with the use command.</p>
 </div>
 </div>
 <div class="section" id="scripts">
-<h3><a class="toc-backref" href="#id24">Scripts</a><a class="headerlink" href="#scripts" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id25">Scripts</a><a class="headerlink" href="#scripts" title="Permalink to this headline">¶</a></h3>
 <p>Multiple commands can be stored in scripts. To find out more about
 scripts, please execute:</p>
 <div class="highlight-python"><div class="highlight"><pre>help script
@@ -855,7 +926,7 @@ scripts, please execute:</p>
 <p>where filename is the name of the file containing the script.</p>
 </div>
 <div class="section" id="python">
-<h3><a class="toc-backref" href="#id25">Python</a><a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id26">Python</a><a class="headerlink" href="#python" title="Permalink to this headline">¶</a></h3>
 <p>You can execute a python command as follows:</p>
 <div class="highlight-python"><div class="highlight"><pre>py COMMAND
 </pre></div>
@@ -863,7 +934,7 @@ scripts, please execute:</p>
 <p>where command is the command you like to execute</p>
 </div>
 <div class="section" id="quitting-the-shell">
-<h3><a class="toc-backref" href="#id26">Quitting the shell</a><a class="headerlink" href="#quitting-the-shell" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id27">Quitting the shell</a><a class="headerlink" href="#quitting-the-shell" title="Permalink to this headline">¶</a></h3>
 <p>To quit the shell you can use either the commands:</p>
 <div class="highlight-python"><div class="highlight"><pre><span class="n">q</span>
 <span class="n">quit</span>
@@ -887,7 +958,7 @@ scripts, please execute:</p>
     </p>
     <p>
         &copy; Copyright 2012-2014, Gregor von Laszewski, based on his earlier code from cyberaide and cogkit.<br/>
-      Last updated on May 23, 2015.<br/>
+      Last updated on May 25, 2015.<br/>
     </p>
   </div>
 </footer>

@@ -51,7 +51,7 @@
 
         <a class="brand" href="index.html">
           CMD3</a>
-        <span class="navbar-text pull-left"><b>1.9.1</b></span>
+        <span class="navbar-text pull-left"><b>1.7.1</b></span>
 
         <div class="nav-collapse">
           <ul class="nav">
@@ -85,6 +85,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="manual.html#using-the-shell">Using the Shell</a></li>
 <li class="toctree-l2"><a class="reference internal" href="manual.html#extending-the-shell">Extending the Shell</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="manual.html#the-plugins-directories">The plugins Directories</a></li>
 <li class="toctree-l3"><a class="reference internal" href="manual.html#reading-plugins-from-your-local-instalation">Reading plugins from your local instalation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="manual.html#reading-plugins-from-the-deploy-directory">Reading plugins from the deploy directory</a></li>
 </ul>
@@ -96,7 +97,7 @@
 <li class="toctree-l3"><a class="reference internal" href="manual.html#function-registration">Function Registration</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="manual.html#generating-independent-packages">Generating independent packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="manual.html#the-easiest-way-to-generate-plugins">The Easiest Way to Generate Plugins</a></li>
 <li class="toctree-l2"><a class="reference internal" href="manual.html#build-in-commands">Build In Commands</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="manual.html#help">Help</a></li>
 <li class="toctree-l3"><a class="reference internal" href="manual.html#manual-pages">Manual Pages</a></li>
@@ -116,51 +117,129 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="man/man.html">Commands</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#eof">EOF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#admin">admin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#banner">banner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#clear">clear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#cloud">cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#cluster">cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#color">color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#debug">debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#default">default</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#dot2">dot2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#edit">edit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#exec">exec</a></li>
-<li class="toctree-l2"><a class="reference internal" href="man/man.html#generate">generate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#exp">exp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#flavor">flavor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#graphviz">graphviz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#group">group</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#help">help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#image">image</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#info">info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#init">init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#inventory">inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#key">key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#label">label</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#launcher">launcher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#limits">limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#list">list</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#load">load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#loglevel">loglevel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#man">man</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#metric">metric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#notebook">notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#nova">nova</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#open">open</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#pause">pause</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#plugins">plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#project">project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#py">py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#q">q</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#quit">quit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#quota">quota</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#rain">rain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#register">register</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#script">script</a></li>
-<li class="toctree-l2"><a class="reference internal" href="man/man.html#setup">setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#security-group">security_group</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#setup-yaml">setup_yaml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#ssh">ssh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#stack">stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#status">status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#storm">storm</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#timer">timer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#usage">usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#use">use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#user">user</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#var">var</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#verbose">verbose</a></li>
 <li class="toctree-l2"><a class="reference internal" href="man/man.html#version">version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#vm">vm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#volume">volume</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#web">web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="man/man.html#yaml">yaml</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="modules/modules.html">Modules and Classes</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="modules/cmd3.html">cmd3 Package</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#id1"><code class="docutils literal"><span class="pre">cmd3</span></code> Package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#module-cmd3.shell"><code class="docutils literal"><span class="pre">shell</span></code> Module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="modules/cmd3.html">cmd3 package</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#subpackages">Subpackages</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="modules/cmd3.plugins.html">plugins Package</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.activate"><code class="docutils literal"><span class="pre">activate</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.clear"><code class="docutils literal"><span class="pre">clear</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.edit"><code class="docutils literal"><span class="pre">edit</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#graphviz-module"><code class="docutils literal"><span class="pre">graphviz</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.info"><code class="docutils literal"><span class="pre">info</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.pause"><code class="docutils literal"><span class="pre">pause</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.rst"><code class="docutils literal"><span class="pre">rst</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.shell_core"><code class="docutils literal"><span class="pre">shell_core</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.template"><code class="docutils literal"><span class="pre">template</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.timer"><code class="docutils literal"><span class="pre">timer</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="modules/cmd3.etc.html">cmd3.etc package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.etc.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="modules/cmd3.etc.cmd3_template.html">cmd3.etc.cmd3_template package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="modules/cmd3.etc.cmd3_template.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="modules/cmd3.etc.cmd3_template.cmd3_template.html">cmd3.etc.cmd3_template.cmd3_template package</a><ul>
+<li class="toctree-l9"><a class="reference internal" href="modules/cmd3.etc.cmd3_template.cmd3_template.html#subpackages">Subpackages</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="modules/cmd3.etc.cmd3_template.cmd3_template.html#module-cmd3.etc.cmd3_template.cmd3_template">Module contents</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l7"><a class="reference internal" href="modules/cmd3.etc.cmd3_template.html#module-cmd3.etc.cmd3_template">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.etc.html#module-cmd3.etc">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="modules/cmd3.plugins.html">cmd3.plugins package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#submodules">Submodules</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.activate">cmd3.plugins.activate module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.browser">cmd3.plugins.browser module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.clear">cmd3.plugins.clear module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.edit">cmd3.plugins.edit module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.info">cmd3.plugins.info module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.load">cmd3.plugins.load module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.pause">cmd3.plugins.pause module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.py">cmd3.plugins.py module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.rst">cmd3.plugins.rst module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.script">cmd3.plugins.script module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.shell_core">cmd3.plugins.shell_core module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#cmd3-plugins-shell-generate-module">cmd3.plugins.shell_generate module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#cmd3-plugins-shell-plugins-module">cmd3.plugins.shell_plugins module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.shell_scope">cmd3.plugins.shell_scope module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.template">cmd3.plugins.template module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.timer">cmd3.plugins.timer module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins.yaml_setup">cmd3.plugins.yaml_setup module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins.html#module-cmd3.plugins">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="modules/cmd3.plugins-example.html">cmd3.plugins-example package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins-example.html#submodules">Submodules</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins-example.html#cmd3-plugins-example-graphviz-module">cmd3.plugins-example.graphviz module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="modules/cmd3.plugins-example.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#module-cmd3.console">cmd3.console module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#module-cmd3.generate">cmd3.generate module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#cmd3-setup-management-module">cmd3.setup_management module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#module-cmd3.shell">cmd3.shell module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#cmd3-version-module">cmd3.version module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#module-cmd3.yaml_setup">cmd3.yaml_setup module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/cmd3.html#module-cmd3">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -262,12 +341,12 @@
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.load.load.activate_load">activate_load() (cmd3.plugins.load.load method)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.load.load.activate_load">activate_load() (cmd3.plugins.load.load method)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.load.load.activate_load">[1]</a>
   </dt>
 
       <dd><dl>
         
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.yaml_setup.yaml_setup.activate_load">(cmd3.plugins.yaml_setup.yaml_setup method)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.yaml_setup.yaml_setup.activate_load">(cmd3.plugins.yaml_setup.yaml_setup method)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.yaml_setup.yaml_setup.activate_load">[1]</a>
   </dt>
 
       </dl></dd>
@@ -276,7 +355,7 @@
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.py.py.activate_py">activate_py() (cmd3.plugins.py.py method)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.py.py.activate_py">activate_py() (cmd3.plugins.py.py method)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.py.py.activate_py">[1]</a>
   </dt>
 
   </dl></td>
@@ -286,7 +365,7 @@
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.script.script.activate_script">activate_script() (cmd3.plugins.script.script method)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.script.script.activate_script">activate_script() (cmd3.plugins.script.script method)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.script.script.activate_script">[1]</a>
   </dt>
 
       
@@ -294,7 +373,7 @@
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.activate_shell_scope">activate_shell_scope() (cmd3.plugins.shell_scope.shell_scope method)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.activate_shell_scope">activate_shell_scope() (cmd3.plugins.shell_scope.shell_scope method)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.activate_shell_scope">[1]</a>
   </dt>
 
       
@@ -302,21 +381,15 @@
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.active_scope">active_scope (cmd3.plugins.shell_scope.shell_scope attribute)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.active_scope">active_scope (cmd3.plugins.shell_scope.shell_scope attribute)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.active_scope">[1]</a>
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.html#cmd3.setup_management.setup_management.add">add() (cmd3.setup_management.setup_management method)</a>
+  <dt><a href="api/cmd3/cmd3.html#cmd3.shell.plugin_manager.add">add() (cmd3.shell.plugin_manager method)</a>, <a href="modules/cmd3.html#cmd3.shell.plugin_manager.add">[1]</a>
   </dt>
 
-      <dd><dl>
-        
-  <dt><a href="api/cmd3/cmd3.html#cmd3.shell.plugin_manager.add">(cmd3.shell.plugin_manager method)</a>, <a href="modules/cmd3.html#cmd3.shell.plugin_manager.add">[1]</a>
-  </dt>
-
-      </dl></dd>
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.script.script.add_script_dir">add_script_dir() (cmd3.plugins.script.script method)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.script.script.add_script_dir">add_script_dir() (cmd3.plugins.script.script method)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.script.script.add_script_dir">[1]</a>
   </dt>
 
   </dl></td>
@@ -326,13 +399,13 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.block">block (cmd3.plugins.shell_scope.shell_scope attribute)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.block">block (cmd3.plugins.shell_scope.shell_scope attribute)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.block">[1]</a>
   </dt>
 
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.browser.browser">browser (class in cmd3.plugins.browser)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.browser.browser">browser (class in cmd3.plugins.browser)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.browser.browser">[1]</a>
   </dt>
 
   </dl></td>
@@ -346,15 +419,11 @@
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.html#module-cmd3">cmd3 (module)</a>
+  <dt><a href="api/cmd3/cmd3.html#module-cmd3">cmd3 (module)</a>, <a href="modules/cmd3.html#module-cmd3">[1]</a>
   </dt>
 
       
-  <dt><a href="modules/cmd3.html#module-cmd3.__init__">cmd3.__init__ (module)</a>
-  </dt>
-
-      
-  <dt><a href="api/cmd3/cmd3.html#module-cmd3.console">cmd3.console (module)</a>
+  <dt><a href="api/cmd3/cmd3.html#module-cmd3.console">cmd3.console (module)</a>, <a href="modules/cmd3.html#module-cmd3.console">[1]</a>
   </dt>
 
       
@@ -370,11 +439,11 @@
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.html#module-cmd3.generate">cmd3.generate (module)</a>
+  <dt><a href="api/cmd3/cmd3.html#module-cmd3.generate">cmd3.generate (module)</a>, <a href="modules/cmd3.html#module-cmd3.generate">[1]</a>
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#module-cmd3.plugins">cmd3.plugins (module)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#module-cmd3.plugins">cmd3.plugins (module)</a>, <a href="modules/cmd3.plugins.html#module-cmd3.plugins">[1]</a>
   </dt>
 
       
@@ -382,7 +451,7 @@
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#module-cmd3.plugins.browser">cmd3.plugins.browser (module)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#module-cmd3.plugins.browser">cmd3.plugins.browser (module)</a>, <a href="modules/cmd3.plugins.html#module-cmd3.plugins.browser">[1]</a>
   </dt>
 
       
@@ -398,7 +467,7 @@
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#module-cmd3.plugins.load">cmd3.plugins.load (module)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#module-cmd3.plugins.load">cmd3.plugins.load (module)</a>, <a href="modules/cmd3.plugins.html#module-cmd3.plugins.load">[1]</a>
   </dt>
 
       
@@ -406,33 +475,25 @@
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#module-cmd3.plugins.py">cmd3.plugins.py (module)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#module-cmd3.plugins.py">cmd3.plugins.py (module)</a>, <a href="modules/cmd3.plugins.html#module-cmd3.plugins.py">[1]</a>
   </dt>
 
       
   <dt><a href="api/cmd3/cmd3.plugins.html#module-cmd3.plugins.rst">cmd3.plugins.rst (module)</a>, <a href="modules/cmd3.plugins.html#module-cmd3.plugins.rst">[1]</a>
   </dt>
 
-      
-  <dt><a href="api/cmd3/cmd3.plugins.html#module-cmd3.plugins.script">cmd3.plugins.script (module)</a>
-  </dt>
-
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
+      
+  <dt><a href="api/cmd3/cmd3.plugins.html#module-cmd3.plugins.script">cmd3.plugins.script (module)</a>, <a href="modules/cmd3.plugins.html#module-cmd3.plugins.script">[1]</a>
+  </dt>
+
       
   <dt><a href="api/cmd3/cmd3.plugins.html#module-cmd3.plugins.shell_core">cmd3.plugins.shell_core (module)</a>, <a href="modules/cmd3.plugins.html#module-cmd3.plugins.shell_core">[1]</a>
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#module-cmd3.plugins.shell_generate">cmd3.plugins.shell_generate (module)</a>
-  </dt>
-
-      
-  <dt><a href="api/cmd3/cmd3.plugins.html#module-cmd3.plugins.shell_plugins">cmd3.plugins.shell_plugins (module)</a>
-  </dt>
-
-      
-  <dt><a href="api/cmd3/cmd3.plugins.html#module-cmd3.plugins.shell_scope">cmd3.plugins.shell_scope (module)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#module-cmd3.plugins.shell_scope">cmd3.plugins.shell_scope (module)</a>, <a href="modules/cmd3.plugins.html#module-cmd3.plugins.shell_scope">[1]</a>
   </dt>
 
       
@@ -444,11 +505,7 @@
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#module-cmd3.plugins.yaml_setup">cmd3.plugins.yaml_setup (module)</a>
-  </dt>
-
-      
-  <dt><a href="api/cmd3/cmd3.html#module-cmd3.setup_management">cmd3.setup_management (module)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#module-cmd3.plugins.yaml_setup">cmd3.plugins.yaml_setup (module)</a>, <a href="modules/cmd3.plugins.html#module-cmd3.plugins.yaml_setup">[1]</a>
   </dt>
 
       
@@ -456,7 +513,7 @@
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.html#module-cmd3.yaml_setup">cmd3.yaml_setup (module)</a>
+  <dt><a href="api/cmd3/cmd3.html#module-cmd3.yaml_setup">cmd3.yaml_setup (module)</a>, <a href="modules/cmd3.html#module-cmd3.yaml_setup">[1]</a>
   </dt>
 
       
@@ -468,7 +525,7 @@
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.html#cmd3.console.Console.color">color (cmd3.console.Console attribute)</a>
+  <dt><a href="api/cmd3/cmd3.html#cmd3.console.Console.color">color (cmd3.console.Console attribute)</a>, <a href="modules/cmd3.html#cmd3.console.Console.color">[1]</a>
   </dt>
 
       
@@ -480,11 +537,11 @@
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.html#cmd3.console.Console">Console (class in cmd3.console)</a>
+  <dt><a href="api/cmd3/cmd3.html#cmd3.console.Console">Console (class in cmd3.console)</a>, <a href="modules/cmd3.html#cmd3.console.Console">[1]</a>
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.html#cmd3.yaml_setup.create_cmd3_yaml_file">create_cmd3_yaml_file() (in module cmd3.yaml_setup)</a>
+  <dt><a href="api/cmd3/cmd3.html#cmd3.yaml_setup.create_cmd3_yaml_file">create_cmd3_yaml_file() (in module cmd3.yaml_setup)</a>, <a href="modules/cmd3.html#cmd3.yaml_setup.create_cmd3_yaml_file">[1]</a>
   </dt>
 
       
@@ -501,10 +558,6 @@
 <h2 id="D">D</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
-      
-  <dt><a href="api/cmd3/cmd3.html#cmd3.setup_management.setup_management.delete">delete() (cmd3.setup_management.setup_management method)</a>
-  </dt>
-
       
   <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.clear.clear.do_banner">do_banner() (cmd3.plugins.clear.clear method)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.clear.clear.do_banner">[1]</a>
   </dt>
@@ -523,16 +576,12 @@
 
       <dd><dl>
         
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.do_EOF">(cmd3.plugins.shell_scope.shell_scope method)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.do_EOF">(cmd3.plugins.shell_scope.shell_scope method)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.do_EOF">[1]</a>
   </dt>
 
       </dl></dd>
       
   <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_core.shell_core.do_exec">do_exec() (cmd3.plugins.shell_core.shell_core method)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.shell_core.shell_core.do_exec">[1]</a>
-  </dt>
-
-      
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_generate.shell_generate.do_generate">do_generate() (cmd3.plugins.shell_generate.shell_generate method)</a>
   </dt>
 
       
@@ -544,7 +593,7 @@
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.load.load.do_load">do_load() (cmd3.plugins.load.load method)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.load.load.do_load">do_load() (cmd3.plugins.load.load method)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.load.load.do_load">[1]</a>
   </dt>
 
       
@@ -552,21 +601,21 @@
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.browser.browser.do_open">do_open() (cmd3.plugins.browser.browser method)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.browser.browser.do_open">do_open() (cmd3.plugins.browser.browser method)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.browser.browser.do_open">[1]</a>
   </dt>
 
       
   <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.pause.pause.do_pause">do_pause() (cmd3.plugins.pause.pause method)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.pause.pause.do_pause">[1]</a>
   </dt>
 
+      
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.activate.activate.do_plugins">do_plugins() (cmd3.plugins.activate.activate method)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.activate.activate.do_plugins">[1]</a>
+  </dt>
+
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_plugins.shell_plugins.do_plugins">do_plugins() (cmd3.plugins.shell_plugins.shell_plugins method)</a>
-  </dt>
-
-      
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.py.py.do_py">do_py() (cmd3.plugins.py.py method)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.py.py.do_py">do_py() (cmd3.plugins.py.py method)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.py.py.do_py">[1]</a>
   </dt>
 
       
@@ -578,15 +627,11 @@
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.script.script.do_script">do_script() (cmd3.plugins.script.script method)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.script.script.do_script">do_script() (cmd3.plugins.script.script method)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.script.script.do_script">[1]</a>
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_plugins.shell_plugins.do_setup">do_setup() (cmd3.plugins.shell_plugins.shell_plugins method)</a>
-  </dt>
-
-      
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.yaml_setup.yaml_setup.do_setup_yaml">do_setup_yaml() (cmd3.plugins.yaml_setup.yaml_setup method)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.yaml_setup.yaml_setup.do_setup_yaml">do_setup_yaml() (cmd3.plugins.yaml_setup.yaml_setup method)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.yaml_setup.yaml_setup.do_setup_yaml">[1]</a>
   </dt>
 
       
@@ -594,15 +639,15 @@
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.do_use">do_use() (cmd3.plugins.shell_scope.shell_scope method)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.do_use">do_use() (cmd3.plugins.shell_scope.shell_scope method)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.do_use">[1]</a>
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.do_var">do_var() (cmd3.plugins.shell_scope.shell_scope method)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.do_var">do_var() (cmd3.plugins.shell_scope.shell_scope method)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.do_var">[1]</a>
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.do_verbose">do_verbose() (cmd3.plugins.shell_scope.shell_scope method)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.do_verbose">do_verbose() (cmd3.plugins.shell_scope.shell_scope method)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.do_verbose">[1]</a>
   </dt>
 
       
@@ -620,7 +665,7 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.echo">echo (cmd3.plugins.shell_scope.shell_scope attribute)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.echo">echo (cmd3.plugins.shell_scope.shell_scope attribute)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.echo">[1]</a>
   </dt>
 
       
@@ -628,7 +673,7 @@
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.py.EmbeddedConsoleExit">EmbeddedConsoleExit</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.py.EmbeddedConsoleExit">EmbeddedConsoleExit</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.py.EmbeddedConsoleExit">[1]</a>
   </dt>
 
   </dl></td>
@@ -639,12 +684,12 @@
 
       <dd><dl>
         
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.emptyline">(cmd3.plugins.shell_scope.shell_scope method)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.emptyline">(cmd3.plugins.shell_scope.shell_scope method)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.emptyline">[1]</a>
   </dt>
 
       </dl></dd>
       
-  <dt><a href="api/cmd3/cmd3.html#cmd3.console.Console.error">error() (cmd3.console.Console static method)</a>
+  <dt><a href="api/cmd3/cmd3.html#cmd3.console.Console.error">error() (cmd3.console.Console static method)</a>, <a href="modules/cmd3.html#cmd3.console.Console.error">[1]</a>
   </dt>
 
   </dl></td>
@@ -654,11 +699,11 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.forblock">forblock (cmd3.plugins.shell_scope.shell_scope attribute)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.forblock">forblock (cmd3.plugins.shell_scope.shell_scope attribute)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.forblock">[1]</a>
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.forstatement">forstatement (cmd3.plugins.shell_scope.shell_scope attribute)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.forstatement">forstatement (cmd3.plugins.shell_scope.shell_scope attribute)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.forstatement">[1]</a>
   </dt>
 
   </dl></td>
@@ -674,11 +719,11 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="api/cmd3/cmd3.html#cmd3.generate.generate">generate() (in module cmd3.generate)</a>
+  <dt><a href="api/cmd3/cmd3.html#cmd3.generate.generate">generate() (in module cmd3.generate)</a>, <a href="modules/cmd3.html#cmd3.generate.generate">[1]</a>
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.html#cmd3.console.Console.get">get() (cmd3.console.Console static method)</a>
+  <dt><a href="api/cmd3/cmd3.html#cmd3.console.Console.get">get() (cmd3.console.Console static method)</a>, <a href="modules/cmd3.html#cmd3.console.Console.get">[1]</a>
   </dt>
 
       
@@ -726,11 +771,11 @@
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.html#cmd3.console.Console.info">info() (cmd3.console.Console static method)</a>
+  <dt><a href="api/cmd3/cmd3.html#cmd3.console.Console.info">info() (cmd3.console.Console static method)</a>, <a href="modules/cmd3.html#cmd3.console.Console.info">[1]</a>
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.script.script.info_script">info_script() (cmd3.plugins.script.script method)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.script.script.info_script">info_script() (cmd3.plugins.script.script method)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.script.script.info_script">[1]</a>
   </dt>
 
   </dl></td>
@@ -740,7 +785,7 @@
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.info_shell_scope">info_shell_scope() (cmd3.plugins.shell_scope.shell_scope method)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.info_shell_scope">info_shell_scope() (cmd3.plugins.shell_scope.shell_scope method)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.info_shell_scope">[1]</a>
   </dt>
 
       
@@ -758,7 +803,7 @@
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.load.load">load (class in cmd3.plugins.load)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.load.load">load (class in cmd3.plugins.load)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.load.load">[1]</a>
   </dt>
 
   </dl></td>
@@ -768,7 +813,7 @@
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.py.py.locals_in_py">locals_in_py (cmd3.plugins.py.py attribute)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.py.py.locals_in_py">locals_in_py (cmd3.plugins.py.py attribute)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.py.py.locals_in_py">[1]</a>
   </dt>
 
   </dl></td>
@@ -788,7 +833,7 @@
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="api/cmd3/cmd3.html#cmd3.console.Console.msg">msg() (cmd3.console.Console static method)</a>
+  <dt><a href="api/cmd3/cmd3.html#cmd3.console.Console.msg">msg() (cmd3.console.Console static method)</a>, <a href="modules/cmd3.html#cmd3.console.Console.msg">[1]</a>
   </dt>
 
   </dl></td>
@@ -798,7 +843,7 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="api/cmd3/cmd3.html#cmd3.console.Console.ok">ok() (cmd3.console.Console static method)</a>
+  <dt><a href="api/cmd3/cmd3.html#cmd3.console.Console.ok">ok() (cmd3.console.Console static method)</a>, <a href="modules/cmd3.html#cmd3.console.Console.ok">[1]</a>
   </dt>
 
   </dl></td>
@@ -820,7 +865,7 @@
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.precmd">precmd() (cmd3.plugins.shell_scope.shell_scope method)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.precmd">precmd() (cmd3.plugins.shell_scope.shell_scope method)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.precmd">[1]</a>
   </dt>
 
       
@@ -834,15 +879,15 @@
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.prompt">prompt (cmd3.plugins.shell_scope.shell_scope attribute)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.prompt">prompt (cmd3.plugins.shell_scope.shell_scope attribute)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.prompt">[1]</a>
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.py.py">py (class in cmd3.plugins.py)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.py.py">py (class in cmd3.plugins.py)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.py.py">[1]</a>
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.py.py.pystate">pystate (cmd3.plugins.py.py attribute)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.py.py.pystate">pystate (cmd3.plugins.py.py attribute)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.py.py.pystate">[1]</a>
   </dt>
 
   </dl></td>
@@ -856,21 +901,21 @@
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.html#cmd3.generate.replace_dict">replace_dict() (in module cmd3.generate)</a>
+  <dt><a href="api/cmd3/cmd3.html#cmd3.generate.replace_dict">replace_dict() (in module cmd3.generate)</a>, <a href="modules/cmd3.html#cmd3.generate.replace_dict">[1]</a>
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.html#cmd3.generate.replace_string">replace_string() (in module cmd3.generate)</a>
+  <dt><a href="api/cmd3/cmd3.html#cmd3.generate.replace_string">replace_string() (in module cmd3.generate)</a>, <a href="modules/cmd3.html#cmd3.generate.replace_string">[1]</a>
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.replace_vars">replace_vars() (cmd3.plugins.shell_scope.shell_scope method)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.replace_vars">replace_vars() (cmd3.plugins.shell_scope.shell_scope method)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.replace_vars">[1]</a>
   </dt>
 
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.py.Statekeeper.restore">restore() (cmd3.plugins.py.Statekeeper method)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.py.Statekeeper.restore">restore() (cmd3.plugins.py.Statekeeper method)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.py.Statekeeper.restore">[1]</a>
   </dt>
 
       
@@ -878,7 +923,7 @@
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.script.script.run_script">run_script() (cmd3.plugins.script.script method)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.script.script.run_script">run_script() (cmd3.plugins.script.script method)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.script.script.run_script">[1]</a>
   </dt>
 
   </dl></td>
@@ -888,45 +933,37 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.py.Statekeeper.save">save() (cmd3.plugins.py.Statekeeper method)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.py.Statekeeper.save">save() (cmd3.plugins.py.Statekeeper method)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.py.Statekeeper.save">[1]</a>
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.scopeless">scopeless (cmd3.plugins.shell_scope.shell_scope attribute)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.scopeless">scopeless (cmd3.plugins.shell_scope.shell_scope attribute)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.scopeless">[1]</a>
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.scopes">scopes (cmd3.plugins.shell_scope.shell_scope attribute)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.scopes">scopes (cmd3.plugins.shell_scope.shell_scope attribute)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.scopes">[1]</a>
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.script.script">script (class in cmd3.plugins.script)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.script.script">script (class in cmd3.plugins.script)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.script.script">[1]</a>
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.script.script.script_files">script_files (cmd3.plugins.script.script attribute)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.script.script.script_files">script_files (cmd3.plugins.script.script attribute)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.script.script.script_files">[1]</a>
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.script.script.scripts">scripts (cmd3.plugins.script.script attribute)</a>
-  </dt>
-
-      
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.set_banner">set_banner() (cmd3.plugins.shell_scope.shell_scope method)</a>
-  </dt>
-
-      
-  <dt><a href="api/cmd3/cmd3.html#cmd3.console.Console.set_theme">set_theme() (cmd3.console.Console static method)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.script.script.scripts">scripts (cmd3.plugins.script.script attribute)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.script.script.scripts">[1]</a>
   </dt>
 
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.set_verbose">set_verbose() (cmd3.plugins.shell_scope.shell_scope method)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.set_banner">set_banner() (cmd3.plugins.shell_scope.shell_scope method)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.set_banner">[1]</a>
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.html#cmd3.setup_management.setup_management">setup_management (class in cmd3.setup_management)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.set_verbose">set_verbose() (cmd3.plugins.shell_scope.shell_scope method)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.set_verbose">[1]</a>
   </dt>
 
       
@@ -934,19 +971,11 @@
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_generate.shell_generate">shell_generate (class in cmd3.plugins.shell_generate)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope">shell_scope (class in cmd3.plugins.shell_scope)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope">[1]</a>
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_plugins.shell_plugins">shell_plugins (class in cmd3.plugins.shell_plugins)</a>
-  </dt>
-
-      
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope">shell_scope (class in cmd3.plugins.shell_scope)</a>
-  </dt>
-
-      
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.py.Statekeeper">Statekeeper (class in cmd3.plugins.py)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.py.Statekeeper">Statekeeper (class in cmd3.plugins.py)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.py.Statekeeper">[1]</a>
   </dt>
 
   </dl></td>
@@ -960,19 +989,11 @@
   </dt>
 
       
-  <dt><a href="api/cmd3/cmd3.html#cmd3.console.Console.theme">theme (cmd3.console.Console attribute)</a>
-  </dt>
-
-      
-  <dt><a href="api/cmd3/cmd3.html#cmd3.console.Console.theme_bw">theme_bw (cmd3.console.Console attribute)</a>
+  <dt><a href="api/cmd3/cmd3.html#cmd3.console.Console.theme">theme (cmd3.console.Console attribute)</a>, <a href="modules/cmd3.html#cmd3.console.Console.theme">[1]</a>
   </dt>
 
   </dl></td>
   <td style="width: 33%" valign="top"><dl>
-      
-  <dt><a href="api/cmd3/cmd3.html#cmd3.console.Console.theme_color">theme_color (cmd3.console.Console attribute)</a>
-  </dt>
-
       
   <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.timer.timer">timer (class in cmd3.plugins.timer)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.timer.timer">[1]</a>
   </dt>
@@ -984,7 +1005,7 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.update_time">update_time() (cmd3.plugins.shell_scope.shell_scope method)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.update_time">update_time() (cmd3.plugins.shell_scope.shell_scope method)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.update_time">[1]</a>
   </dt>
 
   </dl></td>
@@ -994,7 +1015,7 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.variables">variables (cmd3.plugins.shell_scope.shell_scope attribute)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.variables">variables (cmd3.plugins.shell_scope.shell_scope attribute)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.shell_scope.shell_scope.variables">[1]</a>
   </dt>
 
   </dl></td>
@@ -1010,7 +1031,7 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="api/cmd3/cmd3.html#cmd3.console.Console.warning">warning() (cmd3.console.Console static method)</a>
+  <dt><a href="api/cmd3/cmd3.html#cmd3.console.Console.warning">warning() (cmd3.console.Console static method)</a>, <a href="modules/cmd3.html#cmd3.console.Console.warning">[1]</a>
   </dt>
 
   </dl></td>
@@ -1020,7 +1041,7 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%" valign="top"><dl>
       
-  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.yaml_setup.yaml_setup">yaml_setup (class in cmd3.plugins.yaml_setup)</a>
+  <dt><a href="api/cmd3/cmd3.plugins.html#cmd3.plugins.yaml_setup.yaml_setup">yaml_setup (class in cmd3.plugins.yaml_setup)</a>, <a href="modules/cmd3.plugins.html#cmd3.plugins.yaml_setup.yaml_setup">[1]</a>
   </dt>
 
   </dl></td>
@@ -1040,7 +1061,7 @@
     </p>
     <p>
         &copy; Copyright 2012-2014, Gregor von Laszewski, based on his earlier code from cyberaide and cogkit.<br/>
-      Last updated on May 23, 2015.<br/>
+      Last updated on May 25, 2015.<br/>
     </p>
   </div>
 </footer>

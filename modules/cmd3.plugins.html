@@ -5,7 +5,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>plugins Package &mdash; CMD3  documentation</title>
+    <title>cmd3.plugins package &mdash; CMD3  documentation</title>
     
     <link rel="stylesheet" href="../_static/basic.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -30,8 +30,9 @@
     <script type="text/javascript" src="../_static/bootstrap-2.3.2/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="../_static/bootstrap-sphinx.js"></script>
     <link rel="top" title="CMD3  documentation" href="../index.html" />
-    <link rel="up" title="cmd3 Package" href="cmd3.html" />
-    <link rel="prev" title="cmd3 Package" href="cmd3.html" />
+    <link rel="up" title="cmd3 package" href="cmd3.html" />
+    <link rel="next" title="cmd3.plugins-example package" href="cmd3.plugins-example.html" />
+    <link rel="prev" title="cmd3.etc.cmd3_template.cmd3_template package" href="cmd3.etc.cmd3_template.cmd3_template.html" />
 <meta charset='utf-8'>
 <meta http-equiv='X-UA-Compatible' content='IE=edge,chrome=1'>
 <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1'>
@@ -52,7 +53,7 @@
 
         <a class="brand" href="../index.html">
           CMD3</a>
-        <span class="navbar-text pull-left"><b>1.9.1</b></span>
+        <span class="navbar-text pull-left"><b>1.7.1</b></span>
 
         <div class="nav-collapse">
           <ul class="nav">
@@ -86,6 +87,7 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../manual.html#using-the-shell">Using the Shell</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../manual.html#extending-the-shell">Extending the Shell</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../manual.html#the-plugins-directories">The plugins Directories</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../manual.html#reading-plugins-from-your-local-instalation">Reading plugins from your local instalation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../manual.html#reading-plugins-from-the-deploy-directory">Reading plugins from the deploy directory</a></li>
 </ul>
@@ -97,7 +99,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../manual.html#function-registration">Function Registration</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../manual.html#generating-independent-packages">Generating independent packages</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../manual.html#the-easiest-way-to-generate-plugins">The Easiest Way to Generate Plugins</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../manual.html#build-in-commands">Build In Commands</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="../manual.html#help">Help</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../manual.html#manual-pages">Manual Pages</a></li>
@@ -117,51 +119,129 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../man/man.html">Commands</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../man/man.html#eof">EOF</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#admin">admin</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/man.html#banner">banner</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/man.html#clear">clear</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#cloud">cloud</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#cluster">cluster</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#color">color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#debug">debug</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#default">default</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#dot2">dot2</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/man.html#edit">edit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/man.html#exec">exec</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../man/man.html#generate">generate</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#exp">exp</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#flavor">flavor</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#graphviz">graphviz</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#group">group</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/man.html#help">help</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#image">image</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/man.html#info">info</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#init">init</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#inventory">inventory</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#key">key</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#label">label</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#launcher">launcher</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#limits">limits</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#list">list</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/man.html#load">load</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#loglevel">loglevel</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/man.html#man">man</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#metric">metric</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#notebook">notebook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#nova">nova</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/man.html#open">open</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/man.html#pause">pause</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/man.html#plugins">plugins</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#project">project</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/man.html#py">py</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/man.html#q">q</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/man.html#quit">quit</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#quota">quota</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#rain">rain</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#register">register</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/man.html#script">script</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../man/man.html#setup">setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#security-group">security_group</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/man.html#setup-yaml">setup_yaml</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#ssh">ssh</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#stack">stack</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#status">status</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#storm">storm</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/man.html#timer">timer</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#usage">usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/man.html#use">use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#user">user</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/man.html#var">var</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/man.html#verbose">verbose</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../man/man.html#version">version</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#vm">vm</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#volume">volume</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#web">web</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../man/man.html#yaml">yaml</a></li>
 </ul>
 </li>
 <li class="toctree-l1 current"><a class="reference internal" href="modules.html">Modules and Classes</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="cmd3.html">cmd3 Package</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="cmd3.html#id1"><code class="docutils literal"><span class="pre">cmd3</span></code> Package</a></li>
-<li class="toctree-l3"><a class="reference internal" href="cmd3.html#module-cmd3.shell"><code class="docutils literal"><span class="pre">shell</span></code> Module</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="cmd3.html">cmd3 package</a><ul class="current">
 <li class="toctree-l3 current"><a class="reference internal" href="cmd3.html#subpackages">Subpackages</a><ul class="current">
-<li class="toctree-l4 current"><a class="current reference internal" href="">plugins Package</a><ul>
-<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.activate"><code class="docutils literal"><span class="pre">activate</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.clear"><code class="docutils literal"><span class="pre">clear</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.edit"><code class="docutils literal"><span class="pre">edit</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#graphviz-module"><code class="docutils literal"><span class="pre">graphviz</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.info"><code class="docutils literal"><span class="pre">info</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.pause"><code class="docutils literal"><span class="pre">pause</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.rst"><code class="docutils literal"><span class="pre">rst</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.shell_core"><code class="docutils literal"><span class="pre">shell_core</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.template"><code class="docutils literal"><span class="pre">template</span></code> Module</a></li>
-<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.timer"><code class="docutils literal"><span class="pre">timer</span></code> Module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="cmd3.etc.html">cmd3.etc package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.etc.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l6"><a class="reference internal" href="cmd3.etc.cmd3_template.html">cmd3.etc.cmd3_template package</a><ul>
+<li class="toctree-l7"><a class="reference internal" href="cmd3.etc.cmd3_template.html#subpackages">Subpackages</a><ul>
+<li class="toctree-l8"><a class="reference internal" href="cmd3.etc.cmd3_template.cmd3_template.html">cmd3.etc.cmd3_template.cmd3_template package</a><ul>
+<li class="toctree-l9"><a class="reference internal" href="cmd3.etc.cmd3_template.cmd3_template.html#subpackages">Subpackages</a><ul class="simple">
+</ul>
+</li>
+<li class="toctree-l9"><a class="reference internal" href="cmd3.etc.cmd3_template.cmd3_template.html#module-cmd3.etc.cmd3_template.cmd3_template">Module contents</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l7"><a class="reference internal" href="cmd3.etc.cmd3_template.html#module-cmd3.etc.cmd3_template">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.etc.html#module-cmd3.etc">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l4 current"><a class="current reference internal" href="">cmd3.plugins package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="#submodules">Submodules</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.activate">cmd3.plugins.activate module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.browser">cmd3.plugins.browser module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.clear">cmd3.plugins.clear module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.edit">cmd3.plugins.edit module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.info">cmd3.plugins.info module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.load">cmd3.plugins.load module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.pause">cmd3.plugins.pause module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.py">cmd3.plugins.py module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.rst">cmd3.plugins.rst module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.script">cmd3.plugins.script module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.shell_core">cmd3.plugins.shell_core module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#cmd3-plugins-shell-generate-module">cmd3.plugins.shell_generate module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#cmd3-plugins-shell-plugins-module">cmd3.plugins.shell_plugins module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.shell_scope">cmd3.plugins.shell_scope module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.template">cmd3.plugins.template module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.timer">cmd3.plugins.timer module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins.yaml_setup">cmd3.plugins.yaml_setup module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="#module-cmd3.plugins">Module contents</a></li>
+</ul>
+</li>
+<li class="toctree-l4"><a class="reference internal" href="cmd3.plugins-example.html">cmd3.plugins-example package</a><ul>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins-example.html#submodules">Submodules</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins-example.html#cmd3-plugins-example-graphviz-module">cmd3.plugins-example.graphviz module</a></li>
+<li class="toctree-l5"><a class="reference internal" href="cmd3.plugins-example.html#module-contents">Module contents</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cmd3.html#submodules">Submodules</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmd3.html#module-cmd3.console">cmd3.console module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmd3.html#module-cmd3.generate">cmd3.generate module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmd3.html#cmd3-setup-management-module">cmd3.setup_management module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmd3.html#module-cmd3.shell">cmd3.shell module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmd3.html#cmd3-version-module">cmd3.version module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmd3.html#module-cmd3.yaml_setup">cmd3.yaml_setup module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cmd3.html#module-cmd3">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -179,17 +259,26 @@
   <ul class="dropdown-menu localtoc"
       role="menu"
       aria-labelledby="dLabelLocalToc"><ul>
-<li><a class="reference internal" href="#">plugins Package</a><ul>
-<li><a class="reference internal" href="#module-cmd3.plugins.activate"><code class="docutils literal"><span class="pre">activate</span></code> Module</a></li>
-<li><a class="reference internal" href="#module-cmd3.plugins.clear"><code class="docutils literal"><span class="pre">clear</span></code> Module</a></li>
-<li><a class="reference internal" href="#module-cmd3.plugins.edit"><code class="docutils literal"><span class="pre">edit</span></code> Module</a></li>
-<li><a class="reference internal" href="#graphviz-module"><code class="docutils literal"><span class="pre">graphviz</span></code> Module</a></li>
-<li><a class="reference internal" href="#module-cmd3.plugins.info"><code class="docutils literal"><span class="pre">info</span></code> Module</a></li>
-<li><a class="reference internal" href="#module-cmd3.plugins.pause"><code class="docutils literal"><span class="pre">pause</span></code> Module</a></li>
-<li><a class="reference internal" href="#module-cmd3.plugins.rst"><code class="docutils literal"><span class="pre">rst</span></code> Module</a></li>
-<li><a class="reference internal" href="#module-cmd3.plugins.shell_core"><code class="docutils literal"><span class="pre">shell_core</span></code> Module</a></li>
-<li><a class="reference internal" href="#module-cmd3.plugins.template"><code class="docutils literal"><span class="pre">template</span></code> Module</a></li>
-<li><a class="reference internal" href="#module-cmd3.plugins.timer"><code class="docutils literal"><span class="pre">timer</span></code> Module</a></li>
+<li><a class="reference internal" href="#">cmd3.plugins package</a><ul>
+<li><a class="reference internal" href="#submodules">Submodules</a></li>
+<li><a class="reference internal" href="#module-cmd3.plugins.activate">cmd3.plugins.activate module</a></li>
+<li><a class="reference internal" href="#module-cmd3.plugins.browser">cmd3.plugins.browser module</a></li>
+<li><a class="reference internal" href="#module-cmd3.plugins.clear">cmd3.plugins.clear module</a></li>
+<li><a class="reference internal" href="#module-cmd3.plugins.edit">cmd3.plugins.edit module</a></li>
+<li><a class="reference internal" href="#module-cmd3.plugins.info">cmd3.plugins.info module</a></li>
+<li><a class="reference internal" href="#module-cmd3.plugins.load">cmd3.plugins.load module</a></li>
+<li><a class="reference internal" href="#module-cmd3.plugins.pause">cmd3.plugins.pause module</a></li>
+<li><a class="reference internal" href="#module-cmd3.plugins.py">cmd3.plugins.py module</a></li>
+<li><a class="reference internal" href="#module-cmd3.plugins.rst">cmd3.plugins.rst module</a></li>
+<li><a class="reference internal" href="#module-cmd3.plugins.script">cmd3.plugins.script module</a></li>
+<li><a class="reference internal" href="#module-cmd3.plugins.shell_core">cmd3.plugins.shell_core module</a></li>
+<li><a class="reference internal" href="#cmd3-plugins-shell-generate-module">cmd3.plugins.shell_generate module</a></li>
+<li><a class="reference internal" href="#cmd3-plugins-shell-plugins-module">cmd3.plugins.shell_plugins module</a></li>
+<li><a class="reference internal" href="#module-cmd3.plugins.shell_scope">cmd3.plugins.shell_scope module</a></li>
+<li><a class="reference internal" href="#module-cmd3.plugins.template">cmd3.plugins.template module</a></li>
+<li><a class="reference internal" href="#module-cmd3.plugins.timer">cmd3.plugins.timer module</a></li>
+<li><a class="reference internal" href="#module-cmd3.plugins.yaml_setup">cmd3.plugins.yaml_setup module</a></li>
+<li><a class="reference internal" href="#module-cmd3.plugins">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -201,7 +290,11 @@
               
                 
   <li>
-    <a href="cmd3.html" title="Previous Chapter: cmd3 Package"><span class="icon-chevron-left visible-tablet"></span><span class="hidden-sm hidden-tablet">&laquo; cmd3 Package</span>
+    <a href="cmd3.etc.cmd3_template.cmd3_template.html" title="Previous Chapter: cmd3.etc.cmd3_template.cmd3_template package"><span class="icon-chevron-left visible-tablet"></span><span class="hidden-sm hidden-tablet">&laquo; cmd3.etc.cmd3_te...</span>
+    </a>
+  </li>
+  <li>
+    <a href="cmd3.plugins-example.html" title="Next Chapter: cmd3.plugins-example package"><span class="icon-chevron-right visible-tablet"></span><span class="hidden-sm hidden-tablet">cmd3.plugins-exa... &raquo;</span>
     </a>
   </li>
               
@@ -232,10 +325,13 @@
   <div class="row">
     <div class="span12">
       
-  <div class="section" id="plugins-package">
-<h1>plugins Package<a class="headerlink" href="#plugins-package" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="cmd3-plugins-package">
+<h1>cmd3.plugins package<a class="headerlink" href="#cmd3-plugins-package" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="submodules">
+<h2>Submodules<a class="headerlink" href="#submodules" title="Permalink to this headline">¶</a></h2>
+</div>
 <div class="section" id="module-cmd3.plugins.activate">
-<span id="activate-module"></span><h2><code class="xref py py-mod docutils literal"><span class="pre">activate</span></code> Module<a class="headerlink" href="#module-cmd3.plugins.activate" title="Permalink to this headline">¶</a></h2>
+<span id="cmd3-plugins-activate-module"></span><h2>cmd3.plugins.activate module<a class="headerlink" href="#module-cmd3.plugins.activate" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cmd3.plugins.activate.activate">
 <em class="property">class </em><code class="descclassname">cmd3.plugins.activate.</code><code class="descname">activate</code><a class="headerlink" href="#cmd3.plugins.activate.activate" title="Permalink to this definition">¶</a></dt>
@@ -263,6 +359,16 @@ its plugins.</p>
 <dd><p>List available commands with &#8220;help&#8221; or detailed help with &#8220;help cmd&#8221;.</p>
 </dd></dl>
 
+<dl class="method">
+<dt id="cmd3.plugins.activate.activate.do_plugins">
+<code class="descname">do_plugins</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.plugins.activate.activate.do_plugins" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd>plugins</dd>
+</dl>
+<p>activates the plugins.</p>
+</dd></dl>
+
 <dl class="attribute">
 <dt id="cmd3.plugins.activate.activate.plugins">
 <code class="descname">plugins</code><em class="property"> = []</em><a class="headerlink" href="#cmd3.plugins.activate.activate.plugins" title="Permalink to this definition">¶</a></dt>
@@ -276,8 +382,32 @@ its plugins.</p>
 </dd></dl>
 
 </div>
+<div class="section" id="module-cmd3.plugins.browser">
+<span id="cmd3-plugins-browser-module"></span><h2>cmd3.plugins.browser module<a class="headerlink" href="#module-cmd3.plugins.browser" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cmd3.plugins.browser.browser">
+<em class="property">class </em><code class="descclassname">cmd3.plugins.browser.</code><code class="descname">browser</code><a class="headerlink" href="#cmd3.plugins.browser.browser" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="cmd3.plugins.browser.browser.do_open">
+<code class="descname">do_open</code><span class="sig-paren">(</span><em>instance</em>, <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.plugins.browser.browser.do_open" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre>Usage:
+        open FILENAME
+
+ARGUMENTS:
+    FILENAME  the file to open in the cwd if . is
+              specified. If file in in cwd
+              you must specify it with ./FILENAME
+
+Opens the given URL in a browser window.
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-cmd3.plugins.clear">
-<span id="clear-module"></span><h2><code class="xref py py-mod docutils literal"><span class="pre">clear</span></code> Module<a class="headerlink" href="#module-cmd3.plugins.clear" title="Permalink to this headline">¶</a></h2>
+<span id="cmd3-plugins-clear-module"></span><h2>cmd3.plugins.clear module<a class="headerlink" href="#module-cmd3.plugins.clear" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cmd3.plugins.clear.clear">
 <em class="property">class </em><code class="descclassname">cmd3.plugins.clear.</code><code class="descname">clear</code><a class="headerlink" href="#cmd3.plugins.clear.clear" title="Permalink to this definition">¶</a></dt>
@@ -291,20 +421,18 @@ its plugins.</p>
 <dt id="cmd3.plugins.clear.clear.do_banner">
 <code class="descname">do_banner</code><span class="sig-paren">(</span><em>instance</em>, <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.plugins.clear.clear.do_banner" title="Permalink to this definition">¶</a></dt>
 <dd><div class="highlight-python"><div class="highlight"><pre>Usage:
-    banner [-c CHAR] [-n WIDTH] [-i INDENT] [-r COLOR] TEXT
+    banner [-c CHAR] [-n WIDTH] [-i INDENT] TEXT
 
 Arguments:
     TEXT   The text message from which to create the banner
     CHAR   The character for the frame. 
     WIDTH  Width of the banner
     INDENT indentation of the banner
-    COLOR  the color
 
 Options:
     -c CHAR   The character for the frame. [default: #]
     -n WIDTH  The width of the banner. [default: 70]
     -i INDENT  The width of the banner. [default: 0]            
-    -r COLOR  The color of the banner. [default: BLACK]
 
 Prints a banner form a one line text message.
 </pre></div>
@@ -325,7 +453,7 @@ Prints a banner form a one line text message.
 
 </div>
 <div class="section" id="module-cmd3.plugins.edit">
-<span id="edit-module"></span><h2><code class="xref py py-mod docutils literal"><span class="pre">edit</span></code> Module<a class="headerlink" href="#module-cmd3.plugins.edit" title="Permalink to this headline">¶</a></h2>
+<span id="cmd3-plugins-edit-module"></span><h2>cmd3.plugins.edit module<a class="headerlink" href="#module-cmd3.plugins.edit" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cmd3.plugins.edit.edit">
 <em class="property">class </em><code class="descclassname">cmd3.plugins.edit.</code><code class="descname">edit</code><a class="headerlink" href="#cmd3.plugins.edit.edit" title="Permalink to this definition">¶</a></dt>
@@ -352,11 +480,8 @@ Arguments:
 </dd></dl>
 
 </div>
-<div class="section" id="graphviz-module">
-<h2><code class="xref py py-mod docutils literal"><span class="pre">graphviz</span></code> Module<a class="headerlink" href="#graphviz-module" title="Permalink to this headline">¶</a></h2>
-</div>
 <div class="section" id="module-cmd3.plugins.info">
-<span id="info-module"></span><h2><code class="xref py py-mod docutils literal"><span class="pre">info</span></code> Module<a class="headerlink" href="#module-cmd3.plugins.info" title="Permalink to this headline">¶</a></h2>
+<span id="cmd3-plugins-info-module"></span><h2>cmd3.plugins.info module<a class="headerlink" href="#module-cmd3.plugins.info" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cmd3.plugins.info.info">
 <em class="property">class </em><code class="descclassname">cmd3.plugins.info.</code><code class="descname">info</code><a class="headerlink" href="#cmd3.plugins.info.info" title="Permalink to this definition">¶</a></dt>
@@ -383,8 +508,36 @@ Prints some internal information about the shell
 </dd></dl>
 
 </div>
+<div class="section" id="module-cmd3.plugins.load">
+<span id="cmd3-plugins-load-module"></span><h2>cmd3.plugins.load module<a class="headerlink" href="#module-cmd3.plugins.load" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cmd3.plugins.load.load">
+<em class="property">class </em><code class="descclassname">cmd3.plugins.load.</code><code class="descname">load</code><a class="headerlink" href="#cmd3.plugins.load.load" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="cmd3.plugins.load.load.activate_load">
+<code class="descname">activate_load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.plugins.load.load.activate_load" title="Permalink to this definition">¶</a></dt>
+<dd><p>activates the load command</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.load.load.do_load">
+<code class="descname">do_load</code><span class="sig-paren">(</span><em>instance</em>, <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.plugins.load.load.do_load" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre>Usage:
+    load MODULE
+
+Loads the plugin given a specific module name. The plugin must be ina plugin directory.
+
+Arguments:
+   MODULE  The name of the module.
+</pre></div>
+</div>
+</dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-cmd3.plugins.pause">
-<span id="pause-module"></span><h2><code class="xref py py-mod docutils literal"><span class="pre">pause</span></code> Module<a class="headerlink" href="#module-cmd3.plugins.pause" title="Permalink to this headline">¶</a></h2>
+<span id="cmd3-plugins-pause-module"></span><h2>cmd3.plugins.pause module<a class="headerlink" href="#module-cmd3.plugins.pause" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cmd3.plugins.pause.pause">
 <em class="property">class </em><code class="descclassname">cmd3.plugins.pause.</code><code class="descname">pause</code><a class="headerlink" href="#cmd3.plugins.pause.pause" title="Permalink to this definition">¶</a></dt>
@@ -411,8 +564,80 @@ Arguments:
 </dd></dl>
 
 </div>
+<div class="section" id="module-cmd3.plugins.py">
+<span id="cmd3-plugins-py-module"></span><h2>cmd3.plugins.py module<a class="headerlink" href="#module-cmd3.plugins.py" title="Permalink to this headline">¶</a></h2>
+<dl class="exception">
+<dt id="cmd3.plugins.py.EmbeddedConsoleExit">
+<em class="property">exception </em><code class="descclassname">cmd3.plugins.py.</code><code class="descname">EmbeddedConsoleExit</code><a class="headerlink" href="#cmd3.plugins.py.EmbeddedConsoleExit" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">exceptions.SystemExit</span></code></p>
+</dd></dl>
+
+<dl class="class">
+<dt id="cmd3.plugins.py.Statekeeper">
+<em class="property">class </em><code class="descclassname">cmd3.plugins.py.</code><code class="descname">Statekeeper</code><span class="sig-paren">(</span><em>obj</em>, <em>attribs</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.plugins.py.Statekeeper" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal"><span class="pre">object</span></code></p>
+<dl class="method">
+<dt id="cmd3.plugins.py.Statekeeper.restore">
+<code class="descname">restore</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.plugins.py.Statekeeper.restore" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.py.Statekeeper.save">
+<code class="descname">save</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.plugins.py.Statekeeper.save" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="cmd3.plugins.py.py">
+<em class="property">class </em><code class="descclassname">cmd3.plugins.py.</code><code class="descname">py</code><a class="headerlink" href="#cmd3.plugins.py.py" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="cmd3.plugins.py.py.activate_py">
+<code class="descname">activate_py</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.plugins.py.py.activate_py" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.py.py.do_py">
+<code class="descname">do_py</code><span class="sig-paren">(</span><em>arg</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.plugins.py.py.do_py" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre>Usage:
+    py
+    py COMMAND
+
+Arguments:
+    COMMAND   the command to be executed
+
+Description:
+
+    The command without a parameter will be executed and the
+    interactive python mode is entered. The python mode can be
+    ended with ``Ctrl-D`` (Unix) / ``Ctrl-Z`` (Windows),
+    ``quit()``,&#39;`exit()``. Non-python commands can be issued with
+    ``cmd(&quot;your command&quot;)``.  If the python code is located in an
+    external file it can be run with ``run(&quot;filename.py&quot;)``.
+
+    In case a COMMAND is provided it will be executed and the
+    python interpreter will return to the command shell.
+
+    This code is copied from Cmd2.
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cmd3.plugins.py.py.locals_in_py">
+<code class="descname">locals_in_py</code><em class="property"> = True</em><a class="headerlink" href="#cmd3.plugins.py.py.locals_in_py" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cmd3.plugins.py.py.pystate">
+<code class="descname">pystate</code><em class="property"> = {}</em><a class="headerlink" href="#cmd3.plugins.py.py.pystate" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-cmd3.plugins.rst">
-<span id="rst-module"></span><h2><code class="xref py py-mod docutils literal"><span class="pre">rst</span></code> Module<a class="headerlink" href="#module-cmd3.plugins.rst" title="Permalink to this headline">¶</a></h2>
+<span id="cmd3-plugins-rst-module"></span><h2>cmd3.plugins.rst module<a class="headerlink" href="#module-cmd3.plugins.rst" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cmd3.plugins.rst.rst">
 <em class="property">class </em><code class="descclassname">cmd3.plugins.rst.</code><code class="descname">rst</code><a class="headerlink" href="#cmd3.plugins.rst.rst" title="Permalink to this definition">¶</a></dt>
@@ -447,8 +672,78 @@ Description:
 </dd></dl>
 
 </div>
+<div class="section" id="module-cmd3.plugins.script">
+<span id="cmd3-plugins-script-module"></span><h2>cmd3.plugins.script module<a class="headerlink" href="#module-cmd3.plugins.script" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cmd3.plugins.script.script">
+<em class="property">class </em><code class="descclassname">cmd3.plugins.script.</code><code class="descname">script</code><a class="headerlink" href="#cmd3.plugins.script.script" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="cmd3.plugins.script.script.activate_script">
+<code class="descname">activate_script</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.plugins.script.script.activate_script" title="Permalink to this definition">¶</a></dt>
+<dd><p>activates the script command</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.script.script.add_script_dir">
+<code class="descname">add_script_dir</code><span class="sig-paren">(</span><em>regexp</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.plugins.script.script.add_script_dir" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.script.script.do_script">
+<code class="descname">do_script</code><span class="sig-paren">(</span><em>instance</em>, <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.plugins.script.script.do_script" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre>Usage:
+       script
+       script load
+       script load LABEL FILENAME
+       script load REGEXP
+       script list
+       script LABEL
+
+Arguments:
+       load       indicates that we try to do actions toload files.
+                  Without parameters, loads scripts from default locations
+        NAME      specifies a label for a script
+        LABEL     an identification name, it must be unique
+        FILENAME  the filename in which the script is located
+        REGEXP    Not supported yet.
+                  If specified looks for files identified by the REGEXP.
+
+NOT SUPPORTED YET
+
+   script load LABEL FILENAME
+   script load FILENAME
+   script load REGEXP
+
+Process FILE and optionally apply some options
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.script.script.info_script">
+<code class="descname">info_script</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.plugins.script.script.info_script" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.script.script.run_script">
+<code class="descname">run_script</code><span class="sig-paren">(</span><em>filename</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.plugins.script.script.run_script" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cmd3.plugins.script.script.script_files">
+<code class="descname">script_files</code><em class="property"> = ['scripts/*.txt']</em><a class="headerlink" href="#cmd3.plugins.script.script.script_files" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cmd3.plugins.script.script.scripts">
+<code class="descname">scripts</code><em class="property"> = {}</em><a class="headerlink" href="#cmd3.plugins.script.script.scripts" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-cmd3.plugins.shell_core">
-<span id="shell-core-module"></span><h2><code class="xref py py-mod docutils literal"><span class="pre">shell_core</span></code> Module<a class="headerlink" href="#module-cmd3.plugins.shell_core" title="Permalink to this headline">¶</a></h2>
+<span id="cmd3-plugins-shell-core-module"></span><h2>cmd3.plugins.shell_core module<a class="headerlink" href="#module-cmd3.plugins.shell_core" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cmd3.plugins.shell_core.shell_core">
 <em class="property">class </em><code class="descclassname">cmd3.plugins.shell_core.</code><code class="descname">shell_core</code><a class="headerlink" href="#cmd3.plugins.shell_core.shell_core" title="Permalink to this definition">¶</a></dt>
@@ -556,8 +851,176 @@ Arguments:
 </dd></dl>
 
 </div>
+<div class="section" id="cmd3-plugins-shell-generate-module">
+<h2>cmd3.plugins.shell_generate module<a class="headerlink" href="#cmd3-plugins-shell-generate-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="cmd3-plugins-shell-plugins-module">
+<h2>cmd3.plugins.shell_plugins module<a class="headerlink" href="#cmd3-plugins-shell-plugins-module" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="module-cmd3.plugins.shell_scope">
+<span id="cmd3-plugins-shell-scope-module"></span><h2>cmd3.plugins.shell_scope module<a class="headerlink" href="#module-cmd3.plugins.shell_scope" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cmd3.plugins.shell_scope.shell_scope">
+<em class="property">class </em><code class="descclassname">cmd3.plugins.shell_scope.</code><code class="descname">shell_scope</code><a class="headerlink" href="#cmd3.plugins.shell_scope.shell_scope" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="cmd3.plugins.shell_scope.shell_scope.activate_shell_scope">
+<code class="descname">activate_shell_scope</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.plugins.shell_scope.shell_scope.activate_shell_scope" title="Permalink to this definition">¶</a></dt>
+<dd><p>activates the shell scope</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cmd3.plugins.shell_scope.shell_scope.active_scope">
+<code class="descname">active_scope</code><em class="property"> = ''</em><a class="headerlink" href="#cmd3.plugins.shell_scope.shell_scope.active_scope" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cmd3.plugins.shell_scope.shell_scope.block">
+<code class="descname">block</code><em class="property"> = []</em><a class="headerlink" href="#cmd3.plugins.shell_scope.shell_scope.block" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.shell_scope.shell_scope.do_EOF">
+<code class="descname">do_EOF</code><span class="sig-paren">(</span><em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.plugins.shell_scope.shell_scope.do_EOF" title="Permalink to this definition">¶</a></dt>
+<dd><p>end of file</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.shell_scope.shell_scope.do_use">
+<code class="descname">do_use</code><span class="sig-paren">(</span><em>arg</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.plugins.shell_scope.shell_scope.do_use" title="Permalink to this definition">¶</a></dt>
+<dd><div class="highlight-python"><div class="highlight"><pre>USAGE:
+
+    use list           lists the available scopes
+
+    use add SCOPE      adds a scope &lt;scope&gt;
+
+    use delete SCOPE   removes the &lt;scope&gt;
+
+    use                without parameters allows an
+                       interactive selection
+
+DESCRIPTION
+   Often we have to type in a command multiple times. To save
+   us typng the name of the command, we have defined a simple
+   scope that can be activated with the use command
+
+ARGUMENTS:
+    list         list the available scopes
+    add          add a scope with a name
+    delete       delete a named scope
+    use          activate a scope
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.shell_scope.shell_scope.do_var">
+<code class="descname">do_var</code><span class="sig-paren">(</span><em>instance</em>, <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.plugins.shell_scope.shell_scope.do_var" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd>var list 
+var delete NAMES
+var NAME=VALUE
+var NAME</dd>
+<dt>Arguments:</dt>
+<dd>NAME    Name of the variable
+NAMES   Names of the variable separated by spaces
+VALUE   VALUE to be assigned</dd>
+</dl>
+<p>special vars date and time are defined</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.shell_scope.shell_scope.do_verbose">
+<code class="descname">do_verbose</code><span class="sig-paren">(</span><em>instance</em>, <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.plugins.shell_scope.shell_scope.do_verbose" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>Usage:</dt>
+<dd>verbose (True | False)
+verbose</dd>
+</dl>
+<p>If it sets to True, a command will be printed before execution.
+In the interactive mode, you may want to set it to False.
+When you use scripts, we recommend to set it to True.</p>
+<p>The default is set to False</p>
+<p>If verbose is specified without parameter the flag is
+toggled.</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="cmd3.plugins.shell_scope.shell_scope.echo">
+<code class="descname">echo</code><em class="property"> = True</em><a class="headerlink" href="#cmd3.plugins.shell_scope.shell_scope.echo" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.shell_scope.shell_scope.emptyline">
+<code class="descname">emptyline</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.plugins.shell_scope.shell_scope.emptyline" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cmd3.plugins.shell_scope.shell_scope.forblock">
+<code class="descname">forblock</code><em class="property"> = False</em><a class="headerlink" href="#cmd3.plugins.shell_scope.shell_scope.forblock" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cmd3.plugins.shell_scope.shell_scope.forstatement">
+<code class="descname">forstatement</code><em class="property"> = ''</em><a class="headerlink" href="#cmd3.plugins.shell_scope.shell_scope.forstatement" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.shell_scope.shell_scope.info_shell_scope">
+<code class="descname">info_shell_scope</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.plugins.shell_scope.shell_scope.info_shell_scope" title="Permalink to this definition">¶</a></dt>
+<dd><p>prints some information about the shell scope</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.shell_scope.shell_scope.precmd">
+<code class="descname">precmd</code><span class="sig-paren">(</span><em>line</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.plugins.shell_scope.shell_scope.precmd" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cmd3.plugins.shell_scope.shell_scope.prompt">
+<code class="descname">prompt</code><em class="property"> = 'cm&gt; '</em><a class="headerlink" href="#cmd3.plugins.shell_scope.shell_scope.prompt" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.shell_scope.shell_scope.replace_vars">
+<code class="descname">replace_vars</code><span class="sig-paren">(</span><em>line</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.plugins.shell_scope.shell_scope.replace_vars" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cmd3.plugins.shell_scope.shell_scope.scopeless">
+<code class="descname">scopeless</code><em class="property"> = ['info', 'var', 'use', 'quit', 'q', 'help']</em><a class="headerlink" href="#cmd3.plugins.shell_scope.shell_scope.scopeless" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cmd3.plugins.shell_scope.shell_scope.scopes">
+<code class="descname">scopes</code><em class="property"> = []</em><a class="headerlink" href="#cmd3.plugins.shell_scope.shell_scope.scopes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.shell_scope.shell_scope.set_banner">
+<code class="descname">set_banner</code><span class="sig-paren">(</span><em>banner</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.plugins.shell_scope.shell_scope.set_banner" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.shell_scope.shell_scope.set_verbose">
+<code class="descname">set_verbose</code><span class="sig-paren">(</span><em>on</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.plugins.shell_scope.shell_scope.set_verbose" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.shell_scope.shell_scope.update_time">
+<code class="descname">update_time</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.plugins.shell_scope.shell_scope.update_time" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="cmd3.plugins.shell_scope.shell_scope.variables">
+<code class="descname">variables</code><em class="property"> = {}</em><a class="headerlink" href="#cmd3.plugins.shell_scope.shell_scope.variables" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
 <div class="section" id="module-cmd3.plugins.template">
-<span id="template-module"></span><h2><code class="xref py py-mod docutils literal"><span class="pre">template</span></code> Module<a class="headerlink" href="#module-cmd3.plugins.template" title="Permalink to this headline">¶</a></h2>
+<span id="cmd3-plugins-template-module"></span><h2>cmd3.plugins.template module<a class="headerlink" href="#module-cmd3.plugins.template" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cmd3.plugins.template.template">
 <em class="property">class </em><code class="descclassname">cmd3.plugins.template.</code><code class="descname">template</code><a class="headerlink" href="#cmd3.plugins.template.template" title="Permalink to this definition">¶</a></dt>
@@ -577,7 +1040,7 @@ Arguments:
 
 </div>
 <div class="section" id="module-cmd3.plugins.timer">
-<span id="timer-module"></span><h2><code class="xref py py-mod docutils literal"><span class="pre">timer</span></code> Module<a class="headerlink" href="#module-cmd3.plugins.timer" title="Permalink to this headline">¶</a></h2>
+<span id="cmd3-plugins-timer-module"></span><h2>cmd3.plugins.timer module<a class="headerlink" href="#module-cmd3.plugins.timer" title="Permalink to this headline">¶</a></h2>
 <dl class="class">
 <dt id="cmd3.plugins.timer.timer">
 <em class="property">class </em><code class="descclassname">cmd3.plugins.timer.</code><code class="descname">timer</code><a class="headerlink" href="#cmd3.plugins.timer.timer" title="Permalink to this definition">¶</a></dt>
@@ -633,6 +1096,37 @@ Description (NOT IMPLEMENTED YET):
 </dd></dl>
 
 </div>
+<div class="section" id="module-cmd3.plugins.yaml_setup">
+<span id="cmd3-plugins-yaml-setup-module"></span><h2>cmd3.plugins.yaml_setup module<a class="headerlink" href="#module-cmd3.plugins.yaml_setup" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="cmd3.plugins.yaml_setup.yaml_setup">
+<em class="property">class </em><code class="descclassname">cmd3.plugins.yaml_setup.</code><code class="descname">yaml_setup</code><a class="headerlink" href="#cmd3.plugins.yaml_setup.yaml_setup" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="method">
+<dt id="cmd3.plugins.yaml_setup.yaml_setup.activate_load">
+<code class="descname">activate_load</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.plugins.yaml_setup.yaml_setup.activate_load" title="Permalink to this definition">¶</a></dt>
+<dd><p>activates the load command</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="cmd3.plugins.yaml_setup.yaml_setup.do_setup_yaml">
+<code class="descname">do_setup_yaml</code><span class="sig-paren">(</span><em>instance</em>, <em>args</em><span class="sig-paren">)</span><a class="headerlink" href="#cmd3.plugins.yaml_setup.yaml_setup.do_setup_yaml" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="docutils">
+<dt>::</dt>
+<dd><dl class="first docutils">
+<dt>Usage:</dt>
+<dd>setup_yaml  [&#8211;force]</dd>
+</dl>
+<p class="last">Copies a cmd3.yaml file into ~/.cloudmesh/cmd3.yaml</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+<div class="section" id="module-cmd3.plugins">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-cmd3.plugins" title="Permalink to this headline">¶</a></h2>
+</div>
 </div>
 
 
@@ -648,7 +1142,7 @@ Description (NOT IMPLEMENTED YET):
     </p>
     <p>
         &copy; Copyright 2012-2014, Gregor von Laszewski, based on his earlier code from cyberaide and cogkit.<br/>
-      Last updated on May 23, 2015.<br/>
+      Last updated on May 25, 2015.<br/>
     </p>
   </div>
 </footer>
