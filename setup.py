@@ -78,10 +78,10 @@ class UploadToPypi(install):
     def run(self):
         auto_create_version("cmd3", version)
         os.system("make clean")
-        os.system("python shell_plugins.py install")
-        os.system("python shell_plugins.py bdist_wheel")
+        os.system("python setup.py install")
+        os.system("python setup.py bdist_wheel")
         banner("Build Distribution")
-        os.system("python shell_plugins.py sdist --format=bztar,zip upload")
+        os.system("python setup.py sdist --format=bztar,zip upload")
 
 class InstallBase(install):
     """Install the cmd3 package."""
