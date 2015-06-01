@@ -6,7 +6,6 @@ from cmd3.console import Console
 
 
 class setup_management(object):
-
     def __init__(self, quiet=False):
         self.quiet = quiet
         try:
@@ -58,7 +57,6 @@ class setup_management(object):
             self.config.write(self.filename, output="yaml")
         else:
             print(self.config.yaml())
-
 
     def __str__(self):
         with open(self.filename, 'r') as f:
