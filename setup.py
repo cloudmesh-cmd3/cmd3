@@ -16,7 +16,7 @@
 # limitations under the License.                                          #
 # ------------------------------------------------------------------------#
 
-version = "1.9.5"
+version = "1.9.7"
 
 from setuptools.command.test import test as TestCommand
 from setuptools.command.install import install
@@ -70,6 +70,12 @@ class SetupYaml(install):
 
 
 
+def os_execute(commands):
+    for command in commands.split("\n"):
+        command = command.strip()
+        print (command)
+        os.system(command)
+        
 class UploadToPypi(install):
     """Upload the package to pypi. -- only for Maintainers."""
 
@@ -78,10 +84,12 @@ class UploadToPypi(install):
     def run(self):
         auto_create_version("cmd3", version)
         os.system("make clean")
-        os.system("python setup.py install")
-        os.system("python setup.py bdist_wheel")
-        banner("Build Distribution")
-        os.system("python setup.py sdist --format=bztar,zip upload")
+        commands = """
+            python setup.py install
+            python setup.py bdist_wheel            
+            python setup.py sdist --format=bztar,zip upload
+            """
+        os_execute(commands)    
 
 class InstallBase(install):
     """Install the cmd3 package."""
@@ -145,9 +153,9 @@ APP = ['cmd3/shell.py']
 OPTIONS = {'argv_emulation': True}
             
 setup(
-    setup_requires=['py2app'],
-    options={'py2app': OPTIONS},
-    app=APP,
+#    setup_requires=['py2app'],
+#    options={'py2app': OPTIONS},
+#    app=APP,
     version=version,
     name="cmd3",
     description="cmd3 - A dynamic CMD shell with plugins",
