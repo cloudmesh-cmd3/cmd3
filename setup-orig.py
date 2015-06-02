@@ -139,15 +139,8 @@ class Tox(TestCommand):
             args = shlex.split(self.tox_args)
         errno = tox.cmdline(args=args)
         sys.exit(errno)
-
-
-APP = ['cmd3/shell.py']
-OPTIONS = {'argv_emulation': True}
-            
+    
 setup(
-    setup_requires=['py2app'],
-    options={'py2app': OPTIONS},
-    app=APP,
     version=version,
     name="cmd3",
     description="cmd3 - A dynamic CMD shell with plugins",
