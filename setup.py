@@ -16,7 +16,7 @@
 # limitations under the License.                                          #
 # ------------------------------------------------------------------------#
 
-version = "1.9.4"
+version = "1.9.5"
 
 from setuptools.command.test import test as TestCommand
 from setuptools.command.install import install
@@ -174,6 +174,7 @@ setup(
     entry_points={
         'console_scripts': [
             'cm = cmd3.shell:main',
+            'cm.command = cmd3.shell:main',            
             'cm-generate-command = cmd3.generate:old_generate',
         ],
     },
