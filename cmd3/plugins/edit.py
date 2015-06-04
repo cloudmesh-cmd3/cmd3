@@ -31,21 +31,52 @@ class edit:
 
         """
 
-        filename = arg
-
-        if platform.system() == 'Darwin':
-
-            # touch filename
+        def _create_file(filename):
             if not os.path.exists(filename):
                 file(filename, 'w+').close()
 
-            editors = ["/Applications/Aquamacs.app",
-                       "/Applications/Emacs.app",
-                       "/usr/bin/emacs"]
-
+        def _edit(prefix, editors, filename):
             for editor in editors:
                 if os.path.exists(editor):
-                    open_editor("-a", editor, filename)
-                    return
+                    _create_file(filename)
+                    os.system("{:} {:} {:}".format(prefix, editor, filename))
+                    return True
+            return False
 
-            Console.error("Could not find working editor in {0}".format(str(editors)))
+
+        filename = arg
+
+        what =  platform.system().lower()
+        prefix = ""
+
+        print (what)
+        if 'darwin' in what:
+
+            editors = ["/Applications/Aquamacs.app",
+                       "/Applications/Emacs.app"]
+            prefix = "open -a "
+
+        elif "linux" in what:
+
+            editors = ["emacs",
+                       "vi",
+                       "vim",
+                       "nano"]
+
+        elif "windows" in what:
+
+            editors = ["emacs",
+                       "vi",
+                       "vim",
+                       "nano",
+                       "notepad",
+                       "notepad++"]
+
+        else:
+            Console.error("Please contact the developers to add an "
+                          "editor for your platform")
+            return
+
+        if not _edit(prefix, editors, filename):
+            Console.error("Could not find working editor in {0}"
+                          .format(str(editors)))

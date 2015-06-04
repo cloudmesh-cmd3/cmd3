@@ -16,7 +16,7 @@
 # limitations under the License.                                          #
 # ------------------------------------------------------------------------#
 
-version = "1.9.7"
+version = "1.9.9"
 
 from setuptools.command.test import test as TestCommand
 from setuptools.command.install import install
@@ -97,6 +97,12 @@ class InstallBase(install):
     description = __doc__
 
     def run(self):
+        banner("Install readline")
+        commands = """
+            easy_install readline
+            """
+        os_execute(commands)    
+
         banner("Install Cmd3")
         install.run(self)
 
