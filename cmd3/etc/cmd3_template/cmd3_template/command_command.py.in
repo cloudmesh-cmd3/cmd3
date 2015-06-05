@@ -1,5 +1,5 @@
 from cloudmesh_base.Shell import Shell
-
+from cmd3.console import Console
 
 class command_{command}(object):
 
@@ -16,3 +16,11 @@ class command_{command}(object):
             return False
         else:
             return False
+
+    @classmethod
+    def start(cls):
+        Console.ok("Start")
+
+    @classmethod
+    def stop(cls):
+        Console.ok("Stop")

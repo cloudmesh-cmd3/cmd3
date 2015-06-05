@@ -84,7 +84,6 @@ from compiler.ast import flatten
 from docopt import docopt
 from pprint import pprint
 import cmd
-import getopt
 import glob
 import inspect
 import logging
@@ -96,9 +95,6 @@ import sys
 import textwrap
 import traceback
 from cloudmesh_base.ConfigDict import ConfigDict
-from cloudmesh_base.util import banner
-from cloudmesh_base.util import path_expand
-from cloudmesh_base.Shell import Shell
 from cmd3.console import Console
 import cmd3
 
@@ -514,25 +510,3 @@ def cmd3_call(f):
 if __name__ == "__main__":
     main()
 
-
-"""
-bash$ echo "help" | shell.py > output.txt
-
-stupid example: shell.py metric analyze -y 2013
-
-/trunk/cog-shell/src/cogkit/Shell/CoGCli.py?revision=3648&view=markup
-
-
-386def runCLI(filename=None, silent=False, interactive=False):
-387    if filename == None:
-388        cli = CogShell(silent)
-389        cli.cmdloop()
-390    else:
-391        cli = CogShell(silent=True)
-392        cli.do_exec(filename)
-393        if interactive:
-394            cli.cmdloop()
-395
-
-69    cogkit.Shell.CoGCli.runCLI(script_file, quiet, interactive)
-"""

@@ -1,19 +1,7 @@
 #!/usr/bin/env python
 
-version = "1.0"
+version = "0.1"
 
-
-requirements = [
-    'future',
-    'sh',
-    'docopt',
-    'pyaml',
-    'simplejson',
-    'nose',
-    'python-hostlist',
-    'prettytable',
-    'pytimeparse',
-    ]
 
 from setuptools import setup, find_packages
 from setuptools.command.install import install
@@ -29,7 +17,6 @@ except:
 
 from cloudmesh_base.util import banner
 from cloudmesh_base.util import path_expand
-from cloudmesh_base.Shell import Shell
 from cloudmesh_base.util import auto_create_version
 from cloudmesh_base.util import auto_create_requirements
 

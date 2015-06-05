@@ -2,7 +2,6 @@ import os
 import platform
 
 from cmd3.shell import command
-from sh import open as open_editor
 from cmd3.console import Console
 
 # noinspection PyUnusedLocal

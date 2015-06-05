@@ -1,5 +1,3 @@
-from cloudmesh_base.Shell import Shell
-
 from cloudmesh_base.locations import config_file
 from cloudmesh_base.ConfigDict import ConfigDict
 from cmd3.console import Console

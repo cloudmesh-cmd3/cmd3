@@ -3,12 +3,9 @@ import sys
 from textwrap import dedent
 
 import pkg_resources
-from cloudmesh_base.util import banner
-from cloudmesh_base.util import path_expand
 from cloudmesh_base.util import get_python
 from cloudmesh_base.util import check_python
 from cmd3.console import Console
-from cloudmesh_base.Shell import Shell
 import cloudmesh_base
 
 import cmd3

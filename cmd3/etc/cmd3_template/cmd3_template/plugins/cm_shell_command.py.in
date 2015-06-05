@@ -17,7 +17,9 @@ class cm_shell_{command}:
         ::
 
           Usage:
-              {command} NAME 
+              {command} NAME
+              {command} start
+              {command} stop
 
           tests via ping if the host ith the give NAME is reachable
 
