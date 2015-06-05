@@ -17,6 +17,5 @@ python-hostlist==1.14
 pytimeparse==1.1.4        # via cloudmesh-base
 pytz==2015.4              # via cloudmesh-timestring
 pyyaml==3.11              # via pyaml
-sh==1.11
 simplejson==3.7.3
 wheel==0.24.0
