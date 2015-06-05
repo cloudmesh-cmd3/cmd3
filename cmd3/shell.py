@@ -426,7 +426,7 @@ def main():
                    'cloudmesh_slurm.plugins',
                    'cloudmesh_deploy.plugins']
     for module_name in modules:
-        # print ("INSTALL", module_name)
+        #print ("INSTALL", module_name)
         try:
             plugins.append(dict(get_plugins_from_module(module_name)))
         except:
@@ -458,6 +458,7 @@ def main():
     #
 
     (cmd, plugin_objects) = DynamicCmd(name, plugins)
+
 
     get_version()
     cmd.set_verbose(echo)
