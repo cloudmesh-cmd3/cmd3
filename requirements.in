@@ -1,7 +1,6 @@
 cloudmesh_base
 cloudmesh_timestring
 future
-sh
 docopt
 pyaml
 simplejson
