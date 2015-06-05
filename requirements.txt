@@ -4,7 +4,7 @@
 #
 #    pip-compile requirements.in
 #
-cloudmesh-base==2.6.2
+cloudmesh-base>=2.6.6
 cloudmesh-timestring==1.6.2.1
 docopt==0.6.2
 future==0.14.3
