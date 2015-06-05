@@ -16,7 +16,7 @@
 # limitations under the License.                                          #
 # ------------------------------------------------------------------------#
 
-version = "1.10.2"
+version = "3.0.0"
 
 from setuptools.command.test import test as TestCommand
 from setuptools.command.install import install
