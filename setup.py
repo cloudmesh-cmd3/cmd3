@@ -23,6 +23,7 @@ from setuptools.command.install import install
 import os
 from setuptools import setup, find_packages
 import shutil
+import sys
 
 try:
     from cloudmesh_base.util import banner
@@ -97,11 +98,13 @@ class InstallBase(install):
     description = __doc__
 
     def run(self):
-        banner("Install readline")
-        commands = """
+        if sys.platform.lower() not in ['cygwin','windows']:
+            
+            banner("Install readline")
+            commands = """
             easy_install readline
             """
-        os_execute(commands)    
+            os_execute(commands)    
 
         banner("Install Cmd3")
         install.run(self)
