@@ -303,19 +303,19 @@ class shell_scope:
 
         special vars date and time are defined
         """
-        if arg == 'list' or arg == '' or arg is None:
+        if arguments['list'] or arg == '' or arg is None:
             self._list_variables()
             return
 
-        elif '=' in arg:
+        elif arguments['NAME=VALUE'] and "=" in arguments["NAME=VALUE"]:
             (variable, value) = arg.split('=', 1)
-            if value == "time":
+            if value == "time" or value == "now":
                 value = datetime.datetime.now().strftime("%H:%M:%S")
             elif value == "date":
                 value = datetime.datetime.now().strftime("%Y-%m-%d")
             self._add_variable(variable, value)
             return
-        elif '=' not in arg and arguments['NAME=VALUE'] is not None:
+        elif arguments['NAME=VALUE'] and "=" in arguments["NAME=VALUE"]:
             try:
                 v = arguments['NAME=VALUE']
                 Console.ok(str(self.variables[v]))

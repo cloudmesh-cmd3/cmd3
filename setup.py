@@ -16,12 +16,12 @@
 # limitations under the License.                                          #
 # ------------------------------------------------------------------------#
 
-version = "3.0.0"
+version = "3.0.1"
 
+from setuptools import setup, find_packages
 from setuptools.command.test import test as TestCommand
 from setuptools.command.install import install
 import os
-from setuptools import setup, find_packages
 import shutil
 
 try:
@@ -33,7 +33,6 @@ from cloudmesh_base.util import banner
 from cloudmesh_base.util import path_expand
 from cloudmesh_base.Shell import Shell
 from cloudmesh_base.util import auto_create_version
-from cloudmesh_base.util import auto_create_requirements
 
 banner("Installing Cmd3")
 
