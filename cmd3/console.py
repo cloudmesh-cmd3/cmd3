@@ -64,11 +64,15 @@ class Console(object):
         print (message)
 
     @staticmethod
-    def error(message):
-        if Console.color:
-            Console._print('FAIL', "ERROR: ", message)
+    def error(message, prefix=True):
+        if prefix:
+            text = "ERROR: "
         else:
-            print Console._msg("ERROR: " + message)
+            text = ""
+        if Console.color:
+            Console._print('FAIL', text, message)
+        else:
+            print Console._msg(text + message)
 
     @staticmethod
     def info(message):
