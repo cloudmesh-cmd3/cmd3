@@ -57,10 +57,10 @@ class edit:
 
         elif "linux" in what:
 
-            editors = ["emacs",
-                       "vi",
-                       "vim",
-                       "nano"]
+            editors = ["/usr/bin/emacs",
+                       "/usr/bin/vi",
+                       "/usr/bin/vim",
+                       "/usr/bin/nano"]
 
         elif "windows" in what:
 
