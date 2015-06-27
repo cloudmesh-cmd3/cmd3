@@ -11,10 +11,10 @@ def create_cmd3_yaml_file(force=False):
 
     def print_error(kind, path):
         Console.error("the {0} {1} already exists".format(kind, path))
-        Console.error("")
-        Console.error("If you like to reinstall it, "
+        Console.msg("")
+        Console.msg("If you like to reinstall it, "
                       "please remove the file first")
-        Console.error("")
+        Console.msg("")
 
     import cmd3
 

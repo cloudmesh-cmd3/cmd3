@@ -4,9 +4,13 @@ import os
 from cmd3.shell import command
 from cmd3.console import Console
 
+# TODO BUG, loglevel and debug need to vbe stored once they are set into cmd3.yaml
+
 # noinspection PyUnusedLocal
 class shell_scope:
 
+    loglevel = "ERROR"
+    debug = False
     echo = True
     active_scope = ""
     scopes = []
@@ -22,6 +26,7 @@ class shell_scope:
     def info_shell_scope(self):
         """prints some information about the shell scope"""
         Console.ok("{:>20} = {:}".format("ECHO", self.echo))
+        Console.ok("{:>20} = {:}".format("DEBUG", self.debug))
         Console.ok("{:>20} = {:}".format("SCOPE", self.active_scope))
         Console.ok("{:>20} = {:}".format("SCOPES", self.scopes))
         Console.ok("{:>20} = {:}".format("SCOPELESS", self.scopeless))
@@ -234,6 +239,63 @@ class shell_scope:
 
     def set_banner(self, banner):
         self.banner = banner
+
+    @command
+    def do_debug(self, args, arguments):
+        """
+        ::
+
+        Usage:
+              debug on
+              debug off
+
+              Turns the debug log level on and off.
+        """
+
+        if arguments['on']:
+            self.debug = True
+            Console.ok("Debug mode is on.")
+        elif arguments['off']:
+            self.debug = False
+            Console.ok("Debug mode is off.")
+
+    @command
+    def do_loglevel(self, args, arguments):
+        """
+        ::
+
+          Usage:
+              loglevel
+              loglevel critical
+              loglevel error
+              loglevel warning
+              loglevel info
+              loglevel debug
+
+              Shows current log level or changes it.
+
+              loglevel - shows current log level
+              critical - shows log message in critical level
+              error    - shows log message in error level including critical
+              warning  - shows log message in warning level including error
+              info     - shows log message in info level including warning
+              debug    - shows log message in debug level including info
+
+        """
+        if arguments['debug']:
+            self.loglevel = "DEBUG"
+        elif arguments['error']:
+            self.loglevel = "ERROR"
+        elif arguments['warning']:
+            self.loglevel = "WARNING"
+        elif arguments['info']:
+            self.loglevel = "INFO"
+        elif arguments['critical']:
+            self.loglevel = "CRITICAL"
+        else:
+            Console.ok("Log level: {0}".format(self.loglevel))
+            return
+        Console.ok ("Log level: {0} is set".format(self.loglevel))
 
     @command
     def do_verbose(self, args, arguments):
