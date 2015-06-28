@@ -30,10 +30,6 @@ except:
     # os.system("pip install cloudmesh_base")
     os.system("pip install git+https://github.com/cloudmesh/base.git@sh")
 
-import sys
-sys.exit()
-
-
 from cloudmesh_base.util import banner
 from cloudmesh_base.util import path_expand
 from cloudmesh_base.Shell import Shell
@@ -176,5 +172,7 @@ setup(
         'pypi': UploadToPypi,
         'test': Tox
     },
+    dependency_links =
+        ['git+https://github.com/cloudmesh/base.git@sh']
 )
 
