@@ -25,9 +25,14 @@ import sys
 
 try:
     import cloudmesh_base
-    print ("Using cloudmesh_base varsion:", cloudmesh_base.__version__)
+    print ("Using cloudmesh_base version:", cloudmesh_base.__version__)
 except:
-    os.system("pip install cloudmesh_base")
+    # os.system("pip install cloudmesh_base")
+    os.system("pip install git+https://github.com/cloudmesh/base.git@sh")
+
+import sys
+sys.exit()
+
 
 from cloudmesh_base.util import banner
 from cloudmesh_base.util import path_expand
