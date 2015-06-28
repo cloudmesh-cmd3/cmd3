@@ -9,10 +9,8 @@ from cmd3.console import Console
 import cloudmesh_base
 
 import cmd3
-import pip
 
 
-# noinspection PyUnusedLocal
 class shell_core:
 
     def help_help(self):
@@ -26,19 +24,7 @@ class shell_core:
 
     def info_shell_core(self):
         """prints information about the shell core"""
-        version = self.get_version()
-        Console.ok("{:>20} = {:}".format("VERSION", version))
-
-    def version(self):
-        """prints the version of cmd3"""
-        import cmd3
-        return cmd3.version
-
-    def get_version(self):
-        """prints the version of cmd3"""        
-        # import pkg_resources  # part of setuptools
-        # self.__version__ = pkg_resources.require("cmd3")[0].version
-        return self.version()
+        Console.ok("{:>20} = {:}".format("VERSION", cmd3.__version__))
 
     def do_version(self, args):
         """
@@ -47,13 +33,9 @@ class shell_core:
 
         Prints out the version number
         """
-        Console.ok("cmd3: {:}".format(str(self.get_version())))
-        Console.ok("cloudmesh_base: {:}".format(str(cloudmesh_base.version)))
-        # print self.__version__
+        Console.ok("cmd3: {:}".format(str(cmd3.__version__)))
+        Console.ok("cloudmesh_base: {:}".format(str(cloudmesh_base.__version__)))
 
-        #
-        # python version
-        #
         python_version, pip_version = get_python()
 
         Console.ok("python: {:}".format(str(python_version)))

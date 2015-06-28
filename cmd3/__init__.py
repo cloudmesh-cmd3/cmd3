@@ -1,1 +1,5 @@
-version = "1.10.2"
+import cmd3.version
+
+__version__ = version.version
+
+print ("%%%%%%%")

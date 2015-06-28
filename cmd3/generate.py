@@ -38,14 +38,6 @@ def replace_string(filename, data):
                 line = line.replace(old, new).rstrip()
             f.write(line + "\n")
 
-def old_generate():
-    # os.system("cm generate help")
-    # Console.error("Please do not forget to use the cm in front of "
-    #              "generate command. when executing it from the terminal.")
-    Console.error("This command has been replaced with\n")
-    Console.ok("   cm generate command COMMAND")
-    Console.error("Please use this command instead.")
-
 def generate_command(command=None,
                      package=None,
                      path="~",

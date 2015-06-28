@@ -3,6 +3,8 @@ import os
 
 from cmd3.shell import command
 from cmd3.console import Console
+from cloudmesh_base.ConfigDict import ConfigDict
+from cloudmesh_base.util import path_expand
 
 # TODO BUG, loglevel and debug need to vbe stored once they are set into cmd3.yaml
 
@@ -237,6 +239,12 @@ class shell_scope:
     def set_verbose(self, on):
         self.echo = on
 
+    def set_debug(self, on):
+        if type(on) == bool:
+            self.debug = on
+        else:
+            self.debug = on.lower() in ['on', 'true']
+
     def set_banner(self, banner):
         self.banner = banner
 
@@ -251,13 +259,18 @@ class shell_scope:
 
               Turns the debug log level on and off.
         """
+        filename = path_expand("~/.cloudmesh/cmd3.yaml")
 
+        config = ConfigDict(filename=filename)
         if arguments['on']:
             self.debug = True
+            config["cmd3"]["properties"]["debug_msg"] = "on"
             Console.ok("Debug mode is on.")
         elif arguments['off']:
             self.debug = False
             Console.ok("Debug mode is off.")
+            config["cmd3"]["properties"]["debug_msg"] = "off"
+        config.write(filename=filename, output="yaml", attribute_indent="    ")
 
     @command
     def do_loglevel(self, args, arguments):

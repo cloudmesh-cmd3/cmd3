@@ -1,3 +1,4 @@
+# coding=utf-8
 from cmd3.shell import command
 from cmd3.generate import generate_command
 
@@ -37,19 +38,19 @@ class shell_generate:
 
                 would create in the home directory  the following files
 
-                    ├── LICENSE
-                    ├── Makefile
-                    ├── __init__.py
-                    ├── __init__.pyc
-                    ├── cloudmesh_example
-                    │   ├── __init__.py
-                    │   ├── command_example.py
-                    │   └── plugins
-                    │       ├── __init__.py
-                    │       └── cm_shell_example.py
-                    ├── requirements.txt
-                    ├── setup.cfg
-                    └── setup.py
+                    |-- LICENSE
+                    |-- Makefile
+                    |-- __init__.py
+                    |-- __init__.pyc
+                    |-- cloudmesh_example
+                    |   |-- __init__.py
+                    |   |-- command_example.py
+                    |   |-- plugins
+                    |       |-- __init__.py
+                    |       |-- cm_shell_example.py
+                    |-- requirements.txt
+                    |-- setup.cfg
+                    |-- setup.py
 
                 To install the plugin go to the directory and say
 

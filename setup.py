@@ -15,65 +15,34 @@
 # See the License for the specific language governing permissions and     #
 # limitations under the License.                                          #
 # ------------------------------------------------------------------------#
-
-version = "3.0.1"
-
+from __future__ import print_function
 from setuptools import setup, find_packages
 from setuptools.command.test import test as TestCommand
 from setuptools.command.install import install
 import os
 import shutil
+import sys
 
 try:
-    from cloudmesh_base.util import banner
+    import cloudmesh_base
+    print ("Using cloudmesh_base varsion:", cloudmesh_base.__version__)
 except:
     os.system("pip install cloudmesh_base")
 
-from cloudmesh_base.util import banner    
+from cloudmesh_base.util import banner
 from cloudmesh_base.util import path_expand
 from cloudmesh_base.Shell import Shell
 from cloudmesh_base.util import auto_create_version
+from cloudmesh_base.setup import parse_requirements, os_execute, get_version_from_git
 
-banner("Installing Cmd3")
+version = get_version_from_git()
 
-def parse_requirements(filename):
-    """ load requirements from a pip requirements file """
-    lineiter = (line.strip() for line in open(filename))
-    return [line for line in lineiter if line and not line.startswith("#")]
-
+banner("Installing Cmd3 {:}".format(version))
 
 requirements = parse_requirements('requirements.txt')
 
 
 auto_create_version("cmd3", version, filename="version.py")
-
-class SetupYaml(install):
-    """Copies a cmd3 yaml file to ~/.cloudmesh."""
-
-    description = __doc__
-
-    def run(self):
-        banner("Setup the cmd3.yaml file")
-
-        cmd3_yaml = path_expand("~/.cloudmesh/cmd3.yaml")
-
-        if os.path.isfile(cmd3_yaml):
-            print ("ERROR: the file {0} already exists".format(cmd3_yaml))
-            print
-            print ("If you like to reinstall it, please remove the file")
-        else:
-            print ("Copy file:  {0} -> {1} ".format(path_expand("etc/cmd3.yaml"), cmd3_yaml))
-            Shell.mkdir("~/.cloudmesh")
-
-            shutil.copy("etc/cmd3.yaml", path_expand("~/.cloudmesh/cmd3.yaml"))
-
-
-
-def os_execute(commands):
-    for command in commands.split("\n"):
-        command = command.strip()
-        print (command)
-        os.system(command)
         
 class UploadToPypi(install):
     """Upload the package to pypi. -- only for Maintainers."""
@@ -81,7 +50,7 @@ class UploadToPypi(install):
     description = __doc__
 
     def run(self):
-        auto_create_version("cmd3", version)
+        auto_create_version("cmd3", version, filename="version.py")
         os.system("make clean")
         commands = """
             python setup.py install
@@ -101,8 +70,8 @@ class InstallBase(install):
             easy_install readline
             """
         os_execute(commands)    
-
-        banner("Install Cmd3")
+        import cmd3
+        banner("Install Cmd3 {:}".format(version))
         install.run(self)
 
 
@@ -194,14 +163,11 @@ setup(
     entry_points={
         'console_scripts': [
             'cm = cmd3.shell:main',
-            'cm.command = cmd3.shell:main',            
-            'cm-generate-command = cmd3.generate:old_generate',
         ],
     },
     tests_require=['tox'],
     cmdclass={
         'install': InstallBase,
-        'yaml': SetupYaml,
         'pypi': UploadToPypi,
         'test': Tox
     },
