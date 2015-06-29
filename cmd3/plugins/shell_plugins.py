@@ -17,14 +17,11 @@ class shell_plugins:
 
             Usage:
               setup init [--force]
-              setup test
 
             Copies a cmd3.yaml file into ~/.cloudmesh/cmd3.yaml
         """
-        if arguments["test"]:
-            Console.ok("test")
-        elif arguments["init"]:
-            Console.ok("init")
+        if arguments["init"]:
+            Console.ok("Initialize cmd3.yaml file")
 
             from cmd3.yaml_setup import create_cmd3_yaml_file
             force = arguments["--force"]

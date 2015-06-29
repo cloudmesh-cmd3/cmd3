@@ -1,5 +1,5 @@
 #! /usr/bin/env python
-
+from __future__ import print_function
 """
 This project is about developing a dynamic CMD class based on cmd.CMD.
 We assume the following directory structure::
@@ -78,7 +78,7 @@ Here are the sample classes::
                print "> %s" % key.replace("_"," ")
                exec("self.%s()" % key)
 """
-from __future__ import print_function
+
 import textwrap
 from compiler.ast import flatten
 from docopt import docopt
@@ -97,6 +97,8 @@ import traceback
 from cloudmesh_base.ConfigDict import ConfigDict
 from cmd3.console import Console
 import cmd3
+from cmd3.yaml_setup import create_cmd3_yaml_file
+from cloudmesh_base.util import path_expand
 
 # echo = False
 echo = False
@@ -122,16 +124,6 @@ log.addHandler(handler)
 # code insired from cyberaide and cogkit, while trying to develop a
 # dynamic CMD that loads from plugin directory
 #
-
-__version__ = None
-
-def get_version():
-    # import pkg_resources  # part of setuptools
-    # self.__version__ = pkg_resources.require("cmd3")[0].version
-    import cmd3
-    __version__ = cmd3.version
-    return cmd3.version
-
 
 def DynamicCmd(name, plugins):
     """
@@ -382,9 +374,6 @@ def main():
       -b                 surpress the printing of the banner [default: False]
     """
 
-    #    __version__ = pkg_resources.require("cmd3")[0].version
-    # arguments = docopt(main.__doc__, help=True, version=__version__)
-
     echo = False
     
     try:
@@ -416,15 +405,16 @@ def main():
     # if not os.path.exists(path_expand( "~/.cloudmesh/cmd3.yaml")):
     #     from cmd3.plugins.shell_core import create_cmd3_yaml_file
     #     create_cmd3_yaml_file()
-        
+
+
+    create_cmd3_yaml_file(force=False, verbose=False)
+    filename = path_expand("~/.cloudmesh/cmd3.yaml")
     try:
-        module_config = ConfigDict(filename="~/.cloudmesh/cmd3.yaml")
+        module_config = ConfigDict(filename=filename)
         modules = module_config["cmd3"]["modules"]
+        properties = module_config["cmd3"]["properties"]
     except:
-        modules = ['cloudmesh_cmd3.plugins',
-                   'cloudmesh_docker.plugins',
-                   'cloudmesh_slurm.plugins',
-                   'cloudmesh_deploy.plugins']
+        modules = ['cloudmesh_cmd3.plugins']
     for module_name in modules:
         #print ("INSTALL", module_name)
         try:
@@ -460,10 +450,11 @@ def main():
     (cmd, plugin_objects) = DynamicCmd(name, plugins)
 
 
-    get_version()
     cmd.set_verbose(echo)
     cmd.activate()
     cmd.set_verbose(echo)
+
+    cmd.set_debug(properties["debug"])
 
     if arguments['-b']:
         cmd.set_banner("")

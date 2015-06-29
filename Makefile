@@ -90,11 +90,11 @@ qc-install:
 clean:
 	find . -name "*~" -exec rm {} \;  
 	find . -name "*.pyc" -exec rm {} \;  
-	rm -rf build dist 
+	rm -rf build dist docs/build
 	rm -f *~ 
-	rm -rf *.egg-info
+	rm -rf *.egg-info .egg*
 	#cd doc; make clean
-	echo "hallo"
+	echo "clean done"
 
 #############################################################################
 # SPHINX DOC
@@ -115,12 +115,13 @@ view: html
 ######################################################################
 
 tag:
-	@echo "VERSION: $(TAG)"
-	make clean
-	git tag $(TAG)
-	git add .
-	touch README.rst
-	git commit -m "adding version $(TAG)"
-	git push
-	git push origin --tags
+	cm-authors > AUTHORS
+	git tag
+	@echo "New Tag?"; read TAG; git tag $$TAG; python setup.py install; git commit -m $$TAG --allow-empty; git push origin --tags
+
+
+rmtag:
+	git tag
+	@echo "rm Tag?"; read TAG; git tag -d $$TAG; git push origin :refs/tags/$$TAG
+
 

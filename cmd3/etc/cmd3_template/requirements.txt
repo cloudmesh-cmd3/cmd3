@@ -6,6 +6,5 @@ docopt
 pyaml
 simplejson
 nose
-python-hostlist
 prettytable
 pytimeparse

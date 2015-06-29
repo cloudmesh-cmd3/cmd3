@@ -20,6 +20,8 @@ class load:
 
             Arguments:
                MODULE  The name of the module.
+
+            THIS COMMAND IS NOT IMPLEMENTED
         """
         module = arguments["MODULE"]
         # try:

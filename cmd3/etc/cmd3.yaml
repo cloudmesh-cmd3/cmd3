@@ -1,5 +1,5 @@
 meta:
-    yaml_version: 2.1
+    yaml_version: 2.2
     kind: cmd3
     filename: ${HOME}/.cloudmesh/cmd3.yaml
     location: ${HOME}/.cloudmesh/cmd3.yaml
@@ -7,8 +7,6 @@ meta:
 cmd3:
     modules:
     - cloudmesh_cmd3.plugins
-    - cloudmesh_docker.plugins
-    - cloudmesh_slurm.plugins
-    - cloudmesh_deploy.plugins
-
-
+    properties:
+        debug: True
+        loglevel: error

@@ -3,10 +3,16 @@ import os
 
 from cmd3.shell import command
 from cmd3.console import Console
+from cloudmesh_base.ConfigDict import ConfigDict
+from cloudmesh_base.util import path_expand
+
+# TODO BUG, loglevel and debug need to vbe stored once they are set into cmd3.yaml
 
 # noinspection PyUnusedLocal
 class shell_scope:
 
+    loglevel = "ERROR"
+    debug = False
     echo = True
     active_scope = ""
     scopes = []
@@ -22,6 +28,7 @@ class shell_scope:
     def info_shell_scope(self):
         """prints some information about the shell scope"""
         Console.ok("{:>20} = {:}".format("ECHO", self.echo))
+        Console.ok("{:>20} = {:}".format("DEBUG", self.debug))
         Console.ok("{:>20} = {:}".format("SCOPE", self.active_scope))
         Console.ok("{:>20} = {:}".format("SCOPES", self.scopes))
         Console.ok("{:>20} = {:}".format("SCOPELESS", self.scopeless))
@@ -232,8 +239,76 @@ class shell_scope:
     def set_verbose(self, on):
         self.echo = on
 
+    def set_debug(self, on):
+        if type(on) == bool:
+            self.debug = on
+        else:
+            self.debug = on.lower() in ['on', 'true']
+
     def set_banner(self, banner):
         self.banner = banner
+
+    @command
+    def do_debug(self, args, arguments):
+        """
+        ::
+
+        Usage:
+              debug on
+              debug off
+
+              Turns the debug log level on and off.
+        """
+        filename = path_expand("~/.cloudmesh/cmd3.yaml")
+
+        config = ConfigDict(filename=filename)
+        if arguments['on']:
+            self.debug = True
+            config["cmd3"]["properties"]["debug_msg"] = "on"
+            Console.ok("Debug mode is on.")
+        elif arguments['off']:
+            self.debug = False
+            Console.ok("Debug mode is off.")
+            config["cmd3"]["properties"]["debug_msg"] = "off"
+        config.write(filename=filename, output="yaml", attribute_indent="    ")
+
+    @command
+    def do_loglevel(self, args, arguments):
+        """
+        ::
+
+          Usage:
+              loglevel
+              loglevel critical
+              loglevel error
+              loglevel warning
+              loglevel info
+              loglevel debug
+
+              Shows current log level or changes it.
+
+              loglevel - shows current log level
+              critical - shows log message in critical level
+              error    - shows log message in error level including critical
+              warning  - shows log message in warning level including error
+              info     - shows log message in info level including warning
+              debug    - shows log message in debug level including info
+
+        """
+        if arguments['debug']:
+            self.loglevel = "DEBUG"
+        elif arguments['error']:
+            self.loglevel = "ERROR"
+        elif arguments['warning']:
+            self.loglevel = "WARNING"
+        elif arguments['info']:
+            self.loglevel = "INFO"
+        elif arguments['critical']:
+            self.loglevel = "CRITICAL"
+        else:
+            Console.ok("Log level: {0}".format(self.loglevel))
+            return
+        Console.ok ("Log level: {0} is set".format(self.loglevel))
 
     @command
     def do_verbose(self, args, arguments):
@@ -303,19 +378,19 @@ class shell_scope:
 
         special vars date and time are defined
         """
-        if arg == 'list' or arg == '' or arg is None:
+        if arguments['list'] or arg == '' or arg is None:
             self._list_variables()
             return
 
-        elif '=' in arg:
+        elif arguments['NAME=VALUE'] and "=" in arguments["NAME=VALUE"]:
             (variable, value) = arg.split('=', 1)
-            if value == "time":
+            if value == "time" or value == "now":
                 value = datetime.datetime.now().strftime("%H:%M:%S")
             elif value == "date":
                 value = datetime.datetime.now().strftime("%Y-%m-%d")
             self._add_variable(variable, value)
             return
-        elif '=' not in arg and arguments['NAME=VALUE'] is not None:
+        elif arguments['NAME=VALUE'] and "=" in arguments["NAME=VALUE"]:
             try:
                 v = arguments['NAME=VALUE']
                 Console.ok(str(self.variables[v]))
