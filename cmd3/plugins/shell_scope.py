@@ -29,6 +29,7 @@ class shell_scope:
         """prints some information about the shell scope"""
         Console.ok("{:>20} = {:}".format("ECHO", self.echo))
         Console.ok("{:>20} = {:}".format("DEBUG", self.debug))
+        Console.ok("{:>20} = {:}".format("LOGLEVEL", self.loglevel))
         Console.ok("{:>20} = {:}".format("SCOPE", self.active_scope))
         Console.ok("{:>20} = {:}".format("SCOPES", self.scopes))
         Console.ok("{:>20} = {:}".format("SCOPELESS", self.scopeless))
@@ -240,10 +241,17 @@ class shell_scope:
         self.echo = on
 
     def set_debug(self, on):
+        filename = path_expand("~/.cloudmesh/cmd3.yaml")
+        config = ConfigDict(filename=filename)
         if type(on) == bool:
             self.debug = on
         else:
             self.debug = on.lower() in ['on', 'true']
+
+        config["cmd3"]["properties"]["debug"] = self.debug
+        Console.ok("Debug mode is {:}".format(self.debug))
+        config.write(filename=filename, output="yaml", attribute_indent="    ")
+
 
     def set_banner(self, banner):
         self.banner = banner
@@ -263,14 +271,9 @@ class shell_scope:
 
         config = ConfigDict(filename=filename)
         if arguments['on']:
-            self.debug = True
-            config["cmd3"]["properties"]["debug_msg"] = "on"
-            Console.ok("Debug mode is on.")
+            self.set_debug(True)
         elif arguments['off']:
-            self.debug = False
-            Console.ok("Debug mode is off.")
-            config["cmd3"]["properties"]["debug_msg"] = "off"
-        config.write(filename=filename, output="yaml", attribute_indent="    ")
+            self.set_debug(False)
 
     @command
     def do_loglevel(self, args, arguments):
@@ -309,6 +312,12 @@ class shell_scope:
             Console.ok("Log level: {0}".format(self.loglevel))
             return
         Console.ok ("Log level: {0} is set".format(self.loglevel))
+
+        filename = path_expand("~/.cloudmesh/cmd3.yaml")
+        config = ConfigDict(filename=filename)
+        config["cmd3"]["properties"]["loglevel"] = self.loglevel
+        config.write(filename=filename, output="yaml", attribute_indent="    ")
+
 
     @command
     def do_verbose(self, args, arguments):
