@@ -24,6 +24,7 @@ def create_cmd3_yaml_file(force=False, verbose=True):
 
     if force or not os.path.isfile(cmd3_yaml):
         Shell.mkdir(path_expand("~/.cloudmesh"))
+        import cmd3
         content = pkg_resources.resource_string(cmd3.__name__,
                                                 "etc/cmd3.yaml")
         Console.ok("Generate yaml file")
