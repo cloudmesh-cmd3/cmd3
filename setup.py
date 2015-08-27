@@ -159,8 +159,8 @@ setup(
     packages=find_packages(),
     install_requires=requirements,
     include_package_data=True,
-    data_files= data_files,
-    package_data={'cmd3': data_dirs},
+    # data_files= data_files,
+    # package_data={'cmd3': data_dirs},
     entry_points={
         'console_scripts': [
             'cm = cmd3.shell:main',
@@ -172,7 +172,7 @@ setup(
         'pypi': UploadToPypi,
         'test': Tox
     },
-    dependency_links =
-        ['git+https://github.com/cloudmesh/base.git@sh']
+#    dependency_links =
+#        ['git+https://github.com/cloudmesh/base.git@sh']
 )
 
