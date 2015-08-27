@@ -89,7 +89,9 @@ import inspect
 import logging
 import os
 import pkg_resources  # part of setuptools
-import readline
+import platform
+if not platform.system().lower() == 'windows':
+    import readline
 import shlex
 import sys
 import textwrap
