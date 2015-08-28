@@ -105,6 +105,8 @@ from cloudmesh_base.util import path_expand
 # echo = False
 echo = False
 
+
+
 #
 # SETTING UP A LOGGER
 #
@@ -116,6 +118,9 @@ handler = logging.StreamHandler()
 handler.setFormatter(formatter)
 log.addHandler(handler)
 
+def path_into_cygpath(path):
+    drive, destination = path.replace('\\','/').split(':')
+    return '/cygdrive/' + drive.lower() + destination
 
 #
 # DYNAMIC COMMAND MANAGEMENT
@@ -166,6 +171,14 @@ def get_plugins(directory):
     # log.info("   {0}".format(str(plugins)))
     return plugins
 
+try: 
+    cygwin = os.environ['TERM']
+    print ("CCCCCCC", cygwin)
+    cygwin = cygwin == 'cygwin'
+    print (cygwin)
+except:
+    print ("NO CYGWIN")
+    cygwin = False
 
 def load_plugins(classprefix, plugin_list):
     """
@@ -178,11 +191,16 @@ def load_plugins(classprefix, plugin_list):
     import_object = {}
     # log.info(str(list))
     for plugin in plugin_list:
+        if cygwin:
+            plugin = path_into_cygpath(plugin)
+        print ("PPPPP", classprefix, plugin)
+
         try:
             import_object[plugin] = __import__(
                 classprefix + "." + plugin, globals(), locals(), [plugin], -1)
             # print ("TTT", import_object[plugin], type(import_object[plugin]))
             load_module = "cls = import_object['{0}'].{1}".format(plugin, plugin)
+            print ("LLL", load_module)
             exec(load_module)
             plugins.append(cls)
         except Exception, e:
