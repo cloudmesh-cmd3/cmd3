@@ -173,11 +173,11 @@ def get_plugins(directory):
 
 try: 
     cygwin = os.environ['TERM']
-    print ("CCCCCCC", cygwin)
+    # print ("CCCCCCC", cygwin)
     cygwin = cygwin == 'cygwin'
-    print (cygwin)
+    # print (cygwin)
 except:
-    print ("NO CYGWIN")
+    # print ("NO CYGWIN")
     cygwin = False
 
 def load_plugins(classprefix, plugin_list):
@@ -193,14 +193,14 @@ def load_plugins(classprefix, plugin_list):
     for plugin in plugin_list:
         if cygwin:
             plugin = path_into_cygpath(plugin)
-        print ("PPPPP", classprefix, plugin)
+        # print ("PPPPP", classprefix, plugin)
 
         try:
             import_object[plugin] = __import__(
                 classprefix + "." + plugin, globals(), locals(), [plugin], -1)
             # print ("TTT", import_object[plugin], type(import_object[plugin]))
             load_module = "cls = import_object['{0}'].{1}".format(plugin, plugin)
-            print ("LLL", load_module)
+            # print ("LLL", load_module)
             exec(load_module)
             plugins.append(cls)
         except Exception, e:
